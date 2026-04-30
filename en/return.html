@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Return Rate Calculator — Real Profit Including Fees | Calqio</title>
+<meta name="description" content="Calculate your actual investment return including trading fees. Enter buy price, sell price, quantity, and fee rate.">
+  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/return.html" />
+  <link rel="alternate" hreflang="en" href="https://calqio.com/en/return.html" />
+  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/return.html" />
+  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/return.html" />
+  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/return.html" />
+  <link rel="alternate" hreflang="x-default" href="https://calqio.com/ko/return.html" />
+<link rel="stylesheet" href="../style.css">
+<script>window.LC={"cur":"$","suf":"","sh2":" shares","tf":"Please fill in all fields","tc":"Link copied 🔗","darkBtn":"🌙 Dark","lightBtn":"☀️ Light"}</script>
+</head>
+<body>
+<nav>
+  <a href="/en/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 Dark</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇺🇸</span><span>English</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo " onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
+<div class="lo active" onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
+<div class="lo " onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
+<div class="lo " onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
+<div class="lo " onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
+</div>
+  </div>
+</nav>
+<div class="sec" style="margin-top:24px;">
+<div class="tabs"><a href="compound.html" class="tab "><span class="tab-icon">📈</span>Compound Interest Calculator</a><a href="return.html" class="tab active"><span class="tab-icon">💰</span>Return Rate Calculator</a><a href="average-down.html" class="tab "><span class="tab-icon">⬇️</span>Average Down Calculator</a><a href="loan.html" class="tab "><span class="tab-icon">🏦</span>Loan Calculator</a><a href="dividend.html" class="tab "><span class="tab-icon">💵</span>Dividend Yield Calculator</a><a href="target.html" class="tab "><span class="tab-icon">🎯</span>Target Price Calculator</a><a href="tax.html" class="tab "><span class="tab-icon">📋</span>Capital Gains Tax Calculator</a><a href="percent.html" class="tab "><span class="tab-icon">%</span>Percentage Calculator</a></div>
+<div class="cf">
+  <div class="ctitle"><strong>💰 Return Rate Calculator</strong></div>
+  <div class="ci">
+    <div class="inp"><div class="ig"><div class="il">Buy Price</div><input type="number" id="bp" class="if" value="50"></div>
+<div class="ig"><div class="il">Sell Price</div><input type="number" id="sp" class="if" value="65"></div>
+<div class="ig"><div class="il">Quantity</div><input type="number" id="q" class="if" value="100"></div>
+<div class="ig"><div class="il">Trading Fee (%)</div><input type="number" id="f" class="if" value="0.1"></div>
+<button class="btn" onclick="calcR()">Calculate</button></div>
+    <div class="out">
+      <div class="es" id="e1"><div class="ei">💰</div><div>Enter values and click Calculate</div></div>
+      <div id="r1" style="display:none"><div class="rm"><div class="rl">Total Profit/Loss</div><div class="rv rm" id="v-rp">—</div></div><div class="rg"><div class="ri"><div class="ril">Return Rate</div><div class="riv pos" id="v-rrate">—</div></div><div class="ri"><div class="ril">Buy Total</div><div class="riv " id="v-bt">—</div></div><div class="ri"><div class="ril">Sell Total</div><div class="riv " id="v-st">—</div></div><div class="ri"><div class="ril">Total Fees</div><div class="riv neg" id="v-ft">—</div></div></div></div>
+    </div>
+  </div>
+</div>
+<section class="guide"><span class="gtag">Financial Knowledge Guide</span>
+<h2>Return Rate Calculator — Complete Guide</h2>
+<p>Your real return must account for trading fees. Brokers typically charge 0.015%–0.25% per trade, which significantly impacts short-term trading profits.</p>
+<h3>Return Rate Formula</h3>
+<div class="fml">Return (%) = (Sell Total - Buy Total - Fees) ÷ Buy Total × 100</div>
+<p>Example: Buy 100 shares at $50, sell at $65. With 0.1% fee each way, actual return is ~29.82%, not 30%.</p>
+<h3>Impact of Fees on Returns</h3>
+<p>Trading $10,000 ten times per month at 0.1% round-trip costs ~$12,000/year in fees — equivalent to losing 12% annually. Reducing unnecessary trades is crucial.</p>
+<div class="tip">💡 Enter 0 for fees if you don't know your broker's rate. Results will exclude fees.</div></section>
+</div>
+<footer>
+  <div>Raise your Financial IQ — 8 Financial Calculators</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+</script>
+</body>
+</html>

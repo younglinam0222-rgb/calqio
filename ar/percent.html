@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حاسبة النسبة المئوية — نسبة التغيير والخصم | Calqio</title>
+<meta name="description" content="احسب نسبة التغيير والخصم والنسب المئوية للأسهم.">
+  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/percent.html" />
+  <link rel="alternate" hreflang="en" href="https://calqio.com/en/percent.html" />
+  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/percent.html" />
+  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/percent.html" />
+  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/percent.html" />
+  <link rel="alternate" hreflang="x-default" href="https://calqio.com/ko/percent.html" />
+<link rel="stylesheet" href="../style.css">
+<script>window.LC={"cur":"","suf":" ر.س","sh2":" سهم","tf":"يرجى ملء جميع الحقول","tc":"تم نسخ الرابط 🔗","darkBtn":"🌙 داكن","lightBtn":"☀️ فاتح"}</script>
+</head>
+<body>
+<nav>
+  <a href="/ar/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 داكن</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇸🇦</span><span>العربية</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo " onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
+<div class="lo " onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
+<div class="lo " onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
+<div class="lo " onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
+<div class="lo active" onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
+</div>
+  </div>
+</nav>
+<div class="sec" style="margin-top:24px;">
+<div class="tabs"><a href="compound.html" class="tab "><span class="tab-icon">📈</span>حاسبة الفائدة المركبة</a><a href="return.html" class="tab "><span class="tab-icon">💰</span>حاسبة معدل العائد</a><a href="average-down.html" class="tab "><span class="tab-icon">⬇️</span>حاسبة خفض المتوسط</a><a href="loan.html" class="tab "><span class="tab-icon">🏦</span>حاسبة القرض</a><a href="dividend.html" class="tab "><span class="tab-icon">💵</span>حاسبة عائد الأرباح</a><a href="target.html" class="tab "><span class="tab-icon">🎯</span>حاسبة السعر المستهدف</a><a href="tax.html" class="tab "><span class="tab-icon">📋</span>حاسبة ضريبة الأرباح</a><a href="percent.html" class="tab active"><span class="tab-icon">%</span>حاسبة النسبة المئوية</a></div>
+<div class="cf">
+  <div class="ctitle"><strong>% حاسبة النسبة المئوية</strong></div>
+  <div class="ci">
+    <div class="inp"><div class="pct-types"><div class="pc sel" onclick="selP(0)">A كم % من B?</div><div class="pc " onclick="selP(1)">N% من A?</div><div class="pc " onclick="selP(2)">نسبة التغيير?</div><div class="pc " onclick="selP(3)">القيمة بعد N%?</div></div><div id="pf0" style=""><div class="ig"><input type="number" id="pa0" class="if" placeholder="قيمة A"></div><div class="ig"><input type="number" id="pb0" class="if" placeholder="قيمة B"></div></div><div id="pf1" style="display:none"><div class="ig"><input type="number" id="pa1" class="if" placeholder="قيمة A"></div><div class="ig"><input type="number" id="pb1" class="if" placeholder="N %"></div></div><div id="pf2" style="display:none"><div class="ig"><input type="number" id="pa2" class="if" placeholder="القيمة القديمة"></div><div class="ig"><input type="number" id="pb2" class="if" placeholder="القيمة الجديدة"></div></div><div id="pf3" style="display:none"><div class="ig"><input type="number" id="pa3" class="if" placeholder="القيمة الأصلية"></div><div class="ig"><input type="number" id="pb3" class="if" placeholder="نسبة التغيير %"></div></div><button class="btn" onclick="calcP()">احسب</button></div>
+    <div class="out">
+      <div class="es" id="e7"><div class="ei">%</div><div>أدخل القيم</div></div>
+      <div id="r7" style="display:none"><div class="rm"><div class="rl">النتيجة</div><div class="rv blue" id="v-pans">—</div></div></div>
+    </div>
+  </div>
+</div>
+<section class="guide"><span class="gtag">دليل المعرفة المالية</span><h2>حاسبة النسبة المئوية — دليل شامل</h2>
+<p>النسبة المئوية هي المفهوم الأكثر استخداماً في الاستثمار.</p>
+<h3>4 أنواع حسابات</h3>
+<div class="fml">① A كم % من B? → A ÷ B × 100
+② N% من A? → A × N ÷ 100
+③ نسبة التغيير? → (جديد - قديم) ÷ قديم × 100
+④ القيمة بعد N%? → الأصل × (1 + N ÷ 100)</div>
+<div class="tip">💡 اختر النوع المطلوب واحسب فوراً.</div></section>
+</div>
+<footer>
+  <div>ارفع ذكاءك المالي — 8 آلات حاسبة مالية</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">حول</a>
+    <a href="/privacy.html">سياسة الخصوصية</a>
+    <a href="/contact.html">تواصل</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+</script>
+</body>
+</html>

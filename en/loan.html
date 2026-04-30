@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loan Calculator — Monthly Payment & Total Interest | Calqio</title>
+<meta name="description" content="Calculate monthly payments and total interest for any loan with our free amortization calculator.">
+  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/loan.html" />
+  <link rel="alternate" hreflang="en" href="https://calqio.com/en/loan.html" />
+  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/loan.html" />
+  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/loan.html" />
+  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/loan.html" />
+  <link rel="alternate" hreflang="x-default" href="https://calqio.com/ko/loan.html" />
+<link rel="stylesheet" href="../style.css">
+<script>window.LC={"cur":"$","suf":"","sh2":" shares","tf":"Please fill in all fields","tc":"Link copied 🔗","darkBtn":"🌙 Dark","lightBtn":"☀️ Light"}</script>
+</head>
+<body>
+<nav>
+  <a href="/en/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 Dark</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇺🇸</span><span>English</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo " onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
+<div class="lo active" onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
+<div class="lo " onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
+<div class="lo " onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
+<div class="lo " onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
+</div>
+  </div>
+</nav>
+<div class="sec" style="margin-top:24px;">
+<div class="tabs"><a href="compound.html" class="tab "><span class="tab-icon">📈</span>Compound Interest Calculator</a><a href="return.html" class="tab "><span class="tab-icon">💰</span>Return Rate Calculator</a><a href="average-down.html" class="tab "><span class="tab-icon">⬇️</span>Average Down Calculator</a><a href="loan.html" class="tab active"><span class="tab-icon">🏦</span>Loan Calculator</a><a href="dividend.html" class="tab "><span class="tab-icon">💵</span>Dividend Yield Calculator</a><a href="target.html" class="tab "><span class="tab-icon">🎯</span>Target Price Calculator</a><a href="tax.html" class="tab "><span class="tab-icon">📋</span>Capital Gains Tax Calculator</a><a href="percent.html" class="tab "><span class="tab-icon">%</span>Percentage Calculator</a></div>
+<div class="cf">
+  <div class="ctitle"><strong>🏦 Loan Calculator</strong></div>
+  <div class="ci">
+    <div class="inp"><div class="ig"><div class="il">Loan Amount</div><input type="number" id="loan" class="if" value="300000"></div>
+<div class="ig"><div class="il">Annual Rate (%)</div><input type="number" id="lrate" class="if" value="4.5"></div>
+<div class="ig"><div class="il">Loan Term (Years)</div><input type="number" id="lterm" class="if" value="30"></div>
+<button class="btn" onclick="calcL()">Calculate</button></div>
+    <div class="out">
+      <div class="es" id="e3"><div class="ei">🏦</div><div>Enter values and click Calculate</div></div>
+      <div id="r3" style="display:none"><div class="rm"><div class="rl">Monthly Payment</div><div class="rv rm" id="v-monthly">—</div></div><div class="rg"><div class="ri"><div class="ril">Total Repayment</div><div class="riv " id="v-totalrep">—</div></div><div class="ri"><div class="ril">Total Interest</div><div class="riv neg" id="v-totalint">—</div></div></div></div>
+    </div>
+  </div>
+</div>
+<section class="guide"><span class="gtag">Financial Knowledge Guide</span><h2>Loan Calculator — Complete Guide</h2>
+<p>Understanding the true cost of a loan upfront is essential for financial planning. Over 30 years, total interest can exceed the original principal.</p>
+<h3>Amortization Formula</h3>
+<div class="fml">Monthly Payment = P × [r(1+r)ⁿ] ÷ [(1+r)ⁿ - 1]
+P: Loan Amount | r: Monthly Rate (annual ÷ 12) | n: Total Months</div>
+<p>Example: $300,000 at 4.5% for 30 years → $1,520/month, total interest ~$247,000.</p>
+<div class="tip">💡 Even 0.5% lower rate can save tens of thousands in total interest. Always shop around.</div></section>
+</div>
+<footer>
+  <div>Raise your Financial IQ — 8 Financial Calculators</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+</script>
+</body>
+</html>

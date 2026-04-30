@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ローン計算機 — 月返済額と総利息 | Calqio</title>
+<meta name="description" content="借入額・年利・返済期間を入力して月返済額と総利息を即座に計算。">
+  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/loan.html" />
+  <link rel="alternate" hreflang="en" href="https://calqio.com/en/loan.html" />
+  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/loan.html" />
+  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/loan.html" />
+  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/loan.html" />
+  <link rel="alternate" hreflang="x-default" href="https://calqio.com/ko/loan.html" />
+<link rel="stylesheet" href="../style.css">
+<script>window.LC={"cur":"¥","suf":"","sh2":"株","tf":"すべての値を入力してください","tc":"リンクをコピーしました 🔗","darkBtn":"🌙 ダーク","lightBtn":"☀️ ライト"}</script>
+</head>
+<body>
+<nav>
+  <a href="/ja/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 ダーク</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇯🇵</span><span>日本語</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo " onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
+<div class="lo " onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
+<div class="lo active" onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
+<div class="lo " onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
+<div class="lo " onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
+</div>
+  </div>
+</nav>
+<div class="sec" style="margin-top:24px;">
+<div class="tabs"><a href="compound.html" class="tab "><span class="tab-icon">📈</span>複利計算機</a><a href="return.html" class="tab "><span class="tab-icon">💰</span>収益率計算機</a><a href="average-down.html" class="tab "><span class="tab-icon">⬇️</span>ナンピン計算機</a><a href="loan.html" class="tab active"><span class="tab-icon">🏦</span>ローン計算機</a><a href="dividend.html" class="tab "><span class="tab-icon">💵</span>配当利回り計算機</a><a href="target.html" class="tab "><span class="tab-icon">🎯</span>目標株価計算機</a><a href="tax.html" class="tab "><span class="tab-icon">📋</span>譲渡所得税計算機</a><a href="percent.html" class="tab "><span class="tab-icon">%</span>パーセント計算機</a></div>
+<div class="cf">
+  <div class="ctitle"><strong>🏦 ローン計算機</strong></div>
+  <div class="ci">
+    <div class="inp"><div class="ig"><div class="il">借入金額 (円)</div><input type="number" id="loan" class="if" value="30000000"></div>
+<div class="ig"><div class="il">年利率 (%)</div><input type="number" id="lrate" class="if" value="1.5"></div>
+<div class="ig"><div class="il">返済期間 (年)</div><input type="number" id="lterm" class="if" value="35"></div>
+<button class="btn" onclick="calcL()">計算する</button></div>
+    <div class="out">
+      <div class="es" id="e3"><div class="ei">🏦</div><div>数値を入力してください</div></div>
+      <div id="r3" style="display:none"><div class="rm"><div class="rl">月返済額</div><div class="rv rm" id="v-monthly">—</div></div><div class="rg"><div class="ri"><div class="ril">総返済額</div><div class="riv " id="v-totalrep">—</div></div><div class="ri"><div class="ril">総利息</div><div class="riv neg" id="v-totalint">—</div></div></div></div>
+    </div>
+  </div>
+</div>
+<section class="guide"><span class="gtag">金融知識ガイド</span><h2>ローン計算機 完全ガイド</h2>
+<p>借入前に月返済額と総利息負担を把握することが重要です。35年ローンでは総利息が元本を上回る場合もあります。</p>
+<h3>元利均等返済公式</h3>
+<div class="fml">月返済額 = 借入額 × [月利 × (1+月利)ⁿ] ÷ [(1+月利)ⁿ - 1]</div>
+<div class="tip">💡 複数の金融機関の金利を比較して最も有利な条件を選びましょう。</div></section>
+</div>
+<footer>
+  <div>金融IQを高めよう — 8種類の金融計算ツール</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">概要</a>
+    <a href="/privacy.html">プライバシーポリシー</a>
+    <a href="/contact.html">お問い合わせ</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+</script>
+</body>
+</html>

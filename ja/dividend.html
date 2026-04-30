@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>配当利回り計算機 — 税引後の実質配当金 | Calqio</title>
+<meta name="description" content="株価と配当金を入力して配当利回りと税引後受取額を即座に計算。">
+  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/dividend.html" />
+  <link rel="alternate" hreflang="en" href="https://calqio.com/en/dividend.html" />
+  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/dividend.html" />
+  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/dividend.html" />
+  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/dividend.html" />
+  <link rel="alternate" hreflang="x-default" href="https://calqio.com/ko/dividend.html" />
+<link rel="stylesheet" href="../style.css">
+<script>window.LC={"cur":"¥","suf":"","sh2":"株","tf":"すべての値を入力してください","tc":"リンクをコピーしました 🔗","darkBtn":"🌙 ダーク","lightBtn":"☀️ ライト"}</script>
+</head>
+<body>
+<nav>
+  <a href="/ja/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 ダーク</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇯🇵</span><span>日本語</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo " onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
+<div class="lo " onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
+<div class="lo active" onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
+<div class="lo " onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
+<div class="lo " onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
+</div>
+  </div>
+</nav>
+<div class="sec" style="margin-top:24px;">
+<div class="tabs"><a href="compound.html" class="tab "><span class="tab-icon">📈</span>複利計算機</a><a href="return.html" class="tab "><span class="tab-icon">💰</span>収益率計算機</a><a href="average-down.html" class="tab "><span class="tab-icon">⬇️</span>ナンピン計算機</a><a href="loan.html" class="tab "><span class="tab-icon">🏦</span>ローン計算機</a><a href="dividend.html" class="tab active"><span class="tab-icon">💵</span>配当利回り計算機</a><a href="target.html" class="tab "><span class="tab-icon">🎯</span>目標株価計算機</a><a href="tax.html" class="tab "><span class="tab-icon">📋</span>譲渡所得税計算機</a><a href="percent.html" class="tab "><span class="tab-icon">%</span>パーセント計算機</a></div>
+<div class="cf">
+  <div class="ctitle"><strong>💵 配当利回り計算機</strong></div>
+  <div class="ci">
+    <div class="inp"><div class="ig"><div class="il">現在株価 (円)</div><input type="number" id="dprice" class="if" value="2500"></div>
+<div class="ig"><div class="il">年間配当金/株 (円)</div><input type="number" id="ddiv" class="if" value="80"></div>
+<div class="ig"><div class="il">保有株数 (株)</div><input type="number" id="dqty" class="if" value="100"></div>
+<div class="ig"><div class="il">配当税率 (%)</div><input type="number" id="dtax" class="if" value="20.315"></div>
+<button class="btn" onclick="calcDiv()">計算する</button></div>
+    <div class="out">
+      <div class="es" id="e4"><div class="ei">💵</div><div>数値を入力してください</div></div>
+      <div id="r4" style="display:none"><div class="rm"><div class="rl">配当利回り</div><div class="rv rm" id="v-dyield">—</div></div><div class="rg"><div class="ri"><div class="ril">年間配当金(税前)</div><div class="riv pos" id="v-dannual">—</div></div><div class="ri"><div class="ril">年間配当金(税後)</div><div class="riv pos" id="v-dafter">—</div></div><div class="ri"><div class="ril">月換算(税後)</div><div class="riv pos" id="v-dmonthly">—</div></div></div></div>
+    </div>
+  </div>
+</div>
+<section class="guide"><span class="gtag">金融知識ガイド</span><h2>配当利回り計算機 完全ガイド</h2>
+<p>配当投資は保有するだけでキャッシュフローを生む戦略です。税引後の実受取額を正確に把握することが重要です。</p>
+<h3>配当利回り公式</h3>
+<div class="fml">配当利回り(%) = (1株年間配当金 ÷ 現在株価) × 100
+税引後配当金 = 年間配当金 × (1 - 税率)</div>
+<div class="tip">💡 高利回りだけでなく、配当性向(Payout Ratio)も確認しましょう。100%超は危険信号です。</div></section>
+</div>
+<footer>
+  <div>金融IQを高めよう — 8種類の金融計算ツール</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">概要</a>
+    <a href="/privacy.html">プライバシーポリシー</a>
+    <a href="/contact.html">お問い合わせ</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+</script>
+</body>
+</html>

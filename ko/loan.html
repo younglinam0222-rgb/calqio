@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>대출이자 계산기 — 원리금균등상환 계산 | Calqio</title>
+<meta name="description" content="대출금액, 연이율, 기간을 입력해 월 납입액과 총 이자를 즉시 계산하세요.">
+  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/loan.html" />
+  <link rel="alternate" hreflang="en" href="https://calqio.com/en/loan.html" />
+  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/loan.html" />
+  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/loan.html" />
+  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/loan.html" />
+  <link rel="alternate" hreflang="x-default" href="https://calqio.com/ko/loan.html" />
+<link rel="stylesheet" href="../style.css">
+<script>window.LC={"cur":"","suf":"원","sh2":"주","tf":"값을 모두 입력해주세요","tc":"링크 복사됨 🔗","darkBtn":"🌙 다크모드","lightBtn":"☀️ 라이트모드"}</script>
+</head>
+<body>
+<nav>
+  <a href="/ko/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 다크모드</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇰🇷</span><span>한국어</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo active" onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
+<div class="lo " onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
+<div class="lo " onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
+<div class="lo " onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
+<div class="lo " onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
+</div>
+  </div>
+</nav>
+<div class="sec" style="margin-top:24px;">
+<div class="tabs"><a href="compound.html" class="tab "><span class="tab-icon">📈</span>복리 계산기</a><a href="return.html" class="tab "><span class="tab-icon">💰</span>수익률 계산기</a><a href="average-down.html" class="tab "><span class="tab-icon">⬇️</span>물타기 계산기</a><a href="loan.html" class="tab active"><span class="tab-icon">🏦</span>대출이자 계산기</a><a href="dividend.html" class="tab "><span class="tab-icon">💵</span>배당수익률 계산기</a><a href="target.html" class="tab "><span class="tab-icon">🎯</span>목표가 계산기</a><a href="tax.html" class="tab "><span class="tab-icon">📋</span>양도세 계산기</a><a href="percent.html" class="tab "><span class="tab-icon">%</span>퍼센트 계산기</a></div>
+<div class="cf">
+  <div class="ctitle"><strong>🏦 대출이자 계산기</strong></div>
+  <div class="ci">
+    <div class="inp"><div class="ig"><div class="il">대출 금액 (원)</div><input type="number" id="loan" class="if" value="300000000"></div>
+<div class="ig"><div class="il">연 이율 (%)</div><input type="number" id="lrate" class="if" value="4.5"></div>
+<div class="ig"><div class="il">대출 기간 (년)</div><input type="number" id="lterm" class="if" value="30"></div>
+<button class="btn" onclick="calcL()">계산하기</button></div>
+    <div class="out">
+      <div class="es" id="e3"><div class="ei">🏦</div><div>수치를 입력하세요</div></div>
+      <div id="r3" style="display:none"><div class="rm"><div class="rl">월 상환액</div><div class="rv rm" id="v-monthly">—</div></div><div class="rg"><div class="ri"><div class="ril">총 상환액</div><div class="riv " id="v-totalrep">—</div></div><div class="ri"><div class="ril">총 이자</div><div class="riv neg" id="v-totalint">—</div></div></div></div>
+    </div>
+  </div>
+</div>
+<section class="guide"><span class="gtag">금융 지식 가이드</span><h2>대출이자 계산기 완벽 가이드</h2>
+<p>대출 전 월 상환액과 총 이자 부담을 미리 파악하는 것이 중요합니다. 30년 장기 대출에서는 총 이자가 원금을 초과하는 경우가 많습니다.</p>
+<h3>원리금균등상환 공식</h3>
+<div class="fml">월 납입액 = 원금 × [월이율 × (1+월이율)ⁿ] ÷ [(1+월이율)ⁿ - 1]
+월이율 = 연이율 ÷ 12 | n = 총 상환 개월 수</div>
+<p>예: 3억 원, 연 4.5%, 30년 → 월 납입액 약 152만 원, 총 이자 약 2억 4,722만 원.</p>
+<h3>금리 1% 차이의 영향</h3>
+<p>3억 원 30년 기준: 금리 3.5%는 총 이자 약 1억 8,500만 원, 4.5%는 약 2억 4,700만 원. 금리 1% 차이가 총 이자를 6,200만 원 바꿉니다.</p>
+<div class="tip">💡 여러 금융기관의 금리를 비교하고 우대금리 조건을 최대한 활용하세요.</div></section>
+</div>
+<footer>
+  <div>금융 IQ를 높이세요 — 8종 금융 계산기</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">소개</a>
+    <a href="/privacy.html">개인정보처리방침</a>
+    <a href="/contact.html">문의</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+</script>
+</body>
+</html>

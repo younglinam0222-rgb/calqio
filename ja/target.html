@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>目標株価・損切り計算機 | Calqio</title>
+<meta name="description" content="購入価格と目標収益率・損切り率から目標価格と損切り価格を計算。">
+  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/target.html" />
+  <link rel="alternate" hreflang="en" href="https://calqio.com/en/target.html" />
+  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/target.html" />
+  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/target.html" />
+  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/target.html" />
+  <link rel="alternate" hreflang="x-default" href="https://calqio.com/ko/target.html" />
+<link rel="stylesheet" href="../style.css">
+<script>window.LC={"cur":"¥","suf":"","sh2":"株","tf":"すべての値を入力してください","tc":"リンクをコピーしました 🔗","darkBtn":"🌙 ダーク","lightBtn":"☀️ ライト"}</script>
+</head>
+<body>
+<nav>
+  <a href="/ja/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 ダーク</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇯🇵</span><span>日本語</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo " onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
+<div class="lo " onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
+<div class="lo active" onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
+<div class="lo " onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
+<div class="lo " onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
+</div>
+  </div>
+</nav>
+<div class="sec" style="margin-top:24px;">
+<div class="tabs"><a href="compound.html" class="tab "><span class="tab-icon">📈</span>複利計算機</a><a href="return.html" class="tab "><span class="tab-icon">💰</span>収益率計算機</a><a href="average-down.html" class="tab "><span class="tab-icon">⬇️</span>ナンピン計算機</a><a href="loan.html" class="tab "><span class="tab-icon">🏦</span>ローン計算機</a><a href="dividend.html" class="tab "><span class="tab-icon">💵</span>配当利回り計算機</a><a href="target.html" class="tab active"><span class="tab-icon">🎯</span>目標株価計算機</a><a href="tax.html" class="tab "><span class="tab-icon">📋</span>譲渡所得税計算機</a><a href="percent.html" class="tab "><span class="tab-icon">%</span>パーセント計算機</a></div>
+<div class="cf">
+  <div class="ctitle"><strong>🎯 目標株価・損切り計算機</strong></div>
+  <div class="ci">
+    <div class="inp"><div class="ig"><div class="il">購入単価 (円)</div><input type="number" id="tbase" class="if" value="5000"></div>
+<div class="ig"><div class="il">目標収益率 (%)</div><input type="number" id="tprofit" class="if" value="20"></div>
+<div class="ig"><div class="il">損切り率 (%)</div><input type="number" id="tstop" class="if" value="10"></div>
+<div class="ig"><div class="il">保有株数 (株)</div><input type="number" id="tqty" class="if" value="100"></div>
+<button class="btn" onclick="calcT()">計算する</button></div>
+    <div class="out">
+      <div class="es" id="e5"><div class="ei">🎯</div><div>数値を入力してください</div></div>
+      <div id="r5" style="display:none"><div class="rm"><div class="rl">目標売却価格</div><div class="rv rm" id="v-tprice">—</div></div><div class="rg"><div class="ri"><div class="ril">損切り価格</div><div class="riv neg" id="v-sprice">—</div></div><div class="ri"><div class="ril">目標利益</div><div class="riv pos" id="v-tprofit2">—</div></div><div class="ri"><div class="ril">最大損失額</div><div class="riv neg" id="v-sloss">—</div></div><div class="ri"><div class="ril">損益比率</div><div class="riv " id="v-rratio">—</div></div></div></div>
+    </div>
+  </div>
+</div>
+<section class="guide"><span class="gtag">金融知識ガイド</span><h2>目標株価・損切り計算機 完全ガイド</h2>
+<p>購入前に目標価格と損切り価格を設定することで、感情的な判断を排除し原則に基づいた投資が実践できます。</p>
+<h3>公式</h3>
+<div class="fml">目標価格 = 購入単価 × (1 + 目標収益率 ÷ 100)
+損切り価格 = 購入単価 × (1 - 損切り率 ÷ 100)</div>
+<div class="tip">💡 損切りラインは機械的に実行してください。損失回避バイアスがより大きな損失につながります。</div></section>
+</div>
+<footer>
+  <div>金融IQを高めよう — 8種類の金融計算ツール</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">概要</a>
+    <a href="/privacy.html">プライバシーポリシー</a>
+    <a href="/contact.html">お問い合わせ</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+</script>
+</body>
+</html>

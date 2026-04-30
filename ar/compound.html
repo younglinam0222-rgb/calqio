@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حاسبة الفائدة المركبة — محاكاة نمو الاستثمار | Calqio</title>
+<meta name="description" content="احسب كيف تنمو استثماراتك مع الفائدة المركبة. أدخل رأس المال والعائد والمدة.">
+  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/compound.html" />
+  <link rel="alternate" hreflang="en" href="https://calqio.com/en/compound.html" />
+  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/compound.html" />
+  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/compound.html" />
+  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/compound.html" />
+  <link rel="alternate" hreflang="x-default" href="https://calqio.com/ko/compound.html" />
+<link rel="stylesheet" href="../style.css">
+<script>window.LC={"cur":"","suf":" ر.س","sh2":" سهم","tf":"يرجى ملء جميع الحقول","tc":"تم نسخ الرابط 🔗","darkBtn":"🌙 داكن","lightBtn":"☀️ فاتح"}</script>
+</head>
+<body>
+<nav>
+  <a href="/ar/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 داكن</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇸🇦</span><span>العربية</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo " onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
+<div class="lo " onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
+<div class="lo " onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
+<div class="lo " onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
+<div class="lo active" onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
+</div>
+  </div>
+</nav>
+<div class="sec" style="margin-top:24px;">
+<div class="tabs"><a href="compound.html" class="tab active"><span class="tab-icon">📈</span>حاسبة الفائدة المركبة</a><a href="return.html" class="tab "><span class="tab-icon">💰</span>حاسبة معدل العائد</a><a href="average-down.html" class="tab "><span class="tab-icon">⬇️</span>حاسبة خفض المتوسط</a><a href="loan.html" class="tab "><span class="tab-icon">🏦</span>حاسبة القرض</a><a href="dividend.html" class="tab "><span class="tab-icon">💵</span>حاسبة عائد الأرباح</a><a href="target.html" class="tab "><span class="tab-icon">🎯</span>حاسبة السعر المستهدف</a><a href="tax.html" class="tab "><span class="tab-icon">📋</span>حاسبة ضريبة الأرباح</a><a href="percent.html" class="tab "><span class="tab-icon">%</span>حاسبة النسبة المئوية</a></div>
+<div class="cf">
+  <div class="ctitle"><strong>📈 حاسبة الفائدة المركبة</strong></div>
+  <div class="ci">
+    <div class="inp"><div class="ig"><div class="il">رأس المال الأولي</div><input type="number" id="p" class="if" value="10000"></div>
+<div class="ig"><div class="il">العائد السنوي (%)</div><input type="number" id="r" class="if" value="8"></div>
+<div class="ig"><div class="il">المدة (سنوات)</div><input type="number" id="y" class="if" value="20"></div>
+<div class="ig"><div class="il">الإضافة الشهرية</div><input type="number" id="m" class="if" value="0"></div>
+<button class="btn" onclick="calcC()">احسب</button></div>
+    <div class="out">
+      <div class="es" id="e0"><div class="ei">📈</div><div>أدخل القيم</div></div>
+      <div id="r0" style="display:none"><div class="rm"><div class="rl">المبلغ النهائي</div><div class="rv rm" id="v-fa">—</div></div><div class="rg"><div class="ri"><div class="ril">إجمالي رأس المال</div><div class="riv pos" id="v-tp">—</div></div><div class="ri"><div class="ril">إجمالي الربح</div><div class="riv pos" id="v-pf">—</div></div><div class="ri"><div class="ril">معدل العائد</div><div class="riv pos" id="v-rr">—</div></div><div class="ri"><div class="ril">مضاعف النمو</div><div class="riv pos" id="v-mx">—</div></div></div></div>
+    </div>
+  </div>
+</div>
+<section class="guide"><span class="gtag">دليل المعرفة المالية</span>
+<h2>حاسبة الفائدة المركبة — دليل شامل</h2>
+<p>وصف أينشتاين الفائدة المركبة بأنها "عجوبة العالم الثامنة". على عكس الفائدة البسيطة، تتراكم الفوائد على الفوائد مما يخلق نمواً أسياً للثروة مع مرور الوقت.</p>
+<h3>صيغة الفائدة المركبة</h3>
+<div class="fml">A = P × (1 + r)ⁿ
+A: المبلغ النهائي | P: رأس المال | r: المعدل السنوي | n: السنوات</div>
+<h3>قاعدة 72</h3>
+<div class="fml">سنوات مضاعفة رأس المال = 72 ÷ معدل العائد السنوي (%)
+مثال: 8% سنوياً ← يتضاعف خلال 9 سنوات</div>
+<ul>
+<li><strong>ابدأ مبكراً:</strong> البدء في سن 25 بدلاً من 35 يمكن أن يضاعف ثروتك عند التقاعد.</li>
+<li><strong>أعد استثمار الأرباح:</strong> أخذ الأرباح نقداً يوقف تأثير الفائدة المركبة.</li>
+</ul>
+<div class="tip">💡 جرب إدخال مبلغ الإضافة الشهرية. الادخار المنتظم أقوى من السعي وراء عوائد مرتفعة.</div></section>
+</div>
+<footer>
+  <div>ارفع ذكاءك المالي — 8 آلات حاسبة مالية</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">حول</a>
+    <a href="/privacy.html">سياسة الخصوصية</a>
+    <a href="/contact.html">تواصل</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+</script>
+</body>
+</html>

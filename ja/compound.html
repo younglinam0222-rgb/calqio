@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>複利計算機 — 長期投資シミュレーション | Calqio</title>
+<meta name="description" content="元本・年利・運用期間を入力して複利で増える最終資産を即座に計算。月次積立にも対応。">
+  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/compound.html" />
+  <link rel="alternate" hreflang="en" href="https://calqio.com/en/compound.html" />
+  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/compound.html" />
+  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/compound.html" />
+  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/compound.html" />
+  <link rel="alternate" hreflang="x-default" href="https://calqio.com/ko/compound.html" />
+<link rel="stylesheet" href="../style.css">
+<script>window.LC={"cur":"¥","suf":"","sh2":"株","tf":"すべての値を入力してください","tc":"リンクをコピーしました 🔗","darkBtn":"🌙 ダーク","lightBtn":"☀️ ライト"}</script>
+</head>
+<body>
+<nav>
+  <a href="/ja/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 ダーク</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇯🇵</span><span>日本語</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo " onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
+<div class="lo " onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
+<div class="lo active" onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
+<div class="lo " onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
+<div class="lo " onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
+</div>
+  </div>
+</nav>
+<div class="sec" style="margin-top:24px;">
+<div class="tabs"><a href="compound.html" class="tab active"><span class="tab-icon">📈</span>複利計算機</a><a href="return.html" class="tab "><span class="tab-icon">💰</span>収益率計算機</a><a href="average-down.html" class="tab "><span class="tab-icon">⬇️</span>ナンピン計算機</a><a href="loan.html" class="tab "><span class="tab-icon">🏦</span>ローン計算機</a><a href="dividend.html" class="tab "><span class="tab-icon">💵</span>配当利回り計算機</a><a href="target.html" class="tab "><span class="tab-icon">🎯</span>目標株価計算機</a><a href="tax.html" class="tab "><span class="tab-icon">📋</span>譲渡所得税計算機</a><a href="percent.html" class="tab "><span class="tab-icon">%</span>パーセント計算機</a></div>
+<div class="cf">
+  <div class="ctitle"><strong>📈 複利計算機</strong></div>
+  <div class="ci">
+    <div class="inp"><div class="ig"><div class="il">元本 (円)</div><input type="number" id="p" class="if" value="1000000"></div>
+<div class="ig"><div class="il">年利率 (%)</div><input type="number" id="r" class="if" value="8"></div>
+<div class="ig"><div class="il">運用期間 (年)</div><input type="number" id="y" class="if" value="20"></div>
+<div class="ig"><div class="il">月次積立額 (円)</div><input type="number" id="m" class="if" value="0"></div>
+<button class="btn" onclick="calcC()">計算する</button></div>
+    <div class="out">
+      <div class="es" id="e0"><div class="ei">📈</div><div>数値を入力してください</div></div>
+      <div id="r0" style="display:none"><div class="rm"><div class="rl">最終資産</div><div class="rv rm" id="v-fa">—</div></div><div class="rg"><div class="ri"><div class="ril">投資元本合計</div><div class="riv pos" id="v-tp">—</div></div><div class="ri"><div class="ril">総利益</div><div class="riv pos" id="v-pf">—</div></div><div class="ri"><div class="ril">収益率</div><div class="riv pos" id="v-rr">—</div></div><div class="ri"><div class="ril">資産増加倍率</div><div class="riv pos" id="v-mx">—</div></div></div></div>
+    </div>
+  </div>
+</div>
+<section class="guide"><span class="gtag">金融知識ガイド</span>
+<h2>複利計算機 完全ガイド</h2>
+<p>複利はアインシュタインが「世界第8の不思議」と称した金融概念です。元本に利息が付き、その利息にまた利息が付く仕組みで、時間が経つほど資産が指数関数的に増加します。</p>
+<h3>複利計算公式</h3>
+<div class="fml">A = P × (1 + r)ⁿ
+A: 最終資産 | P: 元本 | r: 年利率(小数) | n: 運用期間(年)</div>
+<p>例: 100万円を年8%複利で30年運用すると約1,006万円。単利なら340万円に過ぎません。</p>
+<h3>72の法則</h3>
+<div class="fml">2倍になる期間(年) = 72 ÷ 年利率(%)
+例: 年8% → 9年で2倍</div>
+<h3>積立投資の効果</h3>
+<p>毎月5万円を20年間、年8%複利で投資すると総投資額1,200万円が約2,900万円に。早く始めるほど複利期間が長くなります。</p>
+<ul>
+<li><strong>早期開始が最重要:</strong> 25歳開始と35歳開始では老後資産が2倍以上変わります。</li>
+<li><strong>手数料の影響:</strong> 年1%の手数料は30年で最終資産の約30%を消費します。</li>
+</ul>
+<div class="tip">💡 月次積立額を入力して試してみてください。高いリターンを追求するより、コツコツ積み立てる方が長期的に強力です。</div></section>
+</div>
+<footer>
+  <div>金融IQを高めよう — 8種類の金融計算ツール</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">概要</a>
+    <a href="/privacy.html">プライバシーポリシー</a>
+    <a href="/contact.html">お問い合わせ</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+</script>
+</body>
+</html>

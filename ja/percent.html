@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>パーセント計算機 — 騰落率・割引率の計算 | Calqio</title>
+<meta name="description" content="4種類のパーセント計算をタブで選択して即座に処理。">
+  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/percent.html" />
+  <link rel="alternate" hreflang="en" href="https://calqio.com/en/percent.html" />
+  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/percent.html" />
+  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/percent.html" />
+  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/percent.html" />
+  <link rel="alternate" hreflang="x-default" href="https://calqio.com/ko/percent.html" />
+<link rel="stylesheet" href="../style.css">
+<script>window.LC={"cur":"¥","suf":"","sh2":"株","tf":"すべての値を入力してください","tc":"リンクをコピーしました 🔗","darkBtn":"🌙 ダーク","lightBtn":"☀️ ライト"}</script>
+</head>
+<body>
+<nav>
+  <a href="/ja/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 ダーク</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇯🇵</span><span>日本語</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo " onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
+<div class="lo " onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
+<div class="lo active" onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
+<div class="lo " onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
+<div class="lo " onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
+</div>
+  </div>
+</nav>
+<div class="sec" style="margin-top:24px;">
+<div class="tabs"><a href="compound.html" class="tab "><span class="tab-icon">📈</span>複利計算機</a><a href="return.html" class="tab "><span class="tab-icon">💰</span>収益率計算機</a><a href="average-down.html" class="tab "><span class="tab-icon">⬇️</span>ナンピン計算機</a><a href="loan.html" class="tab "><span class="tab-icon">🏦</span>ローン計算機</a><a href="dividend.html" class="tab "><span class="tab-icon">💵</span>配当利回り計算機</a><a href="target.html" class="tab "><span class="tab-icon">🎯</span>目標株価計算機</a><a href="tax.html" class="tab "><span class="tab-icon">📋</span>譲渡所得税計算機</a><a href="percent.html" class="tab active"><span class="tab-icon">%</span>パーセント計算機</a></div>
+<div class="cf">
+  <div class="ctitle"><strong>% パーセント計算機</strong></div>
+  <div class="ci">
+    <div class="inp"><div class="pct-types"><div class="pc sel" onclick="selP(0)">AはBの何%?</div><div class="pc " onclick="selP(1)">AのN%は?</div><div class="pc " onclick="selP(2)">変化率は?</div><div class="pc " onclick="selP(3)">N%変化後の値?</div></div><div id="pf0" style=""><div class="ig"><input type="number" id="pa0" class="if" placeholder="A の値"></div><div class="ig"><input type="number" id="pb0" class="if" placeholder="B の値"></div></div><div id="pf1" style="display:none"><div class="ig"><input type="number" id="pa1" class="if" placeholder="A の値"></div><div class="ig"><input type="number" id="pb1" class="if" placeholder="N %"></div></div><div id="pf2" style="display:none"><div class="ig"><input type="number" id="pa2" class="if" placeholder="変化前の値"></div><div class="ig"><input type="number" id="pb2" class="if" placeholder="変化後の値"></div></div><div id="pf3" style="display:none"><div class="ig"><input type="number" id="pa3" class="if" placeholder="元の値"></div><div class="ig"><input type="number" id="pb3" class="if" placeholder="変化率 %"></div></div><button class="btn" onclick="calcP()">計算する</button></div>
+    <div class="out">
+      <div class="es" id="e7"><div class="ei">%</div><div>数値を入力してください</div></div>
+      <div id="r7" style="display:none"><div class="rm"><div class="rl">結果</div><div class="rv blue" id="v-pans">—</div></div></div>
+    </div>
+  </div>
+</div>
+<section class="guide"><span class="gtag">金融知識ガイド</span><h2>パーセント計算機 完全ガイド</h2>
+<p>パーセントは投資で最も頻繁に使用される概念です。</p>
+<h3>4種類の計算</h3>
+<div class="fml">① AはBの何%? → A ÷ B × 100
+② AのN%は? → A × N ÷ 100
+③ 変化率は? → (新 - 旧) ÷ 旧 × 100
+④ N%変化後の値? → 元 × (1 + N ÷ 100)</div>
+<div class="tip">💡 計算タイプをタブで選んで即座に計算できます。</div></section>
+</div>
+<footer>
+  <div>金融IQを高めよう — 8種類の金融計算ツール</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">概要</a>
+    <a href="/privacy.html">プライバシーポリシー</a>
+    <a href="/contact.html">お問い合わせ</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+</script>
+</body>
+</html>

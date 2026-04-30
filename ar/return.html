@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حاسبة معدل العائد — الربح الحقيقي شاملاً الرسوم | Calqio</title>
+<meta name="description" content="احسب عائدك الاستثماري الفعلي شاملاً رسوم التداول.">
+  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/return.html" />
+  <link rel="alternate" hreflang="en" href="https://calqio.com/en/return.html" />
+  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/return.html" />
+  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/return.html" />
+  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/return.html" />
+  <link rel="alternate" hreflang="x-default" href="https://calqio.com/ko/return.html" />
+<link rel="stylesheet" href="../style.css">
+<script>window.LC={"cur":"","suf":" ر.س","sh2":" سهم","tf":"يرجى ملء جميع الحقول","tc":"تم نسخ الرابط 🔗","darkBtn":"🌙 داكن","lightBtn":"☀️ فاتح"}</script>
+</head>
+<body>
+<nav>
+  <a href="/ar/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 داكن</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇸🇦</span><span>العربية</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo " onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
+<div class="lo " onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
+<div class="lo " onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
+<div class="lo " onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
+<div class="lo active" onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
+</div>
+  </div>
+</nav>
+<div class="sec" style="margin-top:24px;">
+<div class="tabs"><a href="compound.html" class="tab "><span class="tab-icon">📈</span>حاسبة الفائدة المركبة</a><a href="return.html" class="tab active"><span class="tab-icon">💰</span>حاسبة معدل العائد</a><a href="average-down.html" class="tab "><span class="tab-icon">⬇️</span>حاسبة خفض المتوسط</a><a href="loan.html" class="tab "><span class="tab-icon">🏦</span>حاسبة القرض</a><a href="dividend.html" class="tab "><span class="tab-icon">💵</span>حاسبة عائد الأرباح</a><a href="target.html" class="tab "><span class="tab-icon">🎯</span>حاسبة السعر المستهدف</a><a href="tax.html" class="tab "><span class="tab-icon">📋</span>حاسبة ضريبة الأرباح</a><a href="percent.html" class="tab "><span class="tab-icon">%</span>حاسبة النسبة المئوية</a></div>
+<div class="cf">
+  <div class="ctitle"><strong>💰 حاسبة معدل العائد</strong></div>
+  <div class="ci">
+    <div class="inp"><div class="ig"><div class="il">سعر الشراء</div><input type="number" id="bp" class="if" value="50"></div>
+<div class="ig"><div class="il">سعر البيع</div><input type="number" id="sp" class="if" value="65"></div>
+<div class="ig"><div class="il">الكمية</div><input type="number" id="q" class="if" value="100"></div>
+<div class="ig"><div class="il">رسوم التداول (%)</div><input type="number" id="f" class="if" value="0.1"></div>
+<button class="btn" onclick="calcR()">احسب</button></div>
+    <div class="out">
+      <div class="es" id="e1"><div class="ei">💰</div><div>أدخل القيم</div></div>
+      <div id="r1" style="display:none"><div class="rm"><div class="rl">إجمالي الربح/الخسارة</div><div class="rv rm" id="v-rp">—</div></div><div class="rg"><div class="ri"><div class="ril">معدل العائد</div><div class="riv pos" id="v-rrate">—</div></div><div class="ri"><div class="ril">إجمالي الشراء</div><div class="riv " id="v-bt">—</div></div><div class="ri"><div class="ril">إجمالي البيع</div><div class="riv " id="v-st">—</div></div><div class="ri"><div class="ril">إجمالي الرسوم</div><div class="riv neg" id="v-ft">—</div></div></div></div>
+    </div>
+  </div>
+</div>
+<section class="guide"><span class="gtag">دليل المعرفة المالية</span>
+<h2>حاسبة معدل العائد — دليل شامل</h2>
+<p>يجب أن يأخذ معدل العائد الحقيقي في الاعتبار رسوم التداول. تفرض شركات الوساطة عادةً 0.015% إلى 0.25% لكل صفقة.</p>
+<h3>صيغة معدل العائد</h3>
+<div class="fml">العائد (%) = (إجمالي البيع - إجمالي الشراء - الرسوم) ÷ إجمالي الشراء × 100</div>
+<div class="tip">💡 أدخل 0 للرسوم إذا لم تكن تعرف معدل رسوم وسيطك.</div></section>
+</div>
+<footer>
+  <div>ارفع ذكاءك المالي — 8 آلات حاسبة مالية</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">حول</a>
+    <a href="/privacy.html">سياسة الخصوصية</a>
+    <a href="/contact.html">تواصل</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+</script>
+</body>
+</html>

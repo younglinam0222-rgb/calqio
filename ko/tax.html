@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>주식 양도소득세 계산기 — 해외주식 세후 순이익 | Calqio</title>
+<meta name="description" content="해외주식 양도차익에 대한 세금과 세후 순이익을 즉시 계산하세요.">
+  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/tax.html" />
+  <link rel="alternate" hreflang="en" href="https://calqio.com/en/tax.html" />
+  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/tax.html" />
+  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/tax.html" />
+  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/tax.html" />
+  <link rel="alternate" hreflang="x-default" href="https://calqio.com/ko/tax.html" />
+<link rel="stylesheet" href="../style.css">
+<script>window.LC={"cur":"","suf":"원","sh2":"주","tf":"값을 모두 입력해주세요","tc":"링크 복사됨 🔗","darkBtn":"🌙 다크모드","lightBtn":"☀️ 라이트모드"}</script>
+</head>
+<body>
+<nav>
+  <a href="/ko/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 다크모드</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇰🇷</span><span>한국어</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo active" onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
+<div class="lo " onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
+<div class="lo " onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
+<div class="lo " onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
+<div class="lo " onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
+</div>
+  </div>
+</nav>
+<div class="sec" style="margin-top:24px;">
+<div class="tabs"><a href="compound.html" class="tab "><span class="tab-icon">📈</span>복리 계산기</a><a href="return.html" class="tab "><span class="tab-icon">💰</span>수익률 계산기</a><a href="average-down.html" class="tab "><span class="tab-icon">⬇️</span>물타기 계산기</a><a href="loan.html" class="tab "><span class="tab-icon">🏦</span>대출이자 계산기</a><a href="dividend.html" class="tab "><span class="tab-icon">💵</span>배당수익률 계산기</a><a href="target.html" class="tab "><span class="tab-icon">🎯</span>목표가 계산기</a><a href="tax.html" class="tab active"><span class="tab-icon">📋</span>양도세 계산기</a><a href="percent.html" class="tab "><span class="tab-icon">%</span>퍼센트 계산기</a></div>
+<div class="cf">
+  <div class="ctitle"><strong>📋 주식 양도소득세 계산기</strong></div>
+  <div class="ci">
+    <div class="inp"><div class="ig"><div class="il">매수 금액 (원)</div><input type="number" id="taxbuy" class="if" value="10000000"></div>
+<div class="ig"><div class="il">매도 금액 (원)</div><input type="number" id="taxsell" class="if" value="15000000"></div>
+<div class="ig"><div class="il">거래 수수료 (원)</div><input type="number" id="taxfee" class="if" value="5000"></div>
+<div class="ig"><div class="il">기본공제 (원)</div><input type="number" id="taxded" class="if" value="2500000"></div>
+<button class="btn" onclick="calcTax()">계산하기</button></div>
+    <div class="out">
+      <div class="es" id="e6"><div class="ei">📋</div><div>수치를 입력하세요</div></div>
+      <div id="r6" style="display:none"><div class="rm"><div class="rl">양도차익</div><div class="rv pos" id="v-taxgain">—</div></div><div class="rg"><div class="ri"><div class="ril">납부 세액 (22%)</div><div class="riv neg" id="v-taxamt">—</div></div><div class="ri"><div class="ril">세후 순이익</div><div class="riv pos" id="v-taxincome">—</div></div></div></div>
+    </div>
+  </div>
+</div>
+<section class="guide"><span class="gtag">금융 지식 가이드</span><h2>해외주식 양도소득세 계산기 완벽 가이드</h2>
+<p>해외주식 양도차익에는 기본공제 250만 원 초과분에 22%(소득세 20% + 지방세 2%)의 세율이 적용됩니다.</p>
+<h3>계산 공식</h3>
+<div class="fml">양도차익 = 매도금액 - 매수금액 - 수수료
+과세표준 = 양도차익 - 기본공제(250만 원)
+납부세액 = 과세표준 × 22%</div>
+<p>예: 1,000만 원 수익 → 과세표준 750만 원 × 22% = 165만 원 납부, 세후 순이익 835만 원.</p>
+<h3>절세 전략</h3>
+<p>연말에 손실 종목을 매도해 이익과 손익통산하면 과세표준을 줄일 수 있습니다(Tax-Loss Harvesting). 매년 250만 원 기본공제를 적극 활용하세요.</p>
+<div class="tip">💡 해외주식 양도세는 매년 5월에 전년도 거래분을 신고·납부합니다.</div></section>
+</div>
+<footer>
+  <div>금융 IQ를 높이세요 — 8종 금융 계산기</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">소개</a>
+    <a href="/privacy.html">개인정보처리방침</a>
+    <a href="/contact.html">문의</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+</script>
+</body>
+</html>

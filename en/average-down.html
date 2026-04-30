@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Average Down Calculator — New Average Cost & Break-Even | Calqio</title>
+<meta name="description" content="Calculate your new average cost after buying more shares at a lower price.">
+  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/average-down.html" />
+  <link rel="alternate" hreflang="en" href="https://calqio.com/en/average-down.html" />
+  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/average-down.html" />
+  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/average-down.html" />
+  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/average-down.html" />
+  <link rel="alternate" hreflang="x-default" href="https://calqio.com/ko/average-down.html" />
+<link rel="stylesheet" href="../style.css">
+<script>window.LC={"cur":"$","suf":"","sh2":" shares","tf":"Please fill in all fields","tc":"Link copied 🔗","darkBtn":"🌙 Dark","lightBtn":"☀️ Light"}</script>
+</head>
+<body>
+<nav>
+  <a href="/en/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 Dark</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇺🇸</span><span>English</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo " onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
+<div class="lo active" onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
+<div class="lo " onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
+<div class="lo " onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
+<div class="lo " onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
+</div>
+  </div>
+</nav>
+<div class="sec" style="margin-top:24px;">
+<div class="tabs"><a href="compound.html" class="tab "><span class="tab-icon">📈</span>Compound Interest Calculator</a><a href="return.html" class="tab "><span class="tab-icon">💰</span>Return Rate Calculator</a><a href="average-down.html" class="tab active"><span class="tab-icon">⬇️</span>Average Down Calculator</a><a href="loan.html" class="tab "><span class="tab-icon">🏦</span>Loan Calculator</a><a href="dividend.html" class="tab "><span class="tab-icon">💵</span>Dividend Yield Calculator</a><a href="target.html" class="tab "><span class="tab-icon">🎯</span>Target Price Calculator</a><a href="tax.html" class="tab "><span class="tab-icon">📋</span>Capital Gains Tax Calculator</a><a href="percent.html" class="tab "><span class="tab-icon">%</span>Percentage Calculator</a></div>
+<div class="cf">
+  <div class="ctitle"><strong>⬇️ Average Down Calculator</strong></div>
+  <div class="ci">
+    <div class="inp"><div class="ig"><div class="il">Current Avg Price</div><input type="number" id="ab" class="if" value="50"></div>
+<div class="ig"><div class="il">Current Quantity</div><input type="number" id="aq" class="if" value="100"></div>
+<div class="ig"><div class="il">New Buy Price</div><input type="number" id="np" class="if" value="40"></div>
+<div class="ig"><div class="il">Additional Quantity</div><input type="number" id="nq" class="if" value="100"></div>
+<button class="btn" onclick="calcD()">Calculate</button></div>
+    <div class="out">
+      <div class="es" id="e2"><div class="ei">⬇️</div><div>Enter values and click Calculate</div></div>
+      <div id="r2" style="display:none"><div class="rm"><div class="rl">New Average Price</div><div class="rv rm" id="v-na">—</div></div><div class="rg"><div class="ri"><div class="ril">Total Quantity</div><div class="riv " id="v-tq">—</div></div><div class="ri"><div class="ril">Total Investment</div><div class="riv " id="v-ti">—</div></div><div class="ri"><div class="ril">Price Drop %</div><div class="riv pos" id="v-dr">—</div></div></div></div>
+    </div>
+  </div>
+</div>
+<section class="guide"><span class="gtag">Financial Knowledge Guide</span><h2>Average Down Calculator — Complete Guide</h2>
+<p>Averaging down means buying more shares when the price drops to lower your average cost basis. A lower average means you need less of a recovery to break even.</p>
+<h3>Average Cost Formula</h3>
+<div class="fml">New Avg = (Existing Value + New Purchase) ÷ (Existing Qty + New Qty)</div>
+<p>Example: Hold 100 shares at $50, price drops to $40. Buy 100 more → new average $45. Break-even drops from +25% to +12.5% needed.</p>
+<ul><li><strong>Check fundamentals:</strong> Only average down if the company is still strong.</li><li><strong>Scale in:</strong> Don't use all reserves at once — buy in stages.</li></ul>
+<div class="tip">💡 Always verify why the price dropped before buying more.</div></section>
+</div>
+<footer>
+  <div>Raise your Financial IQ — 8 Financial Calculators</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+</script>
+</body>
+</html>

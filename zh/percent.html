@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>百分比计算器 — 涨跌幅和折扣率计算 | Calqio</title>
+<meta name="description" content="4种百分比计算，适用于股票涨跌幅、折扣率等投资场景。">
+  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/percent.html" />
+  <link rel="alternate" hreflang="en" href="https://calqio.com/en/percent.html" />
+  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/percent.html" />
+  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/percent.html" />
+  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/percent.html" />
+  <link rel="alternate" hreflang="x-default" href="https://calqio.com/ko/percent.html" />
+<link rel="stylesheet" href="../style.css">
+<script>window.LC={"cur":"¥","suf":"","sh2":"股","tf":"请填写所有字段","tc":"链接已复制 🔗","darkBtn":"🌙 深色","lightBtn":"☀️ 浅色"}</script>
+</head>
+<body>
+<nav>
+  <a href="/zh/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 深色</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇨🇳</span><span>中文</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo " onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
+<div class="lo " onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
+<div class="lo " onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
+<div class="lo active" onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
+<div class="lo " onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
+</div>
+  </div>
+</nav>
+<div class="sec" style="margin-top:24px;">
+<div class="tabs"><a href="compound.html" class="tab "><span class="tab-icon">📈</span>复利计算器</a><a href="return.html" class="tab "><span class="tab-icon">💰</span>收益率计算器</a><a href="average-down.html" class="tab "><span class="tab-icon">⬇️</span>摊平成本计算器</a><a href="loan.html" class="tab "><span class="tab-icon">🏦</span>贷款利息计算器</a><a href="dividend.html" class="tab "><span class="tab-icon">💵</span>股息收益率计算器</a><a href="target.html" class="tab "><span class="tab-icon">🎯</span>目标价计算器</a><a href="tax.html" class="tab "><span class="tab-icon">📋</span>资本利得税计算器</a><a href="percent.html" class="tab active"><span class="tab-icon">%</span>百分比计算器</a></div>
+<div class="cf">
+  <div class="ctitle"><strong>% 百分比计算器</strong></div>
+  <div class="ci">
+    <div class="inp"><div class="pct-types"><div class="pc sel" onclick="selP(0)">A是B的百分之几?</div><div class="pc " onclick="selP(1)">A的N%是多少?</div><div class="pc " onclick="selP(2)">变化率?</div><div class="pc " onclick="selP(3)">变化N%后的值?</div></div><div id="pf0" style=""><div class="ig"><input type="number" id="pa0" class="if" placeholder="A 值"></div><div class="ig"><input type="number" id="pb0" class="if" placeholder="B 值"></div></div><div id="pf1" style="display:none"><div class="ig"><input type="number" id="pa1" class="if" placeholder="A 值"></div><div class="ig"><input type="number" id="pb1" class="if" placeholder="N %"></div></div><div id="pf2" style="display:none"><div class="ig"><input type="number" id="pa2" class="if" placeholder="旧值"></div><div class="ig"><input type="number" id="pb2" class="if" placeholder="新值"></div></div><div id="pf3" style="display:none"><div class="ig"><input type="number" id="pa3" class="if" placeholder="原始值"></div><div class="ig"><input type="number" id="pb3" class="if" placeholder="变化率 %"></div></div><button class="btn" onclick="calcP()">计算</button></div>
+    <div class="out">
+      <div class="es" id="e7"><div class="ei">%</div><div>请输入数值</div></div>
+      <div id="r7" style="display:none"><div class="rm"><div class="rl">结果</div><div class="rv blue" id="v-pans">—</div></div></div>
+    </div>
+  </div>
+</div>
+<section class="guide"><span class="gtag">金融知识指南</span><h2>百分比计算器完整指南</h2>
+<p>百分比是投资中最常用的概念。</p>
+<h3>4种计算类型</h3>
+<div class="fml">① A是B的百分之几? → A ÷ B × 100
+② A的N%是多少? → A × N ÷ 100
+③ 变化率? → (新 - 旧) ÷ 旧 × 100
+④ 变化N%后的值? → 原值 × (1 + N ÷ 100)</div>
+<div class="tip">💡 选择需要的计算类型即可立即计算。</div></section>
+</div>
+<footer>
+  <div>提升您的金融智商 — 8种金融计算器</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">关于</a>
+    <a href="/privacy.html">隐私政策</a>
+    <a href="/contact.html">联系我们</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+</script>
+</body>
+</html>

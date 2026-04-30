@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dividend Yield Calculator — After-Tax Income | Calqio</title>
+<meta name="description" content="Calculate dividend yield and real after-tax income. Enter stock price, dividend, quantity, and tax rate.">
+  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/dividend.html" />
+  <link rel="alternate" hreflang="en" href="https://calqio.com/en/dividend.html" />
+  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/dividend.html" />
+  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/dividend.html" />
+  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/dividend.html" />
+  <link rel="alternate" hreflang="x-default" href="https://calqio.com/ko/dividend.html" />
+<link rel="stylesheet" href="../style.css">
+<script>window.LC={"cur":"$","suf":"","sh2":" shares","tf":"Please fill in all fields","tc":"Link copied 🔗","darkBtn":"🌙 Dark","lightBtn":"☀️ Light"}</script>
+</head>
+<body>
+<nav>
+  <a href="/en/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 Dark</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇺🇸</span><span>English</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo " onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
+<div class="lo active" onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
+<div class="lo " onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
+<div class="lo " onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
+<div class="lo " onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
+</div>
+  </div>
+</nav>
+<div class="sec" style="margin-top:24px;">
+<div class="tabs"><a href="compound.html" class="tab "><span class="tab-icon">📈</span>Compound Interest Calculator</a><a href="return.html" class="tab "><span class="tab-icon">💰</span>Return Rate Calculator</a><a href="average-down.html" class="tab "><span class="tab-icon">⬇️</span>Average Down Calculator</a><a href="loan.html" class="tab "><span class="tab-icon">🏦</span>Loan Calculator</a><a href="dividend.html" class="tab active"><span class="tab-icon">💵</span>Dividend Yield Calculator</a><a href="target.html" class="tab "><span class="tab-icon">🎯</span>Target Price Calculator</a><a href="tax.html" class="tab "><span class="tab-icon">📋</span>Capital Gains Tax Calculator</a><a href="percent.html" class="tab "><span class="tab-icon">%</span>Percentage Calculator</a></div>
+<div class="cf">
+  <div class="ctitle"><strong>💵 Dividend Yield Calculator</strong></div>
+  <div class="ci">
+    <div class="inp"><div class="ig"><div class="il">Stock Price</div><input type="number" id="dprice" class="if" value="60"></div>
+<div class="ig"><div class="il">Annual Dividend/Share</div><input type="number" id="ddiv" class="if" value="1.5"></div>
+<div class="ig"><div class="il">Quantity</div><input type="number" id="dqty" class="if" value="100"></div>
+<div class="ig"><div class="il">Dividend Tax Rate (%)</div><input type="number" id="dtax" class="if" value="15"></div>
+<button class="btn" onclick="calcDiv()">Calculate</button></div>
+    <div class="out">
+      <div class="es" id="e4"><div class="ei">💵</div><div>Enter values and click Calculate</div></div>
+      <div id="r4" style="display:none"><div class="rm"><div class="rl">Dividend Yield</div><div class="rv rm" id="v-dyield">—</div></div><div class="rg"><div class="ri"><div class="ril">Annual Dividend (pre-tax)</div><div class="riv pos" id="v-dannual">—</div></div><div class="ri"><div class="ril">Annual Dividend (after-tax)</div><div class="riv pos" id="v-dafter">—</div></div><div class="ri"><div class="ril">Monthly (after-tax)</div><div class="riv pos" id="v-dmonthly">—</div></div></div></div>
+    </div>
+  </div>
+</div>
+<section class="guide"><span class="gtag">Financial Knowledge Guide</span><h2>Dividend Yield Calculator — Complete Guide</h2>
+<p>Dividend investing generates cash flow simply by holding stocks. Understanding yield and after-tax income is essential for evaluating dividend investments.</p>
+<h3>Dividend Yield Formula</h3>
+<div class="fml">Yield (%) = (Annual Dividend per Share ÷ Stock Price) × 100
+After-Tax = Annual Dividend × (1 - Tax Rate)</div>
+<p>US qualified dividends: 0%, 15%, or 20% depending on income bracket. Check your broker for foreign stock withholding rates.</p>
+<h3>Warning Signs</h3>
+<p>Yields above 8% often signal a falling stock or unsustainable payout. Check payout ratio — above 100% means the company pays more than it earns.</p>
+<div class="tip">💡 Always check the payout ratio and earnings trend alongside the yield.</div></section>
+</div>
+<footer>
+  <div>Raise your Financial IQ — 8 Financial Calculators</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+</script>
+</body>
+</html>

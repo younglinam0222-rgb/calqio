@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Percentage Calculator — Rate of Change & Discount | Calqio</title>
+<meta name="description" content="Calculate percentage change, discount rates, and ratio for stocks and investments.">
+  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/percent.html" />
+  <link rel="alternate" hreflang="en" href="https://calqio.com/en/percent.html" />
+  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/percent.html" />
+  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/percent.html" />
+  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/percent.html" />
+  <link rel="alternate" hreflang="x-default" href="https://calqio.com/ko/percent.html" />
+<link rel="stylesheet" href="../style.css">
+<script>window.LC={"cur":"$","suf":"","sh2":" shares","tf":"Please fill in all fields","tc":"Link copied 🔗","darkBtn":"🌙 Dark","lightBtn":"☀️ Light"}</script>
+</head>
+<body>
+<nav>
+  <a href="/en/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 Dark</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇺🇸</span><span>English</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo " onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
+<div class="lo active" onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
+<div class="lo " onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
+<div class="lo " onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
+<div class="lo " onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
+</div>
+  </div>
+</nav>
+<div class="sec" style="margin-top:24px;">
+<div class="tabs"><a href="compound.html" class="tab "><span class="tab-icon">📈</span>Compound Interest Calculator</a><a href="return.html" class="tab "><span class="tab-icon">💰</span>Return Rate Calculator</a><a href="average-down.html" class="tab "><span class="tab-icon">⬇️</span>Average Down Calculator</a><a href="loan.html" class="tab "><span class="tab-icon">🏦</span>Loan Calculator</a><a href="dividend.html" class="tab "><span class="tab-icon">💵</span>Dividend Yield Calculator</a><a href="target.html" class="tab "><span class="tab-icon">🎯</span>Target Price Calculator</a><a href="tax.html" class="tab "><span class="tab-icon">📋</span>Capital Gains Tax Calculator</a><a href="percent.html" class="tab active"><span class="tab-icon">%</span>Percentage Calculator</a></div>
+<div class="cf">
+  <div class="ctitle"><strong>% Percentage Calculator</strong></div>
+  <div class="ci">
+    <div class="inp"><div class="pct-types"><div class="pc sel" onclick="selP(0)">What % is A of B?</div><div class="pc " onclick="selP(1)">What is N% of A?</div><div class="pc " onclick="selP(2)">% Change?</div><div class="pc " onclick="selP(3)">Value after N% change?</div></div><div id="pf0" style=""><div class="ig"><input type="number" id="pa0" class="if" placeholder="Value A"></div><div class="ig"><input type="number" id="pb0" class="if" placeholder="Value B"></div></div><div id="pf1" style="display:none"><div class="ig"><input type="number" id="pa1" class="if" placeholder="Value A"></div><div class="ig"><input type="number" id="pb1" class="if" placeholder="N %"></div></div><div id="pf2" style="display:none"><div class="ig"><input type="number" id="pa2" class="if" placeholder="Old Value"></div><div class="ig"><input type="number" id="pb2" class="if" placeholder="New Value"></div></div><div id="pf3" style="display:none"><div class="ig"><input type="number" id="pa3" class="if" placeholder="Original Value"></div><div class="ig"><input type="number" id="pb3" class="if" placeholder="Change %"></div></div><button class="btn" onclick="calcP()">Calculate</button></div>
+    <div class="out">
+      <div class="es" id="e7"><div class="ei">%</div><div>Enter values and click Calculate</div></div>
+      <div id="r7" style="display:none"><div class="rm"><div class="rl">Result</div><div class="rv blue" id="v-pans">—</div></div></div>
+    </div>
+  </div>
+</div>
+<section class="guide"><span class="gtag">Financial Knowledge Guide</span><h2>Percentage Calculator — Complete Guide</h2>
+<p>Percentage is the most-used concept in investing. Returns, fees, yields, discounts, and portfolio weights are all expressed as percentages.</p>
+<h3>4 Calculation Types</h3>
+<div class="fml">① What % is A of B? → A ÷ B × 100
+② What is N% of A? → A × N ÷ 100
+③ % Change? → (New - Old) ÷ Old × 100
+④ Value after N% change? → Original × (1 + N ÷ 100)</div>
+<h3>The Asymmetry Trap</h3>
+<p>A 50% drop requires a 100% gain to recover. A 33% drop requires a 50% gain. This asymmetry is why limiting losses is so critical to long-term investing success.</p>
+<div class="tip">💡 Select the type you need and calculate instantly.</div></section>
+</div>
+<footer>
+  <div>Raise your Financial IQ — 8 Financial Calculators</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ナンピン計算機 — 新平均取得単価を即座に計算 | Calqio</title>
+<meta name="description" content="追加購入後の新しい平均取得単価と損益分岐点を計算。">
+  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/average-down.html" />
+  <link rel="alternate" hreflang="en" href="https://calqio.com/en/average-down.html" />
+  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/average-down.html" />
+  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/average-down.html" />
+  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/average-down.html" />
+  <link rel="alternate" hreflang="x-default" href="https://calqio.com/ko/average-down.html" />
+<link rel="stylesheet" href="../style.css">
+<script>window.LC={"cur":"¥","suf":"","sh2":"株","tf":"すべての値を入力してください","tc":"リンクをコピーしました 🔗","darkBtn":"🌙 ダーク","lightBtn":"☀️ ライト"}</script>
+</head>
+<body>
+<nav>
+  <a href="/ja/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 ダーク</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇯🇵</span><span>日本語</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo " onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
+<div class="lo " onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
+<div class="lo active" onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
+<div class="lo " onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
+<div class="lo " onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
+</div>
+  </div>
+</nav>
+<div class="sec" style="margin-top:24px;">
+<div class="tabs"><a href="compound.html" class="tab "><span class="tab-icon">📈</span>複利計算機</a><a href="return.html" class="tab "><span class="tab-icon">💰</span>収益率計算機</a><a href="average-down.html" class="tab active"><span class="tab-icon">⬇️</span>ナンピン計算機</a><a href="loan.html" class="tab "><span class="tab-icon">🏦</span>ローン計算機</a><a href="dividend.html" class="tab "><span class="tab-icon">💵</span>配当利回り計算機</a><a href="target.html" class="tab "><span class="tab-icon">🎯</span>目標株価計算機</a><a href="tax.html" class="tab "><span class="tab-icon">📋</span>譲渡所得税計算機</a><a href="percent.html" class="tab "><span class="tab-icon">%</span>パーセント計算機</a></div>
+<div class="cf">
+  <div class="ctitle"><strong>⬇️ ナンピン計算機</strong></div>
+  <div class="ci">
+    <div class="inp"><div class="ig"><div class="il">現在の平均単価 (円)</div><input type="number" id="ab" class="if" value="5000"></div>
+<div class="ig"><div class="il">保有株数 (株)</div><input type="number" id="aq" class="if" value="100"></div>
+<div class="ig"><div class="il">追加購入単価 (円)</div><input type="number" id="np" class="if" value="4000"></div>
+<div class="ig"><div class="il">追加購入株数 (株)</div><input type="number" id="nq" class="if" value="100"></div>
+<button class="btn" onclick="calcD()">計算する</button></div>
+    <div class="out">
+      <div class="es" id="e2"><div class="ei">⬇️</div><div>数値を入力してください</div></div>
+      <div id="r2" style="display:none"><div class="rm"><div class="rl">新しい平均単価</div><div class="rv rm" id="v-na">—</div></div><div class="rg"><div class="ri"><div class="ril">総保有株数</div><div class="riv " id="v-tq">—</div></div><div class="ri"><div class="ril">総投資額</div><div class="riv " id="v-ti">—</div></div><div class="ri"><div class="ril">平均単価下落率</div><div class="riv pos" id="v-dr">—</div></div></div></div>
+    </div>
+  </div>
+</div>
+<section class="guide"><span class="gtag">金融知識ガイド</span><h2>ナンピン計算機 完全ガイド</h2>
+<p>ナンピンとは株価下落時に追加購入して平均取得単価を下げる戦略です。</p>
+<h3>平均単価計算公式</h3>
+<div class="fml">新平均単価 = (既存保有額 + 追加購入額) ÷ (既存株数 + 追加株数)</div>
+<div class="tip">💡 ナンピン前に必ず企業のファンダメンタルズを確認してください。</div></section>
+</div>
+<footer>
+  <div>金融IQを高めよう — 8種類の金融計算ツール</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">概要</a>
+    <a href="/privacy.html">プライバシーポリシー</a>
+    <a href="/contact.html">お問い合わせ</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+</script>
+</body>
+</html>

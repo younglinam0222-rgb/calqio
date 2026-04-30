@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compound Interest Calculator — Investment Growth Simulator | Calqio</title>
+<meta name="description" content="Calculate how your investments grow with compound interest. Enter principal, annual return, period, and monthly additions.">
+  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/compound.html" />
+  <link rel="alternate" hreflang="en" href="https://calqio.com/en/compound.html" />
+  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/compound.html" />
+  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/compound.html" />
+  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/compound.html" />
+  <link rel="alternate" hreflang="x-default" href="https://calqio.com/ko/compound.html" />
+<link rel="stylesheet" href="../style.css">
+<script>window.LC={"cur":"$","suf":"","sh2":" shares","tf":"Please fill in all fields","tc":"Link copied 🔗","darkBtn":"🌙 Dark","lightBtn":"☀️ Light"}</script>
+</head>
+<body>
+<nav>
+  <a href="/en/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 Dark</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇺🇸</span><span>English</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo " onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
+<div class="lo active" onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
+<div class="lo " onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
+<div class="lo " onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
+<div class="lo " onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
+</div>
+  </div>
+</nav>
+<div class="sec" style="margin-top:24px;">
+<div class="tabs"><a href="compound.html" class="tab active"><span class="tab-icon">📈</span>Compound Interest Calculator</a><a href="return.html" class="tab "><span class="tab-icon">💰</span>Return Rate Calculator</a><a href="average-down.html" class="tab "><span class="tab-icon">⬇️</span>Average Down Calculator</a><a href="loan.html" class="tab "><span class="tab-icon">🏦</span>Loan Calculator</a><a href="dividend.html" class="tab "><span class="tab-icon">💵</span>Dividend Yield Calculator</a><a href="target.html" class="tab "><span class="tab-icon">🎯</span>Target Price Calculator</a><a href="tax.html" class="tab "><span class="tab-icon">📋</span>Capital Gains Tax Calculator</a><a href="percent.html" class="tab "><span class="tab-icon">%</span>Percentage Calculator</a></div>
+<div class="cf">
+  <div class="ctitle"><strong>📈 Compound Interest Calculator</strong></div>
+  <div class="ci">
+    <div class="inp"><div class="ig"><div class="il">Initial Investment</div><input type="number" id="p" class="if" value="10000"></div>
+<div class="ig"><div class="il">Annual Return (%)</div><input type="number" id="r" class="if" value="8"></div>
+<div class="ig"><div class="il">Period (Years)</div><input type="number" id="y" class="if" value="20"></div>
+<div class="ig"><div class="il">Monthly Addition</div><input type="number" id="m" class="if" value="0"></div>
+<button class="btn" onclick="calcC()">Calculate</button></div>
+    <div class="out">
+      <div class="es" id="e0"><div class="ei">📈</div><div>Enter values and click Calculate</div></div>
+      <div id="r0" style="display:none"><div class="rm"><div class="rl">Final Amount</div><div class="rv rm" id="v-fa">—</div></div><div class="rg"><div class="ri"><div class="ril">Total Principal</div><div class="riv pos" id="v-tp">—</div></div><div class="ri"><div class="ril">Total Profit</div><div class="riv pos" id="v-pf">—</div></div><div class="ri"><div class="ril">Return Rate</div><div class="riv pos" id="v-rr">—</div></div><div class="ri"><div class="ril">Growth Multiple</div><div class="riv pos" id="v-mx">—</div></div></div></div>
+    </div>
+  </div>
+</div>
+<section class="guide"><span class="gtag">Financial Knowledge Guide</span>
+<h2>Compound Interest Calculator — Complete Guide</h2>
+<p>Compound interest was called the "8th Wonder of the World" by Einstein. Unlike simple interest, compounding grows your money exponentially — interest earns interest, creating a powerful snowball effect over time.</p>
+<h3>Compound Interest Formula</h3>
+<div class="fml">A = P × (1 + r)ⁿ
+A: Final Amount | P: Principal | r: Annual Rate (decimal) | n: Years</div>
+<p>Example: $10,000 at 8% for 30 years grows to ~$100,627. With simple interest, only $34,000. Add $500/month and you reach over $800,000.</p>
+<h3>Rule of 72</h3>
+<div class="fml">Years to double = 72 ÷ Annual Return (%)
+Example: 8% return → doubles in 9 years</div>
+<h3>Dollar-Cost Averaging</h3>
+<p>Investing $500/month for 20 years at 8% turns $120,000 invested into ~$294,000. The key: start early. Starting at 25 vs 35 can double your retirement wealth.</p>
+<ul>
+<li><strong>Reinvest dividends:</strong> Taking cash dividends halts compounding. Always reinvest.</li>
+<li><strong>Minimize fees:</strong> A 1% annual fee consumes ~30% of wealth over 30 years.</li>
+<li><strong>Stay invested:</strong> Missing just the 10 best trading days can cut returns in half.</li>
+</ul>
+<div class="tip">💡 Try the Monthly Addition field. Consistent small savings beat chasing high returns every time.</div></section>
+</div>
+<footer>
+  <div>Raise your Financial IQ — 8 Financial Calculators</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+</script>
+</body>
+</html>

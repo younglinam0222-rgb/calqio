@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Target Price Calculator — Set Stop-Loss | Calqio</title>
+<meta name="description" content="Calculate target sell price and stop-loss price before buying. Essential for risk management.">
+  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/target.html" />
+  <link rel="alternate" hreflang="en" href="https://calqio.com/en/target.html" />
+  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/target.html" />
+  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/target.html" />
+  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/target.html" />
+  <link rel="alternate" hreflang="x-default" href="https://calqio.com/ko/target.html" />
+<link rel="stylesheet" href="../style.css">
+<script>window.LC={"cur":"$","suf":"","sh2":" shares","tf":"Please fill in all fields","tc":"Link copied 🔗","darkBtn":"🌙 Dark","lightBtn":"☀️ Light"}</script>
+</head>
+<body>
+<nav>
+  <a href="/en/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 Dark</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇺🇸</span><span>English</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo " onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
+<div class="lo active" onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
+<div class="lo " onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
+<div class="lo " onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
+<div class="lo " onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
+</div>
+  </div>
+</nav>
+<div class="sec" style="margin-top:24px;">
+<div class="tabs"><a href="compound.html" class="tab "><span class="tab-icon">📈</span>Compound Interest Calculator</a><a href="return.html" class="tab "><span class="tab-icon">💰</span>Return Rate Calculator</a><a href="average-down.html" class="tab "><span class="tab-icon">⬇️</span>Average Down Calculator</a><a href="loan.html" class="tab "><span class="tab-icon">🏦</span>Loan Calculator</a><a href="dividend.html" class="tab "><span class="tab-icon">💵</span>Dividend Yield Calculator</a><a href="target.html" class="tab active"><span class="tab-icon">🎯</span>Target Price Calculator</a><a href="tax.html" class="tab "><span class="tab-icon">📋</span>Capital Gains Tax Calculator</a><a href="percent.html" class="tab "><span class="tab-icon">%</span>Percentage Calculator</a></div>
+<div class="cf">
+  <div class="ctitle"><strong>🎯 Target Price Calculator</strong></div>
+  <div class="ci">
+    <div class="inp"><div class="ig"><div class="il">Buy Price</div><input type="number" id="tbase" class="if" value="50"></div>
+<div class="ig"><div class="il">Target Return (%)</div><input type="number" id="tprofit" class="if" value="20"></div>
+<div class="ig"><div class="il">Stop-Loss (%)</div><input type="number" id="tstop" class="if" value="10"></div>
+<div class="ig"><div class="il">Quantity</div><input type="number" id="tqty" class="if" value="100"></div>
+<button class="btn" onclick="calcT()">Calculate</button></div>
+    <div class="out">
+      <div class="es" id="e5"><div class="ei">🎯</div><div>Enter values and click Calculate</div></div>
+      <div id="r5" style="display:none"><div class="rm"><div class="rl">Target Sell Price</div><div class="rv rm" id="v-tprice">—</div></div><div class="rg"><div class="ri"><div class="ril">Stop-Loss Price</div><div class="riv neg" id="v-sprice">—</div></div><div class="ri"><div class="ril">Target Profit</div><div class="riv pos" id="v-tprofit2">—</div></div><div class="ri"><div class="ril">Max Loss</div><div class="riv neg" id="v-sloss">—</div></div><div class="ri"><div class="ril">Risk/Reward Ratio</div><div class="riv " id="v-rratio">—</div></div></div></div>
+    </div>
+  </div>
+</div>
+<section class="guide"><span class="gtag">Financial Knowledge Guide</span><h2>Target Price Calculator — Complete Guide</h2>
+<p>Setting your target and stop-loss before buying eliminates emotional decision-making. Disciplined traders always define their exit before entry.</p>
+<h3>Formulas</h3>
+<div class="fml">Target Price = Buy × (1 + Target% ÷ 100)
+Stop-Loss = Buy × (1 - Stop% ÷ 100)
+Risk/Reward = Target% ÷ Stop%</div>
+<p>Example: Buy $50, Target +20%, Stop -10% → Target $60, Stop $45, R/R 2.0.</p>
+<h3>Why Risk/Reward Matters</h3>
+<p>With 2:1 R/R, you profit overall even with only a 50% win rate. Professional traders require minimum 2:1.</p>
+<div class="tip">💡 Execute your stop-loss mechanically. Loss aversion bias leads to far bigger losses.</div></section>
+</div>
+<footer>
+  <div>Raise your Financial IQ — 8 Financial Calculators</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+</script>
+</body>
+</html>

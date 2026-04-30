@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calqio — Stock Crypto Investment Financial Calculators</title>
+<meta name="description" content="Free financial calculators for stock and crypto investors. Compound interest, return rate, average down, loan, dividend, and more.">
+  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/" />
+  <link rel="alternate" hreflang="en" href="https://calqio.com/en/" />
+  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/" />
+  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/" />
+  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/" />
+  <link rel="alternate" hreflang="x-default" href="https://calqio.com/ko/" />
+<link rel="stylesheet" href="../style.css">
+<script>window.LC={"cur":"$","suf":"","sh2":" shares","tf":"Please fill in all fields","tc":"Link copied 🔗","darkBtn":"🌙 Dark","lightBtn":"☀️ Light"}</script>
+</head>
+<body>
+<nav>
+  <a href="/en/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 Dark</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇺🇸</span><span>English</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo " onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
+<div class="lo active" onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
+<div class="lo " onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
+<div class="lo " onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
+<div class="lo " onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
+</div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="badge">Raise your Financial IQ</div>
+  <h1>Investment Calculators<br><em>Calqio</em></h1>
+  <p>Fast and accurate stock, crypto & investment calculations.</p>
+</div>
+<div class="story">
+  <div class="stext">
+    <strong>What does Calqio mean?</strong>
+    <p>Cal(culate) + Q(Financial IQ) + io(Input/Output) — More than a calculator. A smart platform to raise your financial IQ.</p>
+  </div>
+</div>
+<div class="sec">
+  <div class="dashboard-grid"><a href="compound.html" class="dash-card"><div class="dash-icon">📈</div><div class="dash-title">Compound Interest Calculator</div><div class="dash-desc">See the magic of compounding</div></a><a href="return.html" class="dash-card"><div class="dash-icon">💰</div><div class="dash-title">Return Rate Calculator</div><div class="dash-desc">Real profit including fees</div></a><a href="average-down.html" class="dash-card"><div class="dash-icon">⬇️</div><div class="dash-title">Average Down Calculator</div><div class="dash-desc">New average cost & break-even</div></a><a href="loan.html" class="dash-card"><div class="dash-icon">🏦</div><div class="dash-title">Loan Calculator</div><div class="dash-desc">Monthly payment & total interest</div></a><a href="dividend.html" class="dash-card"><div class="dash-icon">💵</div><div class="dash-title">Dividend Yield Calculator</div><div class="dash-desc">After-tax dividend income</div></a><a href="target.html" class="dash-card"><div class="dash-icon">🎯</div><div class="dash-title">Target Price Calculator</div><div class="dash-desc">Set target & stop-loss prices</div></a><a href="tax.html" class="dash-card"><div class="dash-icon">📋</div><div class="dash-title">Capital Gains Tax Calculator</div><div class="dash-desc">Tax & net profit on stock sales</div></a><a href="percent.html" class="dash-card"><div class="dash-icon">%</div><div class="dash-title">Percentage Calculator</div><div class="dash-desc">Rate of change & discount calc</div></a></div>
+</div>
+<section class="guide"><span class="gtag">About Calqio</span><h2>The Smart Financial Calculator Platform</h2>
+<p>In the age of widespread stock and crypto investing, accurate calculation is essential. Missing fees, taxes, and compound effects can dramatically reduce your real returns. Calqio is a free financial calculator platform that handles all these calculations instantly.</p>
+<h3>8 Calculators — How to Use</h3>
+<ul>
+<li><strong>📈 Compound:</strong> Long-term investment simulation</li>
+<li><strong>💰 Return:</strong> Real profit including fees</li>
+<li><strong>⬇️ Avg Down:</strong> New average cost after additional buys</li>
+<li><strong>🏦 Loan:</strong> Monthly payments and total interest</li>
+<li><strong>💵 Dividend:</strong> After-tax dividend income</li>
+<li><strong>🎯 Target/Stop:</strong> Risk management and exit planning</li>
+<li><strong>📋 Tax:</strong> Net profit after capital gains tax</li>
+<li><strong>% Percent:</strong> Rate of change and discount calculations</li>
+</ul>
+<div class="tip">💡 All calculators are free with no registration. Your data is processed locally and never stored.</div></section>
+
+<footer>
+  <div>Raise your Financial IQ — 8 Financial Calculators</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){location.href='/'+l+'/';}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+</script>
+</body>
+</html>

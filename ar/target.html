@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حاسبة السعر المستهدف — تحديد وقف الخسارة | Calqio</title>
+<meta name="description" content="احسب سعر البيع المستهدف وسعر وقف الخسارة قبل الشراء.">
+  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/target.html" />
+  <link rel="alternate" hreflang="en" href="https://calqio.com/en/target.html" />
+  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/target.html" />
+  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/target.html" />
+  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/target.html" />
+  <link rel="alternate" hreflang="x-default" href="https://calqio.com/ko/target.html" />
+<link rel="stylesheet" href="../style.css">
+<script>window.LC={"cur":"","suf":" ر.س","sh2":" سهم","tf":"يرجى ملء جميع الحقول","tc":"تم نسخ الرابط 🔗","darkBtn":"🌙 داكن","lightBtn":"☀️ فاتح"}</script>
+</head>
+<body>
+<nav>
+  <a href="/ar/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 داكن</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇸🇦</span><span>العربية</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo " onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
+<div class="lo " onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
+<div class="lo " onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
+<div class="lo " onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
+<div class="lo active" onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
+</div>
+  </div>
+</nav>
+<div class="sec" style="margin-top:24px;">
+<div class="tabs"><a href="compound.html" class="tab "><span class="tab-icon">📈</span>حاسبة الفائدة المركبة</a><a href="return.html" class="tab "><span class="tab-icon">💰</span>حاسبة معدل العائد</a><a href="average-down.html" class="tab "><span class="tab-icon">⬇️</span>حاسبة خفض المتوسط</a><a href="loan.html" class="tab "><span class="tab-icon">🏦</span>حاسبة القرض</a><a href="dividend.html" class="tab "><span class="tab-icon">💵</span>حاسبة عائد الأرباح</a><a href="target.html" class="tab active"><span class="tab-icon">🎯</span>حاسبة السعر المستهدف</a><a href="tax.html" class="tab "><span class="tab-icon">📋</span>حاسبة ضريبة الأرباح</a><a href="percent.html" class="tab "><span class="tab-icon">%</span>حاسبة النسبة المئوية</a></div>
+<div class="cf">
+  <div class="ctitle"><strong>🎯 حاسبة السعر المستهدف</strong></div>
+  <div class="ci">
+    <div class="inp"><div class="ig"><div class="il">سعر الشراء</div><input type="number" id="tbase" class="if" value="50"></div>
+<div class="ig"><div class="il">العائد المستهدف (%)</div><input type="number" id="tprofit" class="if" value="20"></div>
+<div class="ig"><div class="il">وقف الخسارة (%)</div><input type="number" id="tstop" class="if" value="10"></div>
+<div class="ig"><div class="il">الكمية</div><input type="number" id="tqty" class="if" value="100"></div>
+<button class="btn" onclick="calcT()">احسب</button></div>
+    <div class="out">
+      <div class="es" id="e5"><div class="ei">🎯</div><div>أدخل القيم</div></div>
+      <div id="r5" style="display:none"><div class="rm"><div class="rl">السعر المستهدف</div><div class="rv rm" id="v-tprice">—</div></div><div class="rg"><div class="ri"><div class="ril">سعر وقف الخسارة</div><div class="riv neg" id="v-sprice">—</div></div><div class="ri"><div class="ril">الربح المستهدف</div><div class="riv pos" id="v-tprofit2">—</div></div><div class="ri"><div class="ril">الخسارة القصوى</div><div class="riv neg" id="v-sloss">—</div></div><div class="ri"><div class="ril">نسبة المخاطرة/المكافأة</div><div class="riv " id="v-rratio">—</div></div></div></div>
+    </div>
+  </div>
+</div>
+<section class="guide"><span class="gtag">دليل المعرفة المالية</span><h2>حاسبة السعر المستهدف — دليل شامل</h2>
+<p>تحديد السعر المستهدف ووقف الخسارة قبل الشراء يلغي القرارات العاطفية.</p>
+<h3>الصيغ</h3>
+<div class="fml">السعر المستهدف = الشراء × (1 + الهدف% ÷ 100)
+وقف الخسارة = الشراء × (1 - الوقف% ÷ 100)</div>
+<div class="tip">💡 نفّذ وقف الخسارة بشكل آلي. تحيز تجنب الخسارة يؤدي إلى خسائر أكبر.</div></section>
+</div>
+<footer>
+  <div>ارفع ذكاءك المالي — 8 آلات حاسبة مالية</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">حول</a>
+    <a href="/privacy.html">سياسة الخصوصية</a>
+    <a href="/contact.html">تواصل</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+</script>
+</body>
+</html>

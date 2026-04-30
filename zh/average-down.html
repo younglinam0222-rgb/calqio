@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>摊平成本计算器 — 新的平均买入价 | Calqio</title>
+<meta name="description" content="计算在价格下跌后追加买入时的新平均成本和盈亏平衡点。">
+  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/average-down.html" />
+  <link rel="alternate" hreflang="en" href="https://calqio.com/en/average-down.html" />
+  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/average-down.html" />
+  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/average-down.html" />
+  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/average-down.html" />
+  <link rel="alternate" hreflang="x-default" href="https://calqio.com/ko/average-down.html" />
+<link rel="stylesheet" href="../style.css">
+<script>window.LC={"cur":"¥","suf":"","sh2":"股","tf":"请填写所有字段","tc":"链接已复制 🔗","darkBtn":"🌙 深色","lightBtn":"☀️ 浅色"}</script>
+</head>
+<body>
+<nav>
+  <a href="/zh/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 深色</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇨🇳</span><span>中文</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo " onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
+<div class="lo " onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
+<div class="lo " onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
+<div class="lo active" onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
+<div class="lo " onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
+</div>
+  </div>
+</nav>
+<div class="sec" style="margin-top:24px;">
+<div class="tabs"><a href="compound.html" class="tab "><span class="tab-icon">📈</span>复利计算器</a><a href="return.html" class="tab "><span class="tab-icon">💰</span>收益率计算器</a><a href="average-down.html" class="tab active"><span class="tab-icon">⬇️</span>摊平成本计算器</a><a href="loan.html" class="tab "><span class="tab-icon">🏦</span>贷款利息计算器</a><a href="dividend.html" class="tab "><span class="tab-icon">💵</span>股息收益率计算器</a><a href="target.html" class="tab "><span class="tab-icon">🎯</span>目标价计算器</a><a href="tax.html" class="tab "><span class="tab-icon">📋</span>资本利得税计算器</a><a href="percent.html" class="tab "><span class="tab-icon">%</span>百分比计算器</a></div>
+<div class="cf">
+  <div class="ctitle"><strong>⬇️ 摊平成本计算器</strong></div>
+  <div class="ci">
+    <div class="inp"><div class="ig"><div class="il">当前平均价格 (元)</div><input type="number" id="ab" class="if" value="50"></div>
+<div class="ig"><div class="il">当前持仓数量</div><input type="number" id="aq" class="if" value="100"></div>
+<div class="ig"><div class="il">追加买入价格 (元)</div><input type="number" id="np" class="if" value="40"></div>
+<div class="ig"><div class="il">追加数量</div><input type="number" id="nq" class="if" value="100"></div>
+<button class="btn" onclick="calcD()">计算</button></div>
+    <div class="out">
+      <div class="es" id="e2"><div class="ei">⬇️</div><div>请输入数值</div></div>
+      <div id="r2" style="display:none"><div class="rm"><div class="rl">新平均成本</div><div class="rv rm" id="v-na">—</div></div><div class="rg"><div class="ri"><div class="ril">总持仓数量</div><div class="riv " id="v-tq">—</div></div><div class="ri"><div class="ril">总投资额</div><div class="riv " id="v-ti">—</div></div><div class="ri"><div class="ril">成本下降幅度</div><div class="riv pos" id="v-dr">—</div></div></div></div>
+    </div>
+  </div>
+</div>
+<section class="guide"><span class="gtag">金融知识指南</span><h2>摊平成本计算器完整指南</h2>
+<p>摊平成本是指在股价下跌时追加买入，从而降低平均持仓成本的策略。</p>
+<h3>平均成本计算公式</h3>
+<div class="fml">新平均成本 = (现有持仓价值 + 新购入金额) ÷ (现有数量 + 新购入数量)</div>
+<div class="tip">💡 追加买入前，务必确认公司基本面是否仍然良好。</div></section>
+</div>
+<footer>
+  <div>提升您的金融智商 — 8种金融计算器</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">关于</a>
+    <a href="/privacy.html">隐私政策</a>
+    <a href="/contact.html">联系我们</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+</script>
+</body>
+</html>

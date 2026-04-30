@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capital Gains Tax Calculator — Net Profit After Tax | Calqio</title>
+<meta name="description" content="Calculate capital gains tax and net profit after tax on stock sales.">
+  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/tax.html" />
+  <link rel="alternate" hreflang="en" href="https://calqio.com/en/tax.html" />
+  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/tax.html" />
+  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/tax.html" />
+  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/tax.html" />
+  <link rel="alternate" hreflang="x-default" href="https://calqio.com/ko/tax.html" />
+<link rel="stylesheet" href="../style.css">
+<script>window.LC={"cur":"$","suf":"","sh2":" shares","tf":"Please fill in all fields","tc":"Link copied 🔗","darkBtn":"🌙 Dark","lightBtn":"☀️ Light"}</script>
+</head>
+<body>
+<nav>
+  <a href="/en/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 Dark</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇺🇸</span><span>English</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo " onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
+<div class="lo active" onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
+<div class="lo " onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
+<div class="lo " onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
+<div class="lo " onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
+</div>
+  </div>
+</nav>
+<div class="sec" style="margin-top:24px;">
+<div class="tabs"><a href="compound.html" class="tab "><span class="tab-icon">📈</span>Compound Interest Calculator</a><a href="return.html" class="tab "><span class="tab-icon">💰</span>Return Rate Calculator</a><a href="average-down.html" class="tab "><span class="tab-icon">⬇️</span>Average Down Calculator</a><a href="loan.html" class="tab "><span class="tab-icon">🏦</span>Loan Calculator</a><a href="dividend.html" class="tab "><span class="tab-icon">💵</span>Dividend Yield Calculator</a><a href="target.html" class="tab "><span class="tab-icon">🎯</span>Target Price Calculator</a><a href="tax.html" class="tab active"><span class="tab-icon">📋</span>Capital Gains Tax Calculator</a><a href="percent.html" class="tab "><span class="tab-icon">%</span>Percentage Calculator</a></div>
+<div class="cf">
+  <div class="ctitle"><strong>📋 Capital Gains Tax Calculator</strong></div>
+  <div class="ci">
+    <div class="inp"><div class="ig"><div class="il">Purchase Amount</div><input type="number" id="taxbuy" class="if" value="10000"></div>
+<div class="ig"><div class="il">Sale Amount</div><input type="number" id="taxsell" class="if" value="15000"></div>
+<div class="ig"><div class="il">Transaction Fees</div><input type="number" id="taxfee" class="if" value="50"></div>
+<div class="ig"><div class="il">Deduction</div><input type="number" id="taxded" class="if" value="0"></div>
+<button class="btn" onclick="calcTax()">Calculate</button></div>
+    <div class="out">
+      <div class="es" id="e6"><div class="ei">📋</div><div>Enter values and click Calculate</div></div>
+      <div id="r6" style="display:none"><div class="rm"><div class="rl">Capital Gain</div><div class="rv pos" id="v-taxgain">—</div></div><div class="rg"><div class="ri"><div class="ril">Tax Due (22%)</div><div class="riv neg" id="v-taxamt">—</div></div><div class="ri"><div class="ril">Net Profit After Tax</div><div class="riv pos" id="v-taxincome">—</div></div></div></div>
+    </div>
+  </div>
+</div>
+<section class="guide"><span class="gtag">Financial Knowledge Guide</span><h2>Capital Gains Tax Calculator — Complete Guide</h2>
+<p>Understanding capital gains tax is crucial for calculating your true investment returns. Tax rates and rules vary significantly by country and holding period.</p>
+<h3>Formula</h3>
+<div class="fml">Capital Gain = Sale - Purchase - Fees
+Taxable Amount = Gain - Deduction
+Tax Due = Taxable Amount × Rate</div>
+<h3>Tax Loss Harvesting</h3>
+<p>Sell losing positions before year-end to offset gains and reduce your taxable income. This strategy, done annually, can save thousands in taxes.</p>
+<div class="tip">💡 Consult a tax advisor for your specific situation — tax laws change frequently.</div></section>
+</div>
+<footer>
+  <div>Raise your Financial IQ — 8 Financial Calculators</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+</script>
+</body>
+</html>
