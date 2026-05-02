@@ -360,8 +360,27 @@ hr{border:none;border-top:1px solid #1C1C1C;margin:22px 0}
   padding:12px;color:var(--text);font-family:'Noto Sans KR',sans-serif;font-size:12px;cursor:pointer;
 }
 </style>
+<link rel="stylesheet" href="/style.css">
 </head>
 <body>
+
+<nav>
+  <a href="/ko/" class="logo">Calq<span>io</span></a>
+  <a href="/ko/" style="font-size:.85rem;color:#888;text-decoration:none;margin-right:auto;margin-left:8px">← 계산기 목록</a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 다크모드</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇰🇷</span><span>한국어</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop">
+      <div class="lo active" onclick="location.href='/ko/'"><span class="fl">🇰🇷</span>한국어</div>
+      <div class="lo" onclick="location.href='/en/'"><span class="fl">🇺🇸</span>English</div>
+      <div class="lo" onclick="location.href='/ja/'"><span class="fl">🇯🇵</span>日本語</div>
+      <div class="lo" onclick="location.href='/zh/'"><span class="fl">🇨🇳</span>中文</div>
+      <div class="lo" onclick="location.href='/ar/'"><span class="fl">🇸🇦</span>العربية</div>
+    </div>
+  </div>
+</nav>
 
 <div class="loading-overlay" id="loading">
   <div class="spinner"></div>
@@ -499,6 +518,17 @@ hr{border:none;border-top:1px solid #1C1C1C;margin:22px 0}
   </div>
 
 </div><!-- /wrap -->
+
+<footer>
+  <div>로또 AI 번호 추출기 — Calqio</div>
+  <div style="margin-top:8px">
+    <a href="/ko/">← 계산기 목록</a>
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+</footer>
+<script src="/common.js"></script>
 
 <!-- INSTALL BANNER -->
 <div class="inst-bar" id="inst-bar">
