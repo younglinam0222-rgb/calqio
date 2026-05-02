@@ -137,8 +137,9 @@ body[dir="rtl"] .page-wrap h2{border-left:none;border-right:3px solid var(--acce
 .email-link{font-size:1.2rem;font-weight:700;color:var(--accent);word-break:break-all;}
 
 /* ── RESPONSIVE ── */
-@media(max-width:480px){
+@media(max-width:768px){
   .dashboard-grid{grid-template-columns:1fr 1fr;}
+  .tabs{grid-template-columns:repeat(2,1fr);}
   .rg{grid-template-columns:1fr;}
   .pct-types{grid-template-columns:1fr;}
   nav{padding:0 14px;}
