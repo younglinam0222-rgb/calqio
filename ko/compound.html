@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>복리 계산기 — 장기 투자 자산 시뮬레이션 | Calqio</title>
-<meta name="description" content="초기 투자금, 연 수익률, 투자 기간을 입력해 복리로 불어나는 최종 자산을 즉시 계산하세요. 연도별 상세 내역, 그래프, 세금 적용까지.">
+<title>복리 계산기 — 일복리·월복리·연복리 투자 시뮬레이션 | Calqio</title>
+<meta name="description" content="초기 투자금과 수익률만 입력하면 복리 자산이 어떻게 불어나는지 한눈에 확인하세요. 일복리·연복리 지원, 세금 자동 반영, 회차별 상세 내역 제공.">
 <link rel="stylesheet" href="../style.css">
 <script>window.LC={"cur":"","suf":"원","sh2":"주","tf":"값을 모두 입력해주세요","tc":"링크 복사됨 🔗","darkBtn":"🌙 다크모드","lightBtn":"☀️ 라이트모드"}</script>
 <link rel="canonical" href="https://calqio.com/ko/compound.html">
@@ -17,99 +17,67 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://calqio.com/ko/compound.html">
 <meta property="og:title" content="복리 계산기 | Calqio">
-<meta property="og:description" content="초기 투자금, 연 수익률, 투자 기간을 입력해 복리로 불어나는 최종 자산을 계산합니다.">
+<meta property="og:description" content="일복리·월복리·연복리 투자 시뮬레이션. 세금 반영, 회차별 상세 내역 제공.">
 <meta property="og:image" content="https://calqio.com/og-ko.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "복리 계산기",
-  "description": "초기 투자금, 연 수익률, 투자 기간을 입력해 복리로 불어나는 최종 자산을 계산합니다.",
-  "url": "https://calqio.com/ko/compound.html",
-  "applicationCategory": "FinanceApplication",
-  "operatingSystem": "Web",
-  "offers": {"@type": "Offer","price": "0","priceCurrency": "KRW"},
-  "aggregateRating": {"@type": "AggregateRating","ratingValue": "4.8","ratingCount": "127","bestRating": "5"},
-  "publisher": {"@type": "Organization","name": "Calqio","url": "https://calqio.com"}
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type": "Question","name": "복리 계산기는 어떻게 사용하나요?","acceptedAnswer": {"@type": "Answer","text": "초기 투자금, 연 수익률, 투자 기간을 입력하고 계산하기 버튼을 누르면 됩니다. 월 추가 납입금을 입력하면 적립식 투자 효과도 계산됩니다."}},
-    {"@type": "Question","name": "매일 1%로 수익 계산 등 코인 단타 복리매매에도 유용한가요?","acceptedAnswer": {"@type": "Answer","text": "네, 매우 강력합니다. 기간 단위를 일로 설정하고 목표 수익률을 1%로 맞추면, 매일 1%로 수익 계산이 원금에 더해져 기하급수적으로 자산이 증식하는 일복리계산기(복리매매)의 위력을 눈으로 직접 확인할 수 있습니다."}},
-    {"@type": "Question","name": "세금(일반과세 15.4%)은 어떻게 적용되나요?","acceptedAnswer": {"@type": "Answer","text": "예적금이나 배당 수익의 경우 대한민국 표준 이자소득세인 15.4%가 부과됩니다. 세금 적용 옵션에서 일반과세를 선택하시면, 매 회차 발생하는 순수익에서 15.4%를 자동 공제한 세후 금액으로 재투자금을 계산하여 현실적인 수익률을 보여줍니다."}}
-  ]
-}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"복리 계산기로 코인 단타 수익 시뮬레이션도 가능한가요?","acceptedAnswer":{"@type":"Answer","text":"가능합니다. 기간 단위를 일로 선택하면 일복리 계산기로 작동합니다. 매일 1~2% 목표 수익을 설정하면 단타 복리매매 시 자산이 얼마나 증식하는지 정확히 시뮬레이션할 수 있습니다."}},{"@type":"Question","name":"세금은 어떻게 계산에 반영되나요?","acceptedAnswer":{"@type":"Answer","text":"일반과세(15.4%) 선택 시 각 회차 수익에서 이자소득세 15.4%를 차감한 세후 금액을 다음 회차 원금으로 재투자합니다."}},{"@type":"Question","name":"72의 법칙이란 무엇인가요?","acceptedAnswer":{"@type":"Answer","text":"72를 연 수익률로 나누면 자산이 2배가 되는 년수를 알 수 있습니다. 예) 연 8% 수익률이면 72÷8=9년 후 자산 2배."}}]}</script>
 <style>
-/* ── 복리 계산기 전용 추가 스타일 ── */
-.compound-wrap{display:grid;grid-template-columns:340px 1fr;gap:20px;align-items:start;}
-@media(max-width:768px){.compound-wrap{grid-template-columns:1fr;}}
-
-.input-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;position:sticky;top:70px;}
-.input-panel h3{font-size:1rem;font-weight:700;margin-bottom:18px;color:var(--text);}
-.ig{margin-bottom:14px;}
-.il{font-size:.8rem;color:var(--text-sub);margin-bottom:5px;}
-.if{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-size:.95rem;color:var(--text);outline:none;transition:border .2s;}
+.page-layout{display:grid;grid-template-columns:340px 1fr;gap:20px;align-items:start;margin-top:16px;}
+@media(max-width:800px){.page-layout{grid-template-columns:1fr;}}
+.inp-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;position:sticky;top:68px;}
+.inp-title{font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:18px;}
+.ig{margin-bottom:13px;}
+.il{font-size:.78rem;color:var(--text-sub);margin-bottom:5px;}
+.if{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-size:.93rem;color:var(--text);outline:none;transition:border .2s;}
 .if:focus{border-color:var(--accent);}
 select.if{cursor:pointer;}
-.btn-calc{width:100%;padding:14px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-sm);font-size:1rem;font-weight:700;cursor:pointer;margin-top:8px;transition:opacity .2s;}
-.btn-calc:hover{opacity:.85;}
-
-.result-panel{display:flex;flex-direction:column;gap:16px;}
-
-/* 요약 카드 */
-.summary-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
-@media(max-width:600px){.summary-cards{grid-template-columns:1fr 1fr;}}
-.scard{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;}
-.scard-label{font-size:.75rem;color:var(--text-sub);margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em;}
+.ig-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.inp-suf{position:relative;}
+.inp-suf input{padding-right:32px;}
+.inp-suf span{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:.82rem;color:var(--text-sub);pointer-events:none;}
+.btn-calc{width:100%;padding:13px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;border-radius:var(--radius-sm);font-size:.95rem;font-weight:700;cursor:pointer;margin-top:6px;transition:opacity .2s;}
+.btn-calc:hover{opacity:.88;}
+.res-area{display:flex;flex-direction:column;gap:16px;}
+.sum-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+@media(max-width:600px){.sum-cards{grid-template-columns:1fr 1fr;}}
+.scard{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 16px;}
+.scard-lbl{font-size:.75rem;color:var(--text-sub);margin-bottom:8px;}
 .scard-val{font-size:1.3rem;font-weight:800;color:var(--text);}
-.scard-val.accent{color:var(--accent);}
-.scard-val.pos{color:#4caf79;}
-.scard-sub{font-size:.8rem;color:var(--text-sub);margin-top:3px;}
-
-/* 차트 */
-.chart-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;}
-.chart-box h4{font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:14px;}
-.chart-container{position:relative;height:260px;}
-
-/* 공유 버튼 */
+.scard-val.ca{color:var(--accent);}
+.scard-val.cp{color:#4caf79;}
+.scard-sub{font-size:.8rem;color:var(--text-sub);margin-top:4px;}
+.cbox{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;}
+.boxtit{font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:14px;}
+.chart-wrap{position:relative;height:280px;}
 .share-row{display:flex;justify-content:flex-end;}
-.btn-share{background:none;border:1px solid var(--border);border-radius:20px;padding:7px 16px;font-size:.85rem;color:var(--text-sub);cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px;}
+.btn-share{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:9px 20px;font-size:.85rem;color:var(--text-sub);cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:7px;}
 .btn-share:hover{border-color:var(--accent);color:var(--accent);}
-
-/* 상세 테이블 */
-.table-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
-.table-box h4{font-size:.9rem;font-weight:600;color:var(--text);padding:16px 20px;border-bottom:1px solid var(--border);}
-.table-scroll{overflow-x:auto;max-height:400px;overflow-y:auto;}
-.detail-table{width:100%;border-collapse:collapse;font-size:.85rem;}
-.detail-table th{background:var(--bg2);color:var(--text-sub);font-weight:600;padding:10px 14px;text-align:right;white-space:nowrap;position:sticky;top:0;z-index:1;}
-.detail-table th:first-child{text-align:center;}
-.detail-table td{padding:9px 14px;border-bottom:1px solid var(--border);text-align:right;color:var(--text);}
-.detail-table td:first-child{text-align:center;color:var(--text-sub);}
-.detail-table tr:last-child td{border-bottom:none;}
-.detail-table tr:hover td{background:rgba(91,127,254,.06);}
-.td-pos{color:#4caf79;font-weight:600;}
-.td-acc{color:var(--accent);font-weight:700;}
-
-/* FAQ */
-.faq-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
-.faq-box h4{font-size:.9rem;font-weight:600;color:var(--text);padding:16px 20px;border-bottom:1px solid var(--border);}
-.faq-item{border-bottom:1px solid var(--border);}
-.faq-item:last-child{border-bottom:none;}
-.faq-q{width:100%;background:none;border:none;text-align:left;padding:16px 20px;font-size:.9rem;font-weight:600;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;}
-.faq-q:hover{background:rgba(91,127,254,.05);}
-.faq-arrow{font-size:.75rem;color:var(--text-sub);transition:transform .2s;flex-shrink:0;}
-.faq-item.open .faq-arrow{transform:rotate(180deg);}
-.faq-a{display:none;padding:0 20px 16px;font-size:.88rem;color:var(--text-sub);line-height:1.75;}
-.faq-item.open .faq-a{display:block;}
+.tbox{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.tscroll{overflow-x:auto;max-height:420px;overflow-y:auto;}
+.dtbl{width:100%;border-collapse:collapse;font-size:.84rem;white-space:nowrap;}
+.dtbl thead th{background:var(--bg2);color:var(--text-sub);font-weight:600;padding:11px 16px;text-align:right;position:sticky;top:0;z-index:1;border-bottom:1px solid var(--border);}
+.dtbl thead th:first-child{text-align:center;}
+.dtbl tbody td{padding:10px 16px;text-align:right;color:var(--text);border-bottom:1px solid var(--border);}
+.dtbl tbody td:first-child{text-align:center;color:var(--text-sub);}
+.dtbl tbody tr:last-child td{border-bottom:none;}
+.dtbl tbody tr:hover td{background:rgba(91,127,254,.05);}
+.tg{color:#4caf79;font-weight:600;}
+.tb{color:var(--accent);font-weight:700;}
+.faq-section{display:flex;flex-direction:column;gap:10px;}
+.faq-head{font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:2px;}
+.faq-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 44px 18px 20px;position:relative;}
+.faq-card.gone{display:none;}
+.faq-q{font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.5;}
+.faq-a{font-size:.87rem;color:var(--text-sub);line-height:1.8;}
 .faq-a strong{color:var(--text);}
-
-.empty-state{text-align:center;padding:40px 20px;color:var(--text-sub);}
-.empty-icon{font-size:2rem;margin-bottom:8px;}
+.faq-x{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--text-muted);font-size:.85rem;cursor:pointer;padding:3px 7px;border-radius:4px;transition:color .2s;}
+.faq-x:hover{color:var(--text);}
+.guide-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;}
+.guide-tit{font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:14px;}
+.guide-body{font-size:.87rem;color:var(--text-sub);line-height:1.9;}
+.guide-body strong{color:var(--text);}
+.fml-b{font-family:'Courier New',monospace;background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:10px 16px;display:block;margin:10px 0;font-size:.83rem;color:var(--text);line-height:1.8;}
+.empty-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:56px 20px;text-align:center;color:var(--text-sub);}
+.empty-ico{font-size:2.4rem;margin-bottom:10px;}
 </style>
 </head>
 <body>
@@ -128,8 +96,7 @@ select.if{cursor:pointer;}
   </div>
 </nav>
 
-<div class="sec" style="margin-top:24px;">
-  <!-- 탭 -->
+<div class="sec" style="margin-top:20px;">
   <div class="tabs">
     <a href="compound.html" class="tab active"><span class="tab-icon">📈</span>복리 계산기</a>
     <a href="return.html" class="tab"><span class="tab-icon">💰</span>수익률</a>
@@ -141,157 +108,101 @@ select.if{cursor:pointer;}
     <a href="percent.html" class="tab"><span class="tab-icon">%</span>퍼센트</a>
   </div>
 
-  <!-- 메인 레이아웃 -->
-  <div class="compound-wrap" style="margin-top:16px;">
-
+  <div class="page-layout">
     <!-- 입력 패널 -->
-    <div class="input-panel">
-      <h3>📈 투자 설정</h3>
-      <div class="ig"><div class="il">초기 투자금 (원)</div><input type="number" id="p" class="if" value="10000000" placeholder="10,000,000"></div>
-      <div class="ig"><div class="il">추가 납입 (매 회차)</div><input type="number" id="m" class="if" value="0" placeholder="0"></div>
-      <div class="ig" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-        <div><div class="il">계산 기간</div><input type="number" id="y" class="if" value="20" placeholder="20"></div>
+    <div class="inp-panel">
+      <div class="inp-title">투자 설정</div>
+      <div class="ig"><div class="il">초기 투자 원금</div>
+        <div class="inp-suf"><input type="number" id="p" class="if" value="10000000"><span>원</span></div></div>
+      <div class="ig"><div class="il">추가 납입 (매 회차)</div>
+        <div class="inp-suf"><input type="number" id="m" class="if" value="0"><span>원</span></div></div>
+      <div class="ig ig-row">
+        <div><div class="il">계산 기간</div><input type="number" id="y" class="if" value="30"></div>
         <div><div class="il">기간 단위</div>
-          <select id="period-unit" class="if">
-            <option value="year">년</option>
-            <option value="month">개월</option>
-            <option value="day">일</option>
+          <select id="unit" class="if">
+            <option value="y">년</option>
+            <option value="mo">개월</option>
+            <option value="d" selected>일</option>
           </select>
         </div>
       </div>
-      <div class="ig"><div class="il">목표 수익률 (1회차 당 %)</div><input type="number" id="r" class="if" value="10" step="0.1" placeholder="10"></div>
+      <div class="ig"><div class="il">목표 수익률 (1회차 당 %)</div>
+        <div class="inp-suf"><input type="number" id="r" class="if" value="2.5" step="0.1"><span>%</span></div></div>
       <div class="ig"><div class="il">세금 적용</div>
-        <select id="tax-type" class="if">
+        <select id="tax" class="if">
           <option value="0">비과세 (0%)</option>
           <option value="0.154" selected>일반과세 (15.4%)</option>
         </select>
       </div>
-      <button class="btn-calc" onclick="calcCompound()">계산하기</button>
+      <button class="btn-calc" onclick="run()">계산하기</button>
     </div>
 
-    <!-- 결과 패널 -->
-    <div class="result-panel">
-
-      <!-- 빈 상태 -->
-      <div class="empty-state" id="empty-state">
-        <div class="empty-icon">📈</div>
+    <!-- 결과 -->
+    <div class="res-area">
+      <div class="empty-box" id="empty-s">
+        <div class="empty-ico">📈</div>
         <div>투자 조건을 입력하고 계산하기를 눌러주세요</div>
       </div>
-
-      <!-- 결과 (숨김) -->
-      <div id="result-area" style="display:none;">
-
+      <div id="rb" style="display:none;flex-direction:column;gap:16px;">
         <!-- 요약 카드 -->
-        <div class="summary-cards">
-          <div class="scard">
-            <div class="scard-label">최종 자산 (세후)</div>
-            <div class="scard-val accent" id="s-final">—</div>
-          </div>
-          <div class="scard">
-            <div class="scard-label">총 투자원금</div>
-            <div class="scard-val" id="s-total">—</div>
-          </div>
-          <div class="scard">
-            <div class="scard-label">누적 순수익 (세후)</div>
-            <div class="scard-val pos" id="s-profit">—</div>
-            <div class="scard-sub" id="s-rate">—</div>
-          </div>
+        <div class="sum-cards">
+          <div class="scard"><div class="scard-lbl">최종 자산 (세후)</div><div class="scard-val ca" id="vf">—</div></div>
+          <div class="scard"><div class="scard-lbl">총 투자 원금</div><div class="scard-val" id="vc">—</div></div>
+          <div class="scard"><div class="scard-lbl">누적 순수익 (세후)</div><div class="scard-val cp" id="vp">—</div><div class="scard-sub" id="vr">—</div></div>
         </div>
-
-        <!-- 공유 버튼 -->
-        <div class="share-row">
-          <button class="btn-share" onclick="shareResult()">🔗 이 계산 결과 공유하기</button>
-        </div>
-
         <!-- 차트 -->
-        <div class="chart-box">
-          <h4>📊 자산 성장 그래프</h4>
-          <div class="chart-container"><canvas id="compound-chart"></canvas></div>
-        </div>
-
-        <!-- 상세 테이블 -->
-        <div class="table-box">
-          <h4>📋 회차별 상세 내역</h4>
-          <div class="table-scroll">
-            <table class="detail-table">
-              <thead>
-                <tr>
-                  <th>회차</th>
-                  <th>총 투자원금</th>
-                  <th>해당 회차 수익 (세전)</th>
-                  <th>누적 순수익 (세후)</th>
-                  <th>총 자산 (세후)</th>
-                  <th>수익률</th>
-                </tr>
-              </thead>
-              <tbody id="detail-tbody"></tbody>
+        <div class="cbox"><div class="boxtit">📊 자산 성장 그래프</div><div class="chart-wrap"><canvas id="mc"></canvas></div></div>
+        <!-- 테이블 -->
+        <div class="tbox">
+          <div class="boxtit" style="padding:16px 20px 12px;margin:0;">📋 상세 내역</div>
+          <div class="tscroll">
+            <table class="dtbl">
+              <thead><tr><th>회차</th><th>총 투자원금</th><th>해당 회차 수익 (세전)</th><th>누적 순수익 (세후)</th><th>총 자산 (세후)</th><th>수익률</th></tr></thead>
+              <tbody id="tb"></tbody>
             </table>
           </div>
         </div>
-
-        <!-- FAQ -->
-        <div class="faq-box">
-          <h4>❓ 자주 묻는 질문 (FAQ)</h4>
-          <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)">
-              Q. 매일 1%로 수익 계산 등 코인 단타 복리매매에도 유용한가요? <span class="faq-arrow">▼</span>
-            </button>
-            <div class="faq-a">A. 네, 매우 강력합니다. 코인이나 주식 단타(데이트레이딩) 시 <strong>'기간 단위'를 '일'</strong>로 설정하고 목표 수익률을 1%로 맞추면, <strong>매일 1%로 수익 계산</strong>이 원금에 더해져 기하급수적으로 자산이 증식하는 <strong>일복리계산기(복리매매)</strong>의 위력을 눈으로 직접 확인할 수 있습니다.</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)">
-              Q. 장기 투자를 위한 연복리 계산기로도 활용할 수 있나요? <span class="faq-arrow">▼</span>
-            </button>
-            <div class="faq-a">A. 물론입니다. S&P 500 ETF나 배당주 같은 장기 투자를 계획 중이시라면, <strong>'기간 단위'를 '년'</strong>으로 설정하여 <strong>연복리 계산기</strong>로 완벽하게 활용할 수 있습니다. 매년 발생하는 배당금을 재투자하는 시나리오를 통해 10년, 20년 후의 놀라운 자산 성장을 확인해 보세요.</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)">
-              Q. 일복리계산기와 월복리 계산기는 어떻게 다르게 쓰나요? <span class="faq-arrow">▼</span>
-            </button>
-            <div class="faq-a">A. 주식이나 코인의 단기 매매 시에는 <strong>'일'</strong>로 설정하여 <strong>일복리계산기</strong>로, 매월 급여나 배당금을 재투자하는 중장기 투자 시에는 <strong>'개월'</strong> 단위로 설정하여 <strong>월복리 계산기</strong>로 활용하시면 투자 성향에 맞춘 복리 효과를 정확히 파악할 수 있습니다.</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)">
-              Q. 추가 납입을 활용한 '적립식 복리계산기'로 쓸 수 있나요? <span class="faq-arrow">▼</span>
-            </button>
-            <div class="faq-a">A. 네, 완벽히 지원합니다. <strong>'추가 납입'</strong> 항목에 매월(또는 매일) 추가로 투자할 금액을 입력하시면, 원금과 수익금이 합쳐진 금액에 추가 납입금이 더해져 복리로 굴러가는 <strong>적립식 투자 수익률</strong>을 차트와 함께 확인할 수 있습니다.</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)">
-              Q. 세금(일반과세 15.4%)은 어떻게 적용되나요? <span class="faq-arrow">▼</span>
-            </button>
-            <div class="faq-a">A. 예적금이나 배당 수익의 경우 대한민국 표준 이자소득세인 <strong>15.4%</strong>가 부과됩니다. <strong>'세금 적용'</strong> 옵션에서 일반과세를 선택하시면, 매 회차 발생하는 순수익에서 15.4%를 자동 공제한 세후 금액으로 재투자금을 계산하여 현실적인 수익률을 보여줍니다.</div>
+        <!-- 공유 -->
+        <div class="share-row"><button class="btn-share" onclick="share()"><span>🔗</span> 이 계산 결과 공유하기</button></div>
+        <!-- 가이드 -->
+        <div class="guide-box">
+          <div class="guide-tit">📌 Calqio 복리계산기 — 제대로 쓰는 법</div>
+          <div class="guide-body">
+            복리는 수익이 원금에 합쳐져 <strong>이자가 이자를 낳는</strong> 구조입니다. 단리와 달리 시간이 길수록 자산 증가 속도가 빨라집니다.
+            <span class="fml-b">최종 자산 = 원금 × (1 + 회차 수익률)^총 회차
+예) 1,000만원 × (1.025)^30 ≈ 2,098만원 (세전, 일복리 30일)</span>
+            <strong>72의 법칙:</strong> 72 ÷ 연 수익률(%) = 자산이 2배 되는 년수. 연 8% → 약 9년 후 2배.
+            <span class="fml-b">72 ÷ 8(%) = 9년</span>
+            <strong>기간 단위 활용법:</strong> 코인·주식 단타 시뮬레이션은 '일', 적금·배당 투자는 '개월'·'년'으로 설정하세요. 추가 납입란에 금액을 넣으면 <strong>적립식 복리 효과</strong>도 바로 확인할 수 있습니다.
           </div>
         </div>
-
-      </div><!-- /result-area -->
-    </div><!-- /result-panel -->
-  </div><!-- /compound-wrap -->
-
-  <!-- 가이드 -->
-  <section class="guide" style="margin-top:32px;">
-    <span class="gtag">금융 지식 가이드</span>
-    <h2>복리 계산기 완벽 가이드</h2>
-    <p>복리(Compound Interest)는 원금에 이자가 붙고, 그 이자에 또 이자가 붙는 방식입니다. 아인슈타인은 복리를 세계 8대 불가사의라고 칭했습니다. 시간이 지날수록 자산이 기하급수적으로 증가하는 것이 단리와의 핵심 차이입니다.</p>
-    <h3>복리 계산 공식</h3>
-    <div class="fml">A = P × (1 + r)ⁿ
-A: 최종 자산 | P: 원금 | r: 회차 수익률(소수) | n: 총 회차 수</div>
-    <h3>72의 법칙</h3>
-    <div class="fml">자산이 2배 되는 기간(년) = 72 ÷ 연 수익률(%)
-예: 연 8% → 9년 후 자산 2배</div>
-    <h3>적립식 투자의 효과</h3>
-    <p>매월 50만 원씩 20년간 연 8% 복리 투자 시, 총 납입금 1억 2,000만 원이 약 2억 9,000만 원으로 불어납니다. 일찍 시작할수록 복리 기간이 길어져 수익이 극대화됩니다.</p>
-    <div class="tip">💡 월 추가 납입금 칸을 활용하세요. 높은 수익률을 추구하는 것보다 꾸준한 적립이 훨씬 강력합니다.</div>
-  </section>
+        <!-- FAQ -->
+        <div class="faq-section">
+          <div class="faq-head">자주 묻는 질문 (FAQ)</div>
+          <div class="faq-card" id="fq0"><button class="faq-x" onclick="xfaq(0)">✕</button>
+            <div class="faq-q">Q. 코인 단타 복리매매 시뮬레이션도 가능한가요?</div>
+            <div class="faq-a">가능합니다. 기간 단위를 <strong>'일'</strong>로 선택하면 <strong>일복리 계산기</strong>로 작동합니다. 매일 1~2% 목표 수익을 입력하면 복리매매 시 자산 증식 효과를 정확히 시뮬레이션할 수 있습니다. 단, 실제 매매에서는 수수료·손실 회차도 고려해야 합니다.</div></div>
+          <div class="faq-card" id="fq1"><button class="faq-x" onclick="xfaq(1)">✕</button>
+            <div class="faq-q">Q. 세금(15.4%)은 어떤 방식으로 반영되나요?</div>
+            <div class="faq-a"><strong>일반과세(15.4%)</strong> 선택 시 각 회차 수익에서 이자소득세를 차감한 <strong>세후 순수익만 재투자</strong>합니다. 실제 예적금·배당 투자와 동일한 방식으로, 세전 계산과의 차이를 직접 비교해보세요.</div></div>
+          <div class="faq-card" id="fq2"><button class="faq-x" onclick="xfaq(2)">✕</button>
+            <div class="faq-q">Q. 거치식 vs 적립식, 어떤 게 더 유리한가요?</div>
+            <div class="faq-a">목돈이 있다면 <strong>거치식이 복리 효과가 큽니다.</strong> 매월 소득이 발생하거나 리스크를 분산하고 싶다면 <strong>적립식</strong>이 유리합니다. '추가 납입' 항목에 금액을 입력하면 두 방식을 즉시 비교할 수 있습니다.</div></div>
+          <div class="faq-card" id="fq3"><button class="faq-x" onclick="xfaq(3)">✕</button>
+            <div class="faq-q">Q. 72의 법칙을 실제 투자에서 어떻게 활용하나요?</div>
+            <div class="faq-a">72를 연 수익률로 나누면 <strong>자산이 2배 되는 기간</strong>을 빠르게 추정할 수 있습니다. 예) 연 6%면 12년, 연 12%면 6년. 수익률 차이가 장기적으로 얼마나 큰 결과를 만드는지 실감하는 데 유용합니다.</div></div>
+          <div class="faq-card" id="fq4"><button class="faq-x" onclick="xfaq(4)">✕</button>
+            <div class="faq-q">Q. 월복리와 연복리의 실제 수익 차이는 얼마나 되나요?</div>
+            <div class="faq-a">복리 주기가 짧을수록 실질 수익이 높아집니다. 연 12% 수익률 기준으로 <strong>연복리(1회/년)보다 월복리(12회/년)가 최종 자산이 더 큽니다.</strong> 기간 단위를 바꿔가며 직접 숫자로 비교해보세요.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <footer>
   <div>금융 IQ를 높이세요 — 8종 금융 계산기</div>
-  <div style="margin-top:8px">
-    <a href="/about.html">소개</a>
-    <a href="/privacy.html">개인정보처리방침</a>
-    <a href="/contact.html">문의</a>
-  </div>
+  <div style="margin-top:8px"><a href="/about.html">소개</a><a href="/privacy.html">개인정보처리방침</a><a href="/contact.html">문의</a></div>
 </footer>
 <div id="toast"></div>
 
@@ -302,172 +213,67 @@ function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';
 function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
 document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
 
-// URL 파라미터로 값 복원
+let ci=null;
+const w=n=>Math.round(Math.abs(n)).toLocaleString()+'원';
+const pc=n=>(isFinite(n)?n.toFixed(2):'0.00')+'%';
+const ul=()=>({'y':'년','mo':'개월','d':'일'}[document.getElementById('unit').value]||'일');
+
+function run(){
+  const P=+document.getElementById('p').value||0;
+  const M=+document.getElementById('m').value||0;
+  const Y=+document.getElementById('y').value||0;
+  const R=+document.getElementById('r').value/100||0;
+  const T=+document.getElementById('tax').value||0;
+  if(!P||!R||!Y){toast('값을 모두 입력해주세요');return;}
+  const L=ul();
+  const rows=[];let bal=P,contrib=P,cum=0;
+  for(let i=1;i<=Y;i++){
+    const gr=bal*R;const net=gr*(1-T);
+    cum+=net;bal=bal+net+(i>1?M:0);contrib+=i>1?M:0;
+    rows.push({i,contrib,gr,cum,bal,rate:cum/contrib*100});
+  }
+  document.getElementById('vf').textContent=w(bal);
+  document.getElementById('vc').textContent=w(contrib);
+  document.getElementById('vp').textContent=w(cum);
+  document.getElementById('vr').textContent='수익률 '+pc(cum/contrib*100);
+  document.getElementById('tb').innerHTML=rows.map(r=>`<tr><td>${r.i}${L}</td><td>${w(r.contrib)}</td><td class="tg">${w(r.gr)}</td><td class="tg">${w(r.cum)}</td><td class="tb">${w(r.bal)}</td><td class="tg">${pc(r.rate)}</td></tr>`).join('');
+  const dark=!document.body.classList.contains('light-mode');
+  const gc=dark?'rgba(255,255,255,.07)':'rgba(0,0,0,.07)';
+  const tc=dark?'#777':'#666';
+  if(ci)ci.destroy();
+  ci=new Chart(document.getElementById('mc').getContext('2d'),{
+    type:'line',
+    data:{labels:rows.map(r=>r.i+L),datasets:[
+      {label:'총 자산 (복리 효과)',data:rows.map(r=>r.bal),borderColor:'#4caf79',backgroundColor:'rgba(76,175,121,.1)',fill:true,tension:.4,pointRadius:rows.length>60?0:3,pointHoverRadius:6,borderWidth:2.5},
+      {label:'누적 투자원금',data:rows.map(r=>r.contrib),borderColor:'rgba(91,127,254,.45)',backgroundColor:'transparent',fill:false,tension:.4,pointRadius:0,borderWidth:1.5,borderDash:[6,4]}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      plugins:{legend:{labels:{color:tc,font:{size:11},boxWidth:14,padding:16}},tooltip:{callbacks:{label:c=>' '+c.dataset.label+': '+Math.round(c.raw).toLocaleString()+'원'}}},
+      scales:{x:{grid:{color:gc},ticks:{color:tc,maxTicksLimit:12,font:{size:10}}},y:{grid:{color:gc},ticks:{color:tc,font:{size:10},callback:v=>{if(v>=100000000)return (v/100000000).toFixed(1)+'억';return Math.round(v/10000)+'만';}}}}}
+  });
+  document.getElementById('empty-s').style.display='none';
+  const rb=document.getElementById('rb');rb.style.display='flex';rb.style.flexDirection='column';rb.style.gap='16px';
+}
+
+function share(){
+  const ps=new URLSearchParams({p:document.getElementById('p').value,m:document.getElementById('m').value,y:document.getElementById('y').value,r:document.getElementById('r').value,u:document.getElementById('unit').value,t:document.getElementById('tax').value});
+  navigator.clipboard.writeText(location.origin+location.pathname+'?'+ps).then(()=>toast('링크 복사됨 🔗'));
+}
+
+function xfaq(n){const el=document.getElementById('fq'+n);if(el)el.classList.add('gone');}
+
 (function(){
-  const p = new URLSearchParams(location.search);
-  if(p.get('P')) document.getElementById('p').value = p.get('P');
-  if(p.get('M')) document.getElementById('m').value = p.get('M');
-  if(p.get('Y')) document.getElementById('y').value = p.get('Y');
-  if(p.get('R')) document.getElementById('r').value = p.get('R');
-  if(p.get('U')) document.getElementById('period-unit').value = p.get('U');
-  if(p.get('T')) document.getElementById('tax-type').value = p.get('T');
-  if(p.get('P')) calcCompound();
+  const q=new URLSearchParams(location.search);
+  if(q.get('p'))document.getElementById('p').value=q.get('p');
+  if(q.get('m'))document.getElementById('m').value=q.get('m');
+  if(q.get('y'))document.getElementById('y').value=q.get('y');
+  if(q.get('r'))document.getElementById('r').value=q.get('r');
+  if(q.get('u'))document.getElementById('unit').value=q.get('u');
+  if(q.get('t'))document.getElementById('tax').value=q.get('t');
+  if(q.get('p'))run();
 })();
 
-let chartInstance = null;
-
-function fmt(n){return Math.round(Math.abs(n)).toLocaleString()+'원';}
-function pct(n){return (isFinite(n)?n.toFixed(2):'0.00')+'%';}
-
-function getPeriodLabel(unit){
-  return {year:'년',month:'개월',day:'일'}[unit]||'년';
-}
-
-function calcCompound(){
-  const P = +document.getElementById('p').value||0;
-  const M = +document.getElementById('m').value||0;
-  const Y = +document.getElementById('y').value||0;
-  const R = +document.getElementById('r').value/100||0;
-  const unit = document.getElementById('period-unit').value;
-  const taxRate = +document.getElementById('tax-type').value||0;
-
-  if(!P||!R||!Y){toast('값을 모두 입력해주세요');return;}
-
-  const label = getPeriodLabel(unit);
-  const rows = [];
-  let bal = P;
-  let totalContrib = P;
-  let totalNetProfit = 0;
-
-  for(let i=1;i<=Y;i++){
-    const grossProfit = bal * R;
-    const tax = grossProfit * taxRate;
-    const netProfit = grossProfit - tax;
-    totalNetProfit += netProfit;
-    bal = bal + netProfit + M;
-    totalContrib += (i>1?M:0);
-    rows.push({
-      period: i,
-      contrib: totalContrib,
-      grossProfit: grossProfit,
-      netCumProfit: totalNetProfit,
-      total: bal,
-      rate: totalNetProfit/totalContrib*100
-    });
-  }
-
-  // 요약
-  document.getElementById('s-final').textContent = fmt(bal);
-  document.getElementById('s-total').textContent = fmt(totalContrib);
-  document.getElementById('s-profit').textContent = fmt(totalNetProfit);
-  document.getElementById('s-rate').textContent = '수익률 ' + pct(totalNetProfit/totalContrib*100);
-
-  // 테이블
-  const tbody = document.getElementById('detail-tbody');
-  tbody.innerHTML = rows.map(r=>`
-    <tr>
-      <td>${r.period}${label}</td>
-      <td>${fmt(r.contrib)}</td>
-      <td class="td-pos">${fmt(r.grossProfit)}</td>
-      <td class="td-pos">${fmt(r.netCumProfit)}</td>
-      <td class="td-acc">${fmt(r.total)}</td>
-      <td class="td-pos">${pct(r.rate)}</td>
-    </tr>
-  `).join('');
-
-  // 차트
-  const labels = rows.map(r=>r.period+label);
-  const totalData = rows.map(r=>r.total);
-  const contribData = rows.map(r=>r.contrib);
-
-  const isDark = !document.body.classList.contains('light-mode');
-  const gridColor = isDark?'rgba(255,255,255,.08)':'rgba(0,0,0,.08)';
-  const textColor = isDark?'#888':'#666';
-
-  if(chartInstance) chartInstance.destroy();
-  const ctx = document.getElementById('compound-chart').getContext('2d');
-  chartInstance = new Chart(ctx,{
-    type:'line',
-    data:{
-      labels,
-      datasets:[
-        {
-          label:'총 자산 (복리 효과)',
-          data:totalData,
-          borderColor:'#5b7fee',
-          backgroundColor:'rgba(91,127,254,.12)',
-          fill:true,
-          tension:.4,
-          pointRadius:3,
-          pointHoverRadius:6,
-          borderWidth:2.5
-        },
-        {
-          label:'누적 투자원금',
-          data:contribData,
-          borderColor:'rgba(255,255,255,.25)',
-          backgroundColor:'transparent',
-          fill:false,
-          tension:.4,
-          pointRadius:0,
-          borderWidth:1.5,
-          borderDash:[5,5]
-        }
-      ]
-    },
-    options:{
-      responsive:true,
-      maintainAspectRatio:false,
-      interaction:{mode:'index',intersect:false},
-      plugins:{
-        legend:{
-          labels:{color:textColor,font:{size:11},boxWidth:12,padding:16}
-        },
-        tooltip:{
-          callbacks:{
-            label:ctx=>' '+ctx.dataset.label+': '+Math.round(ctx.raw).toLocaleString()+'원'
-          }
-        }
-      },
-      scales:{
-        x:{grid:{color:gridColor},ticks:{color:textColor,maxTicksLimit:10,font:{size:10}}},
-        y:{grid:{color:gridColor},ticks:{color:textColor,font:{size:10},callback:v=>Math.round(v/10000)+'만'}}
-      }
-    }
-  });
-
-  // 표시
-  document.getElementById('empty-state').style.display='none';
-  document.getElementById('result-area').style.display='flex';
-  document.getElementById('result-area').style.flexDirection='column';
-  document.getElementById('result-area').style.gap='16px';
-}
-
-function shareResult(){
-  const params = new URLSearchParams({
-    P: document.getElementById('p').value,
-    M: document.getElementById('m').value,
-    Y: document.getElementById('y').value,
-    R: document.getElementById('r').value,
-    U: document.getElementById('period-unit').value,
-    T: document.getElementById('tax-type').value
-  });
-  const url = location.origin+location.pathname+'?'+params.toString();
-  navigator.clipboard.writeText(url).then(()=>toast('링크 복사됨 🔗'));
-}
-
-function toggleFaq(btn){
-  const item = btn.closest('.faq-item');
-  item.classList.toggle('open');
-}
-
-// 입력값 변경 시 자동 계산
-['p','m','y','r','period-unit','tax-type'].forEach(id=>{
-  document.getElementById(id)?.addEventListener('change',calcCompound);
-});
-
-// 초기 계산
-calcCompound();
+run();
 </script>
 </body>
 </html>
