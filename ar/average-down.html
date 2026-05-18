@@ -53,6 +53,9 @@
   }
 }
 </script>
+<meta name="google-site-verification" content="6II_gyhSkNgRi3bW9SNuoHxRlMBvBI2kJGn3GHCLsrg">
+<meta name="google-adsense-account" content="ca-pub-8205853473793766">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
 </head>
 <body>
 <nav>
@@ -75,10 +78,12 @@
 <div class="cf">
   <div class="ctitle"><strong>⬇️ حاسبة خفض المتوسط</strong></div>
   <div class="ci">
-    <div class="inp"><div class="ig"><div class="il">متوسط السعر الحالي</div><input type="number" id="ab" class="if" value="50"></div>
-<div class="ig"><div class="il">الكمية الحالية</div><input type="number" id="aq" class="if" value="100"></div>
-<div class="ig"><div class="il">سعر الشراء الجديد</div><input type="number" id="np" class="if" value="40"></div>
-<div class="ig"><div class="il">الكمية الإضافية</div><input type="number" id="nq" class="if" value="100"></div>
+    <div class="inp">
+<div class="rt-hint"><span class="rt-dot"></span> تحديث النتائج تلقائياً عند الإدخال</div>
+<div class="ig"><div class="il">متوسط السعر الحالي</div><input type="number" id="ab" class="if" oninput="calcD()" value="50"></div>
+<div class="ig"><div class="il">الكمية الحالية</div><input type="number" id="aq" class="if" oninput="calcD()" value="100"></div>
+<div class="ig"><div class="il">سعر الشراء الجديد</div><input type="number" id="np" class="if" oninput="calcD()" value="40"></div>
+<div class="ig"><div class="il">الكمية الإضافية</div><input type="number" id="nq" class="if" oninput="calcD()" value="100"><div class="qbtns"><button class="qb" onclick="addInt("nq",-50)">-50سهم</button><button class="qb" onclick="addInt("nq",50)">+50سهم</button><button class="qb" onclick="addInt("nq",100)">+100سهم</button></div></div>
 <button class="btn" onclick="calcD()">احسب</button></div>
     <div class="out">
       <div class="es" id="e2"><div class="ei">⬇️</div><div>أدخل القيم</div></div>
@@ -106,6 +111,9 @@
 function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
 function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
 document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+
+/* calqio-init */
+document.addEventListener("DOMContentLoaded",function(){calcD()});
 </script>
 </body>
 </html>

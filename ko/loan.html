@@ -3,102 +3,120 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>대출이자 계산기 — 원리금균등상환 계산 | Calqio</title>
-<meta name="description" content="대출금액, 연이율, 기간을 입력해 월 납입액과 총 이자를 즉시 계산하세요.">
+<title>대출이자 계산기 | 원리금균등·원금균등·만기일시 — Calqio</title>
+<meta name="description" content="대출이자 계산기로 월 상환금과 총 이자를 미리 확인하세요. 원리금균등·원금균등·만기일시 3가지 상환 방식, 연도별 상환 스케줄 제공.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calqio.com/ko/loan.html">
+<meta property="og:title" content="대출이자 계산기 | 원리금균등·원금균등·만기일시 — Calqio">
+<meta property="og:description" content="대출이자 계산기로 월 상환금과 총 이자를 미리 확인하세요. 원리금균등·원금균등·만기일시 3가지 상환 방식, 연도별 상환 스케줄 제공.">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="ko" href="https://calqio.com/ko/loan.html">
+<link rel="alternate" hreflang="en" href="https://calqio.com/en/loan.html">
+<link rel="alternate" hreflang="ja" href="https://calqio.com/ja/loan.html">
+<link rel="alternate" hreflang="zh" href="https://calqio.com/zh/loan.html">
+<link rel="alternate" hreflang="ar" href="https://calqio.com/ar/loan.html">
+<meta name="google-adsense-account" content="ca-pub-8205853473793766">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
+<script>window.LC={"cur":"","suf":"원","darkBtn":"🌙 다크모드"}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <link rel="stylesheet" href="../style.css">
-<script>window.LC={"cur":"","suf":"원","sh2":"주","tf":"값을 모두 입력해주세요","tc":"링크 복사됨 🔗","darkBtn":"🌙 다크모드","lightBtn":"☀️ 라이트모드"}</script>
-
-  <link rel="canonical" href="https://calqio.com/ko/loan.html">
-  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/loan.html">
-  <link rel="alternate" hreflang="en" href="https://calqio.com/en/loan.html">
-  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/loan.html">
-  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/loan.html">
-  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/loan.html">
-  <link rel="alternate" hreflang="x-default" href="https://calqio.com/en/loan.html">
-
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://calqio.com/ko/loan.html">
-  <meta property="og:title" content="대출이자 계산기 | Calqio">
-  <meta property="og:description" content="대출금액, 연이율, 기간을 입력해 월 납입액과 총 이자를 계산합니다.">
-  <meta property="og:image" content="https://calqio.com/og-ko.png">
-  <meta property="og:site_name" content="Calqio">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="대출이자 계산기 | Calqio">
-  <meta name="twitter:description" content="대출금액, 연이율, 기간을 입력해 월 납입액과 총 이자를 계산합니다.">
-  <meta name="twitter:image" content="https://calqio.com/og-ko.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "대출이자 계산기",
-  "description": "대출금액, 연이율, 기간을 입력해 월 납입액과 총 이자를 계산합니다.",
-  "url": "https://calqio.com/ko/loan.html",
-  "applicationCategory": "FinanceApplication",
-  "operatingSystem": "Web",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "KRW"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "ratingCount": "127",
-    "bestRating": "5"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Calqio",
-    "url": "https://calqio.com"
-  }
-}
-</script>
 </head>
-<body>
-<nav>
+<body><nav>
   <a href="/ko/" class="logo">Calq<span>io</span></a>
   <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 다크모드</button>
   <div class="lw">
     <button class="lc" id="lBtn" onclick="toggleMenu()">
       <span class="fl">🇰🇷</span><span>한국어</span><span class="arr">▼</span>
     </button>
-    <div class="ld" id="lDrop"><div class="lo active" onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
-<div class="lo " onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
-<div class="lo " onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
-<div class="lo " onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
-<div class="lo " onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
-</div>
+    <div class="ld" id="lDrop"><div class="lo active" onclick="location.href='/ko/'"><span class="fl">🇰🇷</span>한국어</div><div class="lo" onclick="location.href='/en/'"><span class="fl">🇺🇸</span>English</div><div class="lo" onclick="location.href='/ja/'"><span class="fl">🇯🇵</span>日本語</div><div class="lo" onclick="location.href='/zh/'"><span class="fl">🇨🇳</span>中文</div><div class="lo" onclick="location.href='/ar/'"><span class="fl">🇸🇦</span>العربية</div></div>
   </div>
 </nav>
-<div class="sec" style="margin-top:24px;">
-<div class="tabs"><a href="compound.html" class="tab "><span class="tab-icon">📈</span>복리 계산기</a><a href="return.html" class="tab "><span class="tab-icon">💰</span>수익률 계산기</a><a href="average-down.html" class="tab "><span class="tab-icon">⬇️</span>물타기 계산기</a><a href="loan.html" class="tab active"><span class="tab-icon">🏦</span>대출이자 계산기</a><a href="dividend.html" class="tab "><span class="tab-icon">💵</span>배당수익률 계산기</a><a href="target.html" class="tab "><span class="tab-icon">🎯</span>목표가 계산기</a><a href="tax.html" class="tab "><span class="tab-icon">📋</span>양도세 계산기</a><a href="percent.html" class="tab "><span class="tab-icon">%</span>퍼센트 계산기</a></div>
-<div class="cf">
-  <div class="ctitle"><strong>🏦 대출이자 계산기</strong></div>
-  <div class="ci">
-    <div class="inp"><div class="ig"><div class="il">대출 금액 (원)</div><input type="number" id="loan" class="if" value="300000000"></div>
-<div class="ig"><div class="il">연 이율 (%)</div><input type="number" id="lrate" class="if" value="4.5"></div>
-<div class="ig"><div class="il">대출 기간 (년)</div><input type="number" id="lterm" class="if" value="30"></div>
-<button class="btn" onclick="calcL()">계산하기</button></div>
-    <div class="out">
-      <div class="es" id="e3"><div class="ei">🏦</div><div>수치를 입력하세요</div></div>
-      <div id="r3" style="display:none"><div class="rm"><div class="rl">월 상환액</div><div class="rv rm" id="v-monthly">—</div></div><div class="rg"><div class="ri"><div class="ril">총 상환액</div><div class="riv " id="v-totalrep">—</div></div><div class="ri"><div class="ril">총 이자</div><div class="riv neg" id="v-totalint">—</div></div></div></div>
+<div style="max-width:880px;margin:0 auto;padding:20px 18px 10px">
+  <h1 style="font-size:clamp(19px,3.5vw,28px);font-weight:800;letter-spacing:-1px;margin-bottom:6px">
+    대출이자 계산기<br><em style="color:var(--accent);font-style:normal">스마트한 대출 관리의 시작</em>
+  </h1>
+  <div style="font-size:10px;color:var(--text-muted);display:flex;align-items:center;gap:5px">
+    <span style="width:5px;height:5px;border-radius:50%;background:var(--pos);display:inline-block;animation:blink 1.5s infinite"></span>
+    숫자를 바꾸면 실시간으로 계산됩니다
+  </div>
+</div>
+<div style="max-width:880px;margin:0 auto;padding:6px 18px 8px">
+  <div style="display:flex;gap:3px;background:var(--bg2);padding:3px;border-radius:10px;border:1px solid var(--border);margin-bottom:7px">
+    <button class="btn" id="lm0" onclick="setM(0)" style="flex:1;padding:8px;border-radius:8px;border:none;background:var(--accent);color:#fff;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">원리금균등</button>
+    <button class="btn" id="lm1" onclick="setM(1)" style="flex:1;padding:8px;border-radius:8px;border:none;background:transparent;color:var(--text-sub);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">원금균등</button>
+    <button class="btn" id="lm2" onclick="setM(2)" style="flex:1;padding:8px;border-radius:8px;border:none;background:transparent;color:var(--text-sub);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">만기일시</button>
+  </div>
+  <div id="mDesc" style="font-size:11px;color:var(--text-muted);padding:7px 10px;background:var(--bg2);border-radius:6px;border:1px solid var(--border);line-height:1.5">매달 동일한 금액(원금+이자)을 상환합니다. 계획적인 자금 운용에 적합합니다.</div>
+</div>
+<div style="max-width:880px;margin:0 auto;padding:0 18px 12px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+  <div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px">
+      <div style="margin-bottom:11px">
+        <div style="font-size:11px;color:var(--text-sub);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px;display:flex;justify-content:space-between"><span>대출 금액</span><span style="font-size:10px;color:var(--text-muted)">원</span></div>
+        <input type="number" id="loan" style="width:100%;padding:10px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:15px;outline:none;transition:border .2s;font-family:'DM Mono',monospace" value="300000000" oninput="calcL()">
+        <div class="qbtns"><button class="qb" onclick="addL(100000000)">+1억</button><button class="qb" onclick="addL(50000000)">+5천만</button><button class="qb" onclick="addL(10000000)">+1천만</button><button class="qb" onclick="addL(-50000000)">-5천만</button></div>
+      </div>
+      <div style="margin-bottom:11px">
+        <div style="font-size:11px;color:var(--text-sub);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px;display:flex;justify-content:space-between"><span>연 이자율</span><span style="font-size:10px;color:var(--text-muted)">%</span></div>
+        <input type="number" id="lrate" step="0.1" style="width:100%;padding:10px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:15px;outline:none;transition:border .2s;font-family:'DM Mono',monospace" value="4.5" oninput="calcL()">
+        <div class="qbtns"><button class="qb" onclick="addR(-0.5)">-0.5%</button><button class="qb" onclick="addR(-0.1)">-0.1%</button><button class="qb" onclick="addR(0.1)">+0.1%</button><button class="qb" onclick="addR(0.5)">+0.5%</button></div>
+      </div>
+      <div>
+        <div style="font-size:11px;color:var(--text-sub);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px;display:flex;justify-content:space-between"><span>대출 기간</span><span style="font-size:10px;color:var(--text-muted)">년</span></div>
+        <input type="number" id="lterm" style="width:100%;padding:10px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:15px;outline:none;transition:border .2s;font-family:'DM Mono',monospace" value="30" oninput="calcL()">
+        <div class="qbtns"><button class="qb" onclick="addT(-5)">-5년</button><button class="qb" onclick="addT(-1)">-1년</button><button class="qb" onclick="addT(1)">+1년</button><button class="qb" onclick="addT(5)">+5년</button></div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px">
+      <div style="margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border)">
+        <div style="font-size:10px;color:var(--text-sub);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px" id="rcLbl">매월 상환금</div>
+        <div style="font-size:26px;font-weight:800;color:var(--accent);font-family:'DM Mono',monospace;letter-spacing:-1px" id="rcVal">—</div>
+        <div style="font-size:11px;color:var(--text-muted);margin-top:3px" id="rcSub"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+        <div style="background:var(--bg2);border-radius:6px;padding:8px 10px"><div style="font-size:10px;color:var(--text-muted);margin-bottom:2px">총 상환액</div><div style="font-size:12px;font-weight:700;font-family:'DM Mono',monospace" id="rcTot">—</div></div>
+        <div style="background:var(--bg2);border-radius:6px;padding:8px 10px"><div style="font-size:10px;color:var(--text-muted);margin-bottom:2px">총 이자</div><div style="font-size:12px;font-weight:700;font-family:'DM Mono',monospace;color:var(--neg)" id="rcInt">—</div></div>
+        <div style="background:var(--bg2);border-radius:6px;padding:8px 10px"><div style="font-size:10px;color:var(--text-muted);margin-bottom:2px">이자 비중</div><div style="font-size:12px;font-weight:700;font-family:'DM Mono',monospace;color:var(--neg)" id="rcRatio">—</div></div>
+        <div style="background:var(--bg2);border-radius:6px;padding:8px 10px"><div style="font-size:10px;color:var(--text-muted);margin-bottom:2px">총 납부 횟수</div><div style="font-size:12px;font-weight:700;font-family:'DM Mono',monospace" id="rcCnt">—</div></div>
+      </div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px">
+      <div style="font-size:11px;font-weight:700;margin-bottom:8px">원금 vs 이자</div>
+      <div style="position:relative;height:150px;display:flex;align-items:center;justify-content:center">
+        <canvas id="donutC" style="max-width:150px;max-height:150px"></canvas>
+        <div style="position:absolute;text-align:center;pointer-events:none">
+          <div style="font-size:18px;font-weight:800;color:var(--neg);font-family:'DM Mono',monospace" id="dPct">—</div>
+          <div style="font-size:10px;color:var(--text-muted)">이자 비중</div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-<section class="guide"><span class="gtag">금융 지식 가이드</span><h2>대출이자 계산기 완벽 가이드</h2>
-<p>대출 전 월 상환액과 총 이자 부담을 미리 파악하는 것이 중요합니다. 30년 장기 대출에서는 총 이자가 원금을 초과하는 경우가 많습니다.</p>
-<h3>원리금균등상환 공식</h3>
-<div class="fml">월 납입액 = 원금 × [월이율 × (1+월이율)ⁿ] ÷ [(1+월이율)ⁿ - 1]
-월이율 = 연이율 ÷ 12 | n = 총 상환 개월 수</div>
-<p>예: 3억 원, 연 4.5%, 30년 → 월 납입액 약 152만 원, 총 이자 약 2억 4,722만 원.</p>
-<h3>금리 1% 차이의 영향</h3>
-<p>3억 원 30년 기준: 금리 3.5%는 총 이자 약 1억 8,500만 원, 4.5%는 약 2억 4,700만 원. 금리 1% 차이가 총 이자를 6,200만 원 바꿉니다.</p>
-<div class="tip">💡 여러 금융기관의 금리를 비교하고 우대금리 조건을 최대한 활용하세요.</div></section>
+<div style="max-width:880px;margin:0 auto;padding:0 18px 24px">
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px">
+    <div style="font-size:12px;font-weight:700;margin-bottom:8px">연도별 상환 스케줄</div>
+    <div style="max-height:190px;overflow-y:auto;border:1px solid var(--border);border-radius:6px">
+      <table style="width:100%;border-collapse:collapse;font-size:11px;font-family:'DM Mono',monospace">
+        <thead>
+          <tr>
+            <th style="padding:5px 8px;text-align:center;background:var(--bg2);color:var(--text-muted);font-size:10px;font-weight:600;border-bottom:1px solid var(--border);position:sticky;top:0">년차</th>
+            <th style="padding:5px 8px;text-align:right;background:var(--bg2);color:var(--text-muted);font-size:10px;font-weight:600;border-bottom:1px solid var(--border);position:sticky;top:0">월 납입금</th>
+            <th style="padding:5px 8px;text-align:right;background:var(--bg2);color:var(--text-muted);font-size:10px;font-weight:600;border-bottom:1px solid var(--border);position:sticky;top:0">원금</th>
+            <th style="padding:5px 8px;text-align:right;background:var(--bg2);color:var(--text-muted);font-size:10px;font-weight:600;border-bottom:1px solid var(--border);position:sticky;top:0">이자</th>
+            <th style="padding:5px 8px;text-align:right;background:var(--bg2);color:var(--text-muted);font-size:10px;font-weight:600;border-bottom:1px solid var(--border);position:sticky;top:0">잔여 원금</th>
+          </tr>
+        </thead>
+        <tbody id="sTbl"></tbody>
+      </table>
+    </div>
+  </div>
 </div>
 <footer>
   <div>금융 IQ를 높이세요 — 8종 금융 계산기</div>
   <div style="margin-top:8px">
-    <a href="/about.html">소개</a>
+    <a href="/about.html">About</a>
     <a href="/privacy.html">개인정보처리방침</a>
     <a href="/contact.html">문의</a>
   </div>
@@ -106,9 +124,79 @@
 <div id="toast"></div>
 <script src="../common.js"></script>
 <script>
-function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function switchLang(l){var p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
 function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
-document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+document.addEventListener('click',function(e){if(!e.target.closest('.lw')){var b=document.getElementById('lBtn');var d=document.getElementById('lDrop');if(b)b.classList.remove('open');if(d)d.classList.remove('open');}});
+</script>
+<script>
+var lM=0,dChart=null;
+var DESCS=["매달 동일한 금액(원금+이자)을 상환합니다. 계획적인 자금 운용에 적합합니다.","매달 원금은 동일하게, 이자는 줄어들어 월 납입금이 점점 감소합니다. 총 이자가 가장 적습니다.","기간 동안 이자만 납부하다 만기에 원금 전액 상환. 전세자금대출 등에 사용됩니다."];
+function fmtV(n){if(n>=100000000)return(n/100000000).toFixed(2)+'억원';if(n>=10000)return Math.round(n/10000)+'만원';return Math.round(n).toLocaleString()+'원';}
+function setM(m){
+  lM=m;
+  [0,1,2].forEach(function(i){
+    var b=document.getElementById('lm'+i);
+    b.style.background=i===m?'var(--accent)':'transparent';
+    b.style.color=i===m?'#fff':'var(--text-sub)';
+  });
+  document.getElementById('mDesc').textContent=DESCS[m];
+  calcL();
+}
+function addL(v){var e=document.getElementById('loan');e.value=Math.max(0,(+e.value||0)+v);calcL();}
+function addR(v){var e=document.getElementById('lrate');e.value=Math.max(0,(+e.value||0)+v).toFixed(1);calcL();}
+function addT(v){var e=document.getElementById('lterm');e.value=Math.max(1,+e.value+v);calcL();}
+function calcL(){
+  var L=+document.getElementById('loan').value||0;
+  var ir=+document.getElementById('lrate').value/100/12||0;
+  var n=+document.getElementById('lterm').value*12||0;
+  if(!L||!ir||!n)return;
+  var mp=0,totalInt=0,rows=[];
+  if(lM===0){
+    mp=L*ir*Math.pow(1+ir,n)/(Math.pow(1+ir,n)-1);
+    totalInt=mp*n-L;
+    var bal=L;
+    for(var y=1;y<=n/12;y++){
+      var yP=0,yI=0;
+      for(var mm=1;mm<=12;mm++){var i=bal*ir;yP+=mp-i;yI+=i;bal-=mp-i;}
+      rows.push({y:y,mp:Math.round(mp),p:Math.round(yP),i:Math.round(yI),b:Math.max(0,Math.round(bal))});
+    }
+  }else if(lM===1){
+    var pM=L/n;var bal2=L;
+    for(var y2=1;y2<=n/12;y2++){
+      var yP2=0,yI2=0,fMp=0;
+      for(var mm2=1;mm2<=12;mm2++){var i2=bal2*ir;if(!fMp)fMp=pM+i2;yP2+=pM;yI2+=i2;totalInt+=i2;bal2-=pM;}
+      rows.push({y:y2,mp:Math.round(fMp),p:Math.round(yP2),i:Math.round(yI2),b:Math.max(0,Math.round(bal2))});
+    }
+    mp=L/n+L*ir;
+  }else{
+    mp=L*ir;totalInt=mp*n;
+    for(var y3=1;y3<=n/12;y3++){
+      rows.push({y:y3,mp:Math.round(mp),p:y3===n/12?L:0,i:Math.round(mp*12),b:y3===n/12?0:L});
+    }
+  }
+  var tot=L+totalInt;
+  document.getElementById('rcVal').textContent=fmtV(mp);
+  document.getElementById('rcTot').textContent=fmtV(tot);
+  document.getElementById('rcInt').textContent=fmtV(totalInt);
+  var ratio=totalInt/tot*100;
+  document.getElementById('rcRatio').textContent=ratio.toFixed(1)+'%';
+  document.getElementById('rcCnt').textContent=n;
+  document.getElementById('dPct').textContent=ratio.toFixed(1)+'%';
+  var isDark=!document.body.classList.contains('light-mode');
+  if(dChart)dChart.destroy();
+  var ctx=document.getElementById('donutC').getContext('2d');
+  dChart=new Chart(ctx,{
+    type:'doughnut',
+    data:{labels:['원금','이자'],datasets:[{data:[L,totalInt],backgroundColor:['#5b7fee','#ef4444'],borderWidth:0}]},
+    options:{responsive:true,maintainAspectRatio:true,cutout:'65%',
+      plugins:{legend:{position:'bottom',labels:{color:isDark?'#8888a0':'#555',font:{size:10},boxWidth:10,padding:6}},
+        tooltip:{callbacks:{label:function(c){return ' '+c.label+': '+fmtV(c.parsed);}}}}}
+  });
+  document.getElementById('sTbl').innerHTML=rows.map(function(r){
+    return '<tr><td style="text-align:center;padding:5px 8px;border-bottom:1px solid var(--border);color:var(--text-muted)">'+r.y+'</td><td style="text-align:right;padding:5px 8px;border-bottom:1px solid var(--border);color:var(--text-sub)">'+fmtV(r.mp)+'</td><td style="text-align:right;padding:5px 8px;border-bottom:1px solid var(--border);color:var(--text-sub)">'+fmtV(r.p)+'</td><td style="text-align:right;padding:5px 8px;border-bottom:1px solid var(--border);color:var(--neg)">'+fmtV(r.i)+'</td><td style="text-align:right;padding:5px 8px;border-bottom:1px solid var(--border);color:var(--text-sub)">'+fmtV(r.b)+'</td></tr>';
+  }).join('');
+}
+calcL();
 </script>
 </body>
 </html>

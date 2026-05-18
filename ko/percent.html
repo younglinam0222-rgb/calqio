@@ -53,6 +53,9 @@
   }
 }
 </script>
+<meta name="google-site-verification" content="6II_gyhSkNgRi3bW9SNuoHxRlMBvBI2kJGn3GHCLsrg">
+<meta name="google-adsense-account" content="ca-pub-8205853473793766">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
 </head>
 <body>
 <nav>
@@ -75,7 +78,9 @@
 <div class="cf">
   <div class="ctitle"><strong>% 퍼센트 계산기</strong></div>
   <div class="ci">
-    <div class="inp"><div class="pct-types"><div class="pc sel" onclick="selP(0)">A는 B의 몇 %?</div><div class="pc " onclick="selP(1)">A의 N%는?</div><div class="pc " onclick="selP(2)">변화율은?</div><div class="pc " onclick="selP(3)">N% 변한 값?</div></div><div id="pf0" style=""><div class="ig"><input type="number" id="pa0" class="if" placeholder="A 값"></div><div class="ig"><input type="number" id="pb0" class="if" placeholder="B 값"></div></div><div id="pf1" style="display:none"><div class="ig"><input type="number" id="pa1" class="if" placeholder="A 값"></div><div class="ig"><input type="number" id="pb1" class="if" placeholder="N %"></div></div><div id="pf2" style="display:none"><div class="ig"><input type="number" id="pa2" class="if" placeholder="이전 값"></div><div class="ig"><input type="number" id="pb2" class="if" placeholder="이후 값"></div></div><div id="pf3" style="display:none"><div class="ig"><input type="number" id="pa3" class="if" placeholder="원래 값"></div><div class="ig"><input type="number" id="pb3" class="if" placeholder="변화율 %"></div></div><button class="btn" onclick="calcP()">계산하기</button></div>
+    <div class="inp">
+<div class="rt-hint"><span class="rt-dot"></span> 숫자를 바꾸면 실시간으로 계산됩니다</div>
+<div class="pct-types"><div class="pc sel" onclick="selP(0);calcP()">A는 B의 몇 %?</div><div class="pc " onclick="selP(1);calcP()">A의 N%는?</div><div class="pc " onclick="selP(2);calcP()">변화율은?</div><div class="pc " onclick="selP(3);calcP()">N% 변한 값?</div></div><div id="pf0" style=""><div class="ig"><input type="number" id="pa0" class="if" oninput="calcP()" placeholder="A 값"></div><div class="ig"><input type="number" id="pb0" class="if" oninput="calcP()" placeholder="B 값"></div></div><div id="pf1" style="display:none"><div class="ig"><input type="number" id="pa1" class="if" oninput="calcP()" placeholder="A 값"></div><div class="ig"><input type="number" id="pb1" class="if" oninput="calcP()" placeholder="N %"></div></div><div id="pf2" style="display:none"><div class="ig"><input type="number" id="pa2" class="if" oninput="calcP()" placeholder="이전 값"></div><div class="ig"><input type="number" id="pb2" class="if" oninput="calcP()" placeholder="이후 값"></div></div><div id="pf3" style="display:none"><div class="ig"><input type="number" id="pa3" class="if" oninput="calcP()" placeholder="원래 값"></div><div class="ig"><input type="number" id="pb3" class="if" oninput="calcP()" placeholder="변화율 %"></div></div><button class="btn" onclick="calcP()">계산하기</button></div>
     <div class="out">
       <div class="es" id="e7"><div class="ei">%</div><div>수치를 입력하세요</div></div>
       <div id="r7" style="display:none"><div class="rm"><div class="rl">결과</div><div class="rv blue" id="v-pans">—</div></div></div>

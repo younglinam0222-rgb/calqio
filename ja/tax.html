@@ -53,6 +53,9 @@
   }
 }
 </script>
+<meta name="google-site-verification" content="6II_gyhSkNgRi3bW9SNuoHxRlMBvBI2kJGn3GHCLsrg">
+<meta name="google-adsense-account" content="ca-pub-8205853473793766">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
 </head>
 <body>
 <nav>
@@ -75,10 +78,12 @@
 <div class="cf">
   <div class="ctitle"><strong>📋 譲渡所得税計算機</strong></div>
   <div class="ci">
-    <div class="inp"><div class="ig"><div class="il">購入金額 (円)</div><input type="number" id="taxbuy" class="if" value="1000000"></div>
-<div class="ig"><div class="il">売却金額 (円)</div><input type="number" id="taxsell" class="if" value="1500000"></div>
-<div class="ig"><div class="il">取引手数料 (円)</div><input type="number" id="taxfee" class="if" value="500"></div>
-<div class="ig"><div class="il">控除額 (円)</div><input type="number" id="taxded" class="if" value="0"></div>
+    <div class="inp">
+<div class="rt-hint"><span class="rt-dot"></span> 入力すると自動的に計算されます</div>
+<div class="ig"><div class="il">購入金額 (円)</div><input type="number" id="taxbuy" class="if" oninput="calcTax()" value="1000000"><div class="qbtns"><button class="qb" onclick="addVal("taxbuy",1000000)">+100万</button><button class="qb" onclick="addVal("taxbuy",5000000)">+500万</button><button class="qb" onclick="addVal("taxbuy",10000000)">+1000万</button></div></div>
+<div class="ig"><div class="il">売却金額 (円)</div><input type="number" id="taxsell" class="if" oninput="calcTax()" value="1500000"><div class="qbtns"><button class="qb" onclick="addVal("taxsell",500000)">+50万</button><button class="qb" onclick="addVal("taxsell",1000000)">+100万</button></div></div>
+<div class="ig"><div class="il">取引手数料 (円)</div><input type="number" id="taxfee" class="if" oninput="calcTax()" value="500"></div>
+<div class="ig"><div class="il">控除額 (円)</div><input type="number" id="taxded" class="if" oninput="calcTax()" value="0"></div>
 <button class="btn" onclick="calcTax()">計算する</button></div>
     <div class="out">
       <div class="es" id="e6"><div class="ei">📋</div><div>数値を入力してください</div></div>
@@ -109,6 +114,9 @@
 function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
 function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
 document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+
+/* calqio-init */
+document.addEventListener("DOMContentLoaded",function(){calcTax()});
 </script>
 </body>
 </html>

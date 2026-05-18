@@ -1,8 +1,8 @@
 /* ═══════════════════════════════════════
-   CALQIO — Common JS (Calc Functions)
+   CALQIO — Common JS v2
    ═══════════════════════════════════════ */
 
-// ── Theme ──
+// ── Theme ──────────────────────────────
 function toggleTheme() {
   const light = document.body.classList.toggle('light-mode');
   localStorage.setItem('calqio_theme', light ? 'light' : 'dark');
@@ -14,10 +14,10 @@ function updateThemeBtn() {
   const lc = window.LC || {};
   btn.textContent = document.body.classList.contains('light-mode')
     ? (lc.lightBtn || '☀️ Light')
-    : (lc.darkBtn || '🌙 Dark');
+    : (lc.darkBtn  || '🌙 Dark');
 }
 
-// ── Language menu ──
+// ── Language menu ───────────────────────
 function toggleMenu() {
   document.getElementById('lBtn')?.classList.toggle('open');
   document.getElementById('lDrop')?.classList.toggle('open');
@@ -28,16 +28,14 @@ document.addEventListener('click', e => {
     document.getElementById('lDrop')?.classList.remove('open');
   }
 });
-
-// ── Switch language (navigate to same page in another lang folder) ──
 function switchLang(lang) {
   const parts = location.pathname.split('/').filter(Boolean);
-  const file = parts[parts.length - 1] || 'index.html';
-  const page = file.includes('.html') ? file : 'index.html';
+  const file  = parts[parts.length - 1] || 'index.html';
+  const page  = file.includes('.html') ? file : 'index.html';
   location.href = '/' + lang + '/' + page;
 }
 
-// ── Formatting ──
+// ── Formatting ──────────────────────────
 function fmt(n) {
   const lc = window.LC || {};
   return (lc.cur || '') + Math.round(Math.abs(n)).toLocaleString() + (lc.suf || '');
@@ -46,8 +44,8 @@ function fmtSigned(n) {
   const lc = window.LC || {};
   return (n >= 0 ? '' : '-') + (lc.cur || '') + Math.round(Math.abs(n)).toLocaleString() + (lc.suf || '');
 }
-function pct(n) { return (isFinite(n) ? n.toFixed(2) : '0.00') + '%'; }
-function xm(n) { return (isFinite(n) ? n.toFixed(2) : '0.00') + 'x'; }
+function pct(n)  { return (isFinite(n) ? n.toFixed(2) : '0.00') + '%'; }
+function xm(n)   { return (isFinite(n) ? n.toFixed(2) : '0.00') + 'x'; }
 function toast(msg) {
   const el = document.getElementById('toast');
   if (!el) return;
@@ -56,130 +54,18 @@ function toast(msg) {
   setTimeout(() => el.classList.remove('show'), 2400);
 }
 function need() { toast((window.LC && window.LC.tf) || 'Please fill in all fields'); }
-
-// ── Calculators ──
-function calcC() {
-  const elP = document.getElementById('p'); if (!elP) return;
-  const P = +elP.value || 0, r = +document.getElementById('r').value / 100 || 0,
-        y = +document.getElementById('y').value || 0, m = +document.getElementById('m').value || 0;
-  if (!P || !r || !y) { need(); return; }
-  let bal = P, contrib = P;
-  for (let i = 1; i <= y; i++) { bal = bal * (1 + r) + m * 12; contrib += m * 12; }
-  document.getElementById('v-fa').textContent = fmt(bal);
-  document.getElementById('v-tp').textContent = fmt(contrib);
-  document.getElementById('v-pf').textContent = fmt(bal - contrib);
-  document.getElementById('v-rr').textContent = pct((bal - contrib) / contrib * 100);
-  document.getElementById('v-mx').textContent = xm(bal / P);
-  show(0);
+function copyLink() {
+  navigator.clipboard.writeText(location.href)
+    .then(() => toast((window.LC && window.LC.tc) || '링크 복사됨 🔗'));
 }
 
-function calcR() {
-  const elBP = document.getElementById('bp'); if (!elBP) return;
-  const b = +elBP.value || 0, s = +document.getElementById('sp').value || 0,
-        q = +document.getElementById('q').value || 0, f = +document.getElementById('f').value / 100;
-  if (!b || !s || !q) { need(); return; }
-  const bt = b * q, st = s * q, ft = (bt + st) * f, profit = st - bt - ft;
-  const rpEl = document.getElementById('v-rp');
-  rpEl.textContent = fmt(Math.abs(profit));
-  rpEl.className = 'rv ' + (profit >= 0 ? 'pos' : 'neg');
-  document.getElementById('v-rrate').textContent = pct(profit / bt * 100);
-  document.getElementById('v-bt').textContent = fmt(bt);
-  document.getElementById('v-st').textContent = fmt(st);
-  document.getElementById('v-ft').textContent = fmt(ft);
-  show(1);
-}
+// ── Quick-adjust helpers ─────────────────
+function addVal(id, v) { const e=document.getElementById(id); if(e){ e.value=Math.max(0,(+e.value||0)+v); liveCalc(); } }
+function addPct(id, v) { const e=document.getElementById(id); if(e){ e.value=Math.max(0,(+e.value||0)+v).toFixed(1); liveCalc(); } }
+function addInt(id, v) { const e=document.getElementById(id); if(e){ e.value=Math.max(1,+e.value+v); liveCalc(); } }
+function liveCalc() { /* overridden per page */ }
 
-function calcD() {
-  const elAB = document.getElementById('ab'); if (!elAB) return;
-  const ab = +elAB.value || 0, aq = +document.getElementById('aq').value || 0,
-        np = +document.getElementById('np').value || 0, nq = +document.getElementById('nq').value || 0;
-  if (!ab || !aq || !np || !nq) { need(); return; }
-  const ti = ab * aq + np * nq, tq = aq + nq, na = ti / tq;
-  const lc = window.LC || {};
-  document.getElementById('v-na').textContent = fmt(na);
-  document.getElementById('v-tq').textContent = tq + (lc.sh2 || '');
-  document.getElementById('v-ti').textContent = fmt(ti);
-  document.getElementById('v-dr').textContent = pct((ab - na) / ab * 100);
-  show(2);
-}
-
-function calcL() {
-  const elLoan = document.getElementById('loan'); if (!elLoan) return;
-  const L = +elLoan.value || 0, ir = +document.getElementById('lrate').value / 100 / 12 || 0,
-        n = +document.getElementById('lterm').value * 12 || 0;
-  if (!L || !ir || !n) { need(); return; }
-  const mp = L * ir * Math.pow(1 + ir, n) / (Math.pow(1 + ir, n) - 1);
-  document.getElementById('v-monthly').textContent = fmt(mp);
-  document.getElementById('v-totalrep').textContent = fmt(mp * n);
-  document.getElementById('v-totalint').textContent = fmt(mp * n - L);
-  show(3);
-}
-
-function calcDiv() {
-  const elDp = document.getElementById('dprice'); if (!elDp) return;
-  const p = +elDp.value || 0, d = +document.getElementById('ddiv').value || 0,
-        q = +document.getElementById('dqty').value || 0, t = +document.getElementById('dtax').value / 100 || 0;
-  if (!p || !d) { need(); return; }
-  const annual = d * q, tax = annual * t;
-  document.getElementById('v-dyield').textContent = pct(d / p * 100);
-  document.getElementById('v-dannual').textContent = fmt(annual);
-  document.getElementById('v-dafter').textContent = fmt(annual - tax);
-  document.getElementById('v-dmonthly').textContent = fmt((annual - tax) / 12);
-  show(4);
-}
-
-function calcT() {
-  const elTb = document.getElementById('tbase'); if (!elTb) return;
-  const b = +elTb.value || 0, tp = +document.getElementById('tprofit').value / 100 || 0,
-        sl = +document.getElementById('tstop').value / 100 || 0, qty = +document.getElementById('tqty').value || 0;
-  if (!b || !tp) { need(); return; }
-  const targetP = b * (1 + tp), stopP = b * (1 - sl);
-  const lc = window.LC || {};
-  document.getElementById('v-tprice').textContent = fmt(targetP);
-  document.getElementById('v-sprice').textContent = fmt(stopP);
-  if (qty) {
-    document.getElementById('v-tprofit2').textContent = fmt((targetP - b) * qty);
-    document.getElementById('v-sloss').textContent = fmt((b - stopP) * qty);
-  }
-  const rr = sl > 0 ? (tp / sl).toFixed(2) : '—';
-  document.getElementById('v-rratio').textContent = rr + ':1';
-  show(5);
-}
-
-function calcTax() {
-  const elTb = document.getElementById('taxbuy'); if (!elTb) return;
-  const b = +elTb.value || 0, s = +document.getElementById('taxsell').value || 0,
-        f = +document.getElementById('taxfee').value || 0, d = +document.getElementById('taxded').value || 0;
-  if (!b || !s) { need(); return; }
-  const gain = s - b - f, base = Math.max(0, gain - d), tax = base * 0.22;
-  document.getElementById('v-taxgain').textContent = fmt(gain);
-  document.getElementById('v-taxamt').textContent = fmt(tax);
-  document.getElementById('v-taxincome').textContent = fmt(gain - tax);
-  show(6);
-}
-
-let pMode = 0;
-function selP(i) {
-  pMode = i;
-  document.querySelectorAll('.pc').forEach((c, idx) => c.classList.toggle('sel', idx === i));
-  for (let j = 0; j < 4; j++) {
-    const pf = document.getElementById('pf' + j);
-    if (pf) pf.style.display = j === i ? 'block' : 'none';
-  }
-}
-function calcP() {
-  const elA = document.getElementById('pa' + pMode); if (!elA) return;
-  const a = +elA.value || 0, b = +document.getElementById('pb' + pMode).value || 0;
-  if ((!a && pMode !== 2) || !b) { need(); return; }
-  let res = '';
-  if (pMode === 0) res = pct(a / b * 100);
-  else if (pMode === 1) res = fmt(a * b / 100);
-  else if (pMode === 2) res = pct((b - a) / a * 100);
-  else res = fmt(a * (1 + b / 100));
-  document.getElementById('v-pans').textContent = res;
-  show(7);
-}
-
+// ── show/hide result ────────────────────
 function show(n) {
   const e = document.getElementById('e' + n);
   const r = document.getElementById('r' + n);
@@ -187,7 +73,87 @@ function show(n) {
   if (r) r.style.display = 'block';
 }
 
-// ── Init ──
+// ── Calculators (kept for legacy index) ─
+function calcC() {
+  const P=+v('p')||0, r=+v('r')/100||0, y=+v('y')||0, m=+v('m')||0;
+  if(!P||!r||!y){need();return;}
+  let bal=P,contrib=P,rows=[];
+  for(let i=1;i<=y;i++){bal=bal*(1+r)+m*12;contrib+=m*12;rows.push({y:i,b:bal,p:bal-contrib,r:(bal-contrib)/contrib*100});}
+  set('v-fa',fmt(bal)); set('v-tp',fmt(contrib)); set('v-pf',fmt(bal-contrib));
+  set('v-rr',pct((bal-contrib)/contrib*100)); set('v-mx',xm(bal/P));
+  const tb=document.getElementById('ci-tbody');
+  if(tb)tb.innerHTML=rows.map(d=>`<tr><td>${d.y}년</td><td>${fmt(d.b)}</td><td style="color:var(--pos)">${fmt(d.p)}</td><td style="color:var(--pos)">${pct(d.r)}</td></tr>`).join('');
+  show(0);
+}
+function calcR() {
+  const b=+v('bp')||0,s=+v('sp')||0,q=+v('q')||0,f=+v('f')/100;
+  if(!b||!s||!q){need();return;}
+  const bt=b*q,st=s*q,ft=(bt+st)*f,profit=st-bt-ft;
+  const rpEl=document.getElementById('v-rp');
+  if(rpEl){rpEl.textContent=fmt(Math.abs(profit));rpEl.className='rv '+(profit>=0?'pos':'neg');}
+  set('v-rrate',pct(profit/bt*100)); set('v-bt',fmt(bt)); set('v-st',fmt(st)); set('v-ft',fmt(ft));
+  show(1);
+}
+function calcD() {
+  const ab=+v('ab')||0,aq=+v('aq')||0,np=+v('np')||0,nq=+v('nq')||0;
+  if(!ab||!aq||!np||!nq){need();return;}
+  const ti=ab*aq+np*nq,tq=aq+nq,na=ti/tq;
+  const lc=window.LC||{};
+  set('v-na',fmt(na)); set('v-tq',tq+(lc.sh2||'주')); set('v-ti',fmt(ti)); set('v-dr',pct((ab-na)/ab*100));
+  show(2);
+}
+function calcL() {
+  const L=+v('loan')||0,ir=+v('lrate')/100/12||0,n=+v('lterm')*12||0;
+  if(!L||!ir||!n){need();return;}
+  const mp=L*ir*Math.pow(1+ir,n)/(Math.pow(1+ir,n)-1);
+  set('v-monthly',fmt(mp)); set('v-totalrep',fmt(mp*n)); set('v-totalint',fmt(mp*n-L));
+  show(3);
+}
+function calcDiv() {
+  const p=+v('dprice')||0,d=+v('ddiv')||0,q=+v('dqty')||0,t=+v('dtax')/100||0;
+  if(!p||!d){need();return;}
+  const annual=d*q,tax=annual*t;
+  set('v-dyield',pct(d/p*100)); set('v-dannual',fmt(annual)); set('v-dafter',fmt(annual-tax)); set('v-dmonthly',fmt((annual-tax)/12));
+  show(4);
+}
+function calcT() {
+  const b=+v('tbase')||0,tp=+v('tprofit')/100||0,sl=+v('tstop')/100||0,qty=+v('tqty')||0;
+  if(!b||!tp){need();return;}
+  const targetP=b*(1+tp),stopP=b*(1-sl);
+  set('v-tprice',fmt(targetP)); set('v-sprice',fmt(stopP));
+  if(qty){set('v-tprofit2',fmt((targetP-b)*qty));set('v-sloss',fmt((b-stopP)*qty));}
+  set('v-rratio',(sl>0?(tp/sl).toFixed(2):'—')+':1');
+  show(5);
+}
+function calcTax() {
+  const b=+v('taxbuy')||0,s=+v('taxsell')||0,f=+v('taxfee')||0,d=+v('taxded')||0;
+  if(!b||!s){need();return;}
+  const gain=s-b-f,base=Math.max(0,gain-d),tax=base*0.22;
+  set('v-taxgain',fmt(gain)); set('v-taxamt',fmt(tax)); set('v-taxincome',fmt(gain-tax));
+  show(6);
+}
+let pMode=0;
+function selP(i) {
+  pMode=i;
+  document.querySelectorAll('.pc').forEach((c,idx)=>c.classList.toggle('sel',idx===i));
+  for(let j=0;j<4;j++){const pf=document.getElementById('pf'+j);if(pf)pf.style.display=j===i?'block':'none';}
+}
+function calcP() {
+  const a=+v('pa'+pMode)||0,b=+v('pb'+pMode)||0;
+  if((!a&&pMode!==2)||!b){need();return;}
+  let res='';
+  if(pMode===0) res=pct(a/b*100);
+  else if(pMode===1) res=fmt(a*b/100);
+  else if(pMode===2) res=pct((b-a)/a*100);
+  else res=fmt(a*(1+b/100));
+  set('v-pans',res); show(7);
+}
+
+// ── Utils ───────────────────────────────
+function v(id) { const e=document.getElementById(id); return e?e.value:0; }
+function set(id,val) { const e=document.getElementById(id); if(e)e.textContent=val; }
+
+// ── Init ────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   if (localStorage.getItem('calqio_theme') === 'light') document.body.classList.add('light-mode');
   updateThemeBtn();

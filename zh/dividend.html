@@ -53,6 +53,9 @@
   }
 }
 </script>
+<meta name="google-site-verification" content="6II_gyhSkNgRi3bW9SNuoHxRlMBvBI2kJGn3GHCLsrg">
+<meta name="google-adsense-account" content="ca-pub-8205853473793766">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
 </head>
 <body>
 <nav>
@@ -75,10 +78,12 @@
 <div class="cf">
   <div class="ctitle"><strong>💵 股息收益率计算器</strong></div>
   <div class="ci">
-    <div class="inp"><div class="ig"><div class="il">当前股价 (元)</div><input type="number" id="dprice" class="if" value="20"></div>
-<div class="ig"><div class="il">年度每股股息 (元)</div><input type="number" id="ddiv" class="if" value="0.5"></div>
-<div class="ig"><div class="il">持仓数量</div><input type="number" id="dqty" class="if" value="1000"></div>
-<div class="ig"><div class="il">股息税率 (%)</div><input type="number" id="dtax" class="if" value="10"></div>
+    <div class="inp">
+<div class="rt-hint"><span class="rt-dot"></span> 输入即可实时计算</div>
+<div class="ig"><div class="il">当前股价 (元)</div><input type="number" id="dprice" class="if" oninput="calcDiv()" value="20"></div>
+<div class="ig"><div class="il">年度每股股息 (元)</div><input type="number" id="ddiv" class="if" oninput="calcDiv()" value="0.5"></div>
+<div class="ig"><div class="il">持仓数量</div><input type="number" id="dqty" class="if" oninput="calcDiv()" value="1000"></div>
+<div class="ig"><div class="il">股息税率 (%)</div><input type="number" id="dtax" class="if" oninput="calcDiv()" value="10"></div>
 <button class="btn" onclick="calcDiv()">计算</button></div>
     <div class="out">
       <div class="es" id="e4"><div class="ei">💵</div><div>请输入数值</div></div>
@@ -106,6 +111,9 @@
 function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
 function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
 document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+
+/* calqio-init */
+document.addEventListener("DOMContentLoaded",function(){calcDiv()});
 </script>
 </body>
 </html>

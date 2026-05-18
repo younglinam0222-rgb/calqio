@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Investment Analysis Guide — Calqio</title>
+<meta name="description" content="Use ChatGPT·Claude·Perplexity for institutional-grade analysis.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calqio.com/en/ai-investment.html">
+<meta property="og:title" content="AI Investment Analysis Guide — Calqio">
+<meta property="og:description" content="Use ChatGPT·Claude·Perplexity for institutional-grade analysis.">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="ko" href="https://calqio.com/ko/ai-investment.html">
+<link rel="alternate" hreflang="en" href="https://calqio.com/en/ai-investment.html">
+<link rel="alternate" hreflang="ja" href="https://calqio.com/ja/ai-investment.html">
+<link rel="alternate" hreflang="zh" href="https://calqio.com/zh/ai-investment.html">
+<link rel="alternate" hreflang="ar" href="https://calqio.com/ar/ai-investment.html">
+<meta name="google-adsense-account" content="ca-pub-8205853473793766">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
+<script>window.LC={"cur":"$","suf":"","darkBtn":"🌙 Dark"}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body><nav>
+  <a href="/en/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 Dark</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇺🇸</span><span>English</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo" onclick="location.href='/ko/'"><span class="fl">🇰🇷</span>한국어</div><div class="lo active" onclick="location.href='/en/'"><span class="fl">🇺🇸</span>English</div><div class="lo" onclick="location.href='/ja/'"><span class="fl">🇯🇵</span>日本語</div><div class="lo" onclick="location.href='/zh/'"><span class="fl">🇨🇳</span>中文</div><div class="lo" onclick="location.href='/ar/'"><span class="fl">🇸🇦</span>العربية</div></div>
+  </div>
+</nav>
+<div style="max-width:860px;margin:0 auto;padding:24px 18px 14px;text-align:center">
+  <h1 style="font-size:clamp(20px,3.5vw,28px);font-weight:800;letter-spacing:-1px;margin-bottom:7px">
+    AI Investment Analysis<br><em style="color:var(--accent);font-style:normal">Ready-to-Use Prompts</em>
+  </h1>
+  <p style="color:var(--text-sub);font-size:13px">Use ChatGPT·Claude·Perplexity for institutional-grade analysis.</p>
+</div>
+<div style="max-width:860px;margin:0 auto;padding:0 18px 60px">
+
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:10px">
+    <div style="padding:11px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:var(--bg2)">
+      <div style="font-size:12px;font-weight:700;color:var(--text)">Company Analysis</div>
+      <button id="cpBtn0" onclick="cpAI(0)" style="padding:4px 11px;background:var(--accent);border:none;border-radius:4px;color:#fff;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit">Copy</button>
+    </div>
+    <div style="padding:14px">
+      <pre id="ap0" style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:12px;font-family:'DM Mono','Courier New',monospace;font-size:11.5px;color:var(--text-sub);line-height:1.75;white-space:pre-wrap;word-break:break-word;margin:0">Analyze [TICKER]:
+1. Core business and revenue streams
+2. Revenue/profit growth (3yr)
+3. Valuation: PER, PBR, ROE vs sector
+4. Competitive advantages
+5. Top 3 risk factors (12mo)
+6. Opinion (Buy/Hold/Sell) + rationale</pre>
+    </div>
+  </div>
+
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:10px">
+    <div style="padding:11px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:var(--bg2)">
+      <div style="font-size:12px;font-weight:700;color:var(--text)">Earnings Analysis</div>
+      <button id="cpBtn1" onclick="cpAI(1)" style="padding:4px 11px;background:var(--accent);border:none;border-radius:4px;color:#fff;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit">Copy</button>
+    </div>
+    <div style="padding:14px">
+      <pre id="ap1" style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:12px;font-family:'DM Mono','Courier New',monospace;font-size:11.5px;color:var(--text-sub);line-height:1.75;white-space:pre-wrap;word-break:break-word;margin:0">Analyze [TICKER] latest earnings:
+1. Beat/miss vs consensus
+2. Key drivers of results
+3. Management guidance update
+4. Stock reaction
+5. Top positive and negative signal</pre>
+    </div>
+  </div>
+
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:10px">
+    <div style="padding:11px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:var(--bg2)">
+      <div style="font-size:12px;font-weight:700;color:var(--text)">ETF Comparison</div>
+      <button id="cpBtn2" onclick="cpAI(2)" style="padding:4px 11px;background:var(--accent);border:none;border-radius:4px;color:#fff;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit">Copy</button>
+    </div>
+    <div style="padding:14px">
+      <pre id="ap2" style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:12px;font-family:'DM Mono','Courier New',monospace;font-size:11.5px;color:var(--text-sub);line-height:1.75;white-space:pre-wrap;word-break:break-word;margin:0">[ETF1] vs [ETF2]:
+1. Index and top holdings
+2. 1yr/3yr/5yr returns
+3. Expense ratio &amp; AUM
+4. Dividend yield &amp; frequency
+5. Better fit for current environment</pre>
+    </div>
+  </div>
+
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:10px">
+    <div style="padding:11px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:var(--bg2)">
+      <div style="font-size:12px;font-weight:700;color:var(--text)">Portfolio Review</div>
+      <button id="cpBtn3" onclick="cpAI(3)" style="padding:4px 11px;background:var(--accent);border:none;border-radius:4px;color:#fff;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit">Copy</button>
+    </div>
+    <div style="padding:14px">
+      <pre id="ap3" style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:12px;font-family:'DM Mono','Courier New',monospace;font-size:11.5px;color:var(--text-sub);line-height:1.75;white-space:pre-wrap;word-break:break-word;margin:0">Portfolio review:
+- [Stock 1]: $[amt] ([%])
+- [Stock 2]: $[amt] ([%])
+Goal: [goal] | Monthly: $[amt]
+
+1. Sector/region concentration
+2. Risk level
+3. Rebalancing needs
+4. Monthly allocation</pre>
+    </div>
+  </div>
+</div>
+<footer>
+  <div>Raise your Financial IQ — 8 Financial Calculators</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){var p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',function(e){if(!e.target.closest('.lw')){var b=document.getElementById('lBtn');var d=document.getElementById('lDrop');if(b)b.classList.remove('open');if(d)d.classList.remove('open');}});
+</script>
+<script>
+function cpAI(i){
+  var text=document.getElementById('ap'+i).textContent;
+  var btn=document.getElementById('cpBtn'+i);
+  navigator.clipboard.writeText(text).then(function(){
+    btn.textContent='Copied ✓';btn.style.background='var(--pos)';
+    setTimeout(function(){btn.textContent='Copy';btn.style.background='var(--accent)';},2000);
+  });
+}
+</script>
+</body>
+</html>

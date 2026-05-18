@@ -79,6 +79,9 @@ select.if{cursor:pointer;}
 .empty-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:56px 20px;text-align:center;color:var(--text-sub);}
 .empty-ico{font-size:2.4rem;margin-bottom:10px;}
 </style>
+<meta name="google-site-verification" content="6II_gyhSkNgRi3bW9SNuoHxRlMBvBI2kJGn3GHCLsrg">
+<meta name="google-adsense-account" content="ca-pub-8205853473793766">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
 </head>
 <body>
 <nav>
@@ -113,11 +116,11 @@ select.if{cursor:pointer;}
     <div class="inp-panel">
       <div class="inp-title">투자 설정</div>
       <div class="ig"><div class="il">초기 투자 원금</div>
-        <div class="inp-suf"><input type="number" id="p" class="if" value="10000000"><span>원</span></div></div>
+        <div class="inp-suf"><input type="number" id="p" class="if" oninput="calcC()" value="10000000"><span>원</span></div></div>
       <div class="ig"><div class="il">추가 납입 (매 회차)</div>
-        <div class="inp-suf"><input type="number" id="m" class="if" value="0"><span>원</span></div></div>
+        <div class="inp-suf"><input type="number" id="m" class="if" oninput="calcC()" value="0"><span>원</span></div></div>
       <div class="ig ig-row">
-        <div><div class="il">계산 기간</div><input type="number" id="y" class="if" value="30"></div>
+        <div><div class="il">계산 기간</div><input type="number" id="y" class="if" oninput="calcC()" value="30"><div class="qbtns"><button class="qb" onclick="addInt("y",-5)">-5년</button><button class="qb" onclick="addInt("y",5)">+5년</button><button class="qb" onclick="addInt("y",10)">+10년</button></div></div>
         <div><div class="il">기간 단위</div>
           <select id="unit" class="if">
             <option value="y">년</option>
@@ -127,7 +130,7 @@ select.if{cursor:pointer;}
         </div>
       </div>
       <div class="ig"><div class="il">목표 수익률 (1회차 당 %)</div>
-        <div class="inp-suf"><input type="number" id="r" class="if" value="2.5" step="0.1"><span>%</span></div></div>
+        <div class="inp-suf"><input type="number" id="r" class="if" oninput="calcC()" value="2.5" step="0.1"><span>%</span></div></div>
       <div class="ig"><div class="il">세금 적용</div>
         <select id="tax" class="if">
           <option value="0">비과세 (0%)</option>
@@ -274,6 +277,9 @@ function xfaq(n){const el=document.getElementById('fq'+n);if(el)el.classList.add
 })();
 
 run();
+
+/* calqio-init */
+document.addEventListener("DOMContentLoaded",function(){calcC()});
 </script>
 </body>
 </html>

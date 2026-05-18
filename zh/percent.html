@@ -53,6 +53,9 @@
   }
 }
 </script>
+<meta name="google-site-verification" content="6II_gyhSkNgRi3bW9SNuoHxRlMBvBI2kJGn3GHCLsrg">
+<meta name="google-adsense-account" content="ca-pub-8205853473793766">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
 </head>
 <body>
 <nav>
@@ -75,7 +78,9 @@
 <div class="cf">
   <div class="ctitle"><strong>% 百分比计算器</strong></div>
   <div class="ci">
-    <div class="inp"><div class="pct-types"><div class="pc sel" onclick="selP(0)">A是B的百分之几?</div><div class="pc " onclick="selP(1)">A的N%是多少?</div><div class="pc " onclick="selP(2)">变化率?</div><div class="pc " onclick="selP(3)">变化N%后的值?</div></div><div id="pf0" style=""><div class="ig"><input type="number" id="pa0" class="if" placeholder="A 值"></div><div class="ig"><input type="number" id="pb0" class="if" placeholder="B 值"></div></div><div id="pf1" style="display:none"><div class="ig"><input type="number" id="pa1" class="if" placeholder="A 值"></div><div class="ig"><input type="number" id="pb1" class="if" placeholder="N %"></div></div><div id="pf2" style="display:none"><div class="ig"><input type="number" id="pa2" class="if" placeholder="旧值"></div><div class="ig"><input type="number" id="pb2" class="if" placeholder="新值"></div></div><div id="pf3" style="display:none"><div class="ig"><input type="number" id="pa3" class="if" placeholder="原始值"></div><div class="ig"><input type="number" id="pb3" class="if" placeholder="变化率 %"></div></div><button class="btn" onclick="calcP()">计算</button></div>
+    <div class="inp">
+<div class="rt-hint"><span class="rt-dot"></span> 输入即可实时计算</div>
+<div class="pct-types"><div class="pc sel" onclick="selP(0);calcP()">A是B的百分之几?</div><div class="pc " onclick="selP(1);calcP()">A的N%是多少?</div><div class="pc " onclick="selP(2);calcP()">变化率?</div><div class="pc " onclick="selP(3);calcP()">变化N%后的值?</div></div><div id="pf0" style=""><div class="ig"><input type="number" id="pa0" class="if" oninput="calcP()" placeholder="A 值"></div><div class="ig"><input type="number" id="pb0" class="if" oninput="calcP()" placeholder="B 值"></div></div><div id="pf1" style="display:none"><div class="ig"><input type="number" id="pa1" class="if" oninput="calcP()" placeholder="A 值"></div><div class="ig"><input type="number" id="pb1" class="if" oninput="calcP()" placeholder="N %"></div></div><div id="pf2" style="display:none"><div class="ig"><input type="number" id="pa2" class="if" oninput="calcP()" placeholder="旧值"></div><div class="ig"><input type="number" id="pb2" class="if" oninput="calcP()" placeholder="新值"></div></div><div id="pf3" style="display:none"><div class="ig"><input type="number" id="pa3" class="if" oninput="calcP()" placeholder="原始值"></div><div class="ig"><input type="number" id="pb3" class="if" oninput="calcP()" placeholder="变化率 %"></div></div><button class="btn" onclick="calcP()">计算</button></div>
     <div class="out">
       <div class="es" id="e7"><div class="ei">%</div><div>请输入数值</div></div>
       <div id="r7" style="display:none"><div class="rm"><div class="rl">结果</div><div class="rv blue" id="v-pans">—</div></div></div>

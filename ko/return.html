@@ -53,6 +53,9 @@
   }
 }
 </script>
+<meta name="google-site-verification" content="6II_gyhSkNgRi3bW9SNuoHxRlMBvBI2kJGn3GHCLsrg">
+<meta name="google-adsense-account" content="ca-pub-8205853473793766">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
 </head>
 <body>
 <nav>
@@ -75,10 +78,12 @@
 <div class="cf">
   <div class="ctitle"><strong>💰 수익률 계산기</strong></div>
   <div class="ci">
-    <div class="inp"><div class="ig"><div class="il">매수 가격 (원)</div><input type="number" id="bp" class="if" value="50000"></div>
-<div class="ig"><div class="il">매도 가격 (원)</div><input type="number" id="sp" class="if" value="65000"></div>
-<div class="ig"><div class="il">보유 수량 (주)</div><input type="number" id="q" class="if" value="100"></div>
-<div class="ig"><div class="il">매매 수수료 (%)</div><input type="number" id="f" class="if" value="0.015"></div>
+    <div class="inp">
+<div class="rt-hint"><span class="rt-dot"></span> 숫자를 바꾸면 실시간으로 계산됩니다</div>
+<div class="ig"><div class="il">매수 가격 (원)</div><input type="number" id="bp" class="if" oninput="calcR()" value="50000"></div>
+<div class="ig"><div class="il">매도 가격 (원)</div><input type="number" id="sp" class="if" oninput="calcR()" value="65000"></div>
+<div class="ig"><div class="il">보유 수량 (주)</div><input type="number" id="q" class="if" oninput="calcR()" value="100"></div>
+<div class="ig"><div class="il">매매 수수료 (%)</div><input type="number" id="f" class="if" oninput="calcR()" value="0.015"></div>
 <button class="btn" onclick="calcR()">계산하기</button></div>
     <div class="out">
       <div class="es" id="e1"><div class="ei">💰</div><div>수치를 입력하세요</div></div>
@@ -110,6 +115,9 @@
 function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
 function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
 document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+
+/* calqio-init */
+document.addEventListener("DOMContentLoaded",function(){calcR()});
 </script>
 </body>
 </html>

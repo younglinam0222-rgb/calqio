@@ -53,6 +53,9 @@
   }
 }
 </script>
+<meta name="google-site-verification" content="6II_gyhSkNgRi3bW9SNuoHxRlMBvBI2kJGn3GHCLsrg">
+<meta name="google-adsense-account" content="ca-pub-8205853473793766">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
 </head>
 <body>
 <nav>
@@ -75,10 +78,12 @@
 <div class="cf">
   <div class="ctitle"><strong>💰 Return Rate Calculator</strong></div>
   <div class="ci">
-    <div class="inp"><div class="ig"><div class="il">Buy Price</div><input type="number" id="bp" class="if" value="50"></div>
-<div class="ig"><div class="il">Sell Price</div><input type="number" id="sp" class="if" value="65"></div>
-<div class="ig"><div class="il">Quantity</div><input type="number" id="q" class="if" value="100"></div>
-<div class="ig"><div class="il">Trading Fee (%)</div><input type="number" id="f" class="if" value="0.1"></div>
+    <div class="inp">
+<div class="rt-hint"><span class="rt-dot"></span> Results update as you type</div>
+<div class="ig"><div class="il">Buy Price</div><input type="number" id="bp" class="if" oninput="calcR()" value="50"></div>
+<div class="ig"><div class="il">Sell Price</div><input type="number" id="sp" class="if" oninput="calcR()" value="65"></div>
+<div class="ig"><div class="il">Quantity</div><input type="number" id="q" class="if" oninput="calcR()" value="100"></div>
+<div class="ig"><div class="il">Trading Fee (%)</div><input type="number" id="f" class="if" oninput="calcR()" value="0.1"></div>
 <button class="btn" onclick="calcR()">Calculate</button></div>
     <div class="out">
       <div class="es" id="e1"><div class="ei">💰</div><div>Enter values and click Calculate</div></div>
@@ -110,6 +115,9 @@
 function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
 function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
 document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+
+/* calqio-init */
+document.addEventListener("DOMContentLoaded",function(){calcR()});
 </script>
 </body>
 </html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>단리 vs 복리 비교 — Calqio</title>
+<meta name="description" content="원금·이율·기간을 입력하면 두 방식의 차이를 실시간으로 보여드립니다.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calqio.com/ko/simple-vs-compound.html">
+<meta property="og:title" content="단리 vs 복리 비교 — Calqio">
+<meta property="og:description" content="원금·이율·기간을 입력하면 두 방식의 차이를 실시간으로 보여드립니다.">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="ko" href="https://calqio.com/ko/simple-vs-compound.html">
+<link rel="alternate" hreflang="en" href="https://calqio.com/en/simple-vs-compound.html">
+<link rel="alternate" hreflang="ja" href="https://calqio.com/ja/simple-vs-compound.html">
+<link rel="alternate" hreflang="zh" href="https://calqio.com/zh/simple-vs-compound.html">
+<link rel="alternate" hreflang="ar" href="https://calqio.com/ar/simple-vs-compound.html">
+<meta name="google-adsense-account" content="ca-pub-8205853473793766">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
+<script>window.LC={"cur":"","suf":"원","darkBtn":"🌙 다크모드"}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body><nav>
+  <a href="/ko/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 다크모드</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇰🇷</span><span>한국어</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo active" onclick="location.href='/ko/'"><span class="fl">🇰🇷</span>한국어</div><div class="lo" onclick="location.href='/en/'"><span class="fl">🇺🇸</span>English</div><div class="lo" onclick="location.href='/ja/'"><span class="fl">🇯🇵</span>日本語</div><div class="lo" onclick="location.href='/zh/'"><span class="fl">🇨🇳</span>中文</div><div class="lo" onclick="location.href='/ar/'"><span class="fl">🇸🇦</span>العربية</div></div>
+  </div>
+</nav>
+<div style="max-width:880px;margin:0 auto;padding:24px 18px 14px;text-align:center">
+  <h1 style="font-size:clamp(20px,4vw,32px);font-weight:800;letter-spacing:-1px;margin-bottom:7px">
+    단리 vs 복리<br><em style="color:var(--accent);font-style:normal">같은 이율, 압도적으로 다른 결과</em>
+  </h1>
+  <p style="color:var(--text-sub);font-size:13px">원금·이율·기간을 입력하면 두 방식의 차이를 실시간으로 보여드립니다.</p>
+</div>
+<div style="max-width:880px;margin:0 auto;padding:0 18px 14px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px">
+    <div style="font-size:11px;color:var(--text-sub);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px">원금</div>
+    <input type="number" id="prin" style="width:100%;padding:9px 11px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:14px;outline:none;font-family:'DM Mono',monospace" value="10000000" oninput="calcSVC()">
+    <div class="qbtns"><button class="qb" onclick="setPrin(10000000)">1천만</button><button class="qb" onclick="setPrin(50000000)">5천만</button><button class="qb" onclick="setPrin(100000000)">1억</button></div>
+  </div>
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px">
+    <div style="font-size:11px;color:var(--text-sub);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px">연 이율 (%)</div>
+    <input type="number" id="rate" step="0.5" style="width:100%;padding:9px 11px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:14px;outline:none;font-family:'DM Mono',monospace" value="8" oninput="calcSVC()">
+    <div class="qbtns"><button class="qb" onclick="setRate(5)">5%</button><button class="qb" onclick="setRate(8)">8%</button><button class="qb" onclick="setRate(10)">10%</button><button class="qb" onclick="setRate(15)">15%</button></div>
+  </div>
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px">
+    <div style="font-size:11px;color:var(--text-sub);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px">투자 기간 (년)</div>
+    <input type="number" id="yrs" style="width:100%;padding:9px 11px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:14px;outline:none;font-family:'DM Mono',monospace" value="20" oninput="calcSVC()">
+    <div class="qbtns"><button class="qb" onclick="setYrs(10)">10년</button><button class="qb" onclick="setYrs(20)">20년</button><button class="qb" onclick="setYrs(30)">30년</button></div>
+  </div>
+</div>
+<div style="max-width:880px;margin:0 auto;padding:0 18px 12px;display:grid;grid-template-columns:1fr 1fr;gap:10px">
+  <div style="background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.3);border-radius:var(--radius);padding:16px">
+    <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:#f59e0b;margin-bottom:5px">단리 (Simple Interest)</div>
+    <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:7px">원금에만 이자 적용</div>
+    <div style="font-size:24px;font-weight:800;color:#f59e0b;font-family:'DM Mono',monospace;letter-spacing:-1px" id="siFin">—</div>
+    <div style="margin-top:10px;display:flex;flex-direction:column;gap:4px">
+      <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--text-sub)">총 이자</span><span style="font-weight:700;font-family:'DM Mono',monospace" id="siI">—</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--text-sub)">수익률</span><span style="font-weight:700;font-family:'DM Mono',monospace" id="siR">—</span></div>
+    </div>
+  </div>
+  <div style="background:rgba(91,127,254,.08);border:1px solid rgba(91,127,254,.3);border-radius:var(--radius);padding:16px">
+    <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--accent);margin-bottom:5px">복리 (Compound Interest)</div>
+    <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:7px">이자에도 이자 적용</div>
+    <div style="font-size:24px;font-weight:800;color:var(--accent);font-family:'DM Mono',monospace;letter-spacing:-1px" id="ciFin">—</div>
+    <div style="margin-top:10px;display:flex;flex-direction:column;gap:4px">
+      <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--text-sub)">총 이자</span><span style="font-weight:700;font-family:'DM Mono',monospace" id="ciI">—</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--text-sub)">수익률</span><span style="font-weight:700;font-family:'DM Mono',monospace" id="ciR">—</span></div>
+    </div>
+  </div>
+</div>
+<div style="max-width:880px;margin:0 auto;padding:0 18px 12px">
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:13px 16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:10px">
+    <div><div style="font-size:11px;color:var(--text-sub);margin-bottom:2px">복리가 단리보다 더 버는 금액</div><div style="font-size:22px;font-weight:800;color:var(--accent);font-family:'DM Mono',monospace" id="diffA">—</div></div>
+    <div style="text-align:right"><div style="font-size:11px;color:var(--text-sub);margin-bottom:2px">복리 자산 증가배수</div><div style="font-size:20px;font-weight:800;color:var(--accent);font-family:'DM Mono',monospace" id="diffM">—</div></div>
+  </div>
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px">
+    <div style="font-size:12px;font-weight:700;margin-bottom:10px">자산 성장 비교</div>
+    <canvas id="svcC" height="200"></canvas>
+  </div>
+</div>
+<footer>
+  <div>금융 IQ를 높이세요 — 8종 금융 계산기</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">개인정보처리방침</a>
+    <a href="/contact.html">문의</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){var p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',function(e){if(!e.target.closest('.lw')){var b=document.getElementById('lBtn');var d=document.getElementById('lDrop');if(b)b.classList.remove('open');if(d)d.classList.remove('open');}});
+</script>
+<script>
+var svcChart=null;
+function fmtV(n){if(n>=100000000)return(n/100000000).toFixed(2)+'억원';if(n>=10000)return Math.round(n/10000)+'만원';return Math.round(n).toLocaleString()+'원';}
+function setPrin(v){document.getElementById('prin').value=v;calcSVC();}
+function setRate(v){document.getElementById('rate').value=v;calcSVC();}
+function setYrs(v){document.getElementById('yrs').value=v;calcSVC();}
+function calcSVC(){
+  var P=+document.getElementById('prin').value||0;
+  var r=+document.getElementById('rate').value/100||0;
+  var y=+document.getElementById('yrs').value||0;
+  if(!P||!r||!y)return;
+  var siF=P*(1+r*y),ciF=P*Math.pow(1+r,y);
+  document.getElementById('siFin').textContent=fmtV(siF);
+  document.getElementById('siI').textContent=fmtV(siF-P);
+  document.getElementById('siR').textContent=((siF-P)/P*100).toFixed(1)+'%';
+  document.getElementById('ciFin').textContent=fmtV(ciF);
+  document.getElementById('ciI').textContent=fmtV(ciF-P);
+  document.getElementById('ciR').textContent=((ciF-P)/P*100).toFixed(1)+'%';
+  document.getElementById('diffA').textContent=fmtV(ciF-siF);
+  document.getElementById('diffM').textContent=(ciF/P).toFixed(2)+'x';
+  var labels=[],siD=[],ciD=[];
+  var step=Math.max(1,Math.ceil(y/25));
+  for(var i=1;i<=y;i+=step){labels.push(i);siD.push(Math.round(P*(1+r*i)));ciD.push(Math.round(P*Math.pow(1+r,i)));}
+  var isDark=!document.body.classList.contains('light-mode');
+  if(svcChart)svcChart.destroy();
+  var ctx=document.getElementById('svcC').getContext('2d');
+  svcChart=new Chart(ctx,{
+    type:'line',
+    data:{labels:labels,datasets:[
+      {label:'단리 (Simple Interest)',data:siD,borderColor:'#f59e0b',backgroundColor:'rgba(245,158,11,0.07)',fill:true,tension:0.1,borderWidth:2,pointRadius:1},
+      {label:'복리 (Compound Interest)',data:ciD,borderColor:'#5b7fee',backgroundColor:'rgba(91,127,254,0.09)',fill:true,tension:0.4,borderWidth:2.5,pointRadius:1}
+    ]},
+    options:{responsive:true,interaction:{mode:'index',intersect:false},
+      plugins:{
+        legend:{labels:{color:isDark?'#8888a0':'#555',font:{size:11}}},
+        tooltip:{callbacks:{label:function(c){return ' '+c.dataset.label+': '+fmtV(c.parsed.y);}}}
+      },
+      scales:{
+        x:{ticks:{color:isDark?'#8888a0':'#555',font:{size:10}},grid:{color:isDark?'rgba(255,255,255,0.04)':'rgba(0,0,0,0.04)'}},
+        y:{ticks:{color:isDark?'#8888a0':'#555',font:{size:10}},grid:{color:isDark?'rgba(255,255,255,0.04)':'rgba(0,0,0,0.04)'}}
+      }
+    }
+  });
+}
+calcSVC();
+</script>
+</body>
+</html>

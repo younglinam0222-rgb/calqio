@@ -53,6 +53,9 @@
   }
 }
 </script>
+<meta name="google-site-verification" content="6II_gyhSkNgRi3bW9SNuoHxRlMBvBI2kJGn3GHCLsrg">
+<meta name="google-adsense-account" content="ca-pub-8205853473793766">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
 </head>
 <body>
 <nav>
@@ -75,7 +78,9 @@
 <div class="cf">
   <div class="ctitle"><strong>% حاسبة النسبة المئوية</strong></div>
   <div class="ci">
-    <div class="inp"><div class="pct-types"><div class="pc sel" onclick="selP(0)">A كم % من B?</div><div class="pc " onclick="selP(1)">N% من A?</div><div class="pc " onclick="selP(2)">نسبة التغيير?</div><div class="pc " onclick="selP(3)">القيمة بعد N%?</div></div><div id="pf0" style=""><div class="ig"><input type="number" id="pa0" class="if" placeholder="قيمة A"></div><div class="ig"><input type="number" id="pb0" class="if" placeholder="قيمة B"></div></div><div id="pf1" style="display:none"><div class="ig"><input type="number" id="pa1" class="if" placeholder="قيمة A"></div><div class="ig"><input type="number" id="pb1" class="if" placeholder="N %"></div></div><div id="pf2" style="display:none"><div class="ig"><input type="number" id="pa2" class="if" placeholder="القيمة القديمة"></div><div class="ig"><input type="number" id="pb2" class="if" placeholder="القيمة الجديدة"></div></div><div id="pf3" style="display:none"><div class="ig"><input type="number" id="pa3" class="if" placeholder="القيمة الأصلية"></div><div class="ig"><input type="number" id="pb3" class="if" placeholder="نسبة التغيير %"></div></div><button class="btn" onclick="calcP()">احسب</button></div>
+    <div class="inp">
+<div class="rt-hint"><span class="rt-dot"></span> تحديث النتائج تلقائياً عند الإدخال</div>
+<div class="pct-types"><div class="pc sel" onclick="selP(0);calcP()">A كم % من B?</div><div class="pc " onclick="selP(1);calcP()">N% من A?</div><div class="pc " onclick="selP(2);calcP()">نسبة التغيير?</div><div class="pc " onclick="selP(3);calcP()">القيمة بعد N%?</div></div><div id="pf0" style=""><div class="ig"><input type="number" id="pa0" class="if" oninput="calcP()" placeholder="قيمة A"></div><div class="ig"><input type="number" id="pb0" class="if" oninput="calcP()" placeholder="قيمة B"></div></div><div id="pf1" style="display:none"><div class="ig"><input type="number" id="pa1" class="if" oninput="calcP()" placeholder="قيمة A"></div><div class="ig"><input type="number" id="pb1" class="if" oninput="calcP()" placeholder="N %"></div></div><div id="pf2" style="display:none"><div class="ig"><input type="number" id="pa2" class="if" oninput="calcP()" placeholder="القيمة القديمة"></div><div class="ig"><input type="number" id="pb2" class="if" oninput="calcP()" placeholder="القيمة الجديدة"></div></div><div id="pf3" style="display:none"><div class="ig"><input type="number" id="pa3" class="if" oninput="calcP()" placeholder="القيمة الأصلية"></div><div class="ig"><input type="number" id="pb3" class="if" oninput="calcP()" placeholder="نسبة التغيير %"></div></div><button class="btn" onclick="calcP()">احسب</button></div>
     <div class="out">
       <div class="es" id="e7"><div class="ei">%</div><div>أدخل القيم</div></div>
       <div id="r7" style="display:none"><div class="rm"><div class="rl">النتيجة</div><div class="rv blue" id="v-pans">—</div></div></div>

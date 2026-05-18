@@ -53,6 +53,9 @@
   }
 }
 </script>
+<meta name="google-site-verification" content="6II_gyhSkNgRi3bW9SNuoHxRlMBvBI2kJGn3GHCLsrg">
+<meta name="google-adsense-account" content="ca-pub-8205853473793766">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
 </head>
 <body>
 <nav>
@@ -75,10 +78,12 @@
 <div class="cf">
   <div class="ctitle"><strong>📈 複利計算機</strong></div>
   <div class="ci">
-    <div class="inp"><div class="ig"><div class="il">元本 (円)</div><input type="number" id="p" class="if" value="1000000"></div>
-<div class="ig"><div class="il">年利率 (%)</div><input type="number" id="r" class="if" value="8"></div>
-<div class="ig"><div class="il">運用期間 (年)</div><input type="number" id="y" class="if" value="20"></div>
-<div class="ig"><div class="il">月次積立額 (円)</div><input type="number" id="m" class="if" value="0"></div>
+    <div class="inp">
+<div class="rt-hint"><span class="rt-dot"></span> 入力すると自動的に計算されます</div>
+<div class="ig"><div class="il">元本 (円)</div><input type="number" id="p" class="if" oninput="calcC()" value="1000000"><div class="qbtns"><button class="qb" onclick="addVal("p",1000000)">+100万</button><button class="qb" onclick="addVal("p",500000)">+50万</button><button class="qb" onclick="addVal("p",100000)">+10万</button></div></div>
+<div class="ig"><div class="il">年利率 (%)</div><input type="number" id="r" class="if" oninput="calcC()" value="8"><div class="qbtns"><button class="qb" onclick="addPct("r",-1)">-1%</button><button class="qb" onclick="addPct("r",1)">+1%</button><button class="qb" onclick="addPct("r",5)">+5%</button></div></div>
+<div class="ig"><div class="il">運用期間 (年)</div><input type="number" id="y" class="if" oninput="calcC()" value="20"><div class="qbtns"><button class="qb" onclick="addInt("y",-5)">-5年</button><button class="qb" onclick="addInt("y",5)">+5年</button><button class="qb" onclick="addInt("y",10)">+10年</button></div></div>
+<div class="ig"><div class="il">月次積立額 (円)</div><input type="number" id="m" class="if" oninput="calcC()" value="0"><div class="qbtns"><button class="qb" onclick="addVal("m",50000)">+5万</button><button class="qb" onclick="addVal("m",10000)">+1万</button></div></div>
 <button class="btn" onclick="calcC()">計算する</button></div>
     <div class="out">
       <div class="es" id="e0"><div class="ei">📈</div><div>数値を入力してください</div></div>
@@ -118,6 +123,9 @@ A: 最終資産 | P: 元本 | r: 年利率(小数) | n: 運用期間(年)</div>
 function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
 function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
 document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+
+/* calqio-init */
+document.addEventListener("DOMContentLoaded",function(){calcC()});
 </script>
 </body>
 </html>

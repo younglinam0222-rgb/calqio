@@ -53,6 +53,9 @@
   }
 }
 </script>
+<meta name="google-site-verification" content="6II_gyhSkNgRi3bW9SNuoHxRlMBvBI2kJGn3GHCLsrg">
+<meta name="google-adsense-account" content="ca-pub-8205853473793766">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
 </head>
 <body>
 <nav>
@@ -75,10 +78,12 @@
 <div class="cf">
   <div class="ctitle"><strong>💵 配当利回り計算機</strong></div>
   <div class="ci">
-    <div class="inp"><div class="ig"><div class="il">現在株価 (円)</div><input type="number" id="dprice" class="if" value="2500"></div>
-<div class="ig"><div class="il">年間配当金/株 (円)</div><input type="number" id="ddiv" class="if" value="80"></div>
-<div class="ig"><div class="il">保有株数 (株)</div><input type="number" id="dqty" class="if" value="100"></div>
-<div class="ig"><div class="il">配当税率 (%)</div><input type="number" id="dtax" class="if" value="20.315"></div>
+    <div class="inp">
+<div class="rt-hint"><span class="rt-dot"></span> 入力すると自動的に計算されます</div>
+<div class="ig"><div class="il">現在株価 (円)</div><input type="number" id="dprice" class="if" oninput="calcDiv()" value="2500"></div>
+<div class="ig"><div class="il">年間配当金/株 (円)</div><input type="number" id="ddiv" class="if" oninput="calcDiv()" value="80"></div>
+<div class="ig"><div class="il">保有株数 (株)</div><input type="number" id="dqty" class="if" oninput="calcDiv()" value="100"></div>
+<div class="ig"><div class="il">配当税率 (%)</div><input type="number" id="dtax" class="if" oninput="calcDiv()" value="20.315"></div>
 <button class="btn" onclick="calcDiv()">計算する</button></div>
     <div class="out">
       <div class="es" id="e4"><div class="ei">💵</div><div>数値を入力してください</div></div>
@@ -107,6 +112,9 @@
 function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
 function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
 document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+
+/* calqio-init */
+document.addEventListener("DOMContentLoaded",function(){calcDiv()});
 </script>
 </body>
 </html>

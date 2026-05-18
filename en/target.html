@@ -53,6 +53,9 @@
   }
 }
 </script>
+<meta name="google-site-verification" content="6II_gyhSkNgRi3bW9SNuoHxRlMBvBI2kJGn3GHCLsrg">
+<meta name="google-adsense-account" content="ca-pub-8205853473793766">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
 </head>
 <body>
 <nav>
@@ -75,10 +78,12 @@
 <div class="cf">
   <div class="ctitle"><strong>🎯 Target Price Calculator</strong></div>
   <div class="ci">
-    <div class="inp"><div class="ig"><div class="il">Buy Price</div><input type="number" id="tbase" class="if" value="50"></div>
-<div class="ig"><div class="il">Target Return (%)</div><input type="number" id="tprofit" class="if" value="20"></div>
-<div class="ig"><div class="il">Stop-Loss (%)</div><input type="number" id="tstop" class="if" value="10"></div>
-<div class="ig"><div class="il">Quantity</div><input type="number" id="tqty" class="if" value="100"></div>
+    <div class="inp">
+<div class="rt-hint"><span class="rt-dot"></span> Results update as you type</div>
+<div class="ig"><div class="il">Buy Price</div><input type="number" id="tbase" class="if" oninput="calcT()" value="50"></div>
+<div class="ig"><div class="il">Target Return (%)</div><input type="number" id="tprofit" class="if" oninput="calcT()" value="20"><div class="qbtns"><button class="qb" onclick="addInt("tprofit",5)">+5%</button><button class="qb" onclick="addInt("tprofit",10)">+10%</button><button class="qb" onclick="addInt("tprofit",20)">+20%</button></div></div>
+<div class="ig"><div class="il">Stop-Loss (%)</div><input type="number" id="tstop" class="if" oninput="calcT()" value="10"><div class="qbtns"><button class="qb" onclick="addInt("tstop",3)">+3%</button><button class="qb" onclick="addInt("tstop",5)">+5%</button><button class="qb" onclick="addInt("tstop",10)">+10%</button></div></div>
+<div class="ig"><div class="il">Quantity</div><input type="number" id="tqty" class="if" oninput="calcT()" value="100"></div>
 <button class="btn" onclick="calcT()">Calculate</button></div>
     <div class="out">
       <div class="es" id="e5"><div class="ei">🎯</div><div>Enter values and click Calculate</div></div>
@@ -111,6 +116,9 @@ Risk/Reward = Target% ÷ Stop%</div>
 function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
 function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
 document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+
+/* calqio-init */
+document.addEventListener("DOMContentLoaded",function(){calcT()});
 </script>
 </body>
 </html>

@@ -53,6 +53,9 @@
   }
 }
 </script>
+<meta name="google-site-verification" content="6II_gyhSkNgRi3bW9SNuoHxRlMBvBI2kJGn3GHCLsrg">
+<meta name="google-adsense-account" content="ca-pub-8205853473793766">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
 </head>
 <body>
 <nav>
@@ -75,10 +78,12 @@
 <div class="cf">
   <div class="ctitle"><strong>📈 Compound Interest Calculator</strong></div>
   <div class="ci">
-    <div class="inp"><div class="ig"><div class="il">Initial Investment</div><input type="number" id="p" class="if" value="10000"></div>
-<div class="ig"><div class="il">Annual Return (%)</div><input type="number" id="r" class="if" value="8"></div>
-<div class="ig"><div class="il">Period (Years)</div><input type="number" id="y" class="if" value="20"></div>
-<div class="ig"><div class="il">Monthly Addition</div><input type="number" id="m" class="if" value="0"></div>
+    <div class="inp">
+<div class="rt-hint"><span class="rt-dot"></span> Results update as you type</div>
+<div class="ig"><div class="il">Initial Investment</div><input type="number" id="p" class="if" oninput="calcC()" value="10000"><div class="qbtns"><button class="qb" onclick="addVal("p",100000)">+$100K</button><button class="qb" onclick="addVal("p",50000)">+$50K</button><button class="qb" onclick="addVal("p",10000)">+$10K</button></div></div>
+<div class="ig"><div class="il">Annual Return (%)</div><input type="number" id="r" class="if" oninput="calcC()" value="8"><div class="qbtns"><button class="qb" onclick="addPct("r",-1)">-1%</button><button class="qb" onclick="addPct("r",1)">+1%</button><button class="qb" onclick="addPct("r",5)">+5%</button></div></div>
+<div class="ig"><div class="il">Period (Years)</div><input type="number" id="y" class="if" oninput="calcC()" value="20"><div class="qbtns"><button class="qb" onclick="addInt("y",-5)">-5yr</button><button class="qb" onclick="addInt("y",5)">+5yr</button><button class="qb" onclick="addInt("y",10)">+10yr</button></div></div>
+<div class="ig"><div class="il">Monthly Addition</div><input type="number" id="m" class="if" oninput="calcC()" value="0"><div class="qbtns"><button class="qb" onclick="addVal("m",500)">+$500</button><button class="qb" onclick="addVal("m",100)">+$100</button></div></div>
 <button class="btn" onclick="calcC()">Calculate</button></div>
     <div class="out">
       <div class="es" id="e0"><div class="ei">📈</div><div>Enter values and click Calculate</div></div>
@@ -119,6 +124,9 @@ Example: 8% return → doubles in 9 years</div>
 function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
 function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
 document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+
+/* calqio-init */
+document.addEventListener("DOMContentLoaded",function(){calcC()});
 </script>
 </body>
 </html>

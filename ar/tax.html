@@ -53,6 +53,9 @@
   }
 }
 </script>
+<meta name="google-site-verification" content="6II_gyhSkNgRi3bW9SNuoHxRlMBvBI2kJGn3GHCLsrg">
+<meta name="google-adsense-account" content="ca-pub-8205853473793766">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
 </head>
 <body>
 <nav>
@@ -75,10 +78,12 @@
 <div class="cf">
   <div class="ctitle"><strong>📋 حاسبة الضريبة</strong></div>
   <div class="ci">
-    <div class="inp"><div class="ig"><div class="il">مبلغ الشراء</div><input type="number" id="taxbuy" class="if" value="10000"></div>
-<div class="ig"><div class="il">مبلغ البيع</div><input type="number" id="taxsell" class="if" value="15000"></div>
-<div class="ig"><div class="il">رسوم المعاملة</div><input type="number" id="taxfee" class="if" value="50"></div>
-<div class="ig"><div class="il">الخصم</div><input type="number" id="taxded" class="if" value="0"></div>
+    <div class="inp">
+<div class="rt-hint"><span class="rt-dot"></span> تحديث النتائج تلقائياً عند الإدخال</div>
+<div class="ig"><div class="il">مبلغ الشراء</div><input type="number" id="taxbuy" class="if" oninput="calcTax()" value="10000"><div class="qbtns"><button class="qb" onclick="addVal("taxbuy",10000)">+10K</button><button class="qb" onclick="addVal("taxbuy",50000)">+50K</button><button class="qb" onclick="addVal("taxbuy",100000)">+100K</button></div></div>
+<div class="ig"><div class="il">مبلغ البيع</div><input type="number" id="taxsell" class="if" oninput="calcTax()" value="15000"><div class="qbtns"><button class="qb" onclick="addVal("taxsell",5000)">+5K</button><button class="qb" onclick="addVal("taxsell",10000)">+10K</button></div></div>
+<div class="ig"><div class="il">رسوم المعاملة</div><input type="number" id="taxfee" class="if" oninput="calcTax()" value="50"></div>
+<div class="ig"><div class="il">الخصم</div><input type="number" id="taxded" class="if" oninput="calcTax()" value="0"></div>
 <button class="btn" onclick="calcTax()">احسب</button></div>
     <div class="out">
       <div class="es" id="e6"><div class="ei">📋</div><div>أدخل القيم</div></div>
@@ -107,6 +112,9 @@
 function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
 function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
 document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+
+/* calqio-init */
+document.addEventListener("DOMContentLoaded",function(){calcTax()});
 </script>
 </body>
 </html>

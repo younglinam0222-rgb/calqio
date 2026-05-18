@@ -3,108 +3,200 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>حاسبة القرض — الدفعة الشهرية وإجمالي الفوائد | Calqio</title>
-<meta name="description" content="احسب الدفعات الشهرية وإجمالي الفوائد لأي قرض.">
+<title>حاسبة القرض | أقساط متساوية · أصل متساوٍ — Calqio</title>
+<meta name="description" content="احسب الدفعة الشهرية وإجمالي الفوائد مسبقاً. تدعم 3 طرق سداد مع جدول سنوي.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calqio.com/ar/loan.html">
+<meta property="og:title" content="حاسبة القرض | أقساط متساوية · أصل متساوٍ — Calqio">
+<meta property="og:description" content="احسب الدفعة الشهرية وإجمالي الفوائد مسبقاً. تدعم 3 طرق سداد مع جدول سنوي.">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="ko" href="https://calqio.com/ko/loan.html">
+<link rel="alternate" hreflang="en" href="https://calqio.com/en/loan.html">
+<link rel="alternate" hreflang="ja" href="https://calqio.com/ja/loan.html">
+<link rel="alternate" hreflang="zh" href="https://calqio.com/zh/loan.html">
+<link rel="alternate" hreflang="ar" href="https://calqio.com/ar/loan.html">
+<meta name="google-adsense-account" content="ca-pub-8205853473793766">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
+<script>window.LC={"cur":"","suf":" ر.س","darkBtn":"🌙 داكن"}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <link rel="stylesheet" href="../style.css">
-<script>window.LC={"cur":"","suf":" ر.س","sh2":" سهم","tf":"يرجى ملء جميع الحقول","tc":"تم نسخ الرابط 🔗","darkBtn":"🌙 داكن","lightBtn":"☀️ فاتح"}</script>
-
-  <link rel="canonical" href="https://calqio.com/ar/loan.html">
-  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/loan.html">
-  <link rel="alternate" hreflang="en" href="https://calqio.com/en/loan.html">
-  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/loan.html">
-  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/loan.html">
-  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/loan.html">
-  <link rel="alternate" hreflang="x-default" href="https://calqio.com/en/loan.html">
-
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://calqio.com/ar/loan.html">
-  <meta property="og:title" content="حاسبة القرض | Calqio">
-  <meta property="og:description" content="احسب الدفعات الشهرية وإجمالي الفوائد لأي قرض.">
-  <meta property="og:image" content="https://calqio.com/og-ar.png">
-  <meta property="og:site_name" content="Calqio">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="حاسبة القرض | Calqio">
-  <meta name="twitter:description" content="احسب الدفعات الشهرية وإجمالي الفوائد لأي قرض.">
-  <meta name="twitter:image" content="https://calqio.com/og-ar.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "حاسبة القرض",
-  "description": "احسب الدفعات الشهرية وإجمالي الفوائد لأي قرض.",
-  "url": "https://calqio.com/ar/loan.html",
-  "applicationCategory": "FinanceApplication",
-  "operatingSystem": "Web",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "SAR"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "ratingCount": "127",
-    "bestRating": "5"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Calqio",
-    "url": "https://calqio.com"
-  }
-}
-</script>
 </head>
-<body>
-<nav>
+<body><nav>
   <a href="/ar/" class="logo">Calq<span>io</span></a>
   <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 داكن</button>
   <div class="lw">
     <button class="lc" id="lBtn" onclick="toggleMenu()">
       <span class="fl">🇸🇦</span><span>العربية</span><span class="arr">▼</span>
     </button>
-    <div class="ld" id="lDrop"><div class="lo " onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
-<div class="lo " onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
-<div class="lo " onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
-<div class="lo " onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
-<div class="lo active" onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
-</div>
+    <div class="ld" id="lDrop"><div class="lo" onclick="location.href='/ko/'"><span class="fl">🇰🇷</span>한국어</div><div class="lo" onclick="location.href='/en/'"><span class="fl">🇺🇸</span>English</div><div class="lo" onclick="location.href='/ja/'"><span class="fl">🇯🇵</span>日本語</div><div class="lo" onclick="location.href='/zh/'"><span class="fl">🇨🇳</span>中文</div><div class="lo active" onclick="location.href='/ar/'"><span class="fl">🇸🇦</span>العربية</div></div>
   </div>
 </nav>
-<div class="sec" style="margin-top:24px;">
-<div class="tabs"><a href="compound.html" class="tab "><span class="tab-icon">📈</span>حاسبة الفائدة المركبة</a><a href="return.html" class="tab "><span class="tab-icon">💰</span>حاسبة معدل العائد</a><a href="average-down.html" class="tab "><span class="tab-icon">⬇️</span>حاسبة خفض المتوسط</a><a href="loan.html" class="tab active"><span class="tab-icon">🏦</span>حاسبة القرض</a><a href="dividend.html" class="tab "><span class="tab-icon">💵</span>حاسبة عائد الأرباح</a><a href="target.html" class="tab "><span class="tab-icon">🎯</span>حاسبة السعر المستهدف</a><a href="tax.html" class="tab "><span class="tab-icon">📋</span>حاسبة ضريبة الأرباح</a><a href="percent.html" class="tab "><span class="tab-icon">%</span>حاسبة النسبة المئوية</a></div>
-<div class="cf">
-  <div class="ctitle"><strong>🏦 حاسبة القرض</strong></div>
-  <div class="ci">
-    <div class="inp"><div class="ig"><div class="il">مبلغ القرض</div><input type="number" id="loan" class="if" value="300000"></div>
-<div class="ig"><div class="il">معدل الفائدة السنوي (%)</div><input type="number" id="lrate" class="if" value="4.5"></div>
-<div class="ig"><div class="il">مدة القرض (سنوات)</div><input type="number" id="lterm" class="if" value="25"></div>
-<button class="btn" onclick="calcL()">احسب</button></div>
-    <div class="out">
-      <div class="es" id="e3"><div class="ei">🏦</div><div>أدخل القيم</div></div>
-      <div id="r3" style="display:none"><div class="rm"><div class="rl">الدفعة الشهرية</div><div class="rv rm" id="v-monthly">—</div></div><div class="rg"><div class="ri"><div class="ril">إجمالي السداد</div><div class="riv " id="v-totalrep">—</div></div><div class="ri"><div class="ril">إجمالي الفوائد</div><div class="riv neg" id="v-totalint">—</div></div></div></div>
+<div style="max-width:880px;margin:0 auto;padding:20px 18px 10px">
+  <h1 style="font-size:clamp(19px,3.5vw,28px);font-weight:800;letter-spacing:-1px;margin-bottom:6px">
+    حاسبة القرض<br><em style="color:var(--accent);font-style:normal">إدارة القرض بذكاء</em>
+  </h1>
+  <div style="font-size:10px;color:var(--text-muted);display:flex;align-items:center;gap:5px">
+    <span style="width:5px;height:5px;border-radius:50%;background:var(--pos);display:inline-block;animation:blink 1.5s infinite"></span>
+    تحديث النتائج تلقائياً عند الإدخال
+  </div>
+</div>
+<div style="max-width:880px;margin:0 auto;padding:6px 18px 8px">
+  <div style="display:flex;gap:3px;background:var(--bg2);padding:3px;border-radius:10px;border:1px solid var(--border);margin-bottom:7px">
+    <button class="btn" id="lm0" onclick="setM(0)" style="flex:1;padding:8px;border-radius:8px;border:none;background:var(--accent);color:#fff;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">أقساط متساوية</button>
+    <button class="btn" id="lm1" onclick="setM(1)" style="flex:1;padding:8px;border-radius:8px;border:none;background:transparent;color:var(--text-sub);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">أصل متساوٍ</button>
+    <button class="btn" id="lm2" onclick="setM(2)" style="flex:1;padding:8px;border-radius:8px;border:none;background:transparent;color:var(--text-sub);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">نهاية المدة</button>
+  </div>
+  <div id="mDesc" style="font-size:11px;color:var(--text-muted);padding:7px 10px;background:var(--bg2);border-radius:6px;border:1px solid var(--border);line-height:1.5">نفس المبلغ كل شهر (أصل + فائدة). مناسب للتخطيط المالي.</div>
+</div>
+<div style="max-width:880px;margin:0 auto;padding:0 18px 12px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+  <div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px">
+      <div style="margin-bottom:11px">
+        <div style="font-size:11px;color:var(--text-sub);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px;display:flex;justify-content:space-between"><span>مبلغ القرض</span><span style="font-size:10px;color:var(--text-muted)"> ر.س</span></div>
+        <input type="number" id="loan" style="width:100%;padding:10px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:15px;outline:none;transition:border .2s;font-family:'DM Mono',monospace" value="300000" oninput="calcL()">
+        <div class="qbtns"><button class="qb" onclick="addL(100000)">+100K</button><button class="qb" onclick="addL(50000)">+50K</button><button class="qb" onclick="addL(10000)">+10K</button><button class="qb" onclick="addL(-50000)">-50K</button></div>
+      </div>
+      <div style="margin-bottom:11px">
+        <div style="font-size:11px;color:var(--text-sub);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px;display:flex;justify-content:space-between"><span>معدل الفائدة السنوي</span><span style="font-size:10px;color:var(--text-muted)">%</span></div>
+        <input type="number" id="lrate" step="0.1" style="width:100%;padding:10px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:15px;outline:none;transition:border .2s;font-family:'DM Mono',monospace" value="5.0" oninput="calcL()">
+        <div class="qbtns"><button class="qb" onclick="addR(-0.5)">-0.5%</button><button class="qb" onclick="addR(-0.1)">-0.1%</button><button class="qb" onclick="addR(0.1)">+0.1%</button><button class="qb" onclick="addR(0.5)">+0.5%</button></div>
+      </div>
+      <div>
+        <div style="font-size:11px;color:var(--text-sub);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px;display:flex;justify-content:space-between"><span>مدة القرض</span><span style="font-size:10px;color:var(--text-muted)">سنة</span></div>
+        <input type="number" id="lterm" style="width:100%;padding:10px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:15px;outline:none;transition:border .2s;font-family:'DM Mono',monospace" value="30" oninput="calcL()">
+        <div class="qbtns"><button class="qb" onclick="addT(-5)">-5س</button><button class="qb" onclick="addT(-1)">-1س</button><button class="qb" onclick="addT(1)">+1س</button><button class="qb" onclick="addT(5)">+5س</button></div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px">
+      <div style="margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border)">
+        <div style="font-size:10px;color:var(--text-sub);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px" id="rcLbl">الدفعة الشهرية</div>
+        <div style="font-size:26px;font-weight:800;color:var(--accent);font-family:'DM Mono',monospace;letter-spacing:-1px" id="rcVal">—</div>
+        <div style="font-size:11px;color:var(--text-muted);margin-top:3px" id="rcSub"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+        <div style="background:var(--bg2);border-radius:6px;padding:8px 10px"><div style="font-size:10px;color:var(--text-muted);margin-bottom:2px">إجمالي السداد</div><div style="font-size:12px;font-weight:700;font-family:'DM Mono',monospace" id="rcTot">—</div></div>
+        <div style="background:var(--bg2);border-radius:6px;padding:8px 10px"><div style="font-size:10px;color:var(--text-muted);margin-bottom:2px">إجمالي الفوائد</div><div style="font-size:12px;font-weight:700;font-family:'DM Mono',monospace;color:var(--neg)" id="rcInt">—</div></div>
+        <div style="background:var(--bg2);border-radius:6px;padding:8px 10px"><div style="font-size:10px;color:var(--text-muted);margin-bottom:2px">نسبة الفوائد</div><div style="font-size:12px;font-weight:700;font-family:'DM Mono',monospace;color:var(--neg)" id="rcRatio">—</div></div>
+        <div style="background:var(--bg2);border-radius:6px;padding:8px 10px"><div style="font-size:10px;color:var(--text-muted);margin-bottom:2px">عدد الأقساط</div><div style="font-size:12px;font-weight:700;font-family:'DM Mono',monospace" id="rcCnt">—</div></div>
+      </div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px">
+      <div style="font-size:11px;font-weight:700;margin-bottom:8px">الأصل مقابل الفوائد</div>
+      <div style="position:relative;height:150px;display:flex;align-items:center;justify-content:center">
+        <canvas id="donutC" style="max-width:150px;max-height:150px"></canvas>
+        <div style="position:absolute;text-align:center;pointer-events:none">
+          <div style="font-size:18px;font-weight:800;color:var(--neg);font-family:'DM Mono',monospace" id="dPct">—</div>
+          <div style="font-size:10px;color:var(--text-muted)">نسبة الفوائد</div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-<section class="guide"><span class="gtag">دليل المعرفة المالية</span><h2>حاسبة القرض — دليل شامل</h2>
-<p>معرفة التكلفة الحقيقية للقرض مسبقاً ضرورية للتخطيط المالي. في قروض 30 سنة قد تتجاوز الفوائد رأس المال الأصلي.</p>
-<h3>صيغة القسط المتساوي</h3>
-<div class="fml">القسط الشهري = P × [r(1+r)ⁿ] ÷ [(1+r)ⁿ - 1]</div>
-<div class="tip">💡 قارن معدلات الفائدة من عدة بنوك. حتى 0.5% فرق يوفر الكثير.</div></section>
+<div style="max-width:880px;margin:0 auto;padding:0 18px 24px">
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px">
+    <div style="font-size:12px;font-weight:700;margin-bottom:8px">جدول السداد السنوي</div>
+    <div style="max-height:190px;overflow-y:auto;border:1px solid var(--border);border-radius:6px">
+      <table style="width:100%;border-collapse:collapse;font-size:11px;font-family:'DM Mono',monospace">
+        <thead>
+          <tr>
+            <th style="padding:5px 8px;text-align:center;background:var(--bg2);color:var(--text-muted);font-size:10px;font-weight:600;border-bottom:1px solid var(--border);position:sticky;top:0">السنة</th>
+            <th style="padding:5px 8px;text-align:right;background:var(--bg2);color:var(--text-muted);font-size:10px;font-weight:600;border-bottom:1px solid var(--border);position:sticky;top:0">الدفعة</th>
+            <th style="padding:5px 8px;text-align:right;background:var(--bg2);color:var(--text-muted);font-size:10px;font-weight:600;border-bottom:1px solid var(--border);position:sticky;top:0">الأصل</th>
+            <th style="padding:5px 8px;text-align:right;background:var(--bg2);color:var(--text-muted);font-size:10px;font-weight:600;border-bottom:1px solid var(--border);position:sticky;top:0">الفائدة</th>
+            <th style="padding:5px 8px;text-align:right;background:var(--bg2);color:var(--text-muted);font-size:10px;font-weight:600;border-bottom:1px solid var(--border);position:sticky;top:0">الرصيد</th>
+          </tr>
+        </thead>
+        <tbody id="sTbl"></tbody>
+      </table>
+    </div>
+  </div>
 </div>
 <footer>
   <div>ارفع ذكاءك المالي — 8 آلات حاسبة مالية</div>
   <div style="margin-top:8px">
     <a href="/about.html">حول</a>
-    <a href="/privacy.html">سياسة الخصوصية</a>
+    <a href="/privacy.html">الخصوصية</a>
     <a href="/contact.html">تواصل</a>
   </div>
 </footer>
 <div id="toast"></div>
 <script src="../common.js"></script>
 <script>
-function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function switchLang(l){var p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
 function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
-document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+document.addEventListener('click',function(e){if(!e.target.closest('.lw')){var b=document.getElementById('lBtn');var d=document.getElementById('lDrop');if(b)b.classList.remove('open');if(d)d.classList.remove('open');}});
+</script>
+<script>
+var lM=0,dChart=null;
+var DESCS=["نفس المبلغ كل شهر (أصل + فائدة). مناسب للتخطيط المالي.","الأصل ثابت شهرياً، الفائدة تنخفض تدريجياً. أقل إجمالي فوائد.","فوائد فقط خلال المدة، الأصل كاملاً عند النهاية."];
+function fmtV(n){if(n>=1000000)return (n/1000000).toFixed(2)+'م ر.س';if(n>=1000)return (n/1000).toFixed(1)+'ك ر.س';return Math.round(n).toLocaleString()+' ر.س';}
+function setM(m){
+  lM=m;
+  [0,1,2].forEach(function(i){
+    var b=document.getElementById('lm'+i);
+    b.style.background=i===m?'var(--accent)':'transparent';
+    b.style.color=i===m?'#fff':'var(--text-sub)';
+  });
+  document.getElementById('mDesc').textContent=DESCS[m];
+  calcL();
+}
+function addL(v){var e=document.getElementById('loan');e.value=Math.max(0,(+e.value||0)+v);calcL();}
+function addR(v){var e=document.getElementById('lrate');e.value=Math.max(0,(+e.value||0)+v).toFixed(1);calcL();}
+function addT(v){var e=document.getElementById('lterm');e.value=Math.max(1,+e.value+v);calcL();}
+function calcL(){
+  var L=+document.getElementById('loan').value||0;
+  var ir=+document.getElementById('lrate').value/100/12||0;
+  var n=+document.getElementById('lterm').value*12||0;
+  if(!L||!ir||!n)return;
+  var mp=0,totalInt=0,rows=[];
+  if(lM===0){
+    mp=L*ir*Math.pow(1+ir,n)/(Math.pow(1+ir,n)-1);
+    totalInt=mp*n-L;
+    var bal=L;
+    for(var y=1;y<=n/12;y++){
+      var yP=0,yI=0;
+      for(var mm=1;mm<=12;mm++){var i=bal*ir;yP+=mp-i;yI+=i;bal-=mp-i;}
+      rows.push({y:y,mp:Math.round(mp),p:Math.round(yP),i:Math.round(yI),b:Math.max(0,Math.round(bal))});
+    }
+  }else if(lM===1){
+    var pM=L/n;var bal2=L;
+    for(var y2=1;y2<=n/12;y2++){
+      var yP2=0,yI2=0,fMp=0;
+      for(var mm2=1;mm2<=12;mm2++){var i2=bal2*ir;if(!fMp)fMp=pM+i2;yP2+=pM;yI2+=i2;totalInt+=i2;bal2-=pM;}
+      rows.push({y:y2,mp:Math.round(fMp),p:Math.round(yP2),i:Math.round(yI2),b:Math.max(0,Math.round(bal2))});
+    }
+    mp=L/n+L*ir;
+  }else{
+    mp=L*ir;totalInt=mp*n;
+    for(var y3=1;y3<=n/12;y3++){
+      rows.push({y:y3,mp:Math.round(mp),p:y3===n/12?L:0,i:Math.round(mp*12),b:y3===n/12?0:L});
+    }
+  }
+  var tot=L+totalInt;
+  document.getElementById('rcVal').textContent=fmtV(mp);
+  document.getElementById('rcTot').textContent=fmtV(tot);
+  document.getElementById('rcInt').textContent=fmtV(totalInt);
+  var ratio=totalInt/tot*100;
+  document.getElementById('rcRatio').textContent=ratio.toFixed(1)+'%';
+  document.getElementById('rcCnt').textContent=n;
+  document.getElementById('dPct').textContent=ratio.toFixed(1)+'%';
+  var isDark=!document.body.classList.contains('light-mode');
+  if(dChart)dChart.destroy();
+  var ctx=document.getElementById('donutC').getContext('2d');
+  dChart=new Chart(ctx,{
+    type:'doughnut',
+    data:{labels:['الأصل','الفائدة'],datasets:[{data:[L,totalInt],backgroundColor:['#5b7fee','#ef4444'],borderWidth:0}]},
+    options:{responsive:true,maintainAspectRatio:true,cutout:'65%',
+      plugins:{legend:{position:'bottom',labels:{color:isDark?'#8888a0':'#555',font:{size:10},boxWidth:10,padding:6}},
+        tooltip:{callbacks:{label:function(c){return ' '+c.label+': '+fmtV(c.parsed);}}}}}
+  });
+  document.getElementById('sTbl').innerHTML=rows.map(function(r){
+    return '<tr><td style="text-align:center;padding:5px 8px;border-bottom:1px solid var(--border);color:var(--text-muted)">'+r.y+'</td><td style="text-align:right;padding:5px 8px;border-bottom:1px solid var(--border);color:var(--text-sub)">'+fmtV(r.mp)+'</td><td style="text-align:right;padding:5px 8px;border-bottom:1px solid var(--border);color:var(--text-sub)">'+fmtV(r.p)+'</td><td style="text-align:right;padding:5px 8px;border-bottom:1px solid var(--border);color:var(--neg)">'+fmtV(r.i)+'</td><td style="text-align:right;padding:5px 8px;border-bottom:1px solid var(--border);color:var(--text-sub)">'+fmtV(r.b)+'</td></tr>';
+  }).join('');
+}
+calcL();
 </script>
 </body>
 </html>

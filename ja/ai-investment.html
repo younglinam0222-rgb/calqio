@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI投資分析ガイド — Calqio</title>
+<meta name="description" content="ChatGPT・Claude・Perplexityで機関投資家レベルの分析を受けましょう。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calqio.com/ja/ai-investment.html">
+<meta property="og:title" content="AI投資分析ガイド — Calqio">
+<meta property="og:description" content="ChatGPT・Claude・Perplexityで機関投資家レベルの分析を受けましょう。">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="ko" href="https://calqio.com/ko/ai-investment.html">
+<link rel="alternate" hreflang="en" href="https://calqio.com/en/ai-investment.html">
+<link rel="alternate" hreflang="ja" href="https://calqio.com/ja/ai-investment.html">
+<link rel="alternate" hreflang="zh" href="https://calqio.com/zh/ai-investment.html">
+<link rel="alternate" hreflang="ar" href="https://calqio.com/ar/ai-investment.html">
+<meta name="google-adsense-account" content="ca-pub-8205853473793766">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
+<script>window.LC={"cur":"¥","suf":"","darkBtn":"🌙 ダーク"}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body><nav>
+  <a href="/ja/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 ダーク</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇯🇵</span><span>日本語</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo" onclick="location.href='/ko/'"><span class="fl">🇰🇷</span>한국어</div><div class="lo" onclick="location.href='/en/'"><span class="fl">🇺🇸</span>English</div><div class="lo active" onclick="location.href='/ja/'"><span class="fl">🇯🇵</span>日本語</div><div class="lo" onclick="location.href='/zh/'"><span class="fl">🇨🇳</span>中文</div><div class="lo" onclick="location.href='/ar/'"><span class="fl">🇸🇦</span>العربية</div></div>
+  </div>
+</nav>
+<div style="max-width:860px;margin:0 auto;padding:24px 18px 14px;text-align:center">
+  <h1 style="font-size:clamp(20px,3.5vw,28px);font-weight:800;letter-spacing:-1px;margin-bottom:7px">
+    AI投資分析<br><em style="color:var(--accent);font-style:normal">すぐに使えるプロンプト集</em>
+  </h1>
+  <p style="color:var(--text-sub);font-size:13px">ChatGPT・Claude・Perplexityで機関投資家レベルの分析を受けましょう。</p>
+</div>
+<div style="max-width:860px;margin:0 auto;padding:0 18px 60px">
+
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:10px">
+    <div style="padding:11px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:var(--bg2)">
+      <div style="font-size:12px;font-weight:700;color:var(--text)">銘柄総合分析</div>
+      <button id="cpBtn0" onclick="cpAI(0)" style="padding:4px 11px;background:var(--accent);border:none;border-radius:4px;color:#fff;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit">コピー</button>
+    </div>
+    <div style="padding:14px">
+      <pre id="ap0" style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:12px;font-family:'DM Mono','Courier New',monospace;font-size:11.5px;color:var(--text-sub);line-height:1.75;white-space:pre-wrap;word-break:break-word;margin:0">[銘柄名]を分析してください:
+1. 事業モデルと主な収益源
+2. 過去3年の成長率
+3. PER・PBR・ROEのバリュエーション
+4. 競合他社との比較
+5. 今後12ヶ月の主なリスク3つ
+6. 投資判断（買い/中立/売り）</pre>
+    </div>
+  </div>
+
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:10px">
+    <div style="padding:11px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:var(--bg2)">
+      <div style="font-size:12px;font-weight:700;color:var(--text)">ETF比較分析</div>
+      <button id="cpBtn1" onclick="cpAI(1)" style="padding:4px 11px;background:var(--accent);border:none;border-radius:4px;color:#fff;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit">コピー</button>
+    </div>
+    <div style="padding:14px">
+      <pre id="ap1" style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:12px;font-family:'DM Mono','Courier New',monospace;font-size:11.5px;color:var(--text-sub);line-height:1.75;white-space:pre-wrap;word-break:break-word;margin:0">[ETF1]と[ETF2]の比較:
+1. 追跡指数と主要構成銘柄
+2. 1・3・5年リターン
+3. 信託報酬とAUM
+4. 分配金利回りと支払頻度
+5. 現在の環境でどちらが有利か</pre>
+    </div>
+  </div>
+
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:10px">
+    <div style="padding:11px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:var(--bg2)">
+      <div style="font-size:12px;font-weight:700;color:var(--text)">ポートフォリオ診断</div>
+      <button id="cpBtn2" onclick="cpAI(2)" style="padding:4px 11px;background:var(--accent);border:none;border-radius:4px;color:#fff;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit">コピー</button>
+    </div>
+    <div style="padding:14px">
+      <pre id="ap2" style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:12px;font-family:'DM Mono','Courier New',monospace;font-size:11.5px;color:var(--text-sub);line-height:1.75;white-space:pre-wrap;word-break:break-word;margin:0">私のポートフォリオ:
+- [銘柄1]: ¥[金額] ([比率]%)
+- [銘柄2]: ¥[金額] ([比率]%)
+目標: [目標] | 月次: ¥[金額]
+
+1. セクター偏り
+2. リスクレベル
+3. 改善すべき点
+4. 月次積立の最適配分</pre>
+    </div>
+  </div>
+</div>
+<footer>
+  <div>金融IQを高めよう — 8種類の金融計算ツール</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">概要</a>
+    <a href="/privacy.html">プライバシー</a>
+    <a href="/contact.html">お問い合わせ</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function switchLang(l){var p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',function(e){if(!e.target.closest('.lw')){var b=document.getElementById('lBtn');var d=document.getElementById('lDrop');if(b)b.classList.remove('open');if(d)d.classList.remove('open');}});
+</script>
+<script>
+function cpAI(i){
+  var text=document.getElementById('ap'+i).textContent;
+  var btn=document.getElementById('cpBtn'+i);
+  navigator.clipboard.writeText(text).then(function(){
+    btn.textContent='コピー済み ✓';btn.style.background='var(--pos)';
+    setTimeout(function(){btn.textContent='コピー';btn.style.background='var(--accent)';},2000);
+  });
+}
+</script>
+</body>
+</html>

@@ -3,110 +3,200 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loan Calculator — Monthly Payment & Total Interest | Calqio</title>
-<meta name="description" content="Calculate monthly payments and total interest for any loan with our free amortization calculator.">
+<title>Loan Calculator | Equal Payment, Equal Principal, Balloon — Calqio</title>
+<meta name="description" content="Calculate monthly payment and total interest. Supports 3 repayment methods with annual schedule.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calqio.com/en/loan.html">
+<meta property="og:title" content="Loan Calculator | Equal Payment, Equal Principal, Balloon — Calqio">
+<meta property="og:description" content="Calculate monthly payment and total interest. Supports 3 repayment methods with annual schedule.">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="ko" href="https://calqio.com/ko/loan.html">
+<link rel="alternate" hreflang="en" href="https://calqio.com/en/loan.html">
+<link rel="alternate" hreflang="ja" href="https://calqio.com/ja/loan.html">
+<link rel="alternate" hreflang="zh" href="https://calqio.com/zh/loan.html">
+<link rel="alternate" hreflang="ar" href="https://calqio.com/ar/loan.html">
+<meta name="google-adsense-account" content="ca-pub-8205853473793766">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
+<script>window.LC={"cur":"$","suf":"","darkBtn":"🌙 Dark"}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <link rel="stylesheet" href="../style.css">
-<script>window.LC={"cur":"$","suf":"","sh2":" shares","tf":"Please fill in all fields","tc":"Link copied 🔗","darkBtn":"🌙 Dark","lightBtn":"☀️ Light"}</script>
-
-  <link rel="canonical" href="https://calqio.com/en/loan.html">
-  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/loan.html">
-  <link rel="alternate" hreflang="en" href="https://calqio.com/en/loan.html">
-  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/loan.html">
-  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/loan.html">
-  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/loan.html">
-  <link rel="alternate" hreflang="x-default" href="https://calqio.com/en/loan.html">
-
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://calqio.com/en/loan.html">
-  <meta property="og:title" content="Loan Calculator | Calqio">
-  <meta property="og:description" content="Calculate monthly payments and total interest for any loan.">
-  <meta property="og:image" content="https://calqio.com/og-en.png">
-  <meta property="og:site_name" content="Calqio">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Loan Calculator | Calqio">
-  <meta name="twitter:description" content="Calculate monthly payments and total interest for any loan.">
-  <meta name="twitter:image" content="https://calqio.com/og-en.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Loan Calculator",
-  "description": "Calculate monthly payments and total interest for any loan.",
-  "url": "https://calqio.com/en/loan.html",
-  "applicationCategory": "FinanceApplication",
-  "operatingSystem": "Web",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "ratingCount": "127",
-    "bestRating": "5"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Calqio",
-    "url": "https://calqio.com"
-  }
-}
-</script>
 </head>
-<body>
-<nav>
+<body><nav>
   <a href="/en/" class="logo">Calq<span>io</span></a>
   <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 Dark</button>
   <div class="lw">
     <button class="lc" id="lBtn" onclick="toggleMenu()">
       <span class="fl">🇺🇸</span><span>English</span><span class="arr">▼</span>
     </button>
-    <div class="ld" id="lDrop"><div class="lo " onclick="switchLang('ko')"><span class="fl">🇰🇷</span>한국어</div>
-<div class="lo active" onclick="switchLang('en')"><span class="fl">🇺🇸</span>English</div>
-<div class="lo " onclick="switchLang('ja')"><span class="fl">🇯🇵</span>日本語</div>
-<div class="lo " onclick="switchLang('zh')"><span class="fl">🇨🇳</span>中文</div>
-<div class="lo " onclick="switchLang('ar')"><span class="fl">🇸🇦</span>العربية</div>
-</div>
+    <div class="ld" id="lDrop"><div class="lo" onclick="location.href='/ko/'"><span class="fl">🇰🇷</span>한국어</div><div class="lo active" onclick="location.href='/en/'"><span class="fl">🇺🇸</span>English</div><div class="lo" onclick="location.href='/ja/'"><span class="fl">🇯🇵</span>日本語</div><div class="lo" onclick="location.href='/zh/'"><span class="fl">🇨🇳</span>中文</div><div class="lo" onclick="location.href='/ar/'"><span class="fl">🇸🇦</span>العربية</div></div>
   </div>
 </nav>
-<div class="sec" style="margin-top:24px;">
-<div class="tabs"><a href="compound.html" class="tab "><span class="tab-icon">📈</span>Compound Interest Calculator</a><a href="return.html" class="tab "><span class="tab-icon">💰</span>Return Rate Calculator</a><a href="average-down.html" class="tab "><span class="tab-icon">⬇️</span>Average Down Calculator</a><a href="loan.html" class="tab active"><span class="tab-icon">🏦</span>Loan Calculator</a><a href="dividend.html" class="tab "><span class="tab-icon">💵</span>Dividend Yield Calculator</a><a href="target.html" class="tab "><span class="tab-icon">🎯</span>Target Price Calculator</a><a href="tax.html" class="tab "><span class="tab-icon">📋</span>Capital Gains Tax Calculator</a><a href="percent.html" class="tab "><span class="tab-icon">%</span>Percentage Calculator</a></div>
-<div class="cf">
-  <div class="ctitle"><strong>🏦 Loan Calculator</strong></div>
-  <div class="ci">
-    <div class="inp"><div class="ig"><div class="il">Loan Amount</div><input type="number" id="loan" class="if" value="300000"></div>
-<div class="ig"><div class="il">Annual Rate (%)</div><input type="number" id="lrate" class="if" value="4.5"></div>
-<div class="ig"><div class="il">Loan Term (Years)</div><input type="number" id="lterm" class="if" value="30"></div>
-<button class="btn" onclick="calcL()">Calculate</button></div>
-    <div class="out">
-      <div class="es" id="e3"><div class="ei">🏦</div><div>Enter values and click Calculate</div></div>
-      <div id="r3" style="display:none"><div class="rm"><div class="rl">Monthly Payment</div><div class="rv rm" id="v-monthly">—</div></div><div class="rg"><div class="ri"><div class="ril">Total Repayment</div><div class="riv " id="v-totalrep">—</div></div><div class="ri"><div class="ril">Total Interest</div><div class="riv neg" id="v-totalint">—</div></div></div></div>
+<div style="max-width:880px;margin:0 auto;padding:20px 18px 10px">
+  <h1 style="font-size:clamp(19px,3.5vw,28px);font-weight:800;letter-spacing:-1px;margin-bottom:6px">
+    Loan Calculator<br><em style="color:var(--accent);font-style:normal">Plan Your Repayment</em>
+  </h1>
+  <div style="font-size:10px;color:var(--text-muted);display:flex;align-items:center;gap:5px">
+    <span style="width:5px;height:5px;border-radius:50%;background:var(--pos);display:inline-block;animation:blink 1.5s infinite"></span>
+    Results update as you type
+  </div>
+</div>
+<div style="max-width:880px;margin:0 auto;padding:6px 18px 8px">
+  <div style="display:flex;gap:3px;background:var(--bg2);padding:3px;border-radius:10px;border:1px solid var(--border);margin-bottom:7px">
+    <button class="btn" id="lm0" onclick="setM(0)" style="flex:1;padding:8px;border-radius:8px;border:none;background:var(--accent);color:#fff;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">Equal Payment</button>
+    <button class="btn" id="lm1" onclick="setM(1)" style="flex:1;padding:8px;border-radius:8px;border:none;background:transparent;color:var(--text-sub);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">Equal Principal</button>
+    <button class="btn" id="lm2" onclick="setM(2)" style="flex:1;padding:8px;border-radius:8px;border:none;background:transparent;color:var(--text-sub);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">Balloon</button>
+  </div>
+  <div id="mDesc" style="font-size:11px;color:var(--text-muted);padding:7px 10px;background:var(--bg2);border-radius:6px;border:1px solid var(--border);line-height:1.5">Same amount every month (principal + interest). Easy to budget.</div>
+</div>
+<div style="max-width:880px;margin:0 auto;padding:0 18px 12px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+  <div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px">
+      <div style="margin-bottom:11px">
+        <div style="font-size:11px;color:var(--text-sub);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px;display:flex;justify-content:space-between"><span>Loan Amount</span><span style="font-size:10px;color:var(--text-muted)"></span></div>
+        <input type="number" id="loan" style="width:100%;padding:10px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:15px;outline:none;transition:border .2s;font-family:'DM Mono',monospace" value="300000" oninput="calcL()">
+        <div class="qbtns"><button class="qb" onclick="addL(100000)">+$100K</button><button class="qb" onclick="addL(50000)">+$50K</button><button class="qb" onclick="addL(10000)">+$10K</button><button class="qb" onclick="addL(-50000)">-$50K</button></div>
+      </div>
+      <div style="margin-bottom:11px">
+        <div style="font-size:11px;color:var(--text-sub);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px;display:flex;justify-content:space-between"><span>Annual Rate</span><span style="font-size:10px;color:var(--text-muted)">%</span></div>
+        <input type="number" id="lrate" step="0.1" style="width:100%;padding:10px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:15px;outline:none;transition:border .2s;font-family:'DM Mono',monospace" value="6.5" oninput="calcL()">
+        <div class="qbtns"><button class="qb" onclick="addR(-0.5)">-0.5%</button><button class="qb" onclick="addR(-0.1)">-0.1%</button><button class="qb" onclick="addR(0.1)">+0.1%</button><button class="qb" onclick="addR(0.5)">+0.5%</button></div>
+      </div>
+      <div>
+        <div style="font-size:11px;color:var(--text-sub);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px;display:flex;justify-content:space-between"><span>Loan Term</span><span style="font-size:10px;color:var(--text-muted)">yr</span></div>
+        <input type="number" id="lterm" style="width:100%;padding:10px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:15px;outline:none;transition:border .2s;font-family:'DM Mono',monospace" value="30" oninput="calcL()">
+        <div class="qbtns"><button class="qb" onclick="addT(-5)">-5yr</button><button class="qb" onclick="addT(-1)">-1yr</button><button class="qb" onclick="addT(1)">+1yr</button><button class="qb" onclick="addT(5)">+5yr</button></div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px">
+      <div style="margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border)">
+        <div style="font-size:10px;color:var(--text-sub);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px" id="rcLbl">Monthly Payment</div>
+        <div style="font-size:26px;font-weight:800;color:var(--accent);font-family:'DM Mono',monospace;letter-spacing:-1px" id="rcVal">—</div>
+        <div style="font-size:11px;color:var(--text-muted);margin-top:3px" id="rcSub"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+        <div style="background:var(--bg2);border-radius:6px;padding:8px 10px"><div style="font-size:10px;color:var(--text-muted);margin-bottom:2px">Total Repayment</div><div style="font-size:12px;font-weight:700;font-family:'DM Mono',monospace" id="rcTot">—</div></div>
+        <div style="background:var(--bg2);border-radius:6px;padding:8px 10px"><div style="font-size:10px;color:var(--text-muted);margin-bottom:2px">Total Interest</div><div style="font-size:12px;font-weight:700;font-family:'DM Mono',monospace;color:var(--neg)" id="rcInt">—</div></div>
+        <div style="background:var(--bg2);border-radius:6px;padding:8px 10px"><div style="font-size:10px;color:var(--text-muted);margin-bottom:2px">Interest Ratio</div><div style="font-size:12px;font-weight:700;font-family:'DM Mono',monospace;color:var(--neg)" id="rcRatio">—</div></div>
+        <div style="background:var(--bg2);border-radius:6px;padding:8px 10px"><div style="font-size:10px;color:var(--text-muted);margin-bottom:2px">Payment Count</div><div style="font-size:12px;font-weight:700;font-family:'DM Mono',monospace" id="rcCnt">—</div></div>
+      </div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px">
+      <div style="font-size:11px;font-weight:700;margin-bottom:8px">Principal vs Interest</div>
+      <div style="position:relative;height:150px;display:flex;align-items:center;justify-content:center">
+        <canvas id="donutC" style="max-width:150px;max-height:150px"></canvas>
+        <div style="position:absolute;text-align:center;pointer-events:none">
+          <div style="font-size:18px;font-weight:800;color:var(--neg);font-family:'DM Mono',monospace" id="dPct">—</div>
+          <div style="font-size:10px;color:var(--text-muted)">Interest</div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-<section class="guide"><span class="gtag">Financial Knowledge Guide</span><h2>Loan Calculator — Complete Guide</h2>
-<p>Understanding the true cost of a loan upfront is essential for financial planning. Over 30 years, total interest can exceed the original principal.</p>
-<h3>Amortization Formula</h3>
-<div class="fml">Monthly Payment = P × [r(1+r)ⁿ] ÷ [(1+r)ⁿ - 1]
-P: Loan Amount | r: Monthly Rate (annual ÷ 12) | n: Total Months</div>
-<p>Example: $300,000 at 4.5% for 30 years → $1,520/month, total interest ~$247,000.</p>
-<div class="tip">💡 Even 0.5% lower rate can save tens of thousands in total interest. Always shop around.</div></section>
+<div style="max-width:880px;margin:0 auto;padding:0 18px 24px">
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px">
+    <div style="font-size:12px;font-weight:700;margin-bottom:8px">Annual Repayment Schedule</div>
+    <div style="max-height:190px;overflow-y:auto;border:1px solid var(--border);border-radius:6px">
+      <table style="width:100%;border-collapse:collapse;font-size:11px;font-family:'DM Mono',monospace">
+        <thead>
+          <tr>
+            <th style="padding:5px 8px;text-align:center;background:var(--bg2);color:var(--text-muted);font-size:10px;font-weight:600;border-bottom:1px solid var(--border);position:sticky;top:0">Year</th>
+            <th style="padding:5px 8px;text-align:right;background:var(--bg2);color:var(--text-muted);font-size:10px;font-weight:600;border-bottom:1px solid var(--border);position:sticky;top:0">Monthly</th>
+            <th style="padding:5px 8px;text-align:right;background:var(--bg2);color:var(--text-muted);font-size:10px;font-weight:600;border-bottom:1px solid var(--border);position:sticky;top:0">Principal</th>
+            <th style="padding:5px 8px;text-align:right;background:var(--bg2);color:var(--text-muted);font-size:10px;font-weight:600;border-bottom:1px solid var(--border);position:sticky;top:0">Interest</th>
+            <th style="padding:5px 8px;text-align:right;background:var(--bg2);color:var(--text-muted);font-size:10px;font-weight:600;border-bottom:1px solid var(--border);position:sticky;top:0">Balance</th>
+          </tr>
+        </thead>
+        <tbody id="sTbl"></tbody>
+      </table>
+    </div>
+  </div>
 </div>
 <footer>
   <div>Raise your Financial IQ — 8 Financial Calculators</div>
   <div style="margin-top:8px">
     <a href="/about.html">About</a>
-    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/privacy.html">Privacy</a>
     <a href="/contact.html">Contact</a>
   </div>
 </footer>
 <div id="toast"></div>
 <script src="../common.js"></script>
 <script>
-function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
+function switchLang(l){var p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
 function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
-document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
+document.addEventListener('click',function(e){if(!e.target.closest('.lw')){var b=document.getElementById('lBtn');var d=document.getElementById('lDrop');if(b)b.classList.remove('open');if(d)d.classList.remove('open');}});
+</script>
+<script>
+var lM=0,dChart=null;
+var DESCS=["Same amount every month (principal + interest). Easy to budget.","Same principal monthly, interest decreases. Lowest total interest.","Interest only during term, full principal at maturity."];
+function fmtV(n){if(n>=1000000)return '$'+(n/1000000).toFixed(2)+'M';if(n>=1000)return '$'+(n/1000).toFixed(1)+'K';return '$'+Math.round(n).toLocaleString();}
+function setM(m){
+  lM=m;
+  [0,1,2].forEach(function(i){
+    var b=document.getElementById('lm'+i);
+    b.style.background=i===m?'var(--accent)':'transparent';
+    b.style.color=i===m?'#fff':'var(--text-sub)';
+  });
+  document.getElementById('mDesc').textContent=DESCS[m];
+  calcL();
+}
+function addL(v){var e=document.getElementById('loan');e.value=Math.max(0,(+e.value||0)+v);calcL();}
+function addR(v){var e=document.getElementById('lrate');e.value=Math.max(0,(+e.value||0)+v).toFixed(1);calcL();}
+function addT(v){var e=document.getElementById('lterm');e.value=Math.max(1,+e.value+v);calcL();}
+function calcL(){
+  var L=+document.getElementById('loan').value||0;
+  var ir=+document.getElementById('lrate').value/100/12||0;
+  var n=+document.getElementById('lterm').value*12||0;
+  if(!L||!ir||!n)return;
+  var mp=0,totalInt=0,rows=[];
+  if(lM===0){
+    mp=L*ir*Math.pow(1+ir,n)/(Math.pow(1+ir,n)-1);
+    totalInt=mp*n-L;
+    var bal=L;
+    for(var y=1;y<=n/12;y++){
+      var yP=0,yI=0;
+      for(var mm=1;mm<=12;mm++){var i=bal*ir;yP+=mp-i;yI+=i;bal-=mp-i;}
+      rows.push({y:y,mp:Math.round(mp),p:Math.round(yP),i:Math.round(yI),b:Math.max(0,Math.round(bal))});
+    }
+  }else if(lM===1){
+    var pM=L/n;var bal2=L;
+    for(var y2=1;y2<=n/12;y2++){
+      var yP2=0,yI2=0,fMp=0;
+      for(var mm2=1;mm2<=12;mm2++){var i2=bal2*ir;if(!fMp)fMp=pM+i2;yP2+=pM;yI2+=i2;totalInt+=i2;bal2-=pM;}
+      rows.push({y:y2,mp:Math.round(fMp),p:Math.round(yP2),i:Math.round(yI2),b:Math.max(0,Math.round(bal2))});
+    }
+    mp=L/n+L*ir;
+  }else{
+    mp=L*ir;totalInt=mp*n;
+    for(var y3=1;y3<=n/12;y3++){
+      rows.push({y:y3,mp:Math.round(mp),p:y3===n/12?L:0,i:Math.round(mp*12),b:y3===n/12?0:L});
+    }
+  }
+  var tot=L+totalInt;
+  document.getElementById('rcVal').textContent=fmtV(mp);
+  document.getElementById('rcTot').textContent=fmtV(tot);
+  document.getElementById('rcInt').textContent=fmtV(totalInt);
+  var ratio=totalInt/tot*100;
+  document.getElementById('rcRatio').textContent=ratio.toFixed(1)+'%';
+  document.getElementById('rcCnt').textContent=n;
+  document.getElementById('dPct').textContent=ratio.toFixed(1)+'%';
+  var isDark=!document.body.classList.contains('light-mode');
+  if(dChart)dChart.destroy();
+  var ctx=document.getElementById('donutC').getContext('2d');
+  dChart=new Chart(ctx,{
+    type:'doughnut',
+    data:{labels:['Principal','Interest'],datasets:[{data:[L,totalInt],backgroundColor:['#5b7fee','#ef4444'],borderWidth:0}]},
+    options:{responsive:true,maintainAspectRatio:true,cutout:'65%',
+      plugins:{legend:{position:'bottom',labels:{color:isDark?'#8888a0':'#555',font:{size:10},boxWidth:10,padding:6}},
+        tooltip:{callbacks:{label:function(c){return ' '+c.label+': '+fmtV(c.parsed);}}}}}
+  });
+  document.getElementById('sTbl').innerHTML=rows.map(function(r){
+    return '<tr><td style="text-align:center;padding:5px 8px;border-bottom:1px solid var(--border);color:var(--text-muted)">'+r.y+'</td><td style="text-align:right;padding:5px 8px;border-bottom:1px solid var(--border);color:var(--text-sub)">'+fmtV(r.mp)+'</td><td style="text-align:right;padding:5px 8px;border-bottom:1px solid var(--border);color:var(--text-sub)">'+fmtV(r.p)+'</td><td style="text-align:right;padding:5px 8px;border-bottom:1px solid var(--border);color:var(--neg)">'+fmtV(r.i)+'</td><td style="text-align:right;padding:5px 8px;border-bottom:1px solid var(--border);color:var(--text-sub)">'+fmtV(r.b)+'</td></tr>';
+  }).join('');
+}
+calcL();
 </script>
 </body>
 </html>
