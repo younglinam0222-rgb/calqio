@@ -80,10 +80,10 @@
   <div class="ci">
     <div class="inp">
 <div class="rt-hint"><span class="rt-dot"></span> 入力すると自動的に計算されます</div>
-<div class="ig"><div class="il">元本 (円)</div><input type="number" id="p" class="if" oninput="calcC()" value="1000000"><div class="qbtns"><button class="qb" onclick="addVal("p",1000000)">+100万</button><button class="qb" onclick="addVal("p",500000)">+50万</button><button class="qb" onclick="addVal("p",100000)">+10万</button></div></div>
-<div class="ig"><div class="il">年利率 (%)</div><input type="number" id="r" class="if" oninput="calcC()" value="8"><div class="qbtns"><button class="qb" onclick="addPct("r",-1)">-1%</button><button class="qb" onclick="addPct("r",1)">+1%</button><button class="qb" onclick="addPct("r",5)">+5%</button></div></div>
-<div class="ig"><div class="il">運用期間 (年)</div><input type="number" id="y" class="if" oninput="calcC()" value="20"><div class="qbtns"><button class="qb" onclick="addInt("y",-5)">-5年</button><button class="qb" onclick="addInt("y",5)">+5年</button><button class="qb" onclick="addInt("y",10)">+10年</button></div></div>
-<div class="ig"><div class="il">月次積立額 (円)</div><input type="number" id="m" class="if" oninput="calcC()" value="0"><div class="qbtns"><button class="qb" onclick="addVal("m",50000)">+5万</button><button class="qb" onclick="addVal("m",10000)">+1万</button></div></div>
+<div class="ig"><div class="il">元本 (円)</div><input type="number" id="p" class="if" oninput="calcC()" value="1000000"><div class="qbtns"><button class="qb" onclick="addVal('p',1000000)">+100万</button><button class="qb" onclick="addVal('p',500000)">+50万</button><button class="qb" onclick="addVal('p',100000)">+10万</button></div></div>
+<div class="ig"><div class="il">年利率 (%)</div><input type="number" id="r" class="if" oninput="calcC()" value="8"><div class="qbtns"><button class="qb" onclick="addPct('r',-1)">-1%</button><button class="qb" onclick="addPct('r',1)">+1%</button><button class="qb" onclick="addPct('r',5)">+5%</button></div></div>
+<div class="ig"><div class="il">運用期間 (年)</div><input type="number" id="y" class="if" oninput="calcC()" value="20"><div class="qbtns"><button class="qb" onclick="addInt('y',-5)">-5年</button><button class="qb" onclick="addInt('y',5)">+5年</button><button class="qb" onclick="addInt('y',10)">+10年</button></div></div>
+<div class="ig"><div class="il">月次積立額 (円)</div><input type="number" id="m" class="if" oninput="calcC()" value="0"><div class="qbtns"><button class="qb" onclick="addVal('m',50000)">+5万</button><button class="qb" onclick="addVal('m',10000)">+1万</button></div></div>
 <button class="btn" onclick="calcC()">計算する</button></div>
     <div class="out">
       <div class="es" id="e0"><div class="ei">📈</div><div>数値を入力してください</div></div>

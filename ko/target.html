@@ -81,8 +81,8 @@
     <div class="inp">
 <div class="rt-hint"><span class="rt-dot"></span> 숫자를 바꾸면 실시간으로 계산됩니다</div>
 <div class="ig"><div class="il">매수가 (원)</div><input type="number" id="tbase" class="if" oninput="calcT()" value="50000"></div>
-<div class="ig"><div class="il">목표 수익률 (%)</div><input type="number" id="tprofit" class="if" oninput="calcT()" value="20"><div class="qbtns"><button class="qb" onclick="addInt("tprofit",5)">+5%</button><button class="qb" onclick="addInt("tprofit",10)">+10%</button><button class="qb" onclick="addInt("tprofit",20)">+20%</button></div></div>
-<div class="ig"><div class="il">손절 비율 (%)</div><input type="number" id="tstop" class="if" oninput="calcT()" value="10"><div class="qbtns"><button class="qb" onclick="addInt("tstop",3)">+3%</button><button class="qb" onclick="addInt("tstop",5)">+5%</button><button class="qb" onclick="addInt("tstop",10)">+10%</button></div></div>
+<div class="ig"><div class="il">목표 수익률 (%)</div><input type="number" id="tprofit" class="if" oninput="calcT()" value="20"><div class="qbtns"><button class="qb" onclick="addInt('tprofit',5)">+5%</button><button class="qb" onclick="addInt('tprofit',10)">+10%</button><button class="qb" onclick="addInt('tprofit',20)">+20%</button></div></div>
+<div class="ig"><div class="il">손절 비율 (%)</div><input type="number" id="tstop" class="if" oninput="calcT()" value="10"><div class="qbtns"><button class="qb" onclick="addInt('tstop',3)">+3%</button><button class="qb" onclick="addInt('tstop',5)">+5%</button><button class="qb" onclick="addInt('tstop',10)">+10%</button></div></div>
 <div class="ig"><div class="il">보유 수량 (주)</div><input type="number" id="tqty" class="if" oninput="calcT()" value="100"></div>
 <button class="btn" onclick="calcT()">계산하기</button></div>
     <div class="out">

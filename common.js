@@ -63,7 +63,23 @@ function copyLink() {
 function addVal(id, v) { const e=document.getElementById(id); if(e){ e.value=Math.max(0,(+e.value||0)+v); liveCalc(); } }
 function addPct(id, v) { const e=document.getElementById(id); if(e){ e.value=Math.max(0,(+e.value||0)+v).toFixed(1); liveCalc(); } }
 function addInt(id, v) { const e=document.getElementById(id); if(e){ e.value=Math.max(1,+e.value+v); liveCalc(); } }
-function liveCalc() { /* overridden per page */ }
+function liveCalc() {
+  var page = location.pathname.split('/').pop() || '';
+  var map = {
+    'compound.html': function(){try{calcC();}catch(e){}},
+    'return.html':   function(){try{calcR();}catch(e){}},
+    'average-down.html': function(){try{calcD();}catch(e){}},
+    'loan.html':     function(){try{calcL();}catch(e){}},
+    'dividend.html': function(){try{calcDiv();}catch(e){}},
+    'target.html':   function(){try{calcT();}catch(e){}},
+    'tax.html':      function(){try{calcTax();}catch(e){}},
+    'percent.html':  function(){try{calcP();}catch(e){}},
+  };
+  var fn = map[page];
+  if (fn) fn();
+  // DOMContentLoaded 이후에 세팅된 per-page calcFn도 호출
+  if (typeof window._calcFn === 'function') window._calcFn();
+}
 
 // ── show/hide result ────────────────────
 function show(n) {

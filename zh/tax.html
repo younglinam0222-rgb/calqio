@@ -80,8 +80,8 @@
   <div class="ci">
     <div class="inp">
 <div class="rt-hint"><span class="rt-dot"></span> 输入即可实时计算</div>
-<div class="ig"><div class="il">买入金额 (元)</div><input type="number" id="taxbuy" class="if" oninput="calcTax()" value="100000"><div class="qbtns"><button class="qb" onclick="addVal("taxbuy",100000)">+10万</button><button class="qb" onclick="addVal("taxbuy",500000)">+50万</button><button class="qb" onclick="addVal("taxbuy",1000000)">+100万</button></div></div>
-<div class="ig"><div class="il">卖出金额 (元)</div><input type="number" id="taxsell" class="if" oninput="calcTax()" value="150000"><div class="qbtns"><button class="qb" onclick="addVal("taxsell",50000)">+5万</button><button class="qb" onclick="addVal("taxsell",100000)">+10万</button></div></div>
+<div class="ig"><div class="il">买入金额 (元)</div><input type="number" id="taxbuy" class="if" oninput="calcTax()" value="100000"><div class="qbtns"><button class="qb" onclick="addVal('taxbuy',100000)">+10万</button><button class="qb" onclick="addVal('taxbuy',500000)">+50万</button><button class="qb" onclick="addVal('taxbuy',1000000)">+100万</button></div></div>
+<div class="ig"><div class="il">卖出金额 (元)</div><input type="number" id="taxsell" class="if" oninput="calcTax()" value="150000"><div class="qbtns"><button class="qb" onclick="addVal('taxsell',50000)">+5万</button><button class="qb" onclick="addVal('taxsell',100000)">+10万</button></div></div>
 <div class="ig"><div class="il">交易手续费 (元)</div><input type="number" id="taxfee" class="if" oninput="calcTax()" value="500"></div>
 <div class="ig"><div class="il">免税额 (元)</div><input type="number" id="taxded" class="if" oninput="calcTax()" value="0"></div>
 <button class="btn" onclick="calcTax()">计算</button></div>

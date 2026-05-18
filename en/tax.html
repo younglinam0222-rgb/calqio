@@ -80,8 +80,8 @@
   <div class="ci">
     <div class="inp">
 <div class="rt-hint"><span class="rt-dot"></span> Results update as you type</div>
-<div class="ig"><div class="il">Purchase Amount</div><input type="number" id="taxbuy" class="if" oninput="calcTax()" value="10000"><div class="qbtns"><button class="qb" onclick="addVal("taxbuy",10000)">+$10K</button><button class="qb" onclick="addVal("taxbuy",50000)">+$50K</button><button class="qb" onclick="addVal("taxbuy",100000)">+$100K</button></div></div>
-<div class="ig"><div class="il">Sale Amount</div><input type="number" id="taxsell" class="if" oninput="calcTax()" value="15000"><div class="qbtns"><button class="qb" onclick="addVal("taxsell",5000)">+$5K</button><button class="qb" onclick="addVal("taxsell",10000)">+$10K</button></div></div>
+<div class="ig"><div class="il">Purchase Amount</div><input type="number" id="taxbuy" class="if" oninput="calcTax()" value="10000"><div class="qbtns"><button class="qb" onclick="addVal('taxbuy',10000)">+$10K</button><button class="qb" onclick="addVal('taxbuy',50000)">+$50K</button><button class="qb" onclick="addVal('taxbuy',100000)">+$100K</button></div></div>
+<div class="ig"><div class="il">Sale Amount</div><input type="number" id="taxsell" class="if" oninput="calcTax()" value="15000"><div class="qbtns"><button class="qb" onclick="addVal('taxsell',5000)">+$5K</button><button class="qb" onclick="addVal('taxsell',10000)">+$10K</button></div></div>
 <div class="ig"><div class="il">Transaction Fees</div><input type="number" id="taxfee" class="if" oninput="calcTax()" value="50"></div>
 <div class="ig"><div class="il">Deduction</div><input type="number" id="taxded" class="if" oninput="calcTax()" value="0"></div>
 <button class="btn" onclick="calcTax()">Calculate</button></div>

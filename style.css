@@ -436,3 +436,171 @@ body[dir="rtl"] .page-wrap h2 { border-left:none; border-right:3px solid var(--a
 ::-webkit-scrollbar { width:4px; height:4px; }
 ::-webkit-scrollbar-track { background:transparent; }
 ::-webkit-scrollbar-thumb { background:var(--border); border-radius:2px; }
+
+
+/* ═══════════════════════════════════════
+   MOBILE OPTIMIZATION
+   ═══════════════════════════════════════ */
+
+/* ── nav 모바일 ── */
+@media(max-width:768px){
+  nav { padding:0 12px; height:52px; gap:4px; }
+  .logo { font-size:1.2rem; }
+  .theme-btn { font-size:11px; padding:5px 8px; }
+  .lc { font-size:11px; padding:5px 8px; }
+  .lc span:not(.fl):not(.arr) { display:none; }
+}
+
+/* ── 탭 모바일 ── */
+@media(max-width:768px){
+  .tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex-wrap: nowrap;
+    gap: 4px;
+    padding-bottom: 2px;
+  }
+  .tabs::-webkit-scrollbar { display:none; }
+  .tab {
+    flex-shrink: 0;
+    font-size: 11px;
+    padding: 8px 10px;
+    white-space: nowrap;
+  }
+  .tab-icon { display:none; }
+}
+
+/* ── 계산기 레이아웃 모바일 ── */
+@media(max-width:640px){
+  .page-layout {
+    grid-template-columns: 1fr !important;
+  }
+  .ci {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  .inp {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border) !important;
+    border-radius: var(--radius) var(--radius) 0 0 !important;
+  }
+  .out {
+    border-radius: 0 0 var(--radius) var(--radius) !important;
+  }
+  .cf { margin: 0 !important; }
+  .calc-wrap { padding: 8px 12px 16px; }
+  .sec { padding: 12px 12px 0; }
+  .ctitle { font-size: 14px; padding: 12px 14px; }
+}
+
+/* ── 결과 카드 모바일 ── */
+@media(max-width:640px){
+  .rg { grid-template-columns: 1fr 1fr !important; gap: 8px; }
+  .rm { font-size: 24px !important; }
+  .rv { font-size: 24px !important; }
+  .sum-cards { grid-template-columns: 1fr 1fr !important; }
+  .rc-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── 빠른버튼 모바일 ── */
+@media(max-width:640px){
+  .qbtns { gap: 3px; }
+  .qb {
+    font-size: 11px;
+    padding: 4px 7px;
+  }
+}
+
+/* ── 히어로 모바일 ── */
+@media(max-width:640px){
+  .hero { padding: 24px 16px 12px; }
+  .hero h1 { font-size: clamp(22px,6vw,32px); }
+  .hero p { font-size: 13px; }
+  .story { margin: 12px 12px 0; padding: 14px; }
+  .badge { font-size: 11px; padding: 4px 12px; }
+}
+
+/* ── 대시보드 그리드 모바일 ── */
+@media(max-width:640px){
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px;
+    padding: 0 12px;
+  }
+  .dash-card { padding: 14px 10px; }
+  .dash-icon { font-size: 22px; }
+  .dash-title { font-size: 12px; }
+  .dash-desc { font-size: 10px; }
+}
+
+/* ── 가이드 섹션 모바일 ── */
+@media(max-width:640px){
+  .guide { padding: 20px 14px 40px; margin-top: 20px; }
+  .guide h2 { font-size: 16px; }
+  .guide h3 { font-size: 13px; }
+  .guide p, .guide li { font-size: 13px; }
+  .fml { font-size: 12px; padding: 10px 12px; }
+  .tip { font-size: 12px; }
+}
+
+/* ── 인풋 모바일 ── */
+@media(max-width:640px){
+  .ig { padding: 14px 12px; }
+  .il { font-size: 11px; }
+  .if { font-size: 16px; padding: 10px 12px; }
+  select.if { font-size: 14px; }
+}
+
+/* ── 퍼센트 계산기 탭 모바일 ── */
+@media(max-width:640px){
+  .pct-types {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 5px;
+  }
+  .pc { font-size: 11px; padding: 7px 6px; }
+}
+
+/* ── 푸터 모바일 ── */
+@media(max-width:640px){
+  footer { font-size: 12px; padding: 16px 14px; }
+  footer a { font-size: 11px; }
+}
+
+/* ── 공통 모바일 여백 ── */
+@media(max-width:640px){
+  .loan-layout { grid-template-columns: 1fr !important; }
+  .result-row { grid-template-columns: 1fr !important; }
+  .svc-grid { grid-template-columns: 1fr !important; }
+  .input-row { grid-template-columns: 1fr !important; }
+  .concept-grid { grid-template-columns: 1fr !important; }
+  .how-grid { grid-template-columns: 1fr 1fr !important; }
+  .tools-grid { grid-template-columns: 1fr 1fr !important; }
+  .result-cards { grid-template-columns: 1fr 1fr !important; }
+  .freq-result-grid { grid-template-columns: 1fr 1fr !important; }
+  .r72-cards { grid-template-columns: repeat(4,1fr) !important; }
+  .ctrl-row { flex-direction: column; }
+  .etf-chips { gap: 4px; }
+  .etf-chip { font-size: 11px; padding: 5px 9px; }
+  .main-content { padding: 0 12px 40px; }
+  .live-box { padding: 0 12px 14px; }
+  .ctrl-box { padding: 0 12px 12px; }
+}
+
+/* ── 터치 친화적 버튼 ── */
+@media(max-width:640px){
+  .btn { min-height: 44px; font-size: 14px; }
+  .copy-btn { min-height: 36px; }
+  .rtab { min-height: 36px; }
+}
+
+/* ── 브레드크럼 모바일 ── */
+@media(max-width:640px){
+  .breadcrumb { font-size: 11px; padding: 6px 12px; }
+}
+
+/* ── 실시간 계산 힌트 ── */
+@keyframes blink {
+  0%,100% { opacity:1; }
+  50% { opacity:.3; }
+}
