@@ -7,9 +7,6 @@
 <meta name="description" content="Enter your investment to compare major ETF growth in real time.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://calqio.com/en/etf-comparison.html">
-<meta property="og:title" content="ETF Return Comparison | QQQ·TQQQ·SCHD·VOO — Calqio">
-<meta property="og:description" content="Enter your investment to compare major ETF growth in real time.">
-<meta property="og:type" content="website">
 <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/etf-comparison.html">
 <link rel="alternate" hreflang="en" href="https://calqio.com/en/etf-comparison.html">
 <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/etf-comparison.html">
@@ -17,7 +14,6 @@
 <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/etf-comparison.html">
 <meta name="google-adsense-account" content="ca-pub-8205853473793766">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
-<script>window.LC={"cur":"$","suf":"","darkBtn":"🌙 Dark"}</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <link rel="stylesheet" href="../style.css">
 </head>
@@ -31,38 +27,40 @@
     <div class="ld" id="lDrop"><div class="lo" onclick="location.href='/ko/'"><span class="fl">🇰🇷</span>한국어</div><div class="lo active" onclick="location.href='/en/'"><span class="fl">🇺🇸</span>English</div><div class="lo" onclick="location.href='/ja/'"><span class="fl">🇯🇵</span>日本語</div><div class="lo" onclick="location.href='/zh/'"><span class="fl">🇨🇳</span>中文</div><div class="lo" onclick="location.href='/ar/'"><span class="fl">🇸🇦</span>العربية</div></div>
   </div>
 </nav>
-<div style="max-width:860px;margin:0 auto;padding:24px 18px 14px;text-align:center">
-  <h1 style="font-size:clamp(20px,3.5vw,28px);font-weight:800;letter-spacing:-1px;margin-bottom:7px">
+<div style="max-width:880px;margin:0 auto;padding:24px 18px 14px;text-align:center">
+  <h1 style="font-size:clamp(20px,4vw,32px);font-weight:800;letter-spacing:-1px;margin-bottom:8px">
     ETF Return Comparison<br><em style="color:var(--accent);font-style:normal">10-Year Simulation</em>
   </h1>
-  <p style="color:var(--text-sub);font-size:13px">Enter your investment to compare major ETF growth in real time.</p>
+  <p style="color:var(--text-sub);font-size:13px">Enter your investment amount to compare major ETF growth in real time.</p>
 </div>
-<div style="max-width:860px;margin:0 auto;padding:0 18px">
+<div style="max-width:880px;margin:0 auto;padding:0 18px 60px">
   <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:12px">
     <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:14px">
       <div style="flex:1;min-width:130px">
         <div style="font-size:10px;color:var(--text-sub);font-weight:600;text-transform:uppercase;margin-bottom:5px">💰 Initial Investment</div>
-        <input type="number" id="initA" value="100000" oninput="updateETF()" style="width:100%;padding:9px 11px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:14px;outline:none;font-family:'DM Mono',monospace">
-        <div class="qbtns"><button class="qb" onclick="setAmt(10000)">$10K</button><button class="qb" onclick="setAmt(100000)">$100K</button><button class="qb" onclick="setAmt(1000000)">$1M</button><button class="qb" onclick="setAmt(5000000)">$5M</button></div>
+        <input type="number" id="initA" value="100000" oninput="go()" style="width:100%;padding:9px 11px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:16px;outline:none;font-family:monospace">
+        <div class="qbtns" style="margin-top:5px"><button class="qb" onclick="setAmt(10000)">$10K</button><button class="qb" onclick="setAmt(100000)">$100K</button><button class="qb" onclick="setAmt(1000000)">$1M</button><button class="qb" onclick="setAmt(5000000)">$5M</button></div>
       </div>
       <div>
         <div style="font-size:10px;color:var(--text-sub);font-weight:600;text-transform:uppercase;margin-bottom:5px">📅 Start Year</div>
-        <select id="sYear" onchange="updateETF()" style="padding:9px 11px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:13px;outline:none;font-family:inherit">
-          <option value="2015">2015</option><option value="2018">2018</option>
-          <option value="2020">2020</option><option value="2022">2022</option>
+        <select id="sYear" onchange="go()" style="padding:9px 11px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:13px;outline:none">
+          <option value="2015">2015</option>
+          <option value="2018">2018</option>
+          <option value="2020">2020</option>
+          <option value="2022">2022</option>
         </select>
       </div>
       <div>
         <div style="font-size:10px;color:var(--text-sub);font-weight:600;text-transform:uppercase;margin-bottom:5px">🔄 Dividends</div>
         <div style="display:flex;gap:4px">
-          <div id="rt0" onclick="setRe(true)" style="padding:7px 12px;border-radius:20px;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:12px;font-weight:600;cursor:pointer">Reinvest</div>
-          <div id="rt1" onclick="setRe(false)" style="padding:7px 12px;border-radius:20px;border:1px solid var(--border);background:var(--bg2);color:var(--text-sub);font-size:12px;font-weight:600;cursor:pointer">Take Cash</div>
+          <div id="re0" onclick="setReinvest(true)" style="padding:7px 12px;border-radius:20px;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:12px;font-weight:600;cursor:pointer">Reinvest</div>
+          <div id="re1" onclick="setReinvest(false)" style="padding:7px 12px;border-radius:20px;border:1px solid var(--border);background:var(--bg2);color:var(--text-sub);font-size:12px;font-weight:600;cursor:pointer">Take Cash</div>
         </div>
       </div>
     </div>
-    <div style="display:flex;flex-wrap:wrap;gap:6px" id="etfChips"></div>
+    <div id="chips" style="display:flex;flex-wrap:wrap;gap:4px"></div>
   </div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-bottom:12px" id="etfCards"></div>
+  <div id="cards" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-bottom:12px"></div>
   <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:8px">
     <div style="font-size:12px;font-weight:700;margin-bottom:10px">📈 Asset Growth Over Time</div>
     <canvas id="etfChart" height="240"></canvas>
@@ -80,74 +78,101 @@
 <div id="toast"></div>
 <script src="../common.js"></script>
 <script>
-function switchLang(l){var p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
-function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
-document.addEventListener('click',function(e){if(!e.target.closest('.lw')){var b=document.getElementById('lBtn');var d=document.getElementById('lDrop');if(b)b.classList.remove('open');if(d)d.classList.remove('open');}});
-</script>
-<script>
-var ETF_DATA={
-  QQQ:{name:"QQQ",desc:"NASDAQ-100",color:"#5b7fee",r:{2015:[100,107,133,128,183,261,346,233,324,440],2018:[100,71,118,157,210,141,197,264,270],2020:[100,131,174,117,163,221,226],2022:[100,152,155,211,216]}},
-  TQQQ:{name:"TQQQ",desc:"QQQ 3x",color:"#ef4444",r:{2015:[100,108,195,128,317,698,1198,396,896,1600],2018:[100,39,87,179,258,89,202,362,370],2020:[100,185,286,96,151,223,228],2022:[100,211,215,293,300]}},
-  SCHD:{name:"SCHD",desc:"Dividend Growth",color:"#22c55e",r:{2015:[100,116,134,124,156,166,207,200,203,181],2018:[100,80,104,131,133,133,134,119],2020:[100,126,127,128,114,115],2022:[100,101,90,91,91]}},
-  VOO:{name:"VOO",desc:"S&P 500",color:"#f59e0b",r:{2015:[100,112,137,130,171,201,261,214,271,289],2018:[100,76,100,133,157,125,158,211,216],2020:[100,128,161,128,162,207,211],2022:[100,127,130,177,180]}}
+function toggleMenu(){document.getElementById("lBtn").classList.toggle("open");document.getElementById("lDrop").classList.toggle("open");}
+document.addEventListener("click",function(e){if(!e.target.closest(".lw")){var b=document.getElementById("lBtn");var d=document.getElementById("lDrop");if(b)b.classList.remove("open");if(d)d.classList.remove("open");}});
+</script><script>
+var ETF={
+  QQQ:{n:"QQQ",d:"NASDAQ-100",c:"#5b7fee",r:{"2015":[100,107,133,128,183,261,346,233,324,440],"2018":[100,71,118,157,210,141,197,264,270],"2020":[100,131,174,117,163,221,226],"2022":[100,152,155,211,216]}},
+  TQQQ:{n:"TQQQ",d:"QQQ 3x Leverage",c:"#ef4444",r:{"2015":[100,108,195,128,317,698,1198,396,896,1600],"2018":[100,39,87,179,258,89,202,362,370],"2020":[100,185,286,96,151,223,228],"2022":[100,211,215,293,300]}},
+  SCHD:{n:"SCHD",d:"Dividend Growth",c:"#22c55e",r:{"2015":[100,116,134,124,156,166,207,200,203,181],"2018":[100,80,104,131,133,133,134,119],"2020":[100,126,127,128,114,115],"2022":[100,101,90,91,91]}},
+  VOO:{n:"VOO",d:"S&P 500",c:"#f59e0b",r:{"2015":[100,112,137,130,171,201,261,214,271,289],"2018":[100,76,100,133,157,125,158,211,216],"2020":[100,128,161,128,162,207,211],"2022":[100,127,130,177,180]}}
 };
-function fmtV(n){if(n>=1000000)return '$'+(n/1000000).toFixed(2)+'M';if(n>=1000)return '$'+(n/1000).toFixed(1)+'K';return '$'+Math.round(n).toLocaleString();}
-var reinvest=true,selETFs=["QQQ","TQQQ","SCHD","VOO"],etfChart=null;
-function setRe(v){
+function fmtV(n){if(n>=1000000)return "$"+(n/1000000).toFixed(2)+"M";if(n>=1000)return "$"+(n/1000).toFixed(1)+"K";return "$"+Math.round(n).toLocaleString();}
+var sel=["QQQ","TQQQ","SCHD","VOO"], reinvest=true, myChart=null;
+
+function setAmt(v){ document.getElementById("initA").value=v; go(); }
+
+function setReinvest(v){
   reinvest=v;
-  document.getElementById('rt0').style.background=v?'var(--accent)':'var(--bg2)';
-  document.getElementById('rt0').style.color=v?'#fff':'var(--text-sub)';
-  document.getElementById('rt0').style.borderColor=v?'var(--accent)':'var(--border)';
-  document.getElementById('rt1').style.background=!v?'var(--accent)':'var(--bg2)';
-  document.getElementById('rt1').style.color=!v?'#fff':'var(--text-sub)';
-  document.getElementById('rt1').style.borderColor=!v?'var(--accent)':'var(--border)';
-  updateETF();
+  var r0=document.getElementById("re0"), r1=document.getElementById("re1");
+  r0.style.background=v?"var(--accent)":"var(--bg2)";
+  r0.style.color=v?"#fff":"var(--text-sub)";
+  r0.style.borderColor=v?"var(--accent)":"var(--border)";
+  r1.style.background=!v?"var(--accent)":"var(--bg2)";
+  r1.style.color=!v?"#fff":"var(--text-sub)";
+  r1.style.borderColor=!v?"var(--accent)":"var(--border)";
+  go();
 }
-function setAmt(v){document.getElementById('initA').value=v;updateETF();}
+
+function toggleChip(k){
+  var i=sel.indexOf(k);
+  if(i>=0) sel.splice(i,1); else sel.push(k);
+  renderChips();
+  go();
+}
+
 function renderChips(){
-  document.getElementById('etfChips').innerHTML=Object.keys(ETF_DATA).map(function(k){
-    var e=ETF_DATA[k];var on=selETFs.indexOf(k)>=0;
-    return '<label style="display:flex;align-items:center;gap:5px;padding:6px 11px;border-radius:16px;border:1.5px solid '+(on?e.color:'var(--border)')+';background:'+(on?e.color:'var(--bg2)')+';cursor:pointer;font-size:11px;font-weight:600;color:'+(on?'#fff':'var(--text-sub)')+'"><input type="checkbox" style="display:none" '+(on?'checked':'')+' onchange="toggleE(''+k+'',this)"><span style="width:7px;height:7px;border-radius:50%;background:'+e.color+';flex-shrink:0"></span>'+k+'</label>';
-  }).join('');
-}
-function toggleE(k,cb){
-  if(cb.checked){if(selETFs.indexOf(k)<0)selETFs.push(k);}
-  else selETFs=selETFs.filter(function(x){return x!==k;});
-  renderChips();updateETF();
-}
-function updateETF(){
-  var init=+document.getElementById('initA').value||100000000;
-  var sy=document.getElementById('sYear').value;
-  var datasets=[],cards=[];
-  selETFs.forEach(function(k){
-    var e=ETF_DATA[k];if(!e)return;
-    var raw=e.r[sy]||e.r['2015']||[];
-    var data=raw.map(function(v){return Math.round(init*v/100);});
-    datasets.push({label:k,data:data,borderColor:e.color,backgroundColor:e.color+'15',fill:false,tension:0.4,borderWidth:2.5,pointRadius:3});
-    var final=data[data.length-1];
-    var rate=((final-init)/init*100).toFixed(0);
-    cards.push('<div style="background:var(--card);border:1px solid var(--border);border-top:3px solid '+e.color+';border-radius:var(--radius);padding:14px"><div style="font-size:11px;font-weight:700;color:var(--text-sub)">'+k+'</div><div style="font-size:10px;color:var(--text-muted);margin-bottom:8px">'+e.desc+'</div><div style="font-size:18px;font-weight:800;font-family:'DM Mono',monospace;color:'+e.color+'">'+fmtV(final)+'</div><div style="font-size:12px;font-weight:700;color:'+(final>=init?'var(--pos)':'var(--neg)')+'">'+((final>=init?'+':'')+rate)+'%</div></div>');
+  var html="";
+  Object.keys(ETF).forEach(function(k){
+    var e=ETF[k], on=sel.indexOf(k)>=0;
+    html+='<span onclick="toggleChip(\"'+k+'\")" style="';
+    html+='display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:16px;';
+    html+='border:1.5px solid '+(on?e.c:"var(--border)")+';';
+    html+='background:'+(on?e.c:"var(--bg2)")+';';
+    html+='color:'+(on?"#fff":"var(--text-sub)")+';';
+    html+='cursor:pointer;font-size:12px;font-weight:600;margin:2px;">';
+    html+='<span style="width:7px;height:7px;border-radius:50%;background:'+e.c+'"></span>';
+    html+=k+'</span>';
   });
-  document.getElementById('etfCards').innerHTML=cards.join('');
-  var raw0=(ETF_DATA[selETFs[0]]||{r:{}}).r[sy]||(ETF_DATA[selETFs[0]]||{r:{}}).r['2015']||[];
-  var labels=raw0.map(function(_,i){return +sy+i+'';}); 
-  var isDark=!document.body.classList.contains('light-mode');
-  if(etfChart)etfChart.destroy();
-  etfChart=new Chart(document.getElementById('etfChart').getContext('2d'),{
-    type:'line',data:{labels:labels,datasets:datasets},
-    options:{responsive:true,interaction:{mode:'index',intersect:false},
+  document.getElementById("chips").innerHTML=html;
+}
+
+function go(){
+  var init=+document.getElementById("initA").value||100000;
+  var sy=document.getElementById("sYear").value;
+  var datasets=[], cards="";
+  sel.forEach(function(k){
+    var e=ETF[k]; if(!e) return;
+    var raw=e.r[sy]||e.r["2015"]||[];
+    var data=raw.map(function(v){ return Math.round(init*v/100); });
+    datasets.push({label:e.n,data:data,borderColor:e.c,backgroundColor:e.c+"20",fill:false,tension:0.4,borderWidth:2.5,pointRadius:3,pointHoverRadius:6});
+    var fin=data[data.length-1];
+    var rate=((fin-init)/init*100).toFixed(0);
+    var clr=fin>=init?"var(--pos)":"var(--neg)";
+    cards+='<div style="background:var(--card);border:1px solid var(--border);border-top:3px solid '+e.c+';border-radius:var(--radius);padding:14px">';
+    cards+='<div style="font-size:11px;font-weight:700;color:var(--text-sub)">'+e.n+'</div>';
+    cards+='<div style="font-size:10px;color:var(--text-muted);margin-bottom:8px">'+e.d+'</div>';
+    cards+='<div style="font-size:18px;font-weight:800;font-family:monospace;color:'+e.c+'">'+fmtV(fin)+'</div>';
+    cards+='<div style="font-size:12px;font-weight:700;color:'+clr+'">'+(fin>=init?"+":"")+rate+'%</div></div>';
+  });
+  document.getElementById("cards").innerHTML=cards;
+  var firstKey=sel[0], raw0=(ETF[firstKey]||{r:{}}).r[sy]||(ETF[firstKey]||{r:{}}).r["2015"]||[];
+  var labels=raw0.map(function(_,i){ return String(+sy+i); });
+  var isDark=!document.body.classList.contains("light-mode");
+  var gc=isDark?"rgba(255,255,255,0.04)":"rgba(0,0,0,0.04)";
+  var tc=isDark?"#8888a0":"#555";
+  if(myChart) myChart.destroy();
+  var ctx=document.getElementById("etfChart").getContext("2d");
+  myChart=new Chart(ctx,{
+    type:"line",
+    data:{labels:labels,datasets:datasets},
+    options:{
+      responsive:true,
+      interaction:{mode:"index",intersect:false},
       plugins:{
-        legend:{labels:{color:isDark?'#8888a0':'#555',font:{size:11}}},
-        tooltip:{callbacks:{label:function(c){return ' '+c.dataset.label+': '+fmtV(c.parsed.y);}}}
+        legend:{labels:{color:tc,font:{size:11}}},
+        tooltip:{callbacks:{label:function(c){return " "+c.dataset.label+": "+fmtV(c.parsed.y);}}}
       },
       scales:{
-        x:{ticks:{color:isDark?'#8888a0':'#555',font:{size:10}},grid:{color:isDark?'rgba(255,255,255,0.04)':'rgba(0,0,0,0.04)'}},
-        y:{ticks:{color:isDark?'#8888a0':'#555',font:{size:10}},grid:{color:isDark?'rgba(255,255,255,0.04)':'rgba(0,0,0,0.04)'}}
+        x:{ticks:{color:tc,font:{size:10}},grid:{color:gc}},
+        y:{ticks:{color:tc,font:{size:10}},grid:{color:gc}}
       }
     }
   });
 }
-renderChips();updateETF();
+renderChips();
+go();
+
 </script>
 </body>
 </html>

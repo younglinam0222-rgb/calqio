@@ -3,13 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Understanding Compound Interest — Calqio</title>
-<meta name="description" content="Enter values to experience compound interest principles.">
+<title>Understanding Compound Interest | Rule of 72 — Calqio</title>
+<meta name="description" content="Learn the Rule of 72 and compounding frequency effects interactively.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://calqio.com/en/concept.html">
-<meta property="og:title" content="Understanding Compound Interest — Calqio">
-<meta property="og:description" content="Enter values to experience compound interest principles.">
-<meta property="og:type" content="website">
 <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/concept.html">
 <link rel="alternate" hreflang="en" href="https://calqio.com/en/concept.html">
 <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/concept.html">
@@ -17,7 +14,6 @@
 <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/concept.html">
 <meta name="google-adsense-account" content="ca-pub-8205853473793766">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
-<script>window.LC={"cur":"$","suf":"","darkBtn":"🌙 Dark"}</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <link rel="stylesheet" href="../style.css">
 </head>
@@ -32,44 +28,51 @@
   </div>
 </nav>
 <div style="max-width:860px;margin:0 auto;padding:24px 18px 14px;text-align:center">
-  <h1 style="font-size:clamp(20px,3.5vw,28px);font-weight:800;letter-spacing:-1px;margin-bottom:7px">
-    Understanding Compound Interest<br><em style="color:var(--accent);font-style:normal">Rule of 72 & Compounding Frequency</em>
+  <h1 style="font-size:clamp(20px,3.5vw,30px);font-weight:800;letter-spacing:-1px;margin-bottom:8px">
+    Understanding Compound Interest<br><em style="color:var(--accent);font-style:normal">Rule of 72 & Monthly Compounding</em>
   </h1>
-  <p style="color:var(--text-sub);font-size:13px">Enter values to experience compound interest principles.</p>
+  <p style="color:var(--text-sub);font-size:13px">Enter values to experience compound interest principles in action.</p>
 </div>
-<div style="max-width:860px;margin:0 auto;padding:0 18px">
+<div style="max-width:860px;margin:0 auto;padding:0 18px 60px">
+
   <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:12px">
-    <div style="font-size:14px;font-weight:700;margin-bottom:12px">✕2 Rule of 72 — Years to Double</div>
-    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px">
-      <span style="font-size:13px;color:var(--text-sub);font-weight:600">72 ÷</span>
-      <input type="number" id="r72r" value="8" step="0.5" oninput="calcR72()" style="width:80px;padding:8px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:16px;font-weight:700;text-align:center;outline:none;font-family:'DM Mono',monospace">
-      <span style="font-size:13px;color:var(--text-sub);font-weight:600">% =</span>
+    <div style="font-size:14px;font-weight:700;margin-bottom:14px">X2 Rule of 72 — Years to Double</div>
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px">
+      <span style="font-size:14px;color:var(--text-sub);font-weight:600">72 ÷</span>
+      <input type="number" id="r72in" value="8" step="0.5" oninput="calcR72()"
+        style="width:80px;padding:9px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:18px;font-weight:700;text-align:center;outline:none;font-family:monospace">
+      <span style="font-size:14px;color:var(--text-sub);font-weight:600">% =</span>
       <div>
-        <div style="font-size:40px;font-weight:900;color:var(--accent);font-family:'DM Mono',monospace;line-height:1" id="r72y">9</div>
-        <div style="font-size:11px;color:var(--text-sub);margin-top:2px">years to double</div>
+        <div id="r72out" style="font-size:44px;font-weight:900;color:var(--accent);font-family:monospace;line-height:1">9</div>
+        <div style="font-size:12px;color:var(--text-sub);margin-top:3px">years to double</div>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:5px" id="r72cards"></div>
+    <div id="r72cards" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:6px"></div>
   </div>
+
   <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:12px">
-    <div style="font-size:14px;font-weight:700;margin-bottom:12px">🔄 Effect of Compounding Frequency</div>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px">
-      <div style="flex:1;min-width:110px">
+    <div style="font-size:14px;font-weight:700;margin-bottom:14px">🔄 Effect of Compounding Frequency</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px">
+      <div style="flex:1;min-width:100px">
         <div style="font-size:10px;color:var(--text-sub);font-weight:600;text-transform:uppercase;margin-bottom:5px">Principal</div>
-        <input type="number" id="fP" value="10000" oninput="calcFreq()" style="width:100%;padding:8px 10px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:13px;outline:none;font-family:'DM Mono',monospace">
+        <input type="number" id="fP" value="10000" oninput="calcFreq()"
+          style="width:100%;padding:8px 10px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:14px;outline:none;font-family:monospace">
       </div>
       <div style="flex:1;min-width:80px">
         <div style="font-size:10px;color:var(--text-sub);font-weight:600;text-transform:uppercase;margin-bottom:5px">Annual Rate %</div>
-        <input type="number" id="fR" value="8" step="0.5" oninput="calcFreq()" style="width:100%;padding:8px 10px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:13px;outline:none;font-family:'DM Mono',monospace">
+        <input type="number" id="fR" value="8" step="0.5" oninput="calcFreq()"
+          style="width:100%;padding:8px 10px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:14px;outline:none;font-family:monospace">
       </div>
       <div style="flex:1;min-width:70px">
         <div style="font-size:10px;color:var(--text-sub);font-weight:600;text-transform:uppercase;margin-bottom:5px">Years</div>
-        <input type="number" id="fY" value="20" oninput="calcFreq()" style="width:100%;padding:8px 10px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:13px;outline:none;font-family:'DM Mono',monospace">
+        <input type="number" id="fY" value="20" oninput="calcFreq()"
+          style="width:100%;padding:8px 10px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:14px;outline:none;font-family:monospace">
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:7px;margin-bottom:12px" id="freqGrid"></div>
-    <canvas id="freqC" height="180"></canvas>
+    <div id="freqGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:7px;margin-bottom:14px"></div>
+    <canvas id="freqChart" height="180"></canvas>
   </div>
+
 </div>
 <footer>
   <div>Raise your Financial IQ — 8 Financial Calculators</div>
@@ -82,67 +85,89 @@
 <div id="toast"></div>
 <script src="../common.js"></script>
 <script>
-function switchLang(l){var p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
-function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
-document.addEventListener('click',function(e){if(!e.target.closest('.lw')){var b=document.getElementById('lBtn');var d=document.getElementById('lDrop');if(b)b.classList.remove('open');if(d)d.classList.remove('open');}});
-</script>
-<script>
-var freqChart=null;
-var FREQ_LBLS=['Annual', 'Semi-annual', 'Quarterly', 'Monthly', 'Weekly', 'Daily'];
-var FREQS=[1,2,4,12,52,365];
-function fmtV(n){if(n>=1000000)return '$'+(n/1000000).toFixed(2)+'M';if(n>=1000)return '$'+(n/1000).toFixed(1)+'K';return '$'+Math.round(n).toLocaleString();}
+function toggleMenu(){document.getElementById("lBtn").classList.toggle("open");document.getElementById("lDrop").classList.toggle("open");}
+document.addEventListener("click",function(e){if(!e.target.closest(".lw")){var b=document.getElementById("lBtn");var d=document.getElementById("lDrop");if(b)b.classList.remove("open");if(d)d.classList.remove("open");}});
+</script><script>
+function fmtV(n){if(n>=1000000)return "$"+(n/1000000).toFixed(2)+"M";if(n>=1000)return "$"+(n/1000).toFixed(1)+"K";return "$"+Math.round(n).toLocaleString();}
+var fChart=null;
+
+/* 72의 법칙 */
+function setR(x){ document.getElementById("r72in").value=x; calcR72(); }
 function calcR72(){
-  var r=+document.getElementById('r72r').value||1;
-  document.getElementById('r72y').textContent=(72/r).toFixed(1);
+  var r=+document.getElementById("r72in").value||1;
+  document.getElementById("r72out").textContent=(72/r).toFixed(1);
   var rates=[3,4,5,6,7,8,9,10,12,15,20,25];
-  document.getElementById('r72cards').innerHTML=rates.map(function(x){
+  var html="";
+  rates.forEach(function(x){
     var active=Math.abs(x-r)<0.3;
-    return '<div style="background:var(--bg2);border:1px solid '+(active?'var(--accent)':'var(--border)')+';border-radius:6px;padding:9px;text-align:center;cursor:pointer" onclick="document.getElementById('r72r').value='+x+';calcR72()">'
-      +'<div style="font-size:15px;font-weight:800;color:var(--accent);font-family:'DM Mono',monospace">'+x+'%</div>'
-      +'<div style="font-size:11px;color:var(--text-sub);margin-top:2px">'+(72/x).toFixed(1)+'</div>'
-      +'</div>';
-  }).join('');
+    html+='<div onclick="setR('+x+')" style="';
+    html+='background:var(--bg2);';
+    html+='border:1px solid '+(active?"var(--accent)":"var(--border)")+';';
+    html+='border-radius:6px;padding:9px;text-align:center;cursor:pointer">';
+    html+='<div style="font-size:15px;font-weight:800;color:var(--accent);font-family:monospace">'+x+'%</div>';
+    html+='<div style="font-size:11px;color:var(--text-sub);margin-top:2px">'+(72/x).toFixed(1)+'</div>';
+    html+="</div>";
+  });
+  document.getElementById("r72cards").innerHTML=html;
 }
+
+/* 복리 주기 */
+var FLBLS=["Annual", "Semi-annual", "Quarterly", "Monthly", "Weekly", "Daily"];
+var FREQS=[1,2,4,12,52,365];
 function calcFreq(){
-  var P=+document.getElementById('fP').value||0;
-  var r=+document.getElementById('fR').value/100||0;
-  var y=+document.getElementById('fY').value||0;
+  var P=+document.getElementById("fP").value||0;
+  var r=+document.getElementById("fR").value/100||0;
+  var y=+document.getElementById("fY").value||0;
   if(!P||!r||!y)return;
   var results=FREQS.map(function(n,i){
-    return {n:n,lbl:FREQ_LBLS[i],A:P*Math.pow(1+r/n,n*y),ear:Math.pow(1+r/n,n)-1};
+    return {n:n,lbl:FLBLS[i],A:P*Math.pow(1+r/n,n*y),ear:Math.pow(1+r/n,n)-1};
   });
   var maxA=Math.max.apply(null,results.map(function(x){return x.A;}));
-  document.getElementById('freqGrid').innerHTML=results.map(function(f){
-    return '<div style="background:var(--bg2);border:1px solid '+(f.A===maxA?'var(--accent)':'var(--border)')+';border-radius:6px;padding:10px;text-align:center">'
-      +'<div style="font-size:11px;color:var(--text-sub);margin-bottom:4px">'+f.lbl+'</div>'
-      +'<div style="font-size:14px;font-weight:800;font-family:'DM Mono',monospace;color:'+(f.A===maxA?'var(--accent)':'var(--text)')+'">'+fmtV(f.A)+'</div>'
-      +'<div style="font-size:10px;color:var(--accent);margin-top:2px;font-weight:600">'+(f.ear*100).toFixed(3)+'%</div>'
-      +'</div>';
-  }).join('');
-  var labels=[];
-  for(var i=1;i<=y;i+=Math.max(1,Math.ceil(y/20)))labels.push(i);
-  var colors=['#f59e0b','#22c55e','#5b7fee','#ef4444'];
-  var datasets=FREQS.slice(0,4).map(function(n,i){
-    return {label:FREQ_LBLS[i],data:labels.map(function(tt){return Math.round(P*Math.pow(1+r/n,n*tt));}),
-      borderColor:colors[i],fill:false,tension:0.3,borderWidth:2,pointRadius:1};
+  var html="";
+  results.forEach(function(f){
+    var best=f.A===maxA;
+    html+='<div style="background:var(--bg2);border:1px solid '+(best?"var(--accent)":"var(--border)")+';border-radius:6px;padding:10px;text-align:center">';
+    html+='<div style="font-size:11px;color:var(--text-sub);margin-bottom:4px">'+f.lbl+'</div>';
+    html+='<div style="font-size:14px;font-weight:800;font-family:monospace;color:'+(best?"var(--accent)":"var(--text)")+'">'+fmtV(f.A)+'</div>';
+    html+='<div style="font-size:10px;color:var(--accent);margin-top:2px;font-weight:600">'+(f.ear*100).toFixed(3)+'%</div>';
+    html+="</div>";
   });
-  var isDark=!document.body.classList.contains('light-mode');
-  if(freqChart)freqChart.destroy();
-  freqChart=new Chart(document.getElementById('freqC').getContext('2d'),{
-    type:'line',data:{labels:labels,datasets:datasets},
-    options:{responsive:true,interaction:{mode:'index',intersect:false},
+  document.getElementById("freqGrid").innerHTML=html;
+  /* 차트 */
+  var labels=[];
+  for(var i=1;i<=y;i+=Math.max(1,Math.ceil(y/20))) labels.push(i);
+  var colors=["#f59e0b","#22c55e","#5b7fee","#ef4444"];
+  var datasets=FREQS.slice(0,4).map(function(n,i){
+    return {
+      label:FLBLS[i],
+      data:labels.map(function(t){return Math.round(P*Math.pow(1+r/n,n*t));}),
+      borderColor:colors[i],fill:false,tension:0.3,borderWidth:2,pointRadius:1
+    };
+  });
+  var isDark=!document.body.classList.contains("light-mode");
+  var tc=isDark?"#8888a0":"#555", gc=isDark?"rgba(255,255,255,0.04)":"rgba(0,0,0,0.04)";
+  if(fChart) fChart.destroy();
+  var ctx=document.getElementById("freqChart").getContext("2d");
+  fChart=new Chart(ctx,{
+    type:"line",
+    data:{labels:labels,datasets:datasets},
+    options:{
+      responsive:true,
+      interaction:{mode:"index",intersect:false},
       plugins:{
-        legend:{labels:{color:isDark?'#8888a0':'#555',font:{size:10}}},
-        tooltip:{callbacks:{label:function(c){return ' '+c.dataset.label+': '+fmtV(c.parsed.y);}}}
+        legend:{labels:{color:tc,font:{size:10}}},
+        tooltip:{callbacks:{label:function(c){return " "+c.dataset.label+": "+fmtV(c.parsed.y);}}}
       },
       scales:{
-        x:{ticks:{color:isDark?'#8888a0':'#555',font:{size:9}},grid:{color:isDark?'rgba(255,255,255,0.04)':'rgba(0,0,0,0.04)'}},
-        y:{ticks:{color:isDark?'#8888a0':'#555',font:{size:9}},grid:{color:isDark?'rgba(255,255,255,0.04)':'rgba(0,0,0,0.04)'}}
+        x:{ticks:{color:tc,font:{size:9}},grid:{color:gc}},
+        y:{ticks:{color:tc,font:{size:9}},grid:{color:gc}}
       }
     }
   });
 }
-calcR72();calcFreq();
+calcR72();
+calcFreq();
+
 </script>
 </body>
 </html>
