@@ -1,6 +1,20 @@
 {
-  "cleanUrls": false,
+  "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/compound", "destination": "/ko/compound" },
+    { "source": "/return", "destination": "/ko/return" },
+    { "source": "/average-down", "destination": "/ko/average-down" },
+    { "source": "/loan", "destination": "/ko/loan" },
+    { "source": "/dividend", "destination": "/ko/dividend" },
+    { "source": "/target", "destination": "/ko/target" },
+    { "source": "/tax", "destination": "/ko/tax" },
+    { "source": "/percent", "destination": "/ko/percent" },
+    { "source": "/etf-comparison", "destination": "/ko/etf-comparison" },
+    { "source": "/concept", "destination": "/ko/concept" },
+    { "source": "/simple-vs-compound", "destination": "/ko/simple-vs-compound" },
+    { "source": "/ai-investment", "destination": "/ko/ai-investment" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
