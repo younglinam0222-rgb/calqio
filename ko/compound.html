@@ -78,6 +78,42 @@ select.if{cursor:pointer;}
 .fml-b{font-family:'Courier New',monospace;background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:10px 16px;display:block;margin:10px 0;font-size:.83rem;color:var(--text);line-height:1.8;}
 .empty-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:56px 20px;text-align:center;color:var(--text-sub);}
 .empty-ico{font-size:2.4rem;margin-bottom:10px;}
+
+/* ── 모바일 최적화 ── */
+@media(max-width:640px){
+  .page-layout { grid-template-columns:1fr!important; gap:12px; margin-top:8px; }
+  .inp-panel { position:static!important; padding:16px; }
+  .ig-row { grid-template-columns:1fr!important; gap:0; }
+  .sum-cards { grid-template-columns:1fr 1fr!important; gap:8px; }
+  .scard { padding:14px 12px; }
+  .scard-val { font-size:1.1rem; }
+  .chart-wrap { height:220px!important; }
+  .res-area { gap:10px; }
+  .cbox { padding:14px; }
+  .boxtit { font-size:.82rem; }
+  .if { font-size:16px!important; }  /* iOS 자동확대 방지 */
+  .btn-calc { padding:14px; font-size:1rem; min-height:48px; }
+  .ig { margin-bottom:10px; }
+  .il { font-size:.75rem; }
+  .inp-title { font-size:.88rem; margin-bottom:12px; }
+  .tscroll { max-height:280px; }
+  .dtbl { font-size:.78rem; }
+  .dtbl thead th, .dtbl tbody td { padding:8px 10px; }
+  .guide-box { padding:16px; }
+  .guide-body { font-size:.84rem; }
+  .faq-card { padding:14px 36px 14px 14px; }
+  .faq-q { font-size:.85rem; }
+  .faq-a { font-size:.82rem; }
+  .share-row { justify-content:center; }
+}
+
+/* ── 탭 모바일 스크롤 ── */
+@media(max-width:640px){
+  .tabs { overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; flex-wrap:nowrap; padding-bottom:4px; gap:3px; }
+  .tabs::-webkit-scrollbar { display:none; }
+  .tab { flex-shrink:0; font-size:11px; padding:7px 9px; white-space:nowrap; }
+  .tab-icon { display:none; }
+}
 </style>
 <meta name="google-site-verification" content="6II_gyhSkNgRi3bW9SNuoHxRlMBvBI2kJGn3GHCLsrg">
 <meta name="google-adsense-account" content="ca-pub-8205853473793766">
@@ -99,6 +135,10 @@ select.if{cursor:pointer;}
   </div>
 </nav>
 
+
+<div class="content-nav" style="max-width:960px;margin:0 auto;padding:0 20px 6px;display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+  <span style="font-size:10px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em;flex-shrink:0">금융 지식 가이드:</span><a href="loan.html" style="font-size:11px;color:var(--text-sub);padding:4px 10px;border-radius:12px;border:1px solid var(--border);background:var(--bg2);text-decoration:none;transition:all .2s;white-space:nowrap" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-sub)'">🏦 대출이자 계산기</a><a href="etf-comparison.html" style="font-size:11px;color:var(--text-sub);padding:4px 10px;border-radius:12px;border:1px solid var(--border);background:var(--bg2);text-decoration:none;transition:all .2s;white-space:nowrap" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-sub)'">📊 ETF 수익 비교</a><a href="simple-vs-compound.html" style="font-size:11px;color:var(--text-sub);padding:4px 10px;border-radius:12px;border:1px solid var(--border);background:var(--bg2);text-decoration:none;transition:all .2s;white-space:nowrap" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-sub)'">📈 단리 vs 복리</a><a href="concept.html" style="font-size:11px;color:var(--text-sub);padding:4px 10px;border-radius:12px;border:1px solid var(--border);background:var(--bg2);text-decoration:none;transition:all .2s;white-space:nowrap" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-sub)'">💡 복리 개념</a><a href="ai-investment.html" style="font-size:11px;color:var(--text-sub);padding:4px 10px;border-radius:12px;border:1px solid var(--border);background:var(--bg2);text-decoration:none;transition:all .2s;white-space:nowrap" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-sub)'">🤖 AI 투자 분석</a>
+</div>
 <div class="sec" style="margin-top:20px;">
   <div class="tabs">
     <a href="compound.html" class="tab active"><span class="tab-icon">📈</span>복리 계산기</a>

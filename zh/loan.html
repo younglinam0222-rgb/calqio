@@ -20,6 +20,26 @@
 <script>window.LC={"cur":"¥","suf":"","darkBtn":"🌙 深色"}</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <link rel="stylesheet" href="../style.css">
+<style>
+/* ── 모바일 최적화 ── */
+@media(max-width:640px){
+  .page-layout{grid-template-columns:1fr!important;gap:12px;margin-top:8px;}
+  .inp-panel{position:static!important;padding:16px;}
+  .ig-row{grid-template-columns:1fr!important;}
+  .sum-cards{grid-template-columns:1fr 1fr!important;gap:8px;}
+  .chart-wrap{height:220px!important;}
+  .if{font-size:16px!important;}
+  .btn-calc{min-height:48px;}
+  .tabs{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;flex-wrap:nowrap;padding-bottom:4px;}
+  .tabs::-webkit-scrollbar{display:none;}
+  .tab{flex-shrink:0;font-size:11px;padding:7px 9px;white-space:nowrap;}
+  .tab-icon{display:none;}
+  .rg{grid-template-columns:1fr 1fr!important;}
+  .pct-types{grid-template-columns:1fr 1fr!important;}
+  .loan-layout{grid-template-columns:1fr!important;}
+  .rc-grid{grid-template-columns:1fr 1fr;}
+}
+</style>
 </head>
 <body><nav>
   <a href="/zh/" class="logo">Calq<span>io</span></a>
