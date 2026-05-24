@@ -17,7 +17,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <link rel="stylesheet" href="../style.css">
 </head>
-<body><nav>
+<body>
+<nav>
   <a href="/en/" class="logo">Calq<span>io</span></a>
   <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 Dark</button>
   <div class="lw">
@@ -31,19 +32,23 @@
   <h1 style="font-size:clamp(20px,4vw,32px);font-weight:800;letter-spacing:-1px;margin-bottom:8px">
     ETF Return Comparison<br><em style="color:var(--accent);font-style:normal">10-Year Simulation</em>
   </h1>
-  <p style="color:var(--text-sub);font-size:13px">Enter your investment amount to compare major ETF growth in real time.</p>
+  <p style="color:var(--text-sub);font-size:13px">Enter your investment to compare major ETF growth in real time.</p>
 </div>
 <div style="max-width:880px;margin:0 auto;padding:0 18px 60px">
   <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:12px">
     <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:14px">
       <div style="flex:1;min-width:130px">
         <div style="font-size:10px;color:var(--text-sub);font-weight:600;text-transform:uppercase;margin-bottom:5px">💰 Initial Investment</div>
-        <input type="number" id="initA" value="100000" oninput="go()" style="width:100%;padding:9px 11px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:16px;outline:none;font-family:monospace">
+        <input type="number" id="etfAmt" value="100000" oninput="go()"
+          style="width:100%;padding:9px 11px;background:var(--bg2);border:1px solid var(--border);
+                 border-radius:6px;color:var(--text);font-size:16px;outline:none;font-family:monospace">
         <div class="qbtns" style="margin-top:5px"><button class="qb" onclick="setAmt(10000)">$10K</button><button class="qb" onclick="setAmt(100000)">$100K</button><button class="qb" onclick="setAmt(1000000)">$1M</button><button class="qb" onclick="setAmt(5000000)">$5M</button></div>
       </div>
       <div>
         <div style="font-size:10px;color:var(--text-sub);font-weight:600;text-transform:uppercase;margin-bottom:5px">📅 Start Year</div>
-        <select id="sYear" onchange="go()" style="padding:9px 11px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:13px;outline:none">
+        <select id="etfYear" onchange="go()"
+          style="padding:9px 11px;background:var(--bg2);border:1px solid var(--border);
+                 border-radius:6px;color:var(--text);font-size:13px;outline:none">
           <option value="2015">2015</option>
           <option value="2018">2018</option>
           <option value="2020">2020</option>
@@ -53,17 +58,22 @@
       <div>
         <div style="font-size:10px;color:var(--text-sub);font-weight:600;text-transform:uppercase;margin-bottom:5px">🔄 Dividends</div>
         <div style="display:flex;gap:4px">
-          <div id="re0" onclick="setReinvest(true)" style="padding:7px 12px;border-radius:20px;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:12px;font-weight:600;cursor:pointer">Reinvest</div>
-          <div id="re1" onclick="setReinvest(false)" style="padding:7px 12px;border-radius:20px;border:1px solid var(--border);background:var(--bg2);color:var(--text-sub);font-size:12px;font-weight:600;cursor:pointer">Take Cash</div>
+          <div id="btnRe" onclick="setRe(true)"
+            style="padding:7px 14px;border-radius:20px;border:1px solid var(--accent);
+                   background:var(--accent);color:#fff;font-size:12px;font-weight:600;cursor:pointer">Reinvest</div>
+          <div id="btnNo" onclick="setRe(false)"
+            style="padding:7px 14px;border-radius:20px;border:1px solid var(--border);
+                   background:var(--bg2);color:var(--text-sub);font-size:12px;font-weight:600;cursor:pointer">Take Cash</div>
         </div>
       </div>
     </div>
-    <div id="chips" style="display:flex;flex-wrap:wrap;gap:4px"></div>
+    <!-- ETF 칩: data-key 방식으로 문자열 전달 없음 -->
+    <div id="chipArea" style="display:flex;flex-wrap:wrap;gap:6px"></div>
   </div>
-  <div id="cards" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-bottom:12px"></div>
-  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:8px">
+  <div id="cardArea" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-bottom:12px"></div>
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px">
     <div style="font-size:12px;font-weight:700;margin-bottom:10px">📈 Asset Growth Over Time</div>
-    <canvas id="etfChart" height="240"></canvas>
+    <canvas id="etfCanvas" height="240"></canvas>
     <div style="font-size:10px;color:var(--text-muted);margin-top:6px">※ Based on historical returns. Past performance does not guarantee future results.</div>
   </div>
 </div>
@@ -79,100 +89,131 @@
 <script src="../common.js"></script>
 <script>
 function toggleMenu(){document.getElementById("lBtn").classList.toggle("open");document.getElementById("lDrop").classList.toggle("open");}
-document.addEventListener("click",function(e){if(!e.target.closest(".lw")){var b=document.getElementById("lBtn");var d=document.getElementById("lDrop");if(b)b.classList.remove("open");if(d)d.classList.remove("open");}});
-</script><script>
-var ETF={
-  QQQ:{n:"QQQ",d:"NASDAQ-100",c:"#5b7fee",r:{"2015":[100,107,133,128,183,261,346,233,324,440],"2018":[100,71,118,157,210,141,197,264,270],"2020":[100,131,174,117,163,221,226],"2022":[100,152,155,211,216]}},
-  TQQQ:{n:"TQQQ",d:"QQQ 3x Leverage",c:"#ef4444",r:{"2015":[100,108,195,128,317,698,1198,396,896,1600],"2018":[100,39,87,179,258,89,202,362,370],"2020":[100,185,286,96,151,223,228],"2022":[100,211,215,293,300]}},
-  SCHD:{n:"SCHD",d:"Dividend Growth",c:"#22c55e",r:{"2015":[100,116,134,124,156,166,207,200,203,181],"2018":[100,80,104,131,133,133,134,119],"2020":[100,126,127,128,114,115],"2022":[100,101,90,91,91]}},
-  VOO:{n:"VOO",d:"S&P 500",c:"#f59e0b",r:{"2015":[100,112,137,130,171,201,261,214,271,289],"2018":[100,76,100,133,157,125,158,211,216],"2020":[100,128,161,128,162,207,211],"2022":[100,127,130,177,180]}}
-};
+document.addEventListener("click",function(e){if(!e.target.closest(".lw")){var b=document.getElementById("lBtn"),d=document.getElementById("lDrop");if(b)b.classList.remove("open");if(d)d.classList.remove("open");}});
+</script>
+<script>
 function fmtV(n){if(n>=1000000)return "$"+(n/1000000).toFixed(2)+"M";if(n>=1000)return "$"+(n/1000).toFixed(1)+"K";return "$"+Math.round(n).toLocaleString();}
-var sel=["QQQ","TQQQ","SCHD","VOO"], reinvest=true, myChart=null;
+// ETF 데이터
+var ETFS = [
+  {key:"QQQ",  name:"QQQ",  desc:"NASDAQ-100",      color:"#5b7fee", r:{"2015":[100,107,133,128,183,261,346,233,324,440],"2018":[100,71,118,157,210,141,197,264,270],"2020":[100,131,174,117,163,221,226],"2022":[100,152,155,211,216]}},
+  {key:"TQQQ", name:"TQQQ", desc:"QQQ 3x Leverage", color:"#ef4444", r:{"2015":[100,108,195,128,317,698,1198,396,896,1600],"2018":[100,39,87,179,258,89,202,362,370],"2020":[100,185,286,96,151,223,228],"2022":[100,211,215,293,300]}},
+  {key:"SCHD", name:"SCHD", desc:"Dividend Growth",  color:"#22c55e", r:{"2015":[100,116,134,124,156,166,207,200,203,181],"2018":[100,80,104,131,133,133,134,119],"2020":[100,126,127,128,114,115],"2022":[100,101,90,91,91]}},
+  {key:"VOO",  name:"VOO",  desc:"S&P 500",          color:"#f59e0b", r:{"2015":[100,112,137,130,171,201,261,214,271,289],"2018":[100,76,100,133,157,125,158,211,216],"2020":[100,128,161,128,162,207,211],"2022":[100,127,130,177,180]}}
+];
 
-function setAmt(v){ document.getElementById("initA").value=v; go(); }
+var selected = {"QQQ":true,"TQQQ":true,"SCHD":true,"VOO":true};
+var reinvest = true;
+var myChart = null;
 
-function setReinvest(v){
-  reinvest=v;
-  var r0=document.getElementById("re0"), r1=document.getElementById("re1");
-  r0.style.background=v?"var(--accent)":"var(--bg2)";
-  r0.style.color=v?"#fff":"var(--text-sub)";
-  r0.style.borderColor=v?"var(--accent)":"var(--border)";
-  r1.style.background=!v?"var(--accent)":"var(--bg2)";
-  r1.style.color=!v?"#fff":"var(--text-sub)";
-  r1.style.borderColor=!v?"var(--accent)":"var(--border)";
+function setAmt(v) { document.getElementById("etfAmt").value = v; go(); }
+
+function setRe(v) {
+  reinvest = v;
+  var on  = "padding:7px 14px;border-radius:20px;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:12px;font-weight:600;cursor:pointer";
+  var off = "padding:7px 14px;border-radius:20px;border:1px solid var(--border);background:var(--bg2);color:var(--text-sub);font-size:12px;font-weight:600;cursor:pointer";
+  document.getElementById("btnRe").style.cssText = v ? on : off;
+  document.getElementById("btnNo").style.cssText = v ? off : on;
   go();
 }
 
-function toggleChip(k){
-  var i=sel.indexOf(k);
-  if(i>=0) sel.splice(i,1); else sel.push(k);
+// 칩 토글: 버튼의 dataset.key 사용 → 문자열 전달 없음
+function toggleChip(btn) {
+  var k = btn.dataset.key;
+  selected[k] = !selected[k];
   renderChips();
   go();
 }
 
-function renderChips(){
-  var html="";
-  Object.keys(ETF).forEach(function(k){
-    var e=ETF[k], on=sel.indexOf(k)>=0;
-    html+='<span onclick="toggleChip(\"'+k+'\")" style="';
-    html+='display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:16px;';
-    html+='border:1.5px solid '+(on?e.c:"var(--border)")+';';
-    html+='background:'+(on?e.c:"var(--bg2)")+';';
-    html+='color:'+(on?"#fff":"var(--text-sub)")+';';
-    html+='cursor:pointer;font-size:12px;font-weight:600;margin:2px;">';
-    html+='<span style="width:7px;height:7px;border-radius:50%;background:'+e.c+'"></span>';
-    html+=k+'</span>';
+function renderChips() {
+  var area = document.getElementById("chipArea");
+  var btns = ETFS.map(function(e) {
+    var on = selected[e.key];
+    var bg  = on ? e.color : "var(--bg2)";
+    var bdr = on ? e.color : "var(--border)";
+    var clr = on ? "#fff"  : "var(--text-sub)";
+    // onclick="toggleChip(this)" → this = 버튼 자체, dataset.key로 키 전달
+    return "<button data-key=\"" + e.key + "\" onclick=\"toggleChip(this)\" "
+         + "style=\"display:inline-flex;align-items:center;gap:5px;"
+         + "padding:6px 12px;border-radius:16px;border:1.5px solid " + bdr + ";"
+         + "background:" + bg + ";color:" + clr + ";"
+         + "cursor:pointer;font-size:12px;font-weight:600;"
+         + "font-family:inherit;margin:2px;\">"
+         + "<span style=\"width:7px;height:7px;border-radius:50%;background:" + e.color + ";display:inline-block\"></span>"
+         + e.name + "</button>";
   });
-  document.getElementById("chips").innerHTML=html;
+  area.innerHTML = btns.join("");
 }
 
-function go(){
-  var init=+document.getElementById("initA").value||100000;
-  var sy=document.getElementById("sYear").value;
-  var datasets=[], cards="";
-  sel.forEach(function(k){
-    var e=ETF[k]; if(!e) return;
-    var raw=e.r[sy]||e.r["2015"]||[];
-    var data=raw.map(function(v){ return Math.round(init*v/100); });
-    datasets.push({label:e.n,data:data,borderColor:e.c,backgroundColor:e.c+"20",fill:false,tension:0.4,borderWidth:2.5,pointRadius:3,pointHoverRadius:6});
-    var fin=data[data.length-1];
-    var rate=((fin-init)/init*100).toFixed(0);
-    var clr=fin>=init?"var(--pos)":"var(--neg)";
-    cards+='<div style="background:var(--card);border:1px solid var(--border);border-top:3px solid '+e.c+';border-radius:var(--radius);padding:14px">';
-    cards+='<div style="font-size:11px;font-weight:700;color:var(--text-sub)">'+e.n+'</div>';
-    cards+='<div style="font-size:10px;color:var(--text-muted);margin-bottom:8px">'+e.d+'</div>';
-    cards+='<div style="font-size:18px;font-weight:800;font-family:monospace;color:'+e.c+'">'+fmtV(fin)+'</div>';
-    cards+='<div style="font-size:12px;font-weight:700;color:'+clr+'">'+(fin>=init?"+":"")+rate+'%</div></div>';
+function go() {
+  var init = parseFloat(document.getElementById("etfAmt").value) || 100000;
+  var sy   = document.getElementById("etfYear").value;
+  var isDark = !document.body.classList.contains("light-mode");
+  var tc = isDark ? "#8888a0" : "#555";
+  var gc = isDark ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.04)";
+
+  var datasets = [];
+  var cards    = [];
+
+  ETFS.forEach(function(e) {
+    if (!selected[e.key]) return;
+    var raw  = e.r[sy] || e.r["2015"] || [];
+    var data = raw.map(function(v) { return Math.round(init * v / 100); });
+    datasets.push({
+      label: e.name,
+      data: data,
+      borderColor: e.color,
+      backgroundColor: e.color + "20",
+      fill: false,
+      tension: 0.4,
+      borderWidth: 2.5,
+      pointRadius: 3,
+      pointHoverRadius: 6
+    });
+    var fin  = data[data.length - 1];
+    var rate = ((fin - init) / init * 100).toFixed(0);
+    var rclr = fin >= init ? "var(--pos)" : "var(--neg)";
+    cards.push(
+      "<div style=\"background:var(--card);border:1px solid var(--border);"
+      + "border-top:3px solid " + e.color + ";border-radius:var(--radius);padding:14px;\">"
+      + "<div style=\"font-size:11px;font-weight:700;color:var(--text-sub)\">" + e.name + "</div>"
+      + "<div style=\"font-size:10px;color:var(--text-muted);margin-bottom:8px\">" + e.desc + "</div>"
+      + "<div style=\"font-size:18px;font-weight:800;font-family:monospace;color:" + e.color + "\">" + fmtV(fin) + "</div>"
+      + "<div style=\"font-size:12px;font-weight:700;color:" + rclr + "\">" + (fin >= init ? "+" : "") + rate + "%</div>"
+      + "</div>"
+    );
   });
-  document.getElementById("cards").innerHTML=cards;
-  var firstKey=sel[0], raw0=(ETF[firstKey]||{r:{}}).r[sy]||(ETF[firstKey]||{r:{}}).r["2015"]||[];
-  var labels=raw0.map(function(_,i){ return String(+sy+i); });
-  var isDark=!document.body.classList.contains("light-mode");
-  var gc=isDark?"rgba(255,255,255,0.04)":"rgba(0,0,0,0.04)";
-  var tc=isDark?"#8888a0":"#555";
-  if(myChart) myChart.destroy();
-  var ctx=document.getElementById("etfChart").getContext("2d");
-  myChart=new Chart(ctx,{
-    type:"line",
-    data:{labels:labels,datasets:datasets},
-    options:{
-      responsive:true,
-      interaction:{mode:"index",intersect:false},
-      plugins:{
-        legend:{labels:{color:tc,font:{size:11}}},
-        tooltip:{callbacks:{label:function(c){return " "+c.dataset.label+": "+fmtV(c.parsed.y);}}}
+
+  document.getElementById("cardArea").innerHTML = cards.join("");
+
+  // 라벨
+  var firstSelected = ETFS.find(function(e) { return selected[e.key]; });
+  var raw0 = firstSelected ? (firstSelected.r[sy] || firstSelected.r["2015"] || []) : [];
+  var labels = raw0.map(function(_, i) { return String(parseInt(sy) + i); });
+
+  if (myChart) myChart.destroy();
+  var ctx = document.getElementById("etfCanvas").getContext("2d");
+  myChart = new Chart(ctx, {
+    type: "line",
+    data: { labels: labels, datasets: datasets },
+    options: {
+      responsive: true,
+      interaction: { mode: "index", intersect: false },
+      plugins: {
+        legend: { labels: { color: tc, font: { size: 11 } } },
+        tooltip: { callbacks: { label: function(c) { return " " + c.dataset.label + ": " + fmtV(c.parsed.y); } } }
       },
-      scales:{
-        x:{ticks:{color:tc,font:{size:10}},grid:{color:gc}},
-        y:{ticks:{color:tc,font:{size:10}},grid:{color:gc}}
+      scales: {
+        x: { ticks: { color: tc, font: { size: 10 } }, grid: { color: gc } },
+        y: { ticks: { color: tc, font: { size: 10 } }, grid: { color: gc } }
       }
     }
   });
 }
-renderChips();
-go();
 
+window.addEventListener("load", function() {
+  renderChips();
+  go();
+});
 </script>
 </body>
 </html>
