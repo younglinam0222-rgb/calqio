@@ -100,6 +100,18 @@
   </div>
 </div>
 <div style="max-width:960px;margin:0 auto;padding:24px 16px 40px;border-top:1px solid var(--border)"><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">المزيد</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-bottom:20px"><a href="compound" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">📈</div><div style="font-size:12px;font-weight:700;color:var(--text)">مركبة</div></a><a href="return" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">💰</div><div style="font-size:12px;font-weight:700;color:var(--text)">العائد</div></a><a href="average-down" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">⬇️</div><div style="font-size:12px;font-weight:700;color:var(--text)">تدرج</div></a><a href="loan" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">🏦</div><div style="font-size:12px;font-weight:700;color:var(--text)">قرض</div></a></div><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">دليل المعرفة</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px"><a href="etf-comparison" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">📊&nbsp;ETF</div></a><a href="concept" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">💡&nbsp;مفهوم</div></a><a href="ai-investment" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">🤖&nbsp;AI</div></a></div></div>
+<div style="max-width:760px;margin:20px auto 0;padding:0 20px;text-align:center">
+<button onclick="calqioShare()" style="
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 24px;border-radius:24px;
+  background:var(--accent);color:#fff;
+  border:none;font-size:14px;font-weight:600;
+  cursor:pointer;min-height:44px;
+  font-family:inherit;
+  box-shadow:0 2px 8px rgba(91,127,254,.25);
+">🔗 مشاركة النتيجة</button>
+</div>
+
 <footer>
   <div>ارفع ذكاءك المالي — 8 آلات حاسبة مالية</div>
   <div style="margin-top:8px">
@@ -162,5 +174,117 @@ function calcSVC(){
 }
 calcSVC();
 </script>
+
+<!-- ═══ Calqio 공유 기능 (URL 파라미터 + Web Share API) ═══ -->
+<script>
+(function(){
+  var INPUT_IDS = ["prin","rate","yrs"];
+
+  // 1) URL → 입력값 복원 (페이지 로드 시)
+  function loadFromUrl(){
+    var params = new URLSearchParams(window.location.search);
+    var loaded = false;
+    INPUT_IDS.forEach(function(id){
+      var val = params.get(id);
+      if(val !== null && val !== ''){
+        var el = document.getElementById(id);
+        if(el){
+          el.value = val;
+          loaded = true;
+          // change/input 이벤트 발생시켜 계산 트리거
+          el.dispatchEvent(new Event('input', {bubbles:true}));
+          el.dispatchEvent(new Event('change', {bubbles:true}));
+        }
+      }
+    });
+    return loaded;
+  }
+
+  // 2) 입력값 → URL 실시간 동기화 (디바운스 적용)
+  var syncTimer = null;
+  function syncToUrl(){
+    clearTimeout(syncTimer);
+    syncTimer = setTimeout(function(){
+      var params = new URLSearchParams();
+      INPUT_IDS.forEach(function(id){
+        var el = document.getElementById(id);
+        if(el && el.value !== ''){
+          params.set(id, el.value);
+        }
+      });
+      var qs = params.toString();
+      var newUrl = window.location.pathname + (qs ? '?' + qs : '');
+      window.history.replaceState({}, '', newUrl);
+    }, 300);
+  }
+
+  // 3) Web Share API 버튼 클릭 처리
+  window.calqioShare = async function(){
+    var url = window.location.href;
+    var title = document.title;
+    var shareData = {title: title, text: title, url: url};
+
+    // 네이티브 공유 API (모바일 우선)
+    if(navigator.share){
+      try {
+        await navigator.share(shareData);
+        return;
+      } catch(err){
+        if(err.name === 'AbortError') return; // 사용자가 취소함
+      }
+    }
+
+    // Fallback: 클립보드 복사
+    try {
+      await navigator.clipboard.writeText(url);
+      showToast('تم نسخ الرابط');
+    } catch(err){
+      // 구식 브라우저 fallback
+      var temp = document.createElement('input');
+      temp.value = url;
+      document.body.appendChild(temp);
+      temp.select();
+      document.execCommand('copy');
+      document.body.removeChild(temp);
+      showToast('تم نسخ الرابط');
+    }
+  };
+
+  function showToast(msg){
+    var t = document.getElementById('toast');
+    if(t){
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(function(){ t.classList.remove('show'); }, 2000);
+    } else {
+      alert(msg);
+    }
+  }
+
+  // 4) 이벤트 바인딩 + 초기 실행
+  function init(){
+    INPUT_IDS.forEach(function(id){
+      var el = document.getElementById(id);
+      if(el){
+        el.addEventListener('input', syncToUrl);
+        el.addEventListener('change', syncToUrl);
+      }
+    });
+
+    // URL 파라미터 있으면 복원 시도
+    if(window.location.search.length > 1){
+      setTimeout(loadFromUrl, 100);
+    }
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+<!-- ═══ End Calqio Share ═══ -->
+
 </body>
 </html>
