@@ -102,6 +102,12 @@
   <div class="ctitle"><strong>📋 حاسبة الضريبة</strong></div>
   <div class="ci">
     <div class="inp">
+<!-- FX Banner -->
+<div id="fxBanner" style="display:flex;align-items:center;gap:8px;padding:9px 14px;background:rgba(76,175,121,.1);border:1px solid rgba(76,175,121,.3);border-radius:8px;margin-bottom:14px;font-size:.83rem;color:var(--text-sub);">
+  <span>🔄</span>
+  <span>سعر USD/KRW الآن: <strong id="fxRate" style="color:#4caf79;">جارٍ التحميل...</strong></span>
+  <span id="fxTime" style="font-size:.73rem;color:var(--text-muted);margin-left:4px;"></span>
+</div>
 <div class="rt-hint"><span class="rt-dot"></span> تحديث النتائج تلقائياً عند الإدخال</div>
 <div class="ig"><div class="il">مبلغ الشراء</div><input type="number" id="taxbuy" class="if" oninput="calcTax()" value="10000"><div class="qbtns"><button class="qb" onclick="addVal('taxbuy',10000)">+10K</button><button class="qb" onclick="addVal('taxbuy',50000)">+50K</button><button class="qb" onclick="addVal('taxbuy',100000)">+100K</button></div></div>
 <div class="ig"><div class="il">مبلغ البيع</div><input type="number" id="taxsell" class="if" oninput="calcTax()" value="15000"><div class="qbtns"><button class="qb" onclick="addVal('taxsell',5000)">+5K</button><button class="qb" onclick="addVal('taxsell',10000)">+10K</button></div></div>
@@ -146,6 +152,21 @@
 <div id="toast"></div>
 <script src="../common.js"></script>
 <script>
+// FX fetch
+(async function fetchFX(){
+  try{
+    const res=await fetch('https://api.exchangerate-api.com/v4/latest/USD');
+    const d=await res.json();
+    const rate=d.rates&&d.rates.KRW;
+    if(rate){
+      const el=document.getElementById('fxRate');
+      const te=document.getElementById('fxTime');
+      if(el)el.textContent=Math.round(rate).toLocaleString()+(window.LC&&window.LC.suf||'원');
+      if(te)te.textContent='(اعتبارًا من '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})+')';
+    }
+  }catch(e){const el=document.getElementById('fxRate');if(el)el.textContent='N/A';}
+})();
+
 function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
 function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
 document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});

@@ -156,8 +156,14 @@ select.if{cursor:pointer;}
   <div class="page-layout">
     <!-- 입력 패널 -->
     <div class="inp-panel">
+      <!-- ★ 3-모드 탭 -->
+      <div style="display:flex;gap:6px;margin-bottom:18px;background:var(--bg2);border-radius:10px;padding:4px;" id="modeTabs">
+        <button id="modeBtn0" onclick="setMode(0)" style="flex:1;padding:8px 4px;border:none;border-radius:8px;font-size:.82rem;font-weight:600;cursor:pointer;background:var(--accent);color:#fff;transition:.2s;">거치식</button>
+        <button id="modeBtn1" onclick="setMode(1)" style="flex:1;padding:8px 4px;border:none;border-radius:8px;font-size:.82rem;font-weight:600;cursor:pointer;background:transparent;color:var(--text-sub);transition:.2s;">적립식</button>
+        <button id="modeBtn2" onclick="setMode(2)" style="flex:1;padding:8px 4px;border:none;border-radius:8px;font-size:.82rem;font-weight:600;cursor:pointer;background:transparent;color:var(--text-sub);transition:.2s;">거치+적립</button>
+      </div>
       <div class="inp-title">투자 설정</div>
-      <div class="ig"><div class="il">초기 투자 원금</div>
+      <div class="ig" id="rowP"><div class="il">초기 투자 원금</div>
         <div class="inp-suf"><input type="number" id="p" class="if" oninput="calcC()" value="10000000"><span>원</span></div></div>
       <div class="ig"><div class="il">추가 납입 (매 회차)</div>
         <div class="inp-suf"><input type="number" id="m" class="if" oninput="calcC()" value="0"><span>원</span></div></div>
@@ -178,6 +184,15 @@ select.if{cursor:pointer;}
           <option value="0">비과세 (0%)</option>
           <option value="0.154" selected>일반과세 (15.4%)</option>
         </select>
+      </div>
+      <!-- ★ 물가상승률 옵션 -->
+      <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:16px;padding:10px 14px;background:var(--bg2);border-radius:8px;border:1px solid var(--border);">
+        <input type="checkbox" id="inflChk" onchange="calcC()" style="width:16px;height:16px;cursor:pointer;margin-top:2px;flex-shrink:0;">
+        <label for="inflChk" style="font-size:.84rem;color:var(--text-sub);cursor:pointer;line-height:1.6;">물가상승률 반영 — 연 <input type="number" id="inflRate" value="2.5" step="0.1" min="0" max="20" oninput="calcC()" style="width:44px;padding:2px 4px;border:1px solid var(--border);border-radius:4px;background:var(--bg2);color:var(--text);font-size:.8rem;text-align:center;">% 적용 시 실질 구매력 표시</label>
+      </div>
+      <div id="inflResult" style="display:none;padding:10px 14px;background:rgba(91,127,254,.08);border-radius:8px;border:1px solid var(--accent);margin-bottom:16px;font-size:.84rem;color:var(--text-sub);">
+        📉 물가 반영 실질 자산: <strong id="inflVal" style="color:var(--accent);">—</strong>
+        <div style="font-size:.75rem;margin-top:4px;color:var(--text-muted);">명목 자산을 현재 가치(구매력)로 환산한 수치입니다.</div>
       </div>
       <button class="btn-calc" onclick="run()">계산하기</button>
     </div>
@@ -273,6 +288,29 @@ function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');d
 document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
 
 let ci=null;
+let currentMode=0; // 0=거치식, 1=적립식, 2=거치+적립
+function setMode(m){
+  currentMode=m;
+  const btns=[document.getElementById('modeBtn0'),document.getElementById('modeBtn1'),document.getElementById('modeBtn2')];
+  btns.forEach((b,i)=>{
+    b.style.background=i===m?'var(--accent)':'transparent';
+    b.style.color=i===m?'#fff':'var(--text-sub)';
+  });
+  const rowP=document.getElementById('rowP');
+  const rowM=document.getElementById('rowM');
+  if(m===0){// 거치식: 원금만
+    if(rowP)rowP.style.display='';
+    if(rowM){rowM.style.display='none';document.getElementById('m').value=0;}
+  } else if(m===1){// 적립식: 원금 0, 납입만
+    if(rowP){rowP.style.display='none';document.getElementById('p').value=0;}
+    if(rowM)rowM.style.display='';
+  } else {// 거치+적립
+    if(rowP)rowP.style.display='';
+    if(rowM)rowM.style.display='';
+  }
+  calcC();
+}
+function calcC(){if(document.getElementById('rb')&&document.getElementById('rb').style.display!=='none')run();}
 const w=n=>Math.round(Math.abs(n)).toLocaleString()+'원';
 const pc=n=>(isFinite(n)?n.toFixed(2):'0.00')+'%';
 const ul=()=>({'y':'년','mo':'개월','d':'일'}[document.getElementById('unit').value]||'일');
@@ -312,6 +350,23 @@ function run(){
   });
   document.getElementById('empty-s').style.display='none';
   const rb=document.getElementById('rb');rb.style.display='flex';rb.style.flexDirection='column';rb.style.gap='16px';
+  // 물가상승률 실질 자산 계산
+  const inflChk=document.getElementById('inflChk');
+  const inflResult=document.getElementById('inflResult');
+  if(inflChk&&inflChk.checked){
+    const inflR=(+document.getElementById('inflRate').value||2.5)/100;
+    // 기간 단위(일/개월/년)를 년 단위로 환산해서 물가상승률 적용
+    const unitVal=document.getElementById('unit').value;
+    let yearsForInfl;
+    if(unitVal==='y')yearsForInfl=Y;
+    else if(unitVal==='mo')yearsForInfl=Y/12;
+    else yearsForInfl=Y/365;
+    const realBal=bal/Math.pow(1+inflR,yearsForInfl);
+    document.getElementById('inflVal').textContent=w(realBal);
+    inflResult.style.display='block';
+  } else if(inflResult){
+    inflResult.style.display='none';
+  }
 }
 
 function share(){

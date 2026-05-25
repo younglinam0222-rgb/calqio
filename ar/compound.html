@@ -102,11 +102,25 @@
   <div class="ctitle"><strong>📈 حاسبة الفائدة المركبة</strong></div>
   <div class="ci">
     <div class="inp">
+<!-- 3-mode tabs -->
+<div style="display:flex;gap:6px;margin-bottom:14px;background:var(--bg2);border-radius:10px;padding:4px;" id="modeTabs">
+  <button id="modeBtn0" onclick="setMode(0)" style="flex:1;padding:8px 4px;border:none;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;background:var(--accent);color:#fff;transition:.2s;">مبلغ إجمالي</button>
+  <button id="modeBtn1" onclick="setMode(1)" style="flex:1;padding:8px 4px;border:none;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;background:transparent;color:var(--text-sub);transition:.2s;">استثمار شهري</button>
+  <button id="modeBtn2" onclick="setMode(2)" style="flex:1;padding:8px 4px;border:none;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;background:transparent;color:var(--text-sub);transition:.2s;">مجمع</button>
+</div>
 <div class="rt-hint"><span class="rt-dot"></span> تحديث النتائج تلقائياً عند الإدخال</div>
 <div class="ig"><div class="il">رأس المال الأولي</div><input type="number" id="p" class="if" oninput="calcC()" value="10000"><div class="qbtns"><button class="qb" onclick="addVal('p',100000)">+100K</button><button class="qb" onclick="addVal('p',50000)">+50K</button><button class="qb" onclick="addVal('p',10000)">+10K</button></div></div>
 <div class="ig"><div class="il">العائد السنوي (%)</div><input type="number" id="r" class="if" oninput="calcC()" value="8"><div class="qbtns"><button class="qb" onclick="addPct('r',-1)">-1%</button><button class="qb" onclick="addPct('r',1)">+1%</button><button class="qb" onclick="addPct('r',5)">+5%</button></div></div>
 <div class="ig"><div class="il">المدة (سنوات)</div><input type="number" id="y" class="if" oninput="calcC()" value="20"><div class="qbtns"><button class="qb" onclick="addInt('y',-5)">-5س</button><button class="qb" onclick="addInt('y',5)">+5س</button><button class="qb" onclick="addInt('y',10)">+10س</button></div></div>
 <div class="ig"><div class="il">الإضافة الشهرية</div><input type="number" id="m" class="if" oninput="calcC()" value="0"><div class="qbtns"><button class="qb" onclick="addVal('m',500)">+500</button><button class="qb" onclick="addVal('m',100)">+100</button></div></div>
+<div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:14px;padding:10px 14px;background:var(--bg2);border-radius:8px;border:1px solid var(--border);">
+  <input type="checkbox" id="inflChk" onchange="recalcInflation()" style="width:16px;height:16px;cursor:pointer;margin-top:2px;flex-shrink:0;">
+  <label for="inflChk" style="font-size:.84rem;color:var(--text-sub);cursor:pointer;line-height:1.6;">تطبيق التضخم — <input type="number" id="inflRate" value="2.5" step="0.1" min="0" max="20" oninput="recalcInflation()" style="width:44px;padding:2px 4px;border:1px solid var(--border);border-radius:4px;background:var(--bg2);color:var(--text);font-size:.8rem;text-align:center;">% معدل سنوي</label>
+</div>
+<div id="inflResult" style="display:none;padding:10px 14px;background:rgba(91,127,254,.08);border-radius:8px;border:1px solid var(--accent);margin-bottom:14px;font-size:.84rem;color:var(--text-sub);">
+  📉 الأصول الحقيقية (بعد التضخم): <strong id="inflVal" style="color:var(--accent);">—</strong>
+  <div style="font-size:.75rem;margin-top:4px;color:var(--text-muted);">تحويل إلى القوة الشرائية الحالية.</div>
+</div>
 <button class="btn" onclick="calcC()">احسب</button></div>
     <div class="out">
       <div class="es" id="e0"><div class="ei">📈</div><div>أدخل القيم</div></div>
@@ -154,6 +168,45 @@ A: المبلغ النهائي | P: رأس المال | r: المعدل السن
 <div id="toast"></div>
 <script src="../common.js"></script>
 <script>
+// === 3-mode tabs + inflation ===
+let currentMode=0;
+function setMode(m){
+  currentMode=m;
+  [0,1,2].forEach(i=>{
+    const b=document.getElementById('modeBtn'+i);
+    if(b){b.style.background=i===m?'var(--accent)':'transparent';b.style.color=i===m?'#fff':'var(--text-sub)';}
+  });
+  const ep=document.getElementById('p'),em=document.getElementById('m');
+  const epIg=ep&&ep.closest('.ig'),emIg=em&&em.closest('.ig');
+  if(m===0){if(em){em.value=0;}if(emIg)emIg.style.display='none';if(epIg)epIg.style.display='';}
+  else if(m===1){if(ep){ep.value=0;}if(epIg)epIg.style.display='none';if(emIg)emIg.style.display='';}
+  else{if(epIg)epIg.style.display='';if(emIg)emIg.style.display='';}
+  if(typeof calcC==='function')calcC();
+}
+function recalcInflation(){
+  const inflChk=document.getElementById('inflChk');
+  const inflResult=document.getElementById('inflResult');
+  if(!inflChk||!inflResult)return;
+  if(inflChk.checked){
+    const Y2=+(document.getElementById('y')&&document.getElementById('y').value)||20;
+    const inflR=(+document.getElementById('inflRate').value||2.5)/100;
+    const finalEl=document.querySelector('#r0 .rv');
+    if(finalEl){
+      const nomVal=parseFloat(String(finalEl.textContent).replace(/[^0-9.]/g,''))||0;
+      const realVal=nomVal/Math.pow(1+inflR,Y2);
+      const wrap=v=>v.toLocaleString(undefined,{maximumFractionDigits:0});
+      const cur=(window.LC&&window.LC.cur)||'';
+      const suf=(window.LC&&window.LC.suf)||'';
+      document.getElementById('inflVal').textContent=cur+wrap(realVal)+suf;
+      inflResult.style.display='block';
+    }
+  } else {inflResult.style.display='none';}
+}
+// inflChk 변경 또는 inflRate 입력 시 즉시 반영
+document.addEventListener('DOMContentLoaded',function(){
+  setTimeout(recalcInflation,300);
+});
+
 function switchLang(l){const p=location.pathname.split('/').pop()||'index.html';location.href='/'+l+'/'+p;}
 function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
 document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getElementById('lBtn')?.classList.remove('open');document.getElementById('lDrop')?.classList.remove('open');}});
@@ -273,5 +326,17 @@ document.addEventListener("DOMContentLoaded",function(){calcC()});
 </script>
 <!-- ═══ End Calqio Share ═══ -->
 
+
+<script>
+// inflation result auto-update via MutationObserver on result panel
+document.addEventListener('DOMContentLoaded',function(){
+  const r0=document.getElementById('r0');
+  if(!r0)return;
+  const obs=new MutationObserver(function(){
+    if(typeof recalcInflation==='function')recalcInflation();
+  });
+  obs.observe(r0,{childList:true,subtree:true,characterData:true});
+});
+</script>
 </body>
 </html>
