@@ -89,4 +89,9 @@
   <url><loc>https://calqio.com/contact.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
   <url><loc>https://calqio.com/privacy.html</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
 
+  <url><loc>https://calqio.com/ko/terms</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://calqio.com/en/terms</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://calqio.com/ja/terms</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://calqio.com/zh/terms</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://calqio.com/ar/terms</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
 </urlset>

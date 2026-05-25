@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>利用規約 - Calqio 金融計算ツール利用規約</title>
+<meta name="description" content="Calqio金融計算ツール利用規約。情報提供目的、責任の制限、利用条件を明記。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calqio.com/ja/terms">
+<link rel="alternate" hreflang="ko" href="https://calqio.com/ko/terms">
+<link rel="alternate" hreflang="en" href="https://calqio.com/en/terms">
+<link rel="alternate" hreflang="ja" href="https://calqio.com/ja/terms">
+<link rel="alternate" hreflang="zh" href="https://calqio.com/zh/terms">
+<link rel="alternate" hreflang="ar" href="https://calqio.com/ar/terms">
+<link rel="alternate" hreflang="x-default" href="https://calqio.com/en/terms">
+<meta name="google-adsense-account" content="ca-pub-8205853473793766">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<nav>
+  <a href="/ja/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 ダーク</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇯🇵</span><span>日本語</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo" onclick="location.href='/ko/'"><span class="fl">🇰🇷</span>한국어</div><div class="lo" onclick="location.href='/en/'"><span class="fl">🇺🇸</span>English</div><div class="lo active" onclick="location.href='/ja/'"><span class="fl">🇯🇵</span>日本語</div><div class="lo" onclick="location.href='/zh/'"><span class="fl">🇨🇳</span>中文</div><div class="lo" onclick="location.href='/ar/'"><span class="fl">🇸🇦</span>العربية</div></div>
+  </div>
+</nav>
+
+<div style="max-width:760px;margin:0 auto;padding:32px 20px 60px">
+  <h1 style="font-size:clamp(22px,4vw,32px);font-weight:800;margin-bottom:8px">利用規約</h1>
+  <div style="font-size:12px;color:var(--text-muted);margin-bottom:32px">最終更新日: 2026年5月25日</div>
+  <div style="font-size:14px;line-height:1.8;color:var(--text-sub)">
+    
+<h2>第1条(目的)</h2>
+<p>本利用規約は、Calqio(以下「当社」)が運営するcalqio.comで提供する金融計算ツール及び関連サービス(以下「本サービス」)の利用条件を定めるものです。</p>
+
+<h2>第2条(サービスの性質)</h2>
+<p>Calqioが提供する全ての計算ツール(複利、収益率、ナンピン、ローン、配当、目標株価、譲渡税、パーセント計算等)は、一般的な情報提供を目的としています。</p>
+<p>計算結果は入力された仮定値に基づく単純な数学的計算結果であり、実際の投資収益、税金、ローン条件、為替レート等は市場状況、金融機関の方針、法令等により異なる場合があります。</p>
+
+<h2>第3条(責任の制限)</h2>
+<p>1. 当社は計算結果の正確性、完全性、信頼性についていかなる保証もしません。</p>
+<p>2. ユーザーが本サービスの計算結果に基づいて行った投資、ローン、税務申告等の意思決定について、当社はいかなる法的責任も負いません。</p>
+<p>3. 重要な金融上の決定を行う前には、必ず資格を有する専門家(公認会計士、税理士、金融アドバイザー)にご相談ください。</p>
+
+<h2>第4条(知的財産権)</h2>
+<p>本サービスに含まれる全てのコンテンツ(テキスト、デザイン、コード、ロゴ)の著作権及びその他の知的財産権は当社に帰属します。</p>
+
+<h2>第5条(広告)</h2>
+<p>本サービスはGoogle AdSenseを通じて広告を掲載しています。広告内容は当社の見解を反映するものではありません。</p>
+
+<h2>第6条(個人情報)</h2>
+<p>個人情報の収集・利用については別途<a href="/privacy">プライバシーポリシー</a>に従います。</p>
+
+<h2>第7条(規約の変更)</h2>
+<p>当社は必要に応じて本規約を変更する場合があります。変更された規約は本ページに掲載されることで効力を発生します。</p>
+
+<h2>第8条(お問い合わせ)</h2>
+<p>本規約に関するお問い合わせは<a href="mailto:contact@calqio.com">contact@calqio.com</a>までご連絡ください。</p>
+
+  </div>
+</div>
+
+<footer>
+  <div>金融IQを高めよう — 8種類の金融計算ツール</div>
+  <div style="margin-top:8px">
+    <a href="/about">概要</a>
+    <a href="/privacy">プライバシー</a>
+    <a href="/ja/terms">利用規約</a>
+    <a href="/contact">お問い合わせ</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',function(e){if(!e.target.closest('.lw')){var b=document.getElementById('lBtn');var d=document.getElementById('lDrop');if(b)b.classList.remove('open');if(d)d.classList.remove('open');}});
+</script>
+</body>
+</html>

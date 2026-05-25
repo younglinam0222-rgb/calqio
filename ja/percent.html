@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>パーセント計算機 — 騰落率・割引率の計算 | Calqio</title>
-<meta name="description" content="4種類のパーセント計算をタブで選択して即座に処理。">
+<title>パーセント計算機 - 騰落率・割引率・増減率 4種計算 | Calqio</title>
+<meta name="description" content="パーセント計算機。株価騰落率、割引率、増減率など4種類のパーセント計算を一箇所で。">
 <link rel="stylesheet" href="../style.css">
 <script>window.LC={"cur":"¥","suf":"","sh2":"株","tf":"すべての値を入力してください","tc":"リンクをコピーしました 🔗","darkBtn":"🌙 ダーク","lightBtn":"☀️ ライト"}</script>
 
-  <link rel="canonical" href="https://calqio.com/ja/percent.html">
-  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/percent.html">
-  <link rel="alternate" hreflang="en" href="https://calqio.com/en/percent.html">
-  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/percent.html">
-  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/percent.html">
-  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/percent.html">
-  <link rel="alternate" hreflang="x-default" href="https://calqio.com/en/percent.html">
+  <link rel="canonical" href="https://calqio.com/ja/percent">
+  <link rel="alternate" hreflang="ko" href="https://calqio.com/ko/percent">
+  <link rel="alternate" hreflang="en" href="https://calqio.com/en/percent">
+  <link rel="alternate" hreflang="ja" href="https://calqio.com/ja/percent">
+  <link rel="alternate" hreflang="zh" href="https://calqio.com/zh/percent">
+  <link rel="alternate" hreflang="ar" href="https://calqio.com/ar/percent">
+  <link rel="alternate" hreflang="x-default" href="https://calqio.com/en/percent">
 
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://calqio.com/ja/percent.html">
-  <meta property="og:title" content="パーセント計算機 | Calqio">
-  <meta property="og:description" content="4種類のパーセント計算をタブで選択して即座に処理。">
+  <meta property="og:url" content="https://calqio.com/ja/percent">
+  <meta property="og:title" content="パーセント計算機 - 騰落率・割引率・増減率 4種計算 | Calqio">
+  <meta property="og:description" content="パーセント計算機。株価騰落率、割引率、増減率など4種類のパーセント計算を一箇所で。">
   <meta property="og:image" content="https://calqio.com/og-ja.png">
   <meta property="og:site_name" content="Calqio">
   <meta name="twitter:card" content="summary_large_image">
@@ -93,11 +93,8 @@
 </div>
   </div>
 </nav>
-<div style="background:var(--card);border-bottom:1px solid var(--border);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none">
-<div style="display:flex;align-items:center;max-width:960px;margin:0 auto;padding:0 12px">
-<a href="compound"  style="display:inline-flex;align-items:center;gap:3px;padding:6px 8px;font-size:11px;color:var(--text-sub);text-decoration:none;white-space:nowrap;flex-shrink:0">📈 複利</a><a href="return"  style="display:inline-flex;align-items:center;gap:3px;padding:6px 8px;font-size:11px;color:var(--text-sub);text-decoration:none;white-space:nowrap;flex-shrink:0">💰 収益率</a><a href="average-down"  style="display:inline-flex;align-items:center;gap:3px;padding:6px 8px;font-size:11px;color:var(--text-sub);text-decoration:none;white-space:nowrap;flex-shrink:0">⬇️ ナンピン</a><a href="loan"  style="display:inline-flex;align-items:center;gap:3px;padding:6px 8px;font-size:11px;color:var(--text-sub);text-decoration:none;white-space:nowrap;flex-shrink:0">🏦 ローン</a><a href="dividend"  style="display:inline-flex;align-items:center;gap:3px;padding:6px 8px;font-size:11px;color:var(--text-sub);text-decoration:none;white-space:nowrap;flex-shrink:0">💵 配当</a><a href="target"  style="display:inline-flex;align-items:center;gap:3px;padding:6px 8px;font-size:11px;color:var(--text-sub);text-decoration:none;white-space:nowrap;flex-shrink:0">🎯 目標株価</a><a href="tax"  style="display:inline-flex;align-items:center;gap:3px;padding:6px 8px;font-size:11px;color:var(--text-sub);text-decoration:none;white-space:nowrap;flex-shrink:0">📋 譲渡税</a><a href="percent" style="color:var(--accent);border-bottom:2px solid var(--accent);font-weight:700" style="display:inline-flex;align-items:center;gap:3px;padding:6px 8px;font-size:11px;color:var(--text-sub);text-decoration:none;white-space:nowrap;flex-shrink:0">% パーセント</a>
-</div>
-</div>
+
+
 <div class="content-nav" style="max-width:960px;margin:0 auto;padding:0 20px 6px;display:flex;gap:6px;flex-wrap:wrap;align-items:center"><span style="font-size:10px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em;flex-shrink:0">金融知識ガイド:</span><a href="loan" style="font-size:11px;color:var(--text-sub);padding:4px 10px;border-radius:12px;border:1px solid var(--border);background:var(--bg2);text-decoration:none;white-space:nowrap">🏦 ローン計算機</a><a href="etf-comparison" style="font-size:11px;color:var(--text-sub);padding:4px 10px;border-radius:12px;border:1px solid var(--border);background:var(--bg2);text-decoration:none;white-space:nowrap">📊 ETF収益比較</a><a href="simple-vs-compound" style="font-size:11px;color:var(--text-sub);padding:4px 10px;border-radius:12px;border:1px solid var(--border);background:var(--bg2);text-decoration:none;white-space:nowrap">📈 単利 vs 複利</a><a href="concept" style="font-size:11px;color:var(--text-sub);padding:4px 10px;border-radius:12px;border:1px solid var(--border);background:var(--bg2);text-decoration:none;white-space:nowrap">💡 複利の概念</a><a href="ai-investment" style="font-size:11px;color:var(--text-sub);padding:4px 10px;border-radius:12px;border:1px solid var(--border);background:var(--bg2);text-decoration:none;white-space:nowrap">🤖 AI投資分析</a></div>
 <div class="sec" style="margin-top:24px;">
 <div class="tabs"><a href="compound" class="tab "><span class="tab-icon">📈</span>複利計算機</a><a href="return" class="tab "><span class="tab-icon">💰</span>収益率計算機</a><a href="average-down" class="tab "><span class="tab-icon">⬇️</span>ナンピン計算機</a><a href="loan" class="tab "><span class="tab-icon">🏦</span>ローン計算機</a><a href="dividend" class="tab "><span class="tab-icon">💵</span>配当利回り計算機</a><a href="target" class="tab "><span class="tab-icon">🎯</span>目標株価計算機</a><a href="tax" class="tab "><span class="tab-icon">📋</span>譲渡所得税計算機</a><a href="percent" class="tab active"><span class="tab-icon">%</span>パーセント計算機</a></div>
@@ -122,21 +119,13 @@
 ④ N%変化後の値? → 元 × (1 + N ÷ 100)</div>
 <div class="tip">💡 計算タイプをタブで選んで即座に計算できます。</div></section>
 </div>
-<div style="max-width:960px;margin:0 auto;padding:24px 20px 40px;border-top:1px solid var(--border)">
-  <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">その他の計算ツール</div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-bottom:20px">
-    <a href="compound" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block;transition:border-color .2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'"><div style="font-size:20px;margin-bottom:6px">📈</div><div style="font-size:12px;font-weight:700;color:var(--text)">複利</div></a><a href="return" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block;transition:border-color .2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'"><div style="font-size:20px;margin-bottom:6px">💰</div><div style="font-size:12px;font-weight:700;color:var(--text)">収益率</div></a><a href="average-down" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block;transition:border-color .2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'"><div style="font-size:20px;margin-bottom:6px">⬇️</div><div style="font-size:12px;font-weight:700;color:var(--text)">ナンピン</div></a><a href="loan" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block;transition:border-color .2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'"><div style="font-size:20px;margin-bottom:6px">🏦</div><div style="font-size:12px;font-weight:700;color:var(--text)">ローン</div></a>
-  </div>
-  <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">金融知識ガイド</div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px">
-    <a href="etf-comparison" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:11px;font-weight:700;color:var(--text)">📊 ETF収益比較</div></a><a href="simple-vs-compound" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:11px;font-weight:700;color:var(--text)">📈 単利 vs 複利</div></a><a href="concept" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:11px;font-weight:700;color:var(--text)">💡 複利の概念</div></a><a href="ai-investment" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:11px;font-weight:700;color:var(--text)">🤖 AI投資分析</div></a>
-  </div>
-</div>
+<div style="max-width:960px;margin:0 auto;padding:24px 16px 40px;border-top:1px solid var(--border)"><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">その他</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-bottom:20px"><a href="compound" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">📈</div><div style="font-size:12px;font-weight:700;color:var(--text)">複利</div></a><a href="return" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">💰</div><div style="font-size:12px;font-weight:700;color:var(--text)">収益率</div></a><a href="average-down" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">⬇️</div><div style="font-size:12px;font-weight:700;color:var(--text)">ナンピン</div></a><a href="loan" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">🏦</div><div style="font-size:12px;font-weight:700;color:var(--text)">ローン</div></a></div><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">金融知識ガイド</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px"><a href="etf-comparison" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">📊&nbsp;ETF比較</div></a><a href="simple-vs-compound" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">📈&nbsp;単利vs複利</div></a><a href="concept" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">💡&nbsp;概念</div></a><a href="ai-investment" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">🤖&nbsp;AI分析</div></a></div></div>
 <footer>
   <div>金融IQを高めよう — 8種類の金融計算ツール</div>
   <div style="margin-top:8px">
     <a href="/about">概要</a>
     <a href="/privacy">プライバシーポリシー</a>
+    <a href="/ja/terms">利用規約</a>
     <a href="/contact">お問い合わせ</a>
   </div>
 </footer>

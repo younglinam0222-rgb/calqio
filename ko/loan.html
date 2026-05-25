@@ -3,23 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>대출이자 계산기 | 원리금균등·원금균등·만기일시 — Calqio</title>
-<meta name="description" content="대출이자 계산기로 월 상환금과 총 이자를 미리 확인하세요. 원리금균등·원금균등·만기일시 3가지 상환 방식, 연도별 상환 스케줄 제공.">
+<title>대출이자 계산기 - 원리금균등·원금균등·만기일시 상환 | Calqio</title>
+<meta name="description" content="대출 이자 계산기. 대출 금액·금리·기간을 입력하면 월 상환액과 총 이자를 계산합니다. 원리금균등·원금균등·만기일시 3가지 상환 방식과 연도별 상환 스케줄 제공.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://calqio.com/ko/loan.html">
-<meta property="og:title" content="대출이자 계산기 | 원리금균등·원금균등·만기일시 — Calqio">
-<meta property="og:description" content="대출이자 계산기로 월 상환금과 총 이자를 미리 확인하세요. 원리금균등·원금균등·만기일시 3가지 상환 방식, 연도별 상환 스케줄 제공.">
+<link rel="canonical" href="https://calqio.com/ko/loan">
+<meta property="og:title" content="대출이자 계산기 - 원리금균등·원금균등·만기일시 상환 | Calqio">
+<meta property="og:description" content="대출 이자 계산기. 대출 금액·금리·기간을 입력하면 월 상환액과 총 이자를 계산합니다. 원리금균등·원금균등·만기일시 3가지 상환 방식과 연도별 상환 스케줄 제공.">
 <meta property="og:type" content="website">
-<link rel="alternate" hreflang="ko" href="https://calqio.com/ko/loan.html">
-<link rel="alternate" hreflang="en" href="https://calqio.com/en/loan.html">
-<link rel="alternate" hreflang="ja" href="https://calqio.com/ja/loan.html">
-<link rel="alternate" hreflang="zh" href="https://calqio.com/zh/loan.html">
-<link rel="alternate" hreflang="ar" href="https://calqio.com/ar/loan.html">
+<link rel="alternate" hreflang="ko" href="https://calqio.com/ko/loan">
+<link rel="alternate" hreflang="en" href="https://calqio.com/en/loan">
+<link rel="alternate" hreflang="ja" href="https://calqio.com/ja/loan">
+<link rel="alternate" hreflang="zh" href="https://calqio.com/zh/loan">
+<link rel="alternate" hreflang="ar" href="https://calqio.com/ar/loan">
+<link rel="alternate" hreflang="x-default" href="https://calqio.com/en/loan">
 <meta name="google-adsense-account" content="ca-pub-8205853473793766">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
 <script>window.LC={"cur":"","suf":"원","darkBtn":"🌙 다크모드"}</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"대출이자 계산기",
+  "description":"대출 이자 계산기. 대출 금액·금리·기간을 입력하면 월 상환액과 총 이자를 계산합니다. 원리금균등·원금균등·만기일시 3가지 상환 방식과 연도별 상환 스케줄 제공.",
+  "url":"https://calqio.com/ko/loan",
+  "applicationCategory":"FinanceApplication",
+  "operatingSystem":"All",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+}
+</script>
 </head>
 <body><nav>
   <a href="/ko/" class="logo">Calq<span>io</span></a>
@@ -31,11 +44,8 @@
     <div class="ld" id="lDrop"><div class="lo active" onclick="location.href='/ko/'"><span class="fl">🇰🇷</span>한국어</div><div class="lo" onclick="location.href='/en/'"><span class="fl">🇺🇸</span>English</div><div class="lo" onclick="location.href='/ja/'"><span class="fl">🇯🇵</span>日本語</div><div class="lo" onclick="location.href='/zh/'"><span class="fl">🇨🇳</span>中文</div><div class="lo" onclick="location.href='/ar/'"><span class="fl">🇸🇦</span>العربية</div></div>
   </div>
 </nav>
-<div style="background:var(--card);border-bottom:1px solid var(--border);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none">
-<div style="display:flex;align-items:center;max-width:960px;margin:0 auto;padding:0 12px">
-<a href="compound"  style="display:inline-flex;align-items:center;gap:3px;padding:6px 8px;font-size:11px;color:var(--text-sub);text-decoration:none;white-space:nowrap;flex-shrink:0">📈 복리 계산기</a><a href="return"  style="display:inline-flex;align-items:center;gap:3px;padding:6px 8px;font-size:11px;color:var(--text-sub);text-decoration:none;white-space:nowrap;flex-shrink:0">💰 수익률</a><a href="average-down"  style="display:inline-flex;align-items:center;gap:3px;padding:6px 8px;font-size:11px;color:var(--text-sub);text-decoration:none;white-space:nowrap;flex-shrink:0">⬇️ 물타기</a><a href="loan" style="color:var(--accent);border-bottom:2px solid var(--accent);font-weight:700" style="display:inline-flex;align-items:center;gap:3px;padding:6px 8px;font-size:11px;color:var(--text-sub);text-decoration:none;white-space:nowrap;flex-shrink:0">🏦 대출이자</a><a href="dividend"  style="display:inline-flex;align-items:center;gap:3px;padding:6px 8px;font-size:11px;color:var(--text-sub);text-decoration:none;white-space:nowrap;flex-shrink:0">💵 배당수익률</a><a href="target"  style="display:inline-flex;align-items:center;gap:3px;padding:6px 8px;font-size:11px;color:var(--text-sub);text-decoration:none;white-space:nowrap;flex-shrink:0">🎯 목표가</a><a href="tax"  style="display:inline-flex;align-items:center;gap:3px;padding:6px 8px;font-size:11px;color:var(--text-sub);text-decoration:none;white-space:nowrap;flex-shrink:0">📋 양도세</a><a href="percent"  style="display:inline-flex;align-items:center;gap:3px;padding:6px 8px;font-size:11px;color:var(--text-sub);text-decoration:none;white-space:nowrap;flex-shrink:0">% 퍼센트</a>
-</div>
-</div>
+
+
 <div style="max-width:880px;margin:0 auto;padding:20px 18px 10px">
   <h1 style="font-size:clamp(19px,3.5vw,28px);font-weight:800;letter-spacing:-1px;margin-bottom:6px">
     대출이자 계산기<br><em style="color:var(--accent);font-style:normal">스마트한 대출 관리의 시작</em>
@@ -118,21 +128,13 @@
     </div>
   </div>
 </div>
-<div style="max-width:960px;margin:0 auto;padding:24px 20px 40px;border-top:1px solid var(--border)">
-  <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">다른 계산기</div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-bottom:20px">
-    <a href="compound" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block;transition:border-color .2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'"><div style="font-size:20px;margin-bottom:6px">📈</div><div style="font-size:12px;font-weight:700;color:var(--text)">복리 계산기</div></a><a href="return" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block;transition:border-color .2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'"><div style="font-size:20px;margin-bottom:6px">💰</div><div style="font-size:12px;font-weight:700;color:var(--text)">수익률</div></a><a href="average-down" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block;transition:border-color .2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'"><div style="font-size:20px;margin-bottom:6px">⬇️</div><div style="font-size:12px;font-weight:700;color:var(--text)">물타기</div></a><a href="dividend" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block;transition:border-color .2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'"><div style="font-size:20px;margin-bottom:6px">💵</div><div style="font-size:12px;font-weight:700;color:var(--text)">배당수익률</div></a>
-  </div>
-  <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">금융 지식 가이드</div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px">
-    <a href="etf-comparison" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:11px;font-weight:700;color:var(--text)">📊 ETF 수익 비교</div></a><a href="simple-vs-compound" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:11px;font-weight:700;color:var(--text)">📈 단리 vs 복리</div></a><a href="concept" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:11px;font-weight:700;color:var(--text)">💡 복리 개념</div></a><a href="ai-investment" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:11px;font-weight:700;color:var(--text)">🤖 AI 투자 분석</div></a>
-  </div>
-</div>
+<div style="max-width:960px;margin:0 auto;padding:24px 16px 40px;border-top:1px solid var(--border)"><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">다른 계산기</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-bottom:20px"><a href="compound" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">📈</div><div style="font-size:12px;font-weight:700;color:var(--text)">복리</div></a><a href="return" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">💰</div><div style="font-size:12px;font-weight:700;color:var(--text)">수익률</div></a><a href="average-down" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">⬇️</div><div style="font-size:12px;font-weight:700;color:var(--text)">물타기</div></a><a href="dividend" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">💵</div><div style="font-size:12px;font-weight:700;color:var(--text)">배당</div></a></div><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">금융 지식 가이드</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px"><a href="etf-comparison" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">📊&nbsp;ETF 비교</div></a><a href="simple-vs-compound" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">📈&nbsp;단리vs복리</div></a><a href="concept" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">💡&nbsp;복리 개념</div></a><a href="ai-investment" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">🤖&nbsp;AI 분석</div></a></div></div>
 <footer>
   <div>금융 IQ를 높이세요 — 8종 금융 계산기</div>
   <div style="margin-top:8px">
     <a href="/about">About</a>
     <a href="/privacy">개인정보처리방침</a>
+    <a href="/ko/terms">이용약관</a>
     <a href="/contact">문의</a>
   </div>
 </footer>

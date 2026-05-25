@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>服务条款 - Calqio 金融计算器服务条款</title>
+<meta name="description" content="Calqio金融计算器服务条款。仅供信息参考目的、责任限制、使用条件说明。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calqio.com/zh/terms">
+<link rel="alternate" hreflang="ko" href="https://calqio.com/ko/terms">
+<link rel="alternate" hreflang="en" href="https://calqio.com/en/terms">
+<link rel="alternate" hreflang="ja" href="https://calqio.com/ja/terms">
+<link rel="alternate" hreflang="zh" href="https://calqio.com/zh/terms">
+<link rel="alternate" hreflang="ar" href="https://calqio.com/ar/terms">
+<link rel="alternate" hreflang="x-default" href="https://calqio.com/en/terms">
+<meta name="google-adsense-account" content="ca-pub-8205853473793766">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<nav>
+  <a href="/zh/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 深色</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇨🇳</span><span>中文</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo" onclick="location.href='/ko/'"><span class="fl">🇰🇷</span>한국어</div><div class="lo" onclick="location.href='/en/'"><span class="fl">🇺🇸</span>English</div><div class="lo" onclick="location.href='/ja/'"><span class="fl">🇯🇵</span>日本語</div><div class="lo active" onclick="location.href='/zh/'"><span class="fl">🇨🇳</span>中文</div><div class="lo" onclick="location.href='/ar/'"><span class="fl">🇸🇦</span>العربية</div></div>
+  </div>
+</nav>
+
+<div style="max-width:760px;margin:0 auto;padding:32px 20px 60px">
+  <h1 style="font-size:clamp(22px,4vw,32px);font-weight:800;margin-bottom:8px">服务条款</h1>
+  <div style="font-size:12px;color:var(--text-muted);margin-bottom:32px">最后更新: 2026年5月25日</div>
+  <div style="font-size:14px;line-height:1.8;color:var(--text-sub)">
+    
+<h2>第1条(目的)</h2>
+<p>本服务条款规定Calqio(以下称"本公司")运营的calqio.com网站提供的金融计算器及相关服务(以下称"本服务")的使用条件。</p>
+
+<h2>第2条(服务性质)</h2>
+<p>Calqio提供的所有计算器(复利、收益率、均摊、贷款、股息、目标价、资本利得税、百分比等)仅供一般信息参考。</p>
+<p>计算结果基于您输入的假设值的简单数学计算,实际投资收益、税务、贷款条件、汇率等可能因市场情况、金融机构政策、法律法规等而异。</p>
+
+<h2>第3条(责任限制)</h2>
+<p>1. 本公司不对计算结果的准确性、完整性、可靠性作任何保证。</p>
+<p>2. 用户基于本服务计算结果做出的投资、贷款、税务申报等决策,本公司不承担任何法律责任。</p>
+<p>3. 在做出重要金融决策之前,请务必咨询合格的专业人士(注册会计师、税务师、金融顾问)。</p>
+
+<h2>第4条(知识产权)</h2>
+<p>本服务中包含的所有内容(文本、设计、代码、徽标)的版权和其他知识产权归本公司所有。</p>
+
+<h2>第5条(广告)</h2>
+<p>本服务通过Google AdSense展示广告。广告内容不反映本公司观点。</p>
+
+<h2>第6条(个人信息)</h2>
+<p>关于个人信息收集和使用事项,请参阅单独的<a href="/privacy">隐私政策</a>。</p>
+
+<h2>第7条(条款变更)</h2>
+<p>本公司可根据需要变更本条款,变更后的条款自在本页面发布之时起生效。</p>
+
+<h2>第8条(联系方式)</h2>
+<p>关于本条款的问询请联系<a href="mailto:contact@calqio.com">contact@calqio.com</a>。</p>
+
+  </div>
+</div>
+
+<footer>
+  <div>提升您的金融智商 — 8种金融计算工具</div>
+  <div style="margin-top:8px">
+    <a href="/about">关于</a>
+    <a href="/privacy">隐私政策</a>
+    <a href="/zh/terms">服务条款</a>
+    <a href="/contact">联系</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',function(e){if(!e.target.closest('.lw')){var b=document.getElementById('lBtn');var d=document.getElementById('lDrop');if(b)b.classList.remove('open');if(d)d.classList.remove('open');}});
+</script>
+</body>
+</html>

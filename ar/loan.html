@@ -3,18 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>حاسبة القرض | أقساط متساوية · أصل متساوٍ — Calqio</title>
-<meta name="description" content="احسب الدفعة الشهرية وإجمالي الفوائد مسبقاً. تدعم 3 طرق سداد مع جدول سنوي.">
+<title>حاسبة القرض - أقساط متساوية ونهاية المدة | Calqio</title>
+<meta name="description" content="حاسبة فوائد القرض. أدخل المبلغ والمعدل والمدة لحساب الدفعة الشهرية وإجمالي الفوائد. 3 طرق سداد متاحة.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://calqio.com/ar/loan.html">
-<meta property="og:title" content="حاسبة القرض | أقساط متساوية · أصل متساوٍ — Calqio">
-<meta property="og:description" content="احسب الدفعة الشهرية وإجمالي الفوائد مسبقاً. تدعم 3 طرق سداد مع جدول سنوي.">
+<link rel="canonical" href="https://calqio.com/ar/loan">
+<meta property="og:title" content="حاسبة القرض - أقساط متساوية ونهاية المدة | Calqio">
+<meta property="og:description" content="حاسبة فوائد القرض. أدخل المبلغ والمعدل والمدة لحساب الدفعة الشهرية وإجمالي الفوائد. 3 طرق سداد متاحة.">
 <meta property="og:type" content="website">
-<link rel="alternate" hreflang="ko" href="https://calqio.com/ko/loan.html">
-<link rel="alternate" hreflang="en" href="https://calqio.com/en/loan.html">
-<link rel="alternate" hreflang="ja" href="https://calqio.com/ja/loan.html">
-<link rel="alternate" hreflang="zh" href="https://calqio.com/zh/loan.html">
-<link rel="alternate" hreflang="ar" href="https://calqio.com/ar/loan.html">
+<link rel="alternate" hreflang="ko" href="https://calqio.com/ko/loan">
+<link rel="alternate" hreflang="en" href="https://calqio.com/en/loan">
+<link rel="alternate" hreflang="ja" href="https://calqio.com/ja/loan">
+<link rel="alternate" hreflang="zh" href="https://calqio.com/zh/loan">
+<link rel="alternate" hreflang="ar" href="https://calqio.com/ar/loan">
+<link rel="alternate" hreflang="x-default" href="https://calqio.com/en/loan">
 <meta name="google-adsense-account" content="ca-pub-8205853473793766">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
 <script>window.LC={"cur":"","suf":" ر.س","darkBtn":"🌙 داكن"}</script>
@@ -40,6 +41,18 @@
   .rc-grid{grid-template-columns:1fr 1fr;}
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"حاسبة القرض",
+  "description":"حاسبة فوائد القرض. أدخل المبلغ والمعدل والمدة لحساب الدفعة الشهرية وإجمالي الفوائد. 3 طرق سداد متاحة.",
+  "url":"https://calqio.com/ar/loan",
+  "applicationCategory":"FinanceApplication",
+  "operatingSystem":"All",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+}
+</script>
 </head>
 <body><nav>
   <a href="/ar/" class="logo">Calq<span>io</span></a>
@@ -51,11 +64,8 @@
     <div class="ld" id="lDrop"><div class="lo" onclick="location.href='/ko/'"><span class="fl">🇰🇷</span>한국어</div><div class="lo" onclick="location.href='/en/'"><span class="fl">🇺🇸</span>English</div><div class="lo" onclick="location.href='/ja/'"><span class="fl">🇯🇵</span>日本語</div><div class="lo" onclick="location.href='/zh/'"><span class="fl">🇨🇳</span>中文</div><div class="lo active" onclick="location.href='/ar/'"><span class="fl">🇸🇦</span>العربية</div></div>
   </div>
 </nav>
-<div style="background:var(--card);border-bottom:1px solid var(--border);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none">
-<div style="display:flex;align-items:center;max-width:960px;margin:0 auto;padding:0 12px">
-<a href="compound"  style="display:inline-flex;align-items:center;gap:3px;padding:6px 8px;font-size:11px;color:var(--text-sub);text-decoration:none;white-space:nowrap;flex-shrink:0">📈 مركبة</a><a href="return"  style="display:inline-flex;align-items:center;gap:3px;padding:6px 8px;font-size:11px;color:var(--text-sub);text-decoration:none;white-space:nowrap;flex-shrink:0">💰 العائد</a><a href="average-down"  style="display:inline-flex;align-items:center;gap:3px;padding:6px 8px;font-size:11px;color:var(--text-sub);text-decoration:none;white-space:nowrap;flex-shrink:0">⬇️ تدرج</a><a href="loan" style="color:var(--accent);border-bottom:2px solid var(--accent);font-weight:700" style="display:inline-flex;align-items:center;gap:3px;padding:6px 8px;font-size:11px;color:var(--text-sub);text-decoration:none;white-space:nowrap;flex-shrink:0">🏦 قرض</a><a href="dividend"  style="display:inline-flex;align-items:center;gap:3px;padding:6px 8px;font-size:11px;color:var(--text-sub);text-decoration:none;white-space:nowrap;flex-shrink:0">💵 أرباح</a><a href="target"  style="display:inline-flex;align-items:center;gap:3px;padding:6px 8px;font-size:11px;color:var(--text-sub);text-decoration:none;white-space:nowrap;flex-shrink:0">🎯 هدف</a><a href="tax"  style="display:inline-flex;align-items:center;gap:3px;padding:6px 8px;font-size:11px;color:var(--text-sub);text-decoration:none;white-space:nowrap;flex-shrink:0">📋 ضريبة</a><a href="percent"  style="display:inline-flex;align-items:center;gap:3px;padding:6px 8px;font-size:11px;color:var(--text-sub);text-decoration:none;white-space:nowrap;flex-shrink:0">% نسبة</a>
-</div>
-</div>
+
+
 <div style="max-width:880px;margin:0 auto;padding:20px 18px 10px">
   <h1 style="font-size:clamp(19px,3.5vw,28px);font-weight:800;letter-spacing:-1px;margin-bottom:6px">
     حاسبة القرض<br><em style="color:var(--accent);font-style:normal">إدارة القرض بذكاء</em>
@@ -138,21 +148,13 @@
     </div>
   </div>
 </div>
-<div style="max-width:960px;margin:0 auto;padding:24px 20px 40px;border-top:1px solid var(--border)">
-  <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">المزيد من الآلات الحاسبة</div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-bottom:20px">
-    <a href="compound" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block;transition:border-color .2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'"><div style="font-size:20px;margin-bottom:6px">📈</div><div style="font-size:12px;font-weight:700;color:var(--text)">مركبة</div></a><a href="return" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block;transition:border-color .2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'"><div style="font-size:20px;margin-bottom:6px">💰</div><div style="font-size:12px;font-weight:700;color:var(--text)">العائد</div></a><a href="average-down" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block;transition:border-color .2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'"><div style="font-size:20px;margin-bottom:6px">⬇️</div><div style="font-size:12px;font-weight:700;color:var(--text)">تدرج</div></a><a href="dividend" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block;transition:border-color .2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'"><div style="font-size:20px;margin-bottom:6px">💵</div><div style="font-size:12px;font-weight:700;color:var(--text)">أرباح</div></a>
-  </div>
-  <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">دليل المعرفة المالية</div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px">
-    <a href="etf-comparison" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:11px;font-weight:700;color:var(--text)">📊 مقارنة ETF</div></a><a href="simple-vs-compound" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:11px;font-weight:700;color:var(--text)">📈 بسيطة مقابل مركبة</div></a><a href="concept" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:11px;font-weight:700;color:var(--text)">💡 مفهوم الفائدة</div></a><a href="ai-investment" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:11px;font-weight:700;color:var(--text)">🤖 تحليل AI</div></a>
-  </div>
-</div>
+<div style="max-width:960px;margin:0 auto;padding:24px 16px 40px;border-top:1px solid var(--border)"><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">المزيد</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-bottom:20px"><a href="compound" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">📈</div><div style="font-size:12px;font-weight:700;color:var(--text)">مركبة</div></a><a href="return" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">💰</div><div style="font-size:12px;font-weight:700;color:var(--text)">العائد</div></a><a href="average-down" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">⬇️</div><div style="font-size:12px;font-weight:700;color:var(--text)">تدرج</div></a><a href="dividend" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">💵</div><div style="font-size:12px;font-weight:700;color:var(--text)">أرباح</div></a></div><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">دليل المعرفة</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px"><a href="etf-comparison" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">📊&nbsp;ETF</div></a><a href="simple-vs-compound" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">📈&nbsp;بسيطة/مركبة</div></a><a href="concept" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">💡&nbsp;مفهوم</div></a><a href="ai-investment" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">🤖&nbsp;AI</div></a></div></div>
 <footer>
   <div>ارفع ذكاءك المالي — 8 آلات حاسبة مالية</div>
   <div style="margin-top:8px">
     <a href="/about">حول</a>
     <a href="/privacy">الخصوصية</a>
+    <a href="/ar/terms">الشروط</a>
     <a href="/contact">تواصل</a>
   </div>
 </footer>

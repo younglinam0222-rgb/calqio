@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service - Calqio Financial Calculator Terms</title>
+<meta name="description" content="Calqio terms of service. Information-only purpose, limitation of liability, and conditions of use for financial calculator services.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calqio.com/en/terms">
+<link rel="alternate" hreflang="ko" href="https://calqio.com/ko/terms">
+<link rel="alternate" hreflang="en" href="https://calqio.com/en/terms">
+<link rel="alternate" hreflang="ja" href="https://calqio.com/ja/terms">
+<link rel="alternate" hreflang="zh" href="https://calqio.com/zh/terms">
+<link rel="alternate" hreflang="ar" href="https://calqio.com/ar/terms">
+<link rel="alternate" hreflang="x-default" href="https://calqio.com/en/terms">
+<meta name="google-adsense-account" content="ca-pub-8205853473793766">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<nav>
+  <a href="/en/" class="logo">Calq<span>io</span></a>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 Dark</button>
+  <div class="lw">
+    <button class="lc" id="lBtn" onclick="toggleMenu()">
+      <span class="fl">🇺🇸</span><span>English</span><span class="arr">▼</span>
+    </button>
+    <div class="ld" id="lDrop"><div class="lo" onclick="location.href='/ko/'"><span class="fl">🇰🇷</span>한국어</div><div class="lo active" onclick="location.href='/en/'"><span class="fl">🇺🇸</span>English</div><div class="lo" onclick="location.href='/ja/'"><span class="fl">🇯🇵</span>日本語</div><div class="lo" onclick="location.href='/zh/'"><span class="fl">🇨🇳</span>中文</div><div class="lo" onclick="location.href='/ar/'"><span class="fl">🇸🇦</span>العربية</div></div>
+  </div>
+</nav>
+
+<div style="max-width:760px;margin:0 auto;padding:32px 20px 60px">
+  <h1 style="font-size:clamp(22px,4vw,32px);font-weight:800;margin-bottom:8px">Terms of Service</h1>
+  <div style="font-size:12px;color:var(--text-muted);margin-bottom:32px">Last Updated: May 25, 2026</div>
+  <div style="font-size:14px;line-height:1.8;color:var(--text-sub)">
+    
+<h2>1. Purpose</h2>
+<p>These Terms of Service govern the use of calqio.com and the financial calculator services provided by Calqio ("we," "us," "our"). By using our services, you agree to these terms.</p>
+
+<h2>2. Nature of Service</h2>
+<p>All calculators on Calqio (compound interest, return rate, average down, loan, dividend, target price, capital gains tax, percentage, ETF comparison, etc.) are provided for general informational purposes only.</p>
+<p>Calculation results are based on the assumptions you provide and represent simple mathematical outputs. Actual investment returns, taxes, loan terms, and exchange rates may vary based on market conditions, institutional policies, and applicable laws.</p>
+
+<h2>3. Limitation of Liability</h2>
+<p>1. We make no warranty regarding the accuracy, completeness, or reliability of the calculation results.</p>
+<p>2. We bear no legal responsibility for any investment, loan, tax filing, or other decisions made based on the calculator results.</p>
+<p>3. Always consult qualified professionals (certified accountants, tax advisors, financial planners) before making significant financial decisions.</p>
+
+<h2>4. Intellectual Property</h2>
+<p>All content on this service (text, design, code, logo) is owned by Calqio and protected by copyright and intellectual property laws.</p>
+
+<h2>5. Advertising</h2>
+<p>This service displays advertisements through Google AdSense. Advertising content does not reflect our views, and any transactions resulting from advertisements are between the advertiser and the user.</p>
+
+<h2>6. Privacy</h2>
+<p>For information about how we collect and use personal data, please refer to our <a href="/privacy">Privacy Policy</a>.</p>
+
+<h2>7. Changes to Terms</h2>
+<p>We may update these terms as needed. Changes take effect upon posting on this page.</p>
+
+<h2>8. Contact</h2>
+<p>For questions about these terms, contact us at <a href="mailto:contact@calqio.com">contact@calqio.com</a>.</p>
+
+  </div>
+</div>
+
+<footer>
+  <div>Raise your Financial IQ — 8 Financial Calculators</div>
+  <div style="margin-top:8px">
+    <a href="/about">About</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/en/terms">Terms</a>
+    <a href="/contact">Contact</a>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="../common.js"></script>
+<script>
+function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
+document.addEventListener('click',function(e){if(!e.target.closest('.lw')){var b=document.getElementById('lBtn');var d=document.getElementById('lDrop');if(b)b.classList.remove('open');if(d)d.classList.remove('open');}});
+</script>
+</body>
+</html>

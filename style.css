@@ -604,3 +604,73 @@ body[dir="rtl"] .page-wrap h2 { border-left:none; border-right:3px solid var(--a
   0%,100% { opacity:1; }
   50% { opacity:.3; }
 }
+
+/* ── 탭바 모바일 가로스크롤 ── */
+@media(max-width:768px){
+  .tabs {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex-wrap: nowrap !important;
+    white-space: nowrap;
+    padding: 4px 12px !important;
+    gap: 4px !important;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab {
+    flex-shrink: 0 !important;
+    font-size: 12px !important;
+    padding: 8px 11px !important;
+    white-space: nowrap !important;
+    min-height: 36px;
+  }
+  .tab-icon { font-size: 14px; }
+}
+
+
+/* ═══ 모바일 최종 보강 (검증 후 추가) ═══ */
+@media(max-width:768px){
+  /* iOS 자동확대 완전 차단 */
+  input.if, .if, input[type="number"], input[type="text"], select {
+    font-size: 16px !important;
+    min-height: 44px;
+  }
+  
+  /* 모든 버튼 터치 타겟 W3C 표준 44px */
+  .qb {
+    padding: 8px 12px !important;
+    font-size: 13px !important;
+    min-height: 36px;
+  }
+  .btn, .btn-calc, button.qb, button.btn {
+    min-height: 44px;
+    font-size: 14px;
+  }
+  
+  /* 인풋 그룹 모바일 1단 */
+  .ig-row { grid-template-columns: 1fr !important; gap: 8px; }
+  .sum-cards { grid-template-columns: 1fr 1fr !important; gap: 8px; }
+  
+  /* 인라인 폰트 15px 강제 덮어쓰기 */
+  input[style*="font-size:15px"],
+  input[style*="font-size: 15px"],
+  input[style*="font-size:14px"],
+  input[style*="font-size: 14px"],
+  input[style*="font-size:13px"],
+  input[style*="font-size: 13px"] {
+    font-size: 16px !important;
+  }
+  
+  /* 가로 스크롤 방지 */
+  body { overflow-x: hidden; max-width: 100vw; }
+  
+  /* 차트 컨테이너 모바일 */
+  canvas { max-width: 100%; height: auto !important; }
+}
+
+/* 아주 작은 화면 추가 보강 */
+@media(max-width:380px){
+  .qb { padding: 8px 10px !important; font-size: 12px !important; }
+  .tab { font-size: 11px !important; padding: 7px 9px !important; }
+  body { font-size: 14px; }
+}
