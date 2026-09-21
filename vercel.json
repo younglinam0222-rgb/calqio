@@ -2,18 +2,22 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/compound", "destination": "/ko/compound" },
-    { "source": "/return", "destination": "/ko/return" },
-    { "source": "/average-down", "destination": "/ko/average-down" },
-    { "source": "/loan", "destination": "/ko/loan" },
-    { "source": "/dividend", "destination": "/ko/dividend" },
-    { "source": "/target", "destination": "/ko/target" },
-    { "source": "/tax", "destination": "/ko/tax" },
-    { "source": "/percent", "destination": "/ko/percent" },
-    { "source": "/etf-comparison", "destination": "/ko/etf-comparison" },
-    { "source": "/concept", "destination": "/ko/concept" },
-    { "source": "/simple-vs-compound", "destination": "/ko/simple-vs-compound" },
-    { "source": "/ai-investment", "destination": "/ko/ai-investment" }
+    { "source": "/compound", "destination": "https://www.calqio.com/ko/compound", "permanent": true },
+    { "source": "/return", "destination": "https://www.calqio.com/ko/return", "permanent": true },
+    { "source": "/average-down", "destination": "https://www.calqio.com/ko/average-down", "permanent": true },
+    { "source": "/loan", "destination": "https://www.calqio.com/ko/loan", "permanent": true },
+    { "source": "/dividend", "destination": "https://www.calqio.com/ko/dividend", "permanent": true },
+    { "source": "/target", "destination": "https://www.calqio.com/ko/target", "permanent": true },
+    { "source": "/tax", "destination": "https://www.calqio.com/ko/tax", "permanent": true },
+    { "source": "/percent", "destination": "https://www.calqio.com/ko/percent", "permanent": true },
+    { "source": "/etf-comparison", "destination": "https://www.calqio.com/ko/etf-comparison", "permanent": true },
+    { "source": "/concept", "destination": "https://www.calqio.com/ko/concept", "permanent": true },
+    { "source": "/simple-vs-compound", "destination": "https://www.calqio.com/ko/simple-vs-compound", "permanent": true },
+    { "source": "/ai-investment", "destination": "https://www.calqio.com/ko/ai-investment", "permanent": true },
+
+    { "source": "/:path*.html", "has": [{ "type": "host", "value": "calqio.com" }], "destination": "https://www.calqio.com/:path*", "permanent": true },
+
+    { "source": "/:path*", "has": [{ "type": "host", "value": "calqio.com" }], "destination": "https://www.calqio.com/:path*", "permanent": true }
   ],
   "headers": [
     {
