@@ -1,0 +1,32 @@
+# Calqio
+
+> Calqio is a free, multilingual (Korean, English, Japanese, Chinese, Arabic) suite of financial calculators for stock, crypto, and general investment planning. All calculations run client-side in the browser — no signup, no data sent to a server.
+
+## Calculators
+
+- [Compound Interest Calculator](https://www.calqio.com/en/compound): Simulates daily/monthly/yearly compounding growth with lump-sum, recurring, or combined (lump-sum + recurring) contributions, start/end-of-period timing, tax-on-gains handling, and shareable result links.
+- [Investment Return Calculator](https://www.calqio.com/en/return): Computes profit/loss and return rate on a stock or crypto trade, including fees.
+- [Average Down Calculator](https://www.calqio.com/en/average-down): Calculates the new average cost basis and break-even price after adding to an existing position.
+- [Loan Calculator](https://www.calqio.com/en/loan): Equal payment, equal principal, and balloon-payment loan amortization schedules.
+- [Dividend Yield Calculator](https://www.calqio.com/en/dividend): Dividend yield and after-tax dividend income for a stock position.
+- [Target Price Calculator](https://www.calqio.com/en/target): Take-profit and stop-loss price levels with the resulting risk/reward ratio.
+- [Capital Gains Tax Calculator](https://www.calqio.com/en/tax): Estimates tax owed and net profit on realized capital gains from stock trades.
+- [Percentage Calculator](https://www.calqio.com/en/percent): Percentage-of, percentage-change, discount, and increase calculations.
+- [FIRE Calculator](https://www.calqio.com/en/fire): Financial Independence, Retire Early (FIRE) simulator.
+- [ETF Return Comparison](https://www.calqio.com/en/etf-comparison): Side-by-side return comparison across ETFs such as QQQ, TQQQ, SCHD, and VOO.
+
+## Guides
+
+- [Compound Interest Concept](https://www.calqio.com/en/concept): Explains the Rule of 72 and compares compounding frequencies.
+- [Simple vs Compound Interest](https://www.calqio.com/en/simple-vs-compound): Visual comparison of simple vs. compound growth over time.
+- [AI Investment Analysis Prompts](https://www.calqio.com/en/ai-investment): Ready-to-use prompts for analyzing investments with AI assistants such as ChatGPT and Claude.
+
+## Other
+
+- [About](https://www.calqio.com/about): About Calqio.
+- [Contact](https://www.calqio.com/contact): Contact page.
+- [Privacy Policy](https://www.calqio.com/privacy): Privacy policy.
+
+## Languages
+
+Every calculator and guide above is available in five languages: Korean (/ko/), English (/en/), Japanese (/ja/), Chinese (/zh/), and Arabic (/ar/). Replace the language segment in any URL to switch — for example https://www.calqio.com/ko/compound for Korean.
