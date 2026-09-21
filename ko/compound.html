@@ -7,21 +7,24 @@
 <meta name="description" content="복리 계산기로 장기 투자 수익을 미리 확인하세요. 원금·이율·기간을 입력하면 일복리·월복리·연복리 자산 증가를 한눈에 시뮬레이션합니다. 추가 납입, 세금 자동 반영, 회차별 상세 내역 무료 제공.">
 <link rel="stylesheet" href="../style.css">
 <script>window.LC={"cur":"","suf":"원","sh2":"주","tf":"값을 모두 입력해주세요","tc":"링크 복사됨 🔗","darkBtn":"🌙 다크모드","lightBtn":"☀️ 라이트모드"}</script>
-<link rel="canonical" href="https://calqio.com/ko/compound">
-<link rel="alternate" hreflang="ko" href="https://calqio.com/ko/compound">
-<link rel="alternate" hreflang="en" href="https://calqio.com/en/compound">
-<link rel="alternate" hreflang="ja" href="https://calqio.com/ja/compound">
-<link rel="alternate" hreflang="zh" href="https://calqio.com/zh/compound">
-<link rel="alternate" hreflang="ar" href="https://calqio.com/ar/compound">
-<link rel="alternate" hreflang="x-default" href="https://calqio.com/en/compound">
+<link rel="canonical" href="https://www.calqio.com/ko/compound">
+<link rel="alternate" hreflang="ko" href="https://www.calqio.com/ko/compound">
+<link rel="alternate" hreflang="en" href="https://www.calqio.com/en/compound">
+<link rel="alternate" hreflang="ja" href="https://www.calqio.com/ja/compound">
+<link rel="alternate" hreflang="zh" href="https://www.calqio.com/zh/compound">
+<link rel="alternate" hreflang="ar" href="https://www.calqio.com/ar/compound">
+<link rel="alternate" hreflang="x-default" href="https://www.calqio.com/en/compound">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://calqio.com/ko/compound">
+<meta property="og:url" content="https://www.calqio.com/ko/compound">
 <meta property="og:title" content="복리 계산기 - 일복리·월복리·연복리 투자 수익 시뮬레이션 | Calqio">
 <meta property="og:description" content="복리 계산기로 장기 투자 수익을 미리 확인하세요. 원금·이율·기간을 입력하면 일복리·월복리·연복리 자산 증가를 한눈에 시뮬레이션합니다. 추가 납입, 세금 자동 반영, 회차별 상세 내역 무료 제공.">
-<meta property="og:image" content="https://calqio.com/og-ko.png">
+<meta property="og:image" content="https://www.calqio.com/og-ko.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"복리 계산기로 코인 단타 수익 시뮬레이션도 가능한가요?","acceptedAnswer":{"@type":"Answer","text":"가능합니다. 기간 단위를 일로 선택하면 일복리 계산기로 작동합니다. 매일 1~2% 목표 수익을 설정하면 단타 복리매매 시 자산이 얼마나 증식하는지 정확히 시뮬레이션할 수 있습니다."}},{"@type":"Question","name":"세금은 어떻게 계산에 반영되나요?","acceptedAnswer":{"@type":"Answer","text":"일반과세(15.4%) 선택 시 각 회차 수익에서 이자소득세 15.4%를 차감한 세후 금액을 다음 회차 원금으로 재투자합니다."}},{"@type":"Question","name":"72의 법칙이란 무엇인가요?","acceptedAnswer":{"@type":"Answer","text":"72를 연 수익률로 나누면 자산이 2배가 되는 년수를 알 수 있습니다. 예) 연 8% 수익률이면 72÷8=9년 후 자산 2배."}}]}</script>
 <style>
 .page-layout{display:grid;grid-template-columns:340px 1fr;gap:20px;align-items:start;margin-top:16px;}
+/* 상세내역 표(white-space:nowrap)의 min-content 폭이 그리드 트랙을 밀어내 화면을 가로로
+   넘치게 만드는 문제 방지 (표 자체는 .tscroll의 overflow-x:auto로 스크롤 처리됨) */
+.page-layout>*{min-width:0;}
 @media(max-width:800px){.page-layout{grid-template-columns:1fr;}}
 .inp-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;position:sticky;top:68px;}
 .inp-title{font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:18px;}
@@ -78,6 +81,10 @@ select.if{cursor:pointer;}
 .fml-b{font-family:'Courier New',monospace;background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:10px 16px;display:block;margin:10px 0;font-size:.83rem;color:var(--text);line-height:1.8;}
 .empty-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:56px 20px;text-align:center;color:var(--text-sub);}
 .empty-ico{font-size:2.4rem;margin-bottom:10px;}
+.ig-disabled{opacity:.45;}
+.ierr{display:none;font-size:.76rem;color:var(--neg,#ef4444);margin-top:5px;line-height:1.5;}
+.scard-val.cn{color:var(--neg,#ef4444);}
+.tg.cn{color:var(--neg,#ef4444);}
 
 /* ── 모바일 최적화 ── */
 @media(max-width:640px){
@@ -164,25 +171,36 @@ select.if{cursor:pointer;}
       </div>
       <div class="inp-title">투자 설정</div>
       <div class="ig" id="rowP"><div class="il">초기 투자 원금</div>
-        <div class="inp-suf"><input type="number" id="p" class="if" oninput="calcC()" value="10000000"><span>원</span></div></div>
-      <div class="ig"><div class="il">추가 납입 (매 회차)</div>
-        <div class="inp-suf"><input type="number" id="m" class="if" oninput="calcC()" value="0"><span>원</span></div></div>
+        <div class="inp-suf"><input type="number" id="p" class="if" oninput="calcC()" value="10000000" min="0"><span>원</span></div>
+        <div class="ierr" id="errP"></div></div>
+      <div class="ig" id="rowM"><div class="il">추가 납입 (매 회차)</div>
+        <div class="inp-suf"><input type="number" id="m" class="if" oninput="calcC()" value="0" min="0"><span>원</span></div>
+        <div class="ierr" id="errM"></div></div>
+      <div class="ig" id="rowTiming"><div class="il">납입 시점</div>
+        <select id="timing" class="if" onchange="calcC()">
+          <option value="end" selected>매 회차 말 (기본)</option>
+          <option value="start">매 회차 초</option>
+        </select>
+      </div>
       <div class="ig ig-row">
-        <div><div class="il">계산 기간</div><input type="number" id="y" class="if" oninput="calcC()" value="30"><div class="qbtns"><button class="qb" onclick="addInt('y',-5)">-5년</button><button class="qb" onclick="addInt('y',5)">+5년</button><button class="qb" onclick="addInt('y',10)">+10년</button></div></div>
+        <div><div class="il">계산 기간</div><input type="number" id="y" class="if" oninput="calcC()" value="30" min="1" step="1">
+          <div class="qbtns"><button class="qb" onclick="addInt('y',-5)">-5<span class="qb-unit">년</span></button><button class="qb" onclick="addInt('y',5)">+5<span class="qb-unit">년</span></button><button class="qb" onclick="addInt('y',10)">+10<span class="qb-unit">년</span></button></div>
+          <div class="ierr" id="errY"></div></div>
         <div><div class="il">기간 단위</div>
-          <select id="unit" class="if">
+          <select id="unit" class="if" onchange="onUnitChange()">
             <option value="y">년</option>
             <option value="mo">개월</option>
             <option value="d" selected>일</option>
           </select>
         </div>
       </div>
-      <div class="ig"><div class="il">목표 수익률 (1회차 당 %)</div>
-        <div class="inp-suf"><input type="number" id="r" class="if" oninput="calcC()" value="2.5" step="0.1"><span>%</span></div></div>
+      <div class="ig"><div class="il" id="rLabel">목표 수익률 (1회차 당 %)</div>
+        <div class="inp-suf"><input type="number" id="r" class="if" oninput="calcC()" value="2.5" step="0.1"><span>%</span></div>
+        <div class="ierr" id="errR"></div></div>
       <div class="ig"><div class="il">세금 적용</div>
-        <select id="tax" class="if">
-          <option value="0">비과세 (0%)</option>
-          <option value="0.154" selected>일반과세 (15.4%)</option>
+        <select id="tax" class="if" onchange="calcC()">
+          <option value="0" selected>세금 미반영</option>
+          <option value="0.154">일반과세 가정 (15.4%) — 회차별 양(+)의 수익에서만 세율을 차감하는 단순 가정입니다</option>
         </select>
       </div>
       <!-- ★ 물가상승률 옵션 -->
@@ -289,6 +307,8 @@ document.addEventListener('click',e=>{if(!e.target.closest('.lw')){document.getE
 
 let ci=null;
 let currentMode=0; // 0=거치식, 1=적립식, 2=거치+적립
+let lastRunOk=false; // 마지막 계산이 오류 없이 끝났는지 (공유 시 최신 유효값 보장용 플래그)
+
 function setMode(m){
   currentMode=m;
   const btns=[document.getElementById('modeBtn0'),document.getElementById('modeBtn1'),document.getElementById('modeBtn2')];
@@ -298,42 +318,179 @@ function setMode(m){
   });
   const rowP=document.getElementById('rowP');
   const rowM=document.getElementById('rowM');
-  if(m===0){// 거치식: 원금만
-    if(rowP)rowP.style.display='';
-    if(rowM){rowM.style.display='none';document.getElementById('m').value=0;}
-  } else if(m===1){// 적립식: 원금 0, 납입만
-    if(rowP){rowP.style.display='none';document.getElementById('p').value=0;}
-    if(rowM)rowM.style.display='';
-  } else {// 거치+적립
-    if(rowP)rowP.style.display='';
-    if(rowM)rowM.style.display='';
+  const rowTiming=document.getElementById('rowTiming');
+  const pEl=document.getElementById('p');
+  const mEl=document.getElementById('m');
+  // 값은 항상 보존한다 — 모드에서 제외된 입력만 계산에서 빼고, 화면은 비활성 표시만 한다.
+  if(m===0){ // 거치식: 납입금 제외
+    if(rowP){rowP.style.display='';rowP.classList.remove('ig-disabled');}
+    if(rowM){rowM.style.display='';rowM.classList.add('ig-disabled');}
+    if(mEl)mEl.disabled=true;
+    if(pEl)pEl.disabled=false;
+    if(rowTiming)rowTiming.style.display='none';
+  } else if(m===1){ // 적립식: 원금 제외
+    if(rowP){rowP.style.display='';rowP.classList.add('ig-disabled');}
+    if(rowM){rowM.style.display='';rowM.classList.remove('ig-disabled');}
+    if(pEl)pEl.disabled=true;
+    if(mEl)mEl.disabled=false;
+    if(rowTiming)rowTiming.style.display='';
+  } else { // 거치+적립: 둘 다 사용
+    if(rowP){rowP.style.display='';rowP.classList.remove('ig-disabled');}
+    if(rowM){rowM.style.display='';rowM.classList.remove('ig-disabled');}
+    if(pEl)pEl.disabled=false;
+    if(mEl)mEl.disabled=false;
+    if(rowTiming)rowTiming.style.display='';
   }
   calcC();
 }
-function calcC(){if(document.getElementById('rb')&&document.getElementById('rb').style.display!=='none')run();}
+
+function calcC(){run();}
+
+// w: 항상 0 이상인 값(총자산·총원금)용 표시. wSigned: 손익처럼 부호가 의미 있는 값용(음수면 '-' 유지).
 const w=n=>Math.round(Math.abs(n)).toLocaleString()+'원';
+const wSigned=n=>(n<0?'-':'')+Math.round(Math.abs(n)).toLocaleString()+'원';
 const pc=n=>(isFinite(n)?n.toFixed(2):'0.00')+'%';
 const ul=()=>({'y':'년','mo':'개월','d':'일'}[document.getElementById('unit').value]||'일');
+const RATE_LABEL={'y':'목표 수익률 (연 수익률 · 1회차 = 1년)','mo':'목표 수익률 (월 수익률 · 1회차 = 1개월)','d':'목표 수익률 (일 수익률 · 1회차 = 1일)'};
+
+function onUnitChange(){
+  const u=document.getElementById('unit').value;
+  const rLabel=document.getElementById('rLabel');
+  if(rLabel)rLabel.textContent=RATE_LABEL[u]||'목표 수익률 (1회차 당 %)';
+  const uL=ul();
+  document.querySelectorAll('.qb-unit').forEach(el=>el.textContent=uL);
+  calcC();
+}
+
+function clearFieldErrors(){
+  ['errP','errM','errY','errR'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el){el.textContent='';el.style.display='none';}
+  });
+}
+function fieldError(id,msg){
+  const el=document.getElementById(id);
+  if(el){el.textContent=msg;el.style.display='block';}
+}
+function invalidateResults(){
+  // 오류 발생 시 이전 계산 결과·물가 반영 결과가 새 결과처럼 남지 않도록 전부 무효화한다.
+  const rb=document.getElementById('rb');
+  if(rb)rb.style.display='none';
+  const es=document.getElementById('empty-s');
+  if(es)es.style.display='';
+  const inflResult=document.getElementById('inflResult');
+  if(inflResult)inflResult.style.display='none';
+  if(ci){ci.destroy();ci=null;}
+  lastRunOk=false;
+}
 
 function run(){
-  const P=+document.getElementById('p').value||0;
-  const M=+document.getElementById('m').value||0;
-  const Y=+document.getElementById('y').value||0;
-  const R=+document.getElementById('r').value/100||0;
+  clearFieldErrors();
+
+  const pRawStr=document.getElementById('p').value;
+  const mRawStr=document.getElementById('m').value;
+  const yRawStr=document.getElementById('y').value;
+  const rRawStr=document.getElementById('r').value;
   const T=+document.getElementById('tax').value||0;
-  if(!P||!R||!Y){toast('값을 모두 입력해주세요');return;}
-  const L=ul();
-  const rows=[];let bal=P,contrib=P,cum=0;
-  for(let i=1;i<=Y;i++){
-    const gr=bal*R;const net=gr*(1-T);
-    cum+=net;bal=bal+net+(i>1?M:0);contrib+=i>1?M:0;
-    rows.push({i,contrib,gr,cum,bal,rate:cum/contrib*100});
+  const timingEl=document.getElementById('timing');
+  const timing=timingEl?timingEl.value:'end';
+
+  const pNum = pRawStr===''?0:Number(pRawStr);
+  const mNum = mRawStr===''?0:Number(mRawStr);
+  const yNum = yRawStr===''?NaN:Number(yRawStr);
+  const rPctNum = rRawStr===''?NaN:Number(rRawStr);
+  const R = Number.isFinite(rPctNum)?rPctNum/100:NaN;
+
+  const pActive = currentMode!==1; // 적립식이 아니면 원금 사용
+  const mActive = currentMode!==0; // 거치식이 아니면 납입금 사용
+
+  let hasErr=false;
+
+  if(pActive){
+    if(!Number.isFinite(pNum)){fieldError('errP','숫자를 입력해주세요');hasErr=true;}
+    else if(pNum<0){fieldError('errP','원금은 음수로 입력할 수 없습니다');hasErr=true;}
   }
-  document.getElementById('vf').textContent=w(bal);
-  document.getElementById('vc').textContent=w(contrib);
-  document.getElementById('vp').textContent=w(cum);
-  document.getElementById('vr').textContent='수익률 '+pc(cum/contrib*100);
-  document.getElementById('tb').innerHTML=rows.map(r=>`<tr><td>${r.i}${L}</td><td>${w(r.contrib)}</td><td class="tg">${w(r.gr)}</td><td class="tg">${w(r.cum)}</td><td class="tb">${w(r.bal)}</td><td class="tg">${pc(r.rate)}</td></tr>`).join('');
+  if(mActive){
+    if(!Number.isFinite(mNum)){fieldError('errM','숫자를 입력해주세요');hasErr=true;}
+    else if(mNum<0){fieldError('errM','납입금은 음수로 입력할 수 없습니다');hasErr=true;}
+  }
+
+  const P = pActive ? pNum : 0;
+  const M = mActive ? mNum : 0;
+
+  if(!hasErr && P===0 && M===0){
+    if(pActive)fieldError('errP','투자금을 입력해주세요 (원금 또는 정기 납입금 중 하나는 0보다 커야 합니다)');
+    if(mActive)fieldError('errM','투자금을 입력해주세요 (원금 또는 정기 납입금 중 하나는 0보다 커야 합니다)');
+    hasErr=true;
+  }
+
+  if(!Number.isFinite(yNum) || !Number.isInteger(yNum) || yNum<=0){
+    fieldError('errY','회차 수는 1 이상의 정수로 입력해주세요');
+    hasErr=true;
+  } else if(yNum>2000){
+    fieldError('errY','회차 수가 너무 큽니다 (최대 2,000회까지 계산할 수 있습니다)');
+    hasErr=true;
+  }
+
+  if(!Number.isFinite(R)){
+    fieldError('errR','숫자를 입력해주세요');
+    hasErr=true;
+  } else if(R<-1){
+    fieldError('errR','회차 수익률은 -100% 미만을 지원하지 않습니다 (한 회차에서 원금 전액 손실이 한도입니다)');
+    hasErr=true;
+  }
+
+  if(hasErr){
+    invalidateResults();
+    return;
+  }
+
+  const Y=yNum;
+  const L=ul();
+  const rows=[];
+  let bal=P;
+  let cumNet=0;
+  let overflow=false;
+
+  for(let i=1;i<=Y;i++){
+    let gr, net;
+    if(timing==='start'){
+      bal = bal + M;
+      gr = bal*R;
+      net = gr>0 ? gr*(1-T) : gr; // 세금은 양(+)의 수익에만 적용 — 손실 회차에 자동 환급을 가정하지 않는다.
+      bal = bal + net;
+    } else { // end (기본값)
+      gr = bal*R;
+      net = gr>0 ? gr*(1-T) : gr;
+      bal = bal + net + M;
+    }
+    cumNet += net;
+    if(!Number.isFinite(bal) || !Number.isFinite(cumNet)){overflow=true;break;}
+    const contribSoFar = P + M*i;
+    rows.push({i, contrib:contribSoFar, gr, cum:cumNet, bal, rate: contribSoFar!==0 ? cumNet/contribSoFar*100 : 0});
+  }
+
+  if(overflow || rows.length!==Y){
+    fieldError('errY','계산 결과가 너무 커서 표시할 수 없습니다. 회차 수나 수익률을 줄여주세요');
+    invalidateResults();
+    return;
+  }
+
+  const last=rows[rows.length-1];
+  const finalBal=last.bal, finalContrib=last.contrib, finalCum=last.cum;
+
+  document.getElementById('vf').textContent=w(finalBal);
+  document.getElementById('vc').textContent=w(finalContrib);
+  const vpEl=document.getElementById('vp');
+  vpEl.textContent=wSigned(finalCum);
+  vpEl.classList.toggle('cn',finalCum<0);
+  document.getElementById('vr').textContent='수익률 '+pc(finalContrib!==0?finalCum/finalContrib*100:0);
+  document.getElementById('tb').innerHTML=rows.map(r=>{
+    const grCls=r.gr<0?'tg cn':'tg';
+    const cumCls=r.cum<0?'tg cn':'tg';
+    return `<tr><td>${r.i}${L}</td><td>${w(r.contrib)}</td><td class="${grCls}">${wSigned(r.gr)}</td><td class="${cumCls}">${wSigned(r.cum)}</td><td class="tb">${w(r.bal)}</td><td class="${r.rate<0?'tg cn':'tg'}">${pc(r.rate)}</td></tr>`;
+  }).join('');
+
   const dark=!document.body.classList.contains('light-mode');
   const gc=dark?'rgba(255,255,255,.07)':'rgba(0,0,0,.07)';
   const tc=dark?'#777':'#666';
@@ -350,159 +507,148 @@ function run(){
   });
   document.getElementById('empty-s').style.display='none';
   const rb=document.getElementById('rb');rb.style.display='flex';rb.style.flexDirection='column';rb.style.gap='16px';
+
   // 물가상승률 실질 자산 계산
   const inflChk=document.getElementById('inflChk');
   const inflResult=document.getElementById('inflResult');
   if(inflChk&&inflChk.checked){
     const inflR=(+document.getElementById('inflRate').value||2.5)/100;
-    // 기간 단위(일/개월/년)를 년 단위로 환산해서 물가상승률 적용
     const unitVal=document.getElementById('unit').value;
     let yearsForInfl;
     if(unitVal==='y')yearsForInfl=Y;
     else if(unitVal==='mo')yearsForInfl=Y/12;
     else yearsForInfl=Y/365;
-    const realBal=bal/Math.pow(1+inflR,yearsForInfl);
+    const realBal=finalBal/Math.pow(1+inflR,yearsForInfl);
     document.getElementById('inflVal').textContent=w(realBal);
     inflResult.style.display='block';
   } else if(inflResult){
     inflResult.style.display='none';
   }
-}
 
-function share(){
-  const ps=new URLSearchParams({p:document.getElementById('p').value,m:document.getElementById('m').value,y:document.getElementById('y').value,r:document.getElementById('r').value,u:document.getElementById('unit').value,t:document.getElementById('tax').value});
-  navigator.clipboard.writeText(location.origin+location.pathname+'?'+ps).then(()=>toast('링크 복사됨 🔗'));
+  lastRunOk=true;
 }
 
 function xfaq(n){const el=document.getElementById('fq'+n);if(el)el.classList.add('gone');}
 
-(function(){
-  const q=new URLSearchParams(location.search);
-  if(q.get('p'))document.getElementById('p').value=q.get('p');
-  if(q.get('m'))document.getElementById('m').value=q.get('m');
-  if(q.get('y'))document.getElementById('y').value=q.get('y');
-  if(q.get('r'))document.getElementById('r').value=q.get('r');
-  if(q.get('u'))document.getElementById('unit').value=q.get('u');
-  if(q.get('t'))document.getElementById('tax').value=q.get('t');
-  if(q.get('p'))run();
-})();
+/* ── 공유 URL 파라미터: 단일 시스템으로 통합 ─────────────────
+   p,m,y,r,u,t 는 기존 공유 링크와 동일한 의미를 그대로 유지한다.
+   md(모드)·tm(납입 시점)·ic/ir(물가) 는 이번에 새로 추가된 파라미터로,
+   값이 없는 기존 링크는 아래에 명시한 기본값으로 복원한다. */
+function buildShareParams(){
+  const params=new URLSearchParams();
+  const p=document.getElementById('p'), m=document.getElementById('m'), y=document.getElementById('y'), r=document.getElementById('r');
+  if(p&&p.value!=='')params.set('p',p.value);
+  if(m&&m.value!=='')params.set('m',m.value);
+  if(y&&y.value!=='')params.set('y',y.value);
+  if(r&&r.value!=='')params.set('r',r.value);
+  const unit=document.getElementById('unit'); if(unit)params.set('u',unit.value);
+  const tax=document.getElementById('tax'); if(tax)params.set('t',tax.value);
+  params.set('md',String(currentMode));
+  const timing=document.getElementById('timing'); if(timing)params.set('tm',timing.value);
+  const inflChk=document.getElementById('inflChk');
+  if(inflChk&&inflChk.checked){
+    params.set('ic','1');
+    const inflRate=document.getElementById('inflRate'); if(inflRate)params.set('ir',inflRate.value);
+  }
+  return params;
+}
+function currentShareUrl(){
+  const qs=buildShareParams().toString();
+  return location.origin+location.pathname+(qs?('?'+qs):'');
+}
 
-run();
+let syncTimer=null;
+function syncUrlBar(){
+  clearTimeout(syncTimer);
+  syncTimer=setTimeout(()=>{
+    const qs=buildShareParams().toString();
+    window.history.replaceState({},'',location.pathname+(qs?'?'+qs:''));
+  },300);
+}
+
+function share(){
+  // 클릭 시점의 최신 입력값으로 즉시 링크를 만든다 (디바운스된 주소창 동기화를 기다리지 않음)
+  navigator.clipboard.writeText(currentShareUrl()).then(()=>toast('링크 복사됨 🔗'));
+}
+
+window.calqioShare = async function(){
+  const url=currentShareUrl();
+  const title=document.title;
+  if(navigator.share){
+    try{ await navigator.share({title,text:title,url}); return; }
+    catch(err){ if(err.name==='AbortError')return; }
+  }
+  try{
+    await navigator.clipboard.writeText(url);
+    toast('링크가 복사되었습니다');
+  }catch(err){
+    const temp=document.createElement('input');
+    temp.value=url;document.body.appendChild(temp);temp.select();
+    document.execCommand('copy');document.body.removeChild(temp);
+    toast('링크가 복사되었습니다');
+  }
+};
+
+function loadFromUrl(){
+  const q=new URLSearchParams(location.search);
+  let loaded=false;
+  if(q.has('p')){document.getElementById('p').value=q.get('p');loaded=true;}
+  if(q.has('m')){document.getElementById('m').value=q.get('m');loaded=true;}
+  if(q.has('y')){document.getElementById('y').value=q.get('y');loaded=true;}
+  if(q.has('r')){document.getElementById('r').value=q.get('r');loaded=true;}
+  if(q.has('u')){const u=document.getElementById('unit'); if(u)u.value=q.get('u');}
+  if(q.has('t')){const t=document.getElementById('tax'); if(t)t.value=q.get('t');}
+
+  let timingMissingNotice=false;
+  if(q.has('tm')){
+    const tmEl=document.getElementById('timing');
+    if(tmEl)tmEl.value=(q.get('tm')==='start')?'start':'end';
+  } else if(loaded && (+document.getElementById('m').value||0)>0){
+    timingMissingNotice=true; // 기존 링크엔 납입 시점 정보가 없음 → 기본값(회차 말) 적용을 안내
+  }
+
+  if(q.has('ic')){
+    const ic=document.getElementById('inflChk'); if(ic)ic.checked=(q.get('ic')==='1');
+    if(q.has('ir')){const ir=document.getElementById('inflRate'); if(ir)ir.value=q.get('ir');}
+  }
+
+  if(q.has('md')){
+    const md=Math.min(2,Math.max(0,parseInt(q.get('md'),10)||0));
+    setMode(md);
+  } else {
+    // 이전 공유 링크는 모드 파라미터가 없으므로 원금/납입금 값으로 모드를 추정 복원한다.
+    const pv=+document.getElementById('p').value||0, mv=+document.getElementById('m').value||0;
+    if(pv>0&&mv>0)setMode(2); else if(mv>0)setMode(1); else setMode(0);
+  }
+
+  onUnitChange(); // 라벨 갱신 + calcC() 재계산
+
+  if(loaded && timingMissingNotice){
+    toast('이전 공유 링크에는 납입 시점 정보가 없어 기본값(회차 말)을 적용했습니다');
+  }
+}
+
+function initShareSync(){
+  ['p','m','y','r','unit','tax','timing','inflChk','inflRate'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el){
+      el.addEventListener('input',syncUrlBar);
+      el.addEventListener('change',syncUrlBar);
+    }
+  });
+  if(window.location.search.length>1){
+    loadFromUrl();
+  } else {
+    onUnitChange();
+    setMode(currentMode); // 초기 로드 시에도 모드별 비활성 표시/납입시점 노출 상태를 맞춘다
+  }
+}
+
+initShareSync();
 
 /* calqio-init */
 document.addEventListener("DOMContentLoaded",function(){calcC()});
 </script>
-
-<!-- ═══ Calqio 공유 기능 (URL 파라미터 + Web Share API) ═══ -->
-<script>
-(function(){
-  var INPUT_IDS = ["m","p","r","y"];
-
-  // 1) URL → 입력값 복원 (페이지 로드 시)
-  function loadFromUrl(){
-    var params = new URLSearchParams(window.location.search);
-    var loaded = false;
-    INPUT_IDS.forEach(function(id){
-      var val = params.get(id);
-      if(val !== null && val !== ''){
-        var el = document.getElementById(id);
-        if(el){
-          el.value = val;
-          loaded = true;
-          // change/input 이벤트 발생시켜 계산 트리거
-          el.dispatchEvent(new Event('input', {bubbles:true}));
-          el.dispatchEvent(new Event('change', {bubbles:true}));
-        }
-      }
-    });
-    return loaded;
-  }
-
-  // 2) 입력값 → URL 실시간 동기화 (디바운스 적용)
-  var syncTimer = null;
-  function syncToUrl(){
-    clearTimeout(syncTimer);
-    syncTimer = setTimeout(function(){
-      var params = new URLSearchParams();
-      INPUT_IDS.forEach(function(id){
-        var el = document.getElementById(id);
-        if(el && el.value !== ''){
-          params.set(id, el.value);
-        }
-      });
-      var qs = params.toString();
-      var newUrl = window.location.pathname + (qs ? '?' + qs : '');
-      window.history.replaceState({}, '', newUrl);
-    }, 300);
-  }
-
-  // 3) Web Share API 버튼 클릭 처리
-  window.calqioShare = async function(){
-    var url = window.location.href;
-    var title = document.title;
-    var shareData = {title: title, text: title, url: url};
-
-    // 네이티브 공유 API (모바일 우선)
-    if(navigator.share){
-      try {
-        await navigator.share(shareData);
-        return;
-      } catch(err){
-        if(err.name === 'AbortError') return; // 사용자가 취소함
-      }
-    }
-
-    // Fallback: 클립보드 복사
-    try {
-      await navigator.clipboard.writeText(url);
-      showToast('링크가 복사되었습니다');
-    } catch(err){
-      // 구식 브라우저 fallback
-      var temp = document.createElement('input');
-      temp.value = url;
-      document.body.appendChild(temp);
-      temp.select();
-      document.execCommand('copy');
-      document.body.removeChild(temp);
-      showToast('링크가 복사되었습니다');
-    }
-  };
-
-  function showToast(msg){
-    var t = document.getElementById('toast');
-    if(t){
-      t.textContent = msg;
-      t.classList.add('show');
-      setTimeout(function(){ t.classList.remove('show'); }, 2000);
-    } else {
-      alert(msg);
-    }
-  }
-
-  // 4) 이벤트 바인딩 + 초기 실행
-  function init(){
-    INPUT_IDS.forEach(function(id){
-      var el = document.getElementById(id);
-      if(el){
-        el.addEventListener('input', syncToUrl);
-        el.addEventListener('change', syncToUrl);
-      }
-    });
-
-    // URL 파라미터 있으면 복원 시도
-    if(window.location.search.length > 1){
-      setTimeout(loadFromUrl, 100);
-    }
-  }
-
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
-</script>
-<!-- ═══ End Calqio Share ═══ -->
 
 </body>
 </html>

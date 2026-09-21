@@ -88,17 +88,49 @@ function show(n) {
   if (e) e.style.display = 'none';
   if (r) r.style.display = 'block';
 }
+// 오류 발생 시 이전 결과가 새 결과처럼 남지 않도록 되돌린다.
+function hide(n) {
+  const e = document.getElementById('e' + n);
+  const r = document.getElementById('r' + n);
+  if (e) e.style.display = '';
+  if (r) r.style.display = 'none';
+}
 
 // ── Calculators (kept for legacy index) ─
+// compound.html(en/ja/zh/ar)이 사용하는 함수. 이 페이지들은 ko/compound.html과 달리
+// 회차 단위(일/월/년) 선택이나 세금 옵션 UI가 없는 "연 수익률 + 월 납입×12" 모델을
+// 그대로 유지한다 — 여기서는 입력검증·부호표시·오버플로 방지만 고친다.
 function calcC() {
-  const P=+v('p')||0, r=+v('r')/100||0, y=+v('y')||0, m=+v('m')||0;
-  if(!P||!r||!y){need();return;}
-  let bal=P,contrib=P,rows=[];
-  for(let i=1;i<=y;i++){bal=bal*(1+r)+m*12;contrib+=m*12;rows.push({y:i,b:bal,p:bal-contrib,r:(bal-contrib)/contrib*100});}
-  set('v-fa',fmt(bal)); set('v-tp',fmt(contrib)); set('v-pf',fmt(bal-contrib));
-  set('v-rr',pct((bal-contrib)/contrib*100)); set('v-mx',xm(bal/P));
+  const pStr=v('p'), mStr=v('m'), yStr=v('y'), rStr=v('r');
+  const P = pStr===''?0:Number(pStr);
+  const M = mStr===''?0:Number(mStr);
+  const y = yStr===''?NaN:Number(yStr);
+  const rPct = rStr===''?NaN:Number(rStr);
+  const r = Number.isFinite(rPct) ? rPct/100 : NaN;
+
+  if(!Number.isFinite(P) || P<0 || !Number.isFinite(M) || M<0){ need(); hide(0); return; }
+  if(P===0 && M===0){ need(); hide(0); return; }
+  if(!Number.isFinite(y) || !Number.isInteger(y) || y<=0 || y>2000){ need(); hide(0); return; }
+  if(!Number.isFinite(r)){ need(); hide(0); return; }
+  if(r<-1){ toast('연 수익률은 -100% 미만을 지원하지 않습니다'); hide(0); return; }
+
+  let bal=P, contrib=P, rows=[], overflow=false;
+  for(let i=1;i<=y;i++){
+    bal=bal*(1+r)+M*12;
+    contrib+=M*12;
+    if(!Number.isFinite(bal)){ overflow=true; break; }
+    rows.push({y:i,b:bal,p:bal-contrib,r: contrib!==0 ? (bal-contrib)/contrib*100 : 0});
+  }
+  if(overflow){ toast('계산 결과가 너무 커서 표시할 수 없습니다. 기간이나 수익률을 줄여주세요'); hide(0); return; }
+
+  const profit = bal-contrib;
+  set('v-fa',fmt(bal)); set('v-tp',fmt(contrib)); set('v-pf',fmtSigned(profit));
+  set('v-rr',pct(contrib!==0?profit/contrib*100:0));
+  set('v-mx', P>0 ? xm(bal/P) : '—');
+  const pfEl=document.getElementById('v-pf'); if(pfEl && pfEl.classList){ pfEl.classList.toggle('pos',profit>=0); pfEl.classList.toggle('neg',profit<0); }
+  const rrEl=document.getElementById('v-rr'); if(rrEl && rrEl.classList){ rrEl.classList.toggle('pos',profit>=0); rrEl.classList.toggle('neg',profit<0); }
   const tb=document.getElementById('ci-tbody');
-  if(tb)tb.innerHTML=rows.map(d=>`<tr><td>${d.y}년</td><td>${fmt(d.b)}</td><td style="color:var(--pos)">${fmt(d.p)}</td><td style="color:var(--pos)">${pct(d.r)}</td></tr>`).join('');
+  if(tb)tb.innerHTML=rows.map(d=>`<tr><td>${d.y}년</td><td>${fmt(d.b)}</td><td style="color:${d.p<0?'var(--neg)':'var(--pos)'}">${fmtSigned(d.p)}</td><td style="color:${d.r<0?'var(--neg)':'var(--pos)'}">${pct(d.r)}</td></tr>`).join('');
   show(0);
 }
 function calcR() {
