@@ -2,6 +2,8 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
+    { "source": "/", "destination": "https://www.calqio.com/ko/", "permanent": true },
+
     { "source": "/compound", "destination": "https://www.calqio.com/ko/compound", "permanent": true },
     { "source": "/return", "destination": "https://www.calqio.com/ko/return", "permanent": true },
     { "source": "/average-down", "destination": "https://www.calqio.com/ko/average-down", "permanent": true },
