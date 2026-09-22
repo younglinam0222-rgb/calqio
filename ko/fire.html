@@ -123,7 +123,7 @@
 <div id="fire4pct" style="background:linear-gradient(135deg,rgba(91,127,254,0.08),rgba(91,127,254,0.02));border:1px solid rgba(91,127,254,0.25);border-radius:14px;padding:18px;margin-bottom:24px">
   <div style="font-size:12px;color:var(--text-muted);margin-bottom:6px">💸 4% 룰 기준 월 인출 가능액</div>
   <div id="fire4pctAmount" style="font-size:24px;font-weight:800;color:var(--accent)">—</div>
-  <div style="font-size:11px;color:var(--text-muted);margin-top:4px">연 4% 인출 시 30년 이상 유지 가능</div>
+  <div style="font-size:11px;color:var(--text-muted);margin-top:4px">목표 자산(tgt)의 연 4%를 12로 나눈 <strong>참고 월액</strong>. 실제 4% 룰은 인출·물가·수익률 가정에 따라 달라집니다(<a href="https://www.bogleheads.org/wiki/Trinity_study" target="_blank" rel="noopener">Trinity study 요약</a>).</div>
 </div>
 
 <!-- 공유 버튼 -->
@@ -153,6 +153,20 @@
 <strong>Fat FIRE</strong>(풍요형): 여유로운 은퇴 생활. 목표 자산 15~30억원.<br>
 <strong>Coast FIRE</strong>(코스트형): 더 이상 저축 안 해도 복리로 목표 도달 가능한 시점.<br>
 <strong>Barista FIRE</strong>(바리스타형): 부분적 은퇴, 가벼운 일로 생활비 보충.</p>
+<h3>입력 항목 (단위·의미)</h3>
+<ul>
+<li><strong>현재 자산</strong> — 지금 보유한 투자·현금 합계(원).</li>
+<li><strong>월 저축액</strong> — 매월 추가로 투자·저축하는 금액(원). 0 가능.</li>
+<li><strong>목표 자산</strong> — FIRE로 간주할 총자산(원). 연 생활비×25(4% 룰 역산) 등으로 설정.</li>
+<li><strong>연 수익률(%)</strong> — 투자 수익을 <strong>연 명목</strong>으로 가정하고, 내부적으로 <strong>월복리(÷12)</strong>로 환산합니다.</li>
+<li><strong>현재 나이</strong> — 목표 달성 시점의 나이 표시용.</li>
+<li><strong>물가상승 반영</strong> — 체크 시 연 2.5% 물가를 가정해 <strong>실질 월 수익률</strong>을 줄인 뒤 시뮬레이션합니다(고정 가정).</li>
+</ul>
+<h3>계산 방식·한계</h3>
+<p>매월 말: <code>자산 = 자산 × (1 + 월수익률) + 월저축</code>. 목표 자산에 도달한 달까지 반복(최대 100년). 세금·수수료·퇴직 연금·주택·부채는 포함하지 않습니다. URL 쿼리로 입력값이 공유될 수 있습니다.</p>
+<h3>검증 예시 (2026-03-22, 독립 계산)</h3>
+<p>현재 0원, 월 100만 원, 목표 1억 원, 연 6%, 물가 미반영 → 월 수익률 0.5%. 약 <strong>82개월(6.8년)</strong>, 현재 나이 30이면 은퇴 가능 나이 약 <strong>37세</strong>. (<code>scripts/verify-calculators.mjs</code>와 동일 로직)</p>
+<p>관련: <a href="compound">복리 계산기</a> · <a href="simple-vs-compound">단리 vs 복리</a> · <a href="/privacy">개인정보( URL 공유 )</a></p>
   </div>
 </section>
 
@@ -216,10 +230,15 @@ function calcFire(){
     effRate = (1+monthlyRate)/(1+0.025/12) - 1;
   }
 
+  if(tgt > 0 && curr >= tgt){
+    months = 0;
+    asset = curr;
+  } else {
   // 시뮬레이션 (최대 100년)
   while(asset < tgt && months < 1200){
     asset = asset * (1+effRate) + mon;
     months++;
+  }
   }
 
   if(months >= 1200){

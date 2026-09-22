@@ -83,7 +83,7 @@
 <!-- ★ 실시간 환율 배너 -->
 <div id="fxBanner" style="display:flex;align-items:center;gap:8px;padding:9px 14px;background:rgba(76,175,121,.1);border:1px solid rgba(76,175,121,.3);border-radius:8px;margin-bottom:14px;font-size:.83rem;color:var(--text-sub);">
   <span style="font-size:1rem;">🔄</span>
-  <span>USD/KRW 실시간 환율: <strong id="fxRate" style="color:#4caf79;">로딩 중...</strong></span>
+  <span>USD/KRW 참고 환율(제3자 API): <strong id="fxRate" style="color:#4caf79;">로딩 중...</strong></span>
   <span id="fxTime" style="font-size:.73rem;color:var(--text-muted);margin-left:4px;"></span>
 </div>
 <div class="rt-hint"><span class="rt-dot"></span> 숫자를 바꾸면 실시간으로 계산됩니다</div>
@@ -149,7 +149,7 @@
       const el=document.getElementById('fxRate');
       const te=document.getElementById('fxTime');
       if(el)el.textContent=Math.round(rate).toLocaleString()+'원';
-      if(te)te.textContent='('+new Date().toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'})+' 기준)';
+      if(te)te.textContent=(d.date?' (API 기준일 '+d.date+')':'')+' · 브라우저 조회 '+new Date().toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'});
     }
   }catch(e){
     const el=document.getElementById('fxRate');

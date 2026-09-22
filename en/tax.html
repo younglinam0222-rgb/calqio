@@ -82,7 +82,7 @@
 <!-- FX Banner -->
 <div id="fxBanner" style="display:flex;align-items:center;gap:8px;padding:9px 14px;background:rgba(76,175,121,.1);border:1px solid rgba(76,175,121,.3);border-radius:8px;margin-bottom:14px;font-size:.83rem;color:var(--text-sub);">
   <span>🔄</span>
-  <span>USD/KRW Live Rate: <strong id="fxRate" style="color:#4caf79;">Loading...</strong></span>
+  <span>USD/KRW reference (third-party API): <strong id="fxRate" style="color:#4caf79;">Loading...</strong></span>
   <span id="fxTime" style="font-size:.73rem;color:var(--text-muted);margin-left:4px;"></span>
 </div>
 <div class="rt-hint"><span class="rt-dot"></span> Results update as you type</div>
@@ -142,7 +142,7 @@ Tax Due = Taxable Amount × Rate</div>
       const el=document.getElementById('fxRate');
       const te=document.getElementById('fxTime');
       if(el)el.textContent=Math.round(rate).toLocaleString()+(window.LC&&window.LC.suf||'원');
-      if(te)te.textContent='(as of '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})+')';
+      if(te)te.textContent=(d.date?' (API date '+d.date+')':'')+' · fetched '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
     }
   }catch(e){const el=document.getElementById('fxRate');if(el)el.textContent='N/A';}
 })();
