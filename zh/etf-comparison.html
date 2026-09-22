@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ETF收益对比 - QQQ TQQQ SCHD VOO 10年模拟 | Calqio</title>
-<meta name="description" content="主要ETF收益率对比计算器。QQQ·TQQQ·SCHD·VOO 4个ETF过去10年资产增长实时对比。">
+<meta name="description" content="用内置累计收益指数(起点100)对比 QQQ/TQQQ/SCHD/VOO，非实时行情 API。">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.calqio.com/zh/etf-comparison">
 <link rel="alternate" hreflang="ko" href="https://www.calqio.com/ko/etf-comparison">
@@ -18,14 +18,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <link rel="stylesheet" href="../style.css">
 <meta property="og:title" content="ETF收益对比 - QQQ TQQQ SCHD VOO 10年模拟 | Calqio">
-<meta property="og:description" content="主要ETF收益率对比计算器。QQQ·TQQQ·SCHD·VOO 4个ETF过去10年资产增长实时对比。">
+<meta property="og:description" content="内置历史指数对比 ETF，非实时行情。">
 <meta property="og:type" content="website">
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"WebApplication",
   "name":"ETF收益对比",
-  "description":"主要ETF收益率对比计算器。QQQ·TQQQ·SCHD·VOO 4个ETF过去10年资产增长实时对比。",
+  "description":"内置累计收益指数(起点100)对比主要 ETF，非实时行情。",
   "url":"https://www.calqio.com/zh/etf-comparison",
   "applicationCategory":"FinanceApplication",
   "operatingSystem":"All",
@@ -50,7 +50,7 @@
   <h1 style="font-size:clamp(20px,4vw,32px);font-weight:800;letter-spacing:-1px;margin-bottom:8px">
     ETF收益对比<br><em style="color:var(--accent);font-style:normal">10年模拟</em>
   </h1>
-  <p style="color:var(--text-sub);font-size:13px">输入投资金额，实时对比主要ETF的增长情况。</p>
+  <p style="color:var(--text-sub);font-size:13px">修改金额与起始年份后，按<strong>页面内置指数</strong>换算对比（非行情 API）。</p>
 </div>
 <div style="max-width:880px;margin:0 auto;padding:0 18px 60px">
   <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:12px">
@@ -94,6 +94,10 @@
     <canvas id="etfCanvas" height="240"></canvas>
     <div style="font-size:10px;color:var(--text-muted);margin-top:6px">※ 基于历史收益的模拟数据，不代表未来收益。</div>
   </div>
+  <section style="margin-top:16px;padding:16px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);font-size:13px;line-height:1.7;color:var(--text-sub)">
+    <h2 style="font-size:15px;font-weight:800;color:var(--text);margin:0 0 8px">数据与局限</h2>
+    <p style="margin:0">曲线使用 Calqio 维护的<strong>年度累计收益指数（起点=100）</strong>。再投资/收取开关仅改变显示假设，不含费率、跟踪误差、税费或实时净值。</p>
+  </section>
 </div>
 <div style="max-width:960px;margin:0 auto;padding:24px 16px 40px;border-top:1px solid var(--border)"><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">更多</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-bottom:20px"><a href="compound" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">📈</div><div style="font-size:12px;font-weight:700;color:var(--text)">复利</div></a><a href="return" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">💰</div><div style="font-size:12px;font-weight:700;color:var(--text)">收益率</div></a><a href="average-down" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">⬇️</div><div style="font-size:12px;font-weight:700;color:var(--text)">均摊</div></a><a href="loan" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">🏦</div><div style="font-size:12px;font-weight:700;color:var(--text)">贷款</div></a></div><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">金融知识指南</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px"><a href="simple-vs-compound" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">📈&nbsp;单利vs复利</div></a><a href="concept" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">💡&nbsp;概念</div></a><a href="ai-investment" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">🤖&nbsp;AI分析</div></a></div></div>
 <div style="max-width:760px;margin:20px auto 0;padding:0 20px;text-align:center">

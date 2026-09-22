@@ -50,7 +50,7 @@
 <meta name="google-site-verification" content="6II_gyhSkNgRi3bW9SNuoHxRlMBvBI2kJGn3GHCLsrg">
 <meta name="google-adsense-account" content="ca-pub-8205853473793766">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "손익비(Risk-Reward Ratio)는 왜 중요한가요?", "acceptedAnswer": {"@type": "Answer", "text": "손익비가 2:1 이상이면 매매 승률이 50%만 넘어도 장기적으로 수익을 낼 수 있습니다. 목표수익률과 손절비율의 비율로 계산됩니다."}}, {"@type": "Question", "name": "손절가를 꼭 지켜야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "예. 손실 회피 편향 때문에 손절을 미루면 손실이 눈덩이처럼 커지는 경우가 많습니다. 계산된 손절가는 기계적으로 실행하는 것이 원칙입니다."}}, {"@type": "Question", "name": "목표가에 도달하면 무조건 매도해야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "계산기는 사전에 정한 목표수익률 기준 가격만 보여줍니다. 실제 매도 여부는 시장 상황, 분할 매도 전략 등을 함께 고려해서 결정하세요."}}, {"@type": "Question", "name": "수량을 입력하면 뭐가 달라지나요?", "acceptedAnswer": {"@type": "Answer", "text": "보유 수량을 입력하면 목표가·손절가 도달 시 실제 예상 손익 금액(원)까지 함께 계산됩니다. 수량 없이도 가격과 손익비는 계산됩니다."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "손익비(Risk-Reward Ratio)는 어떻게 계산되나요?", "acceptedAnswer": {"@type": "Answer", "text": "이 계산기에서는 목표수익률(%) ÷ 손절비율(%)로 표시합니다. 예) 목표 +20%, 손절 10% → 2:1. 매매 승률·기대수익을 보장하지 않으며, 수수료는 반영하지 않습니다."}}, {"@type": "Question", "name": "손절가를 꼭 지켜야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "계산기는 입력한 손절 %에 해당하는 가격만 보여줍니다. 실제 매매·손절 실행 여부는 본인의 리스크 정책과 시장 상황에 따르며, Calqio는 투자 권유나 주문 대행을 하지 않습니다."}}, {"@type": "Question", "name": "목표가에 도달하면 무조건 매도해야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "계산기는 사전에 정한 목표수익률 기준 가격만 보여줍니다. 실제 매도 여부는 시장 상황, 분할 매도 전략 등을 함께 고려해서 결정하세요."}}, {"@type": "Question", "name": "수량을 입력하면 뭐가 달라지나요?", "acceptedAnswer": {"@type": "Answer", "text": "보유 수량을 입력하면 목표가·손절가 도달 시 실제 예상 손익 금액(원)까지 함께 계산됩니다. 수량 없이도 가격과 손익비는 계산됩니다."}}]}</script>
 </head>
 <body>
 <nav>
@@ -99,11 +99,11 @@
 손절가 = 매수가 × (1 - 손절비율 ÷ 100)
 손익비 = 목표수익률 ÷ 손절비율</div>
 <p>예: 매수가 50,000원, 목표 +20%, 손절 -10% → 목표가 60,000원, 손절가 45,000원, 손익비 2.0.</p>
-<h3>손익비의 중요성</h3>
-<p>손익비 최소 2:1 유지 시, 매매의 50%만 성공해도 전체 수익을 낼 수 있습니다. 프로 트레이더의 기본 원칙입니다.</p>
-<div class="tip">💡 손절선은 반드시 기계적으로 실행하세요. 손실 회피 편향이 더 큰 손실로 이어집니다.</div><h3>자주 묻는 질문</h3>
-<div class="faq-item"><div class="faq-q">Q. 손익비(Risk-Reward Ratio)는 왜 중요한가요?</div><div class="faq-a">손익비가 2:1 이상이면 매매 승률이 50%만 넘어도 장기적으로 수익을 낼 수 있습니다. 목표수익률과 손절비율의 비율로 계산됩니다.</div></div>
-<div class="faq-item"><div class="faq-q">Q. 손절가를 꼭 지켜야 하나요?</div><div class="faq-a">예. 손실 회피 편향 때문에 손절을 미루면 손실이 눈덩이처럼 커지는 경우가 많습니다. 계산된 손절가는 기계적으로 실행하는 것이 원칙입니다.</div></div>
+<h3>손익비 표시</h3>
+<p>화면의 손익비는 <strong>목표수익률(%) ÷ 손절비율(%)</strong>로 계산합니다(위 예: 20÷10=2.0). 수수료·슬리피지·체결 가격은 포함하지 않으며, 특정 승률에서 수익이 난다고 보장하지 않습니다.</p>
+<div class="tip">💡 손절·목표 %는 본인의 매매 규칙을 정할 때 참고용으로 쓰세요. Calqio는 주문 실행을 대신하지 않습니다.</div><h3>자주 묻는 질문</h3>
+<div class="faq-item"><div class="faq-q">Q. 손익비(Risk-Reward Ratio)는 어떻게 계산되나요?</div><div class="faq-a">이 계산기에서는 <strong>목표수익률(%) ÷ 손절비율(%)</strong>로 표시합니다. 예) 목표 +20%, 손절 10% → 2:1. 매매 승률·기대수익을 보장하지 않으며, 수수료는 반영하지 않습니다.</div></div>
+<div class="faq-item"><div class="faq-q">Q. 손절가를 꼭 지켜야 하나요?</div><div class="faq-a">계산기는 입력한 손절 %에 해당하는 <strong>가격</strong>만 보여줍니다. 실제 매매·손절 실행 여부는 본인의 리스크 정책과 시장 상황에 따르며, Calqio는 투자 권유나 주문 대행을 하지 않습니다.</div></div>
 <div class="faq-item"><div class="faq-q">Q. 목표가에 도달하면 무조건 매도해야 하나요?</div><div class="faq-a">계산기는 사전에 정한 목표수익률 기준 가격만 보여줍니다. 실제 매도 여부는 시장 상황, 분할 매도 전략 등을 함께 고려해서 결정하세요.</div></div>
 <div class="faq-item"><div class="faq-q">Q. 수량을 입력하면 뭐가 달라지나요?</div><div class="faq-a">보유 수량을 입력하면 목표가·손절가 도달 시 실제 예상 손익 금액(원)까지 함께 계산됩니다. 수량 없이도 가격과 손익비는 계산됩니다.</div></div>
 </section>

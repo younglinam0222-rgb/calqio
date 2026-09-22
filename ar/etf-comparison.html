@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>مقارنة عوائد ETF - QQQ TQQQ SCHD VOO محاكاة 10 سنوات | Calqio</title>
-<meta name="description" content="حاسبة مقارنة عوائد ETF الرئيسية. محاكاة نمو الأصول لمدة 10 سنوات للصناديق QQQ وTQQQ وSCHD وVOO في الوقت الفعلي.">
+<meta name="description" content="مقارنة QQQ/TQQQ/SCHD/VOO بمؤشرات عائد تراكمي مدمجة (البداية=100) — ليست أسعاراً حية.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.calqio.com/ar/etf-comparison">
 <link rel="alternate" hreflang="ko" href="https://www.calqio.com/ko/etf-comparison">
@@ -18,14 +18,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <link rel="stylesheet" href="../style.css">
 <meta property="og:title" content="مقارنة عوائد ETF - QQQ TQQQ SCHD VOO محاكاة 10 سنوات | Calqio">
-<meta property="og:description" content="حاسبة مقارنة عوائد ETF الرئيسية. محاكاة نمو الأصول لمدة 10 سنوات للصناديق QQQ وTQQQ وSCHD وVOO في الوقت الفعلي.">
+<meta property="og:description" content="مؤشرات تاريخية مدمجة لمقارنة ETF — ليست أسعاراً لحظية.">
 <meta property="og:type" content="website">
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"WebApplication",
   "name":"مقارنة عوائد ETF",
-  "description":"حاسبة مقارنة عوائد ETF الرئيسية. محاكاة نمو الأصول لمدة 10 سنوات للصناديق QQQ وTQQQ وSCHD وVOO في الوقت الفعلي.",
+  "description":"مقارنة ETF بمؤشرات عائد تراكمي مدمجة (البداية=100)، ليست API أسعار حية.",
   "url":"https://www.calqio.com/ar/etf-comparison",
   "applicationCategory":"FinanceApplication",
   "operatingSystem":"All",
@@ -50,7 +50,7 @@
   <h1 style="font-size:clamp(20px,4vw,32px);font-weight:800;letter-spacing:-1px;margin-bottom:8px">
     مقارنة عوائد ETF<br><em style="color:var(--accent);font-style:normal">محاكاة 10 سنوات</em>
   </h1>
-  <p style="color:var(--text-sub);font-size:13px">أدخل مبلغ الاستثمار لمقارنة نمو ETF الرئيسية في الوقت الفعلي.</p>
+  <p style="color:var(--text-sub);font-size:13px">غيّر المبلغ وسنة البداية للمقارنة عبر <strong>مؤشرات مدمجة</strong> (وليس API أسعار حية).</p>
 </div>
 <div style="max-width:880px;margin:0 auto;padding:0 18px 60px">
   <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:12px">
@@ -94,6 +94,10 @@
     <canvas id="etfCanvas" height="240"></canvas>
     <div style="font-size:10px;color:var(--text-muted);margin-top:6px">※ بيانات تاريخية للمحاكاة فقط، لا تضمن العوائد المستقبلية.</div>
   </div>
+  <section style="margin-top:16px;padding:16px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);font-size:13px;line-height:1.7;color:var(--text-sub)">
+    <h2 style="font-size:15px;font-weight:800;color:var(--text);margin:0 0 8px">البيانات والحدود</h2>
+    <p style="margin:0">المنحنيات من <strong>مؤشرات عائد تراكمي سنوية (البداية=100)</strong> داخل Calqio. التبديل بين إعادة الاستثمار/الاستلام يغيّر افتراض العرض فقط — دون رسوم أو ضرائب أو NAV حي.</p>
+  </section>
 </div>
 <div style="max-width:960px;margin:0 auto;padding:24px 16px 40px;border-top:1px solid var(--border)"><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">المزيد</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-bottom:20px"><a href="compound" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">📈</div><div style="font-size:12px;font-weight:700;color:var(--text)">مركبة</div></a><a href="return" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">💰</div><div style="font-size:12px;font-weight:700;color:var(--text)">العائد</div></a><a href="average-down" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">⬇️</div><div style="font-size:12px;font-weight:700;color:var(--text)">تدرج</div></a><a href="loan" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">🏦</div><div style="font-size:12px;font-weight:700;color:var(--text)">قرض</div></a></div><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">دليل المعرفة</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px"><a href="simple-vs-compound" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">📈&nbsp;بسيطة/مركبة</div></a><a href="concept" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">💡&nbsp;مفهوم</div></a><a href="ai-investment" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">🤖&nbsp;AI</div></a></div></div>
 <div style="max-width:760px;margin:20px auto 0;padding:0 20px;text-align:center">

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ETF Return Comparison - QQQ TQQQ SCHD VOO 10-Year Sim | Calqio</title>
-<meta name="description" content="Compare major ETF returns in real time. QQQ, TQQQ, SCHD, VOO 10-year asset growth simulation with dividend reinvestment options.">
+<meta name="description" content="Compare QQQ, TQQQ, SCHD, VOO using built-in cumulative return indexes (start=100) by start year. Not live market data; past segments do not guarantee future results.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.calqio.com/en/etf-comparison">
 <link rel="alternate" hreflang="ko" href="https://www.calqio.com/ko/etf-comparison">
@@ -18,14 +18,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <link rel="stylesheet" href="../style.css">
 <meta property="og:title" content="ETF Return Comparison - QQQ TQQQ SCHD VOO 10-Year Sim | Calqio">
-<meta property="og:description" content="Compare major ETF returns in real time. QQQ, TQQQ, SCHD, VOO 10-year asset growth simulation with dividend reinvestment options.">
+<meta property="og:description" content="ETF comparison from built-in historical index series (start=100), not live quotes.">
 <meta property="og:type" content="website">
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"WebApplication",
   "name":"ETF Return Comparison",
-  "description":"Compare major ETF returns in real time. QQQ, TQQQ, SCHD, VOO 10-year asset growth simulation with dividend reinvestment options.",
+  "description":"Compare QQQ, TQQQ, SCHD, VOO using built-in cumulative return indexes by start year. Not live market data.",
   "url":"https://www.calqio.com/en/etf-comparison",
   "applicationCategory":"FinanceApplication",
   "operatingSystem":"All",
@@ -50,7 +50,7 @@
   <h1 style="font-size:clamp(20px,4vw,32px);font-weight:800;letter-spacing:-1px;margin-bottom:8px">
     ETF Return Comparison<br><em style="color:var(--accent);font-style:normal">10-Year Simulation</em>
   </h1>
-  <p style="color:var(--text-sub);font-size:13px">Enter your investment to compare major ETF growth in real time.</p>
+  <p style="color:var(--text-sub);font-size:13px">Change amount and start year to scale <strong>embedded index series</strong> (not a live market API).</p>
 </div>
 <div style="max-width:880px;margin:0 auto;padding:0 18px 60px">
   <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:12px">
@@ -94,6 +94,10 @@
     <canvas id="etfCanvas" height="240"></canvas>
     <div style="font-size:10px;color:var(--text-muted);margin-top:6px">※ Based on historical returns. Past performance does not guarantee future results.</div>
   </div>
+  <section style="margin-top:16px;padding:16px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);font-size:13px;line-height:1.7;color:var(--text-sub)">
+    <h2 style="font-size:15px;font-weight:800;color:var(--text);margin:0 0 8px">Data & limits</h2>
+    <p style="margin:0">Curves use Calqio-edited <strong>yearly cumulative return indexes (start=100)</strong> per ETF and start year (2015/2018/2020/2022). Reinvest/cash toggles change display assumptions only — not fees, tracking error, taxes, or live NAV. Changing principal scales all values proportionally.</p>
+  </section>
 </div>
 <div style="max-width:960px;margin:0 auto;padding:24px 16px 40px;border-top:1px solid var(--border)"><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">More Calculators</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-bottom:20px"><a href="compound" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">📈</div><div style="font-size:12px;font-weight:700;color:var(--text)">Compound</div></a><a href="return" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">💰</div><div style="font-size:12px;font-weight:700;color:var(--text)">Return</div></a><a href="average-down" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">⬇️</div><div style="font-size:12px;font-weight:700;color:var(--text)">Avg Down</div></a><a href="loan" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">🏦</div><div style="font-size:12px;font-weight:700;color:var(--text)">Loan</div></a></div><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Financial Knowledge</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px"><a href="simple-vs-compound" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">📈&nbsp;Simple vs Comp</div></a><a href="concept" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">💡&nbsp;Concept</div></a><a href="ai-investment" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">🤖&nbsp;AI</div></a></div></div>
 <div style="max-width:760px;margin:20px auto 0;padding:0 20px;text-align:center">
