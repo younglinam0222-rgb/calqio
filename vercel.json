@@ -39,15 +39,16 @@
 
 
     {
-
-      "source": "/:path((?!ads\\.txt$).*)",
-
+      "source": "/:path*.html",
       "has": [{ "type": "host", "value": "calqio.com" }],
-
-      "destination": "https://www.calqio.com/:path",
-
+      "destination": "https://www.calqio.com/:path*",
       "statusCode": 308
-
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "calqio.com" }],
+      "destination": "https://www.calqio.com/:path*",
+      "statusCode": 308
     }
 
   ],
