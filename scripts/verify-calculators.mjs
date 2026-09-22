@@ -103,5 +103,17 @@ function assert(name, cond, detail) {
   assert("fire already at target", months === 0, `months=${months}`);
 }
 
+// Compound: negative return period (loss), no tax refund
+{
+  const { finalBal } = compoundRun({ P: 1_000_000, M: 0, Y: 1, R: -0.1, T: 0.154 });
+  assert("compound -10% one period", finalBal === 900_000, `got ${finalBal}`);
+}
+
+// FIRE: zero return, pure savings
+{
+  const { months } = fireMonths({ curr: 0, mon: 1_000_000, tgt: 10_000_000, ret: 0 });
+  assert("fire 0% return 10M target", months === 10, `months=${months}`);
+}
+
 console.log(JSON.stringify({ pass, fail, cases }, null, 2));
 process.exit(fail ? 1 : 0);
