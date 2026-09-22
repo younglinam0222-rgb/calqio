@@ -53,7 +53,7 @@
   ],
 
   "rewrites": [
-    { "source": "/fx-rates.json", "destination": "/public/fx-rates.json" }
+    { "source": "/fx-rates.json", "destination": "/api/fx-rates" }
   ],
   "crons": [
     { "path": "/api/fx-update", "schedule": "30 2 * * 1-5" }

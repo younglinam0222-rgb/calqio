@@ -1,9 +1,7 @@
-import fs from 'fs';
-import path from 'path';
+import { readFxCache, writeFxCache } from './fx-blob.js';
 
 const EXIM_URL =
   'https://oapi.koreaexim.go.kr/site/program/financial/exchangeJSON?data=AP01';
-const CACHE_FILE = path.join(process.cwd(), 'public', 'fx-rates.json');
 
 const RESULT_MSG = {
   1: 'success',
@@ -11,22 +9,6 @@ const RESULT_MSG = {
   3: 'auth key error',
   4: 'daily limit exceeded',
 };
-
-function readCache() {
-  try {
-    if (fs.existsSync(CACHE_FILE)) {
-      return JSON.parse(fs.readFileSync(CACHE_FILE, 'utf8'));
-    }
-  } catch {
-    /* ignore */
-  }
-  return { source: 'koreaexim', updatedAt: null, queryDate: null, rates: [] };
-}
-
-function writeCache(payload) {
-  fs.mkdirSync(path.dirname(CACHE_FILE), { recursive: true });
-  fs.writeFileSync(CACHE_FILE, JSON.stringify(payload, null, 2) + '\n', 'utf8');
-}
 
 function parseDealRate(value) {
   if (value == null || value === '') return null;
@@ -66,7 +48,7 @@ export default async function handler(req, res) {
     });
   }
 
-  const previous = readCache();
+  const previous = await readFxCache();
 
   try {
     const url = `${EXIM_URL}&authkey=${encodeURIComponent(authkey)}`;
@@ -123,13 +105,15 @@ export default async function handler(req, res) {
       });
     }
 
-    writeCache(payload);
+    const stored = await writeFxCache(payload);
     return res.status(200).json({
       ok: true,
       action: 'updated',
       count: payload.rates.length,
       updatedAt: payload.updatedAt,
       queryDate: payload.queryDate,
+      storage: stored.storage,
+      blobUrl: stored.url || undefined,
     });
   } catch (error) {
     return res.status(500).json({
