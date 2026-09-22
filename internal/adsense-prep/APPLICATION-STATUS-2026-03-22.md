@@ -12,7 +12,7 @@
 
 | `/` → `/ko/` | `vercel.json` | 선행+운영 | **적용 확인** | www `/` → 308 `/ko/` |
 
-| apex → www | Vercel | 선행 | **부분** | calqio.com → **307** (308 아님) |
+| apex → www | Vercel Domains + `vercel.json` | 2026-03-22 | **배포 후 재확인** | 운영(배포 전) calqio.com → **307** → www (Vercel **도메인 “Redirect to www”** 레이어). `vercel.json`은 `statusCode:308` + apex `/ads.txt` 제외 패턴 적용. apex 직접 서빙은 **Domains에서 apex→www 자동 리다이렉트 해제** 후 `vercel.json` 호스트 규칙이 동작해야 함 |
 
 | `/fire` redirect | `vercel.json` | 배포됨 | **적용 확인** (운영) | `/fire` → 308 `/ko/fire` |
 

@@ -1,34 +1,38 @@
-{
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "redirects": [
-    { "source": "/", "destination": "https://www.calqio.com/ko/", "permanent": true },
-    { "source": "/fire", "destination": "https://www.calqio.com/ko/fire", "permanent": true },
-
-    { "source": "/compound", "destination": "https://www.calqio.com/ko/compound", "permanent": true },
-    { "source": "/return", "destination": "https://www.calqio.com/ko/return", "permanent": true },
-    { "source": "/average-down", "destination": "https://www.calqio.com/ko/average-down", "permanent": true },
-    { "source": "/loan", "destination": "https://www.calqio.com/ko/loan", "permanent": true },
-    { "source": "/dividend", "destination": "https://www.calqio.com/ko/dividend", "permanent": true },
-    { "source": "/target", "destination": "https://www.calqio.com/ko/target", "permanent": true },
-    { "source": "/tax", "destination": "https://www.calqio.com/ko/tax", "permanent": true },
-    { "source": "/percent", "destination": "https://www.calqio.com/ko/percent", "permanent": true },
-    { "source": "/etf-comparison", "destination": "https://www.calqio.com/ko/etf-comparison", "permanent": true },
-    { "source": "/concept", "destination": "https://www.calqio.com/ko/concept", "permanent": true },
-    { "source": "/simple-vs-compound", "destination": "https://www.calqio.com/ko/simple-vs-compound", "permanent": true },
-    { "source": "/ai-investment", "destination": "https://www.calqio.com/ko/ai-investment", "permanent": true },
-
-    { "source": "/:path*.html", "has": [{ "type": "host", "value": "calqio.com" }], "destination": "https://www.calqio.com/:path*", "permanent": true },
-
-    { "source": "/:path*", "has": [{ "type": "host", "value": "calqio.com" }], "destination": "https://www.calqio.com/:path*", "permanent": true }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Cache-Control", "value": "public, max-age=3600" }
-      ]
-    }
-  ]
-}
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/", "destination": "https://www.calqio.com/ko/", "statusCode": 308 },
+    { "source": "/fire", "destination": "https://www.calqio.com/ko/fire", "statusCode": 308 },
+
+    { "source": "/compound", "destination": "https://www.calqio.com/ko/compound", "statusCode": 308 },
+    { "source": "/return", "destination": "https://www.calqio.com/ko/return", "statusCode": 308 },
+    { "source": "/average-down", "destination": "https://www.calqio.com/ko/average-down", "statusCode": 308 },
+    { "source": "/loan", "destination": "https://www.calqio.com/ko/loan", "statusCode": 308 },
+    { "source": "/dividend", "destination": "https://www.calqio.com/ko/dividend", "statusCode": 308 },
+    { "source": "/target", "destination": "https://www.calqio.com/ko/target", "statusCode": 308 },
+    { "source": "/tax", "destination": "https://www.calqio.com/ko/tax", "statusCode": 308 },
+    { "source": "/percent", "destination": "https://www.calqio.com/ko/percent", "statusCode": 308 },
+    { "source": "/etf-comparison", "destination": "https://www.calqio.com/ko/etf-comparison", "statusCode": 308 },
+    { "source": "/concept", "destination": "https://www.calqio.com/ko/concept", "statusCode": 308 },
+    { "source": "/simple-vs-compound", "destination": "https://www.calqio.com/ko/simple-vs-compound", "statusCode": 308 },
+    { "source": "/ai-investment", "destination": "https://www.calqio.com/ko/ai-investment", "statusCode": 308 },
+
+    {
+      "source": "/:path((?!ads\\.txt$).*)",
+      "has": [{ "type": "host", "value": "calqio.com" }],
+      "destination": "https://www.calqio.com/:path",
+      "statusCode": 308
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    }
+  ]
+}
+
