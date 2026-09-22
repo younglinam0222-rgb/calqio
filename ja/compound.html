@@ -132,14 +132,15 @@ A: 最終資産 | P: 元本 | r: 年利率(小数) | n: 運用期間(年)</div>
 <h3>72の法則</h3>
 <div class="fml">2倍になる期間(年) = 72 ÷ 年利率(%)
 例: 年8% → 9年で2倍</div>
-<h3>積立投資の効果</h3>
-<p>毎月5万円を20年間、年8%複利で投資すると総投資額1,200万円が約2,900万円に。早く始めるほど複利期間が長くなります。</p>
-<ul>
-<li><strong>早期開始が最重要:</strong> 25歳開始と35歳開始では老後資産が2倍以上変わります。</li>
-<li><strong>手数料の影響:</strong> 年1%の手数料は30年で最終資産の約30%を消費します。</li>
-</ul>
-<h3>このページの計算方式</h3>
-<p>日本語版は<strong>年利率(%)</strong>と<strong>年数</strong>、月次積立を<code>common.js</code>の<code>calcC</code>で計算します。韓国語版の「日/月/年・回次利率」とはUIが異なります。検証例: 元本1000万×1.025<sup>30</sup>≈2098万(±1)。<a href="fire">FIRE</a> · <a href="/privacy">Privacy(URL共有)</a></p>
+<h3>使い方</h3>
+<p>一括/積立/両方モード → 元本・年利率・年数・月次積立を入力 → 「計算する」。インフレチェックは名目最終額を概算実質額に換算します。</p>
+<h3>結果の見方</h3>
+<p><strong>最終資産</strong> = 最終年の残高。<strong>投資元本合計</strong> = 初期元本+月次×12×年数。<code>calcC</code>は<strong>年1回複利</strong>後に年間積立を加算（韓国語版の「回次利率」とは異なります）。</p>
+<h3>検証例（UIと一致）</h3>
+<p>元本100万・年8%・20年・積立0 → 最終約<strong>466万</strong>。元本0・月5万・20年・8% → 約<strong>275万</strong>（<code>scripts/verify-calculators.mjs</code>）。</p>
+<h3>限界・エラー</h3>
+<p>年数は1〜2000の整数。元本と積立が両方0不可。年率−100%未満やオーバーフロー時は結果非表示。</p>
+<p><a href="fire">FIRE</a> · <a href="/privacy">Privacy</a></p>
 <div class="tip">💡 月次積立額を入力して試してみてください。高いリターンを追求するより、コツコツ積み立てる方が長期的に強力です。</div></section>
 </div>
 <div style="max-width:960px;margin:0 auto;padding:24px 16px 40px;border-top:1px solid var(--border)"><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">その他</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-bottom:20px"><a href="return" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">💰</div><div style="font-size:12px;font-weight:700;color:var(--text)">収益率</div></a><a href="average-down" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">⬇️</div><div style="font-size:12px;font-weight:700;color:var(--text)">ナンピン</div></a><a href="loan" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">🏦</div><div style="font-size:12px;font-weight:700;color:var(--text)">ローン</div></a><a href="dividend" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">💵</div><div style="font-size:12px;font-weight:700;color:var(--text)">配当</div></a></div><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">金融知識ガイド</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px"><a href="etf-comparison" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">📊&nbsp;ETF比較</div></a><a href="simple-vs-compound" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">📈&nbsp;単利vs複利</div></a><a href="concept" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">💡&nbsp;概念</div></a><a href="ai-investment" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">🤖&nbsp;AI分析</div></a></div></div>

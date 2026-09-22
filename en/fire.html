@@ -153,11 +153,27 @@
 <strong>Fat FIRE</strong>: Luxurious retirement, target $1.5M-$3M+.<br>
 <strong>Coast FIRE</strong>: Point where compound growth alone gets you there.<br>
 <strong>Barista FIRE</strong>: Semi-retirement with part-time work.</p>
-<h3>Inputs (units)</h3>
-<p><strong>Current assets</strong> and <strong>monthly savings</strong> in your local currency. <strong>Target</strong> is the portfolio size you treat as “FIRE” (often 25× annual spending). <strong>Annual return %</strong> is converted to a <strong>monthly compound rate (÷12)</strong>. Optional inflation uses a fixed 2.5%/year assumption on the real return. Calculations run in your browser; shared URLs may expose query parameters (<a href="/privacy">Privacy</a>).</p>
-<h3>Verified example</h3>
-<p>0 start, 1M/mo (same units as target), target 100M, 6% annual, no inflation → about <strong>82 months (~6.8 years)</strong>. See <code>scripts/verify-calculators.mjs</code>. The 4% monthly hint uses <strong>target×4%/12</strong>, not dynamic withdrawal modeling — see <a href="https://www.bogleheads.org/wiki/Trinity_study" target="_blank" rel="noopener">Trinity study</a>.</p>
-<p><a href="compound">Compound calculator</a> · <a href="simple-vs-compound">Simple vs compound</a></p>
+<h3>How to use</h3>
+<ol>
+<li>Enter current assets, monthly savings, target portfolio, annual return %, and current age. Results update as you type.</li>
+<li>“Adjust for inflation” applies a fixed <strong>2.5%/year</strong> assumption to reduce the <strong>monthly real return</strong> (target amount unchanged).</li>
+<li>“Share result” puts inputs in the URL. See <a href="/privacy">Privacy</a> before sharing.</li>
+</ol>
+<h3>Reading the results</h3>
+<ul>
+<li><strong>Retirement age</strong> = current age + (months to target ÷ 12, rounded).</li>
+<li><strong>Years needed</strong> = years until assets first reach the target; if assets ≥ target already, <strong>0.0</strong> years.</li>
+<li><strong>Projected assets</strong> = balance in the month the target is reached.</li>
+<li><strong>4% monthly withdrawal</strong> = <code>target × 4% ÷ 12</code> (reference only; not a full withdrawal simulation).</li>
+</ul>
+<h3>Formula & limits</h3>
+<p>Each month: <code>assets = assets × (1 + monthly rate) + monthly savings</code>, with monthly rate = annual % ÷ 12. Stops at 1,200 months max. No taxes, fees, housing, debt, or pension modeling.</p>
+<h3>Verified examples (inputs → UI)</h3>
+<p>① Start <strong>0</strong>, save <strong>1,000,000</strong>/mo, target <strong>100,000,000</strong>, <strong>6</strong>% annual, inflation off, age <strong>30</strong> → <strong>6.8</strong> years, retirement age <strong>37</strong>, 4% monthly hint ≈ <strong>333,333</strong> (same units as target; see <code>scripts/verify-calculators.mjs</code>).</p>
+<p>② Already there: current & target both <strong>100,000,000</strong> → <strong>0.0</strong> years needed.</p>
+<h3>Edge cases</h3>
+<p>If the target is not reached within 1,200 months, retirement age and years show <strong>—</strong>; only projected assets is filled. Adjust savings, return, or target.</p>
+<p><a href="compound">Compound calculator</a> · <a href="simple-vs-compound">Simple vs compound</a> · <a href="https://www.bogleheads.org/wiki/Trinity_study" target="_blank" rel="noopener">Trinity study</a></p>
   </div>
 </section>
 

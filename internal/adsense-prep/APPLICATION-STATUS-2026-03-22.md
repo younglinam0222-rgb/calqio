@@ -1,22 +1,16 @@
-# Calqio 적용 상태표 (2026-03-22)
-
-| 항목 | 경로/대상 | 근거 | 상태 | 검증 |
-|------|-----------|------|------|------|
-| canonical/www | 전역 | main 이력 | **적용 확인** (운영) | curl www |
-| sitemap/robots www | `/sitemap.xml`, `/robots.txt` | 선행 확인 | **적용 확인** | 운영 GET 200 |
-| `/` → `/ko/` | `vercel.json` | 선행+운영 | **적용 확인** | www `/` → 308 `/ko/` |
-| apex → www | Vercel | 선행 | **적용 확인** | calqio.com → **307** (308 아님) |
-| `/fire` redirect | `vercel.json` | 브랜치만 | **부분 적용** | 운영 **404**, 로컬 브랜치 301 추가 |
-| 복리 로직 버그 | `ko/compound.html`, `common.js` | 선행 | **적용 확인** (운영) | 회귀 스크립트 |
-| h1 / FAQ KO 8계산기 | ko/*.html | 선행 | **적용 확인** (운영) | — |
-| AggregateRating 제거 | */*.html | grep 0 | **적용 확인** (운영) | 저장소 grep |
-| Organization/WebSite | `index.html` | 선행 | **적용 확인** | — |
-| fire SoftwareApplication | `*/fire.html` | 선행 | **적용 확인** | — |
-| llms.txt | `/llms.txt` | 사용자 요청 생성 | **적용 확인** | — |
-| privacy 개정 | `/privacy.html` | 브랜치 | **부분 적용** | 운영仍 2025-01·GA 문구 |
-| 홈 복리/저장 설명 | `ko/index`, `index.html` | 브랜치 | **이번 적용** (미배포) | diff |
-| FIRE/복리 가이드 5언어 | `*/fire.html`, compound | 브랜치 | **이번 적용** (미배포) | — |
-| FX ‘실시간’ 문구 | `*/tax.html` | 브랜치 | **이번 적용** (미배포) | — |
-| `scripts/verify-calculators.mjs` | repo | 브랜치 | **이번 적용** | `node scripts/…` |
-| ads.txt | `/ads.txt` | 운영 | **적용 확인** | pub-8205853473793766 |
-| AdSense 계정 승인 | 콘솔 | — | **확인 불가** | UNKNOWN |
+# Calqio 적용 상태표 (2026-03-22)
+
+| 항목 | 경로/대상 | 근거 | 상태 | 검증 |
+|------|-----------|------|------|------|
+| canonical/www | 전역 | main 이력 | **적용 확인** (운영) | curl www |
+| sitemap/robots www | `/sitemap.xml`, `/robots.txt` | 선행 확인 | **적용 확인** | 운영 GET 200 |
+| `/` → `/ko/` | `vercel.json` | 선행+운영 | **적용 확인** | www `/` → 308 `/ko/` |
+| apex → www | Vercel | 선행 | **부분** | calqio.com → **307** (308 아님) |
+| `/fire` redirect | `vercel.json` | 배포됨 | **적용 확인** (운영) | `/fire` → 308 `/ko/fire` |
+| privacy 개정 | `/privacy` | main | **적용 확인** (운영) | 2026-03 본문 |
+| ads.txt | `/ads.txt` | 운영 | **적용 확인** | pub-8205853473793766 |
+| AdSense 사이트 심사 | AdSense 콘솔 | **첨부된 AdSense 반려 화면** | **반려 확인** | 사유: **가치가 별로 없는 콘텐츠** (Low value content). 반려 **날짜·문제 URL 목록은 화면에서 별도 기록하지 않음**. |
+| AdSense 재신청 | 콘솔 | — | **미실행** | 콘텐츠 보강 후 운영자 재제출 |
+| 콘텐츠 가치 보강 (FIRE/복리 5언어 등) | `*/fire.html`, compound, guides | 로컬 커밋 | **진행·로컬 반영** | `node scripts/verify-calculators.mjs` |
+
+**메모:** 기존 「운영자 설명에 따른 반려 사유·원문 미확인」→ **「첨부된 AdSense 화면에서 사유 확인」**으로 정정 (2026-03-22 세션).

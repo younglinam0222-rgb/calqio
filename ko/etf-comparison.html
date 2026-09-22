@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ETF 수익 비교 - QQQ·TQQQ·SCHD·VOO 10년 시뮬레이션 | Calqio</title>
-<meta name="description" content="주요 ETF 수익률 비교 계산기. QQQ·TQQQ·SCHD·VOO 4개 ETF의 과거 10년 자산 성장을 실시간으로 비교합니다. 배당 재투자 시뮬레이션 무료 제공.">
+<meta name="description" content="QQQ·TQQQ·SCHD·VOO 4개 ETF의 구간별 누적 수익 지수(100=시작)로 투자금을 비교하는 시뮬레이터. 과거 구간 기반이며 미래 수익을 보장하지 않습니다.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.calqio.com/ko/etf-comparison">
 <link rel="alternate" hreflang="ko" href="https://www.calqio.com/ko/etf-comparison">
@@ -18,14 +18,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <link rel="stylesheet" href="../style.css">
 <meta property="og:title" content="ETF 수익 비교 - QQQ·TQQQ·SCHD·VOO 10년 시뮬레이션 | Calqio">
-<meta property="og:description" content="주요 ETF 수익률 비교 계산기. QQQ·TQQQ·SCHD·VOO 4개 ETF의 과거 10년 자산 성장을 실시간으로 비교합니다. 배당 재투자 시뮬레이션 무료 제공.">
+<meta property="og:description" content="4개 ETF 구간별 누적 수익 지수로 투자금을 비교. 과거 데이터 기반, 미래 보장 없음.">
 <meta property="og:type" content="website">
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"WebApplication",
   "name":"ETF 수익 비교",
-  "description":"주요 ETF 수익률 비교 계산기. QQQ·TQQQ·SCHD·VOO 4개 ETF의 과거 10년 자산 성장을 실시간으로 비교합니다. 배당 재투자 시뮬레이션 무료 제공.",
+  "description":"QQQ·TQQQ·SCHD·VOO 구간별 누적 수익 지수(100=시작)로 투자금을 비교. 과거 구간 기반 시뮬레이터.",
   "url":"https://www.calqio.com/ko/etf-comparison",
   "applicationCategory":"FinanceApplication",
   "operatingSystem":"All",
@@ -50,7 +50,7 @@
   <h1 style="font-size:clamp(20px,4vw,32px);font-weight:800;letter-spacing:-1px;margin-bottom:8px">
     ETF 수익 비교<br><em style="color:var(--accent);font-style:normal">10년 시뮬레이션</em>
   </h1>
-  <p style="color:var(--text-sub);font-size:13px">투자금액을 입력하면 주요 ETF의 자산 성장을 실시간으로 비교합니다.</p>
+  <p style="color:var(--text-sub);font-size:13px">투자금·시작 연도를 바꾸면 페이지에 내장된 <strong>구간별 수익 지수</strong>로 환산해 비교합니다(시장 시세 API 아님).</p>
 </div>
 <div style="max-width:880px;margin:0 auto;padding:0 18px 60px">
   <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:12px">
@@ -94,6 +94,10 @@
     <canvas id="etfCanvas" height="240"></canvas>
     <div style="font-size:10px;color:var(--text-muted);margin-top:6px">※ 과거 수익률 기반 시뮬레이션으로 미래 수익을 보장하지 않습니다.</div>
   </div>
+  <section style="margin-top:16px;padding:16px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);font-size:13px;line-height:1.7;color:var(--text-sub)">
+    <h2 style="font-size:15px;font-weight:800;color:var(--text);margin:0 0 8px">데이터·한계</h2>
+    <p style="margin:0">곡선은 Calqio가 편집한 <strong>연도별 누적 수익 지수(시작=100)</strong>입니다. QQQ/TQQQ/SCHD/VOO 각각 시작 연도(2015·2018·2020·2022)에 맞는 배열을 씁니다. 「재투자/수령」 토글은 같은 지수에 대한 표시 가정만 바꿉니다(실제 배당 재투자·세금·추적오차·보수 미반영). 원금을 바꾸면 모든 ETF 값이 같은 비율로 스케일됩니다.</p>
+  </section>
 </div>
 <div style="max-width:960px;margin:0 auto;padding:24px 16px 40px;border-top:1px solid var(--border)"><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">다른 계산기</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-bottom:20px"><a href="compound" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">📈</div><div style="font-size:12px;font-weight:700;color:var(--text)">복리</div></a><a href="return" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">💰</div><div style="font-size:12px;font-weight:700;color:var(--text)">수익률</div></a><a href="average-down" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">⬇️</div><div style="font-size:12px;font-weight:700;color:var(--text)">물타기</div></a><a href="loan" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">🏦</div><div style="font-size:12px;font-weight:700;color:var(--text)">대출이자</div></a></div><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">금융 지식 가이드</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px"><a href="simple-vs-compound" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">📈&nbsp;단리vs복리</div></a><a href="concept" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">💡&nbsp;복리 개념</div></a><a href="ai-investment" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">🤖&nbsp;AI 분석</div></a></div></div>
 <div style="max-width:760px;margin:20px auto 0;padding:0 20px;text-align:center">

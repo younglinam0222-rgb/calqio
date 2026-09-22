@@ -153,8 +153,25 @@
 <strong>Fat FIRE</strong>(余裕型): 余裕のあるリタイア生活。<br>
 <strong>Coast FIRE</strong>(コースト型): 複利だけで目標到達可能な時点。<br>
 <strong>Barista FIRE</strong>(バリスタ型): 部分的リタイア、軽い仕事で生活費補充。</p>
-<h3>入力と計算の前提</h3>
-<p>年利(%)は<strong>月利(÷12)</strong>で毎月複利+積立。物価ON時は年2.5%固定仮定。税・手数料なし。URL共有でクエリ露出の可能性(<a href="/privacy">Privacy</a>)。検証: 月100万・目標1億・年6%→約82ヶ月。 <a href="compound">複利</a></p>
+<h3>使い方</h3>
+<ol>
+<li>現在資産・月積立・目標資産・年利・年齢を入力。変更のたびに結果が更新されます。</li>
+<li>物価反映ONは年2.5%固定で<strong>月次実質利回り</strong>のみ下げます（目標額は変更しません）。</li>
+<li>共有リンクはURLに入力値を含みます（<a href="/privacy">Privacy</a>）。</li>
+</ol>
+<h3>結果の見方</h3>
+<ul>
+<li><strong>リタイア可能年齢</strong> = 現在年齢 + 達成までの月数÷12（四捨五入）。</li>
+<li><strong>必要期間</strong> = 目標到達までの年数。現資産≥目標なら<strong>0.0年</strong>。</li>
+<li><strong>4%ルール月額</strong> = 目標×4%÷12の参考値（動的引出しは未モデル）。</li>
+</ul>
+<h3>計算式・限界</h3>
+<p>毎月末: 資産=資産×(1+月利)+積立。最大1,200ヶ月。税・手数料・住宅ローン等は含みません。</p>
+<h3>検証例</h3>
+<p>① 0開始・月100万・目標1億・年6%・物価OFF・年齢30 → 約<strong>6.8年</strong>・リタイア年齢<strong>37</strong>（<code>scripts/verify-calculators.mjs</code>）。② 現資産=目標1億 → <strong>0.0年</strong>。</p>
+<h3>特殊表示</h3>
+<p>1,200ヶ月以内に未到達なら年齢・期間は<strong>—</strong>。</p>
+<p><a href="compound">複利計算機</a> · <a href="/privacy">Privacy</a></p>
   </div>
 </section>
 

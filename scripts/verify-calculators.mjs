@@ -115,5 +115,55 @@ function assert(name, cond, detail) {
   assert("fire 0% return 10M target", months === 10, `months=${months}`);
 }
 
+function calcReturn({ bp, sp, q, fPct }) {
+  const f = fPct / 100;
+  const bt = bp * q;
+  const st = sp * q;
+  const ft = (bt + st) * f;
+  const profit = st - bt - ft;
+  return { profit, rate: (profit / bt) * 100, ft };
+}
+
+function calcCAnnual({ P, M, y, rPct }) {
+  const r = rPct / 100;
+  let bal = P;
+  let contrib = P;
+  for (let i = 1; i <= y; i++) {
+    bal = bal * (1 + r) + M * 12;
+    contrib += M * 12;
+  }
+  return { bal, contrib };
+}
+
+// Return calculator default (ko/return.html)
+{
+  const { profit, rate, ft } = calcReturn({ bp: 50_000, sp: 65_000, q: 100, fPct: 0.015 });
+  assert(
+    "return default 50k→65k x100 fee 0.015%",
+    Math.abs(profit - 1_498_275) < 0.01 && Math.abs(rate - 29.9655) < 0.01,
+    `profit=${profit} rate=${rate} fee=${ft}`
+  );
+}
+
+// calcC (en/ja/zh/ar compound): lump 10k, 8%, 20y
+{
+  const { bal } = calcCAnnual({ P: 10_000, M: 0, y: 20, rPct: 8 });
+  assert(
+    "calcC 10k @8% 20y",
+    Math.abs(bal - 46_609.57) < 0.02,
+    `bal=${bal}`
+  );
+}
+
+// calcC DCA 500/mo, 20y, 8%
+{
+  const { bal } = calcCAnnual({ P: 0, M: 500, y: 20, rPct: 8 });
+  assert(
+    "calcC 500/mo @8% 20y",
+    Math.abs(bal - 274_571.79) < 1,
+    `bal=${bal}`
+  );
+}
+
 console.log(JSON.stringify({ pass, fail, cases }, null, 2));
 process.exit(fail ? 1 : 0);
