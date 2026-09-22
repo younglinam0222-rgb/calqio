@@ -201,6 +201,54 @@ function calcP() {
 function v(id) { const e=document.getElementById(id); return e?e.value:0; }
 function set(id,val) { const e=document.getElementById(id); if(e)e.textContent=val; }
 
+// ── FX cache banner (tax pages) ─────────
+async function calqioApplyFxBanner(options) {
+  const rateEl = document.getElementById('fxRate');
+  const timeEl = document.getElementById('fxTime');
+  if (!rateEl) return;
+
+  const opts = options || {};
+  const suffix = opts.suffix != null ? opts.suffix : (window.LC && window.LC.suf) || '원';
+  const naText = opts.naText || '—';
+  const updatedPrefix =
+    opts.updatedPrefix || '매매기준율 기준, 최종 갱신: ';
+  const locale = opts.locale || (document.documentElement.lang || 'ko');
+
+  try {
+    const res = await fetch('/fx-rates.json', { cache: 'no-cache' });
+    if (!res.ok) throw new Error('fx_cache_http_' + res.status);
+    const data = await res.json();
+    const usd = (data.rates || []).find((r) => r.cur_unit === 'USD');
+    if (usd && usd.deal_bas_r != null) {
+      rateEl.textContent =
+        Math.round(usd.deal_bas_r).toLocaleString(locale) + suffix;
+    } else {
+      rateEl.textContent = naText;
+    }
+    if (timeEl) {
+      if (data.updatedAt) {
+        const d = new Date(data.updatedAt);
+        const datePart = d.toLocaleDateString(locale, {
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+        });
+        const timePart = d.toLocaleTimeString(locale, {
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false,
+        });
+        timeEl.textContent = updatedPrefix + datePart + ' ' + timePart;
+      } else {
+        timeEl.textContent = updatedPrefix + '—';
+      }
+    }
+  } catch {
+    rateEl.textContent = naText;
+    if (timeEl) timeEl.textContent = updatedPrefix + '—';
+  }
+}
+
 // ── Init ────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   if (localStorage.getItem('calqio_theme') === 'light') document.body.classList.add('light-mode');
