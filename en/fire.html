@@ -153,6 +153,11 @@
 <strong>Fat FIRE</strong>: Luxurious retirement, target $1.5M-$3M+.<br>
 <strong>Coast FIRE</strong>: Point where compound growth alone gets you there.<br>
 <strong>Barista FIRE</strong>: Semi-retirement with part-time work.</p>
+<h3>Inputs (units)</h3>
+<p><strong>Current assets</strong> and <strong>monthly savings</strong> in your local currency. <strong>Target</strong> is the portfolio size you treat as “FIRE” (often 25× annual spending). <strong>Annual return %</strong> is converted to a <strong>monthly compound rate (÷12)</strong>. Optional inflation uses a fixed 2.5%/year assumption on the real return. Calculations run in your browser; shared URLs may expose query parameters (<a href="/privacy">Privacy</a>).</p>
+<h3>Verified example</h3>
+<p>0 start, 1M/mo (same units as target), target 100M, 6% annual, no inflation → about <strong>82 months (~6.8 years)</strong>. See <code>scripts/verify-calculators.mjs</code>. The 4% monthly hint uses <strong>target×4%/12</strong>, not dynamic withdrawal modeling — see <a href="https://www.bogleheads.org/wiki/Trinity_study" target="_blank" rel="noopener">Trinity study</a>.</p>
+<p><a href="compound">Compound calculator</a> · <a href="simple-vs-compound">Simple vs compound</a></p>
   </div>
 </section>
 
@@ -216,10 +221,15 @@ function calcFire(){
     effRate = (1+monthlyRate)/(1+0.025/12) - 1;
   }
 
+  if(tgt > 0 && curr >= tgt){
+    months = 0;
+    asset = curr;
+  } else {
   // 시뮬레이션 (최대 100년)
   while(asset < tgt && months < 1200){
     asset = asset * (1+effRate) + mon;
     months++;
+  }
   }
 
   if(months >= 1200){

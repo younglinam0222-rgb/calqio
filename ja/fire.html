@@ -153,6 +153,8 @@
 <strong>Fat FIRE</strong>(余裕型): 余裕のあるリタイア生活。<br>
 <strong>Coast FIRE</strong>(コースト型): 複利だけで目標到達可能な時点。<br>
 <strong>Barista FIRE</strong>(バリスタ型): 部分的リタイア、軽い仕事で生活費補充。</p>
+<h3>入力と計算の前提</h3>
+<p>年利(%)は<strong>月利(÷12)</strong>で毎月複利+積立。物価ON時は年2.5%固定仮定。税・手数料なし。URL共有でクエリ露出の可能性(<a href="/privacy">Privacy</a>)。検証: 月100万・目標1億・年6%→約82ヶ月。 <a href="compound">複利</a></p>
   </div>
 </section>
 
@@ -216,10 +218,15 @@ function calcFire(){
     effRate = (1+monthlyRate)/(1+0.025/12) - 1;
   }
 
+  if(tgt > 0 && curr >= tgt){
+    months = 0;
+    asset = curr;
+  } else {
   // 시뮬레이션 (최대 100년)
   while(asset < tgt && months < 1200){
     asset = asset * (1+effRate) + mon;
     months++;
+  }
   }
 
   if(months >= 1200){

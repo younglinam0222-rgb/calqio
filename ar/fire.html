@@ -148,6 +148,8 @@
 <strong>Fat FIRE</strong>: تقاعد فاخر.<br>
 <strong>Coast FIRE</strong>: نقطة وصلت فيها لمستوى يكفي فيه النمو المركب وحده.<br>
 <strong>Barista FIRE</strong>: تقاعد جزئي مع عمل بدوام جزئي.</p>
+<h3>المدخلات والافتراضات</h3>
+<p>العائد السنوي يُحوَّل إلى <strong>عائد شهري (÷12)</strong> مع مركب شهري+ادخار. التضخم الاختياري 2.5% سنوياً (افتراض ثابت). لا ضرائب/رسوم. قد تظهر المدخلات في رابط URL (<a href="/privacy">Privacy</a>). مثال: ~82 شهراً لهدف 100M و6% سنوي و1M شهرياً. <a href="compound">مركب</a></p>
   </div>
 </section>
 
@@ -212,9 +214,14 @@ function calcFire(){
   }
 
   // 시뮬레이션 (최대 100년)
+  if(tgt > 0 && curr >= tgt){
+    months = 0;
+    asset = curr;
+  } else {
   while(asset < tgt && months < 1200){
     asset = asset * (1+effRate) + mon;
     months++;
+  }
   }
 
   if(months >= 1200){

@@ -153,6 +153,8 @@
 <strong>Fat FIRE</strong>: 奢华型,富足退休生活。<br>
 <strong>Coast FIRE</strong>: 滑行型,仅靠复利就能达到目标的时刻。<br>
 <strong>Barista FIRE</strong>: 兼职型,半退休生活靠轻松工作补贴。</p>
+<h3>输入与计算说明</h3>
+<p>年化收益率按<strong>月复利(÷12)</strong>模拟；通胀选项为年2.5%固定假设。不含税费。分享链接可能在URL中暴露参数(<a href="/privacy">Privacy</a>)。验证：月存100万、目标1亿、年6%→约82个月。<a href="compound">复利计算器</a></p>
   </div>
 </section>
 
@@ -216,10 +218,15 @@ function calcFire(){
     effRate = (1+monthlyRate)/(1+0.025/12) - 1;
   }
 
+  if(tgt > 0 && curr >= tgt){
+    months = 0;
+    asset = curr;
+  } else {
   // 시뮬레이션 (최대 100년)
   while(asset < tgt && months < 1200){
     asset = asset * (1+effRate) + mon;
     months++;
+  }
   }
 
   if(months >= 1200){
