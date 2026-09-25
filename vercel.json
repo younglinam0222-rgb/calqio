@@ -1,5 +1,7 @@
 {
 
+  "functions": { "api/lotto.js": { "maxDuration": 60 } },
+
   "cleanUrls": true,
 
   "trailingSlash": false,
