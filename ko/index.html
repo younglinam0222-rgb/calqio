@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calqio — 주식 코인 투자 금융 계산기 모음</title>
-<meta name="description" content="복리, 수익률, 물타기, 양도세 등 주식 및 코인 투자에 필수적인 8가지 금융 계산기와 ETF 시뮬레이션, AI 투자 전략을 무료로 제공합니다.">
+<title>CALQIO — 복리·이자·투자 계산기와 생활 도구</title>
+<meta name="description" content="복리·대출이자·수익률·할인율 계산부터 ETF 비교, AI 분석 요청문, 로또 당첨번호 확인까지. CALQIO에서 필요한 도구를 검색하고 바로 이용하세요.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.calqio.com/ko">
 <link rel="alternate" hreflang="ko" href="https://www.calqio.com/ko">
@@ -15,18 +15,20 @@
 <link rel="alternate" hreflang="x-default" href="https://www.calqio.com/en">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.calqio.com/ko">
-<meta property="og:title" content="Calqio — 주식 코인 투자 금융 계산기 모음">
-<meta property="og:description" content="복리, 수익률, 물타기, 양도세 등 주식 및 코인 투자에 필수적인 8가지 금융 계산기와 ETF 시뮬레이션, AI 투자 전략을 무료로 제공합니다.">
+<meta property="og:title" content="CALQIO — 복리·이자·투자 계산기와 생활 도구">
+<meta property="og:description" content="복리·대출이자·수익률·할인율 계산부터 ETF 비교, AI 분석 요청문, 로또 당첨번호 확인까지. CALQIO에서 필요한 도구를 검색하고 바로 이용하세요.">
 <meta name="google-adsense-account" content="ca-pub-8205853473793766">
 <meta name="google-site-verification" content="6II_gyhSkNgRi3bW9SNuoHxRlMBvBI2kJGn3GHCLsrg">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/home.css">
 <script>window.LC={"cur":"","suf":"","sh2":"","tf":"","tc":"link copied","darkBtn":"🌙 다크모드","lightBtn":"☀️"}</script>
 <link rel="icon" href="/favicon.ico">
 </head>
-<body>
+<body class="home-page">
+<a class="home-skip" href="#home-main">본문으로 이동</a>
 <nav>
-  <a href="/ko/" class="logo">Calq<span>io</span></a>
+  <a href="/ko" class="logo">Calq<span>io</span></a>
   <div class="nav-menu">
     <a href="/ko/compound" class="nav-cat">📈<span>복리계산기</span></a><a href="/ko/etf-comparison" class="nav-cat">📊<span>ETF 시뮬레이션</span></a><a href="/ko/ai-investment" class="nav-cat">🤖<span>AI 전략</span></a><a href="/ko/concept" class="nav-cat">💡<span>금융 가이드</span></a><a href="/ko/lotto-generator" class="nav-cat nav-cat-lotto"><span aria-hidden="true">🎱</span><span>로또 번호 생성기</span></a>
   </div>
@@ -36,137 +38,39 @@
       <button class="lc" id="lBtn" onclick="toggleMenu()">
         <span class="fl">🇰🇷</span><span class="lc-name">한국어</span><span class="arr">▼</span>
       </button>
-      <div class="ld" id="lDrop"><div class="lo active" onclick="location.href='/ko/'"><span class="fl">🇰🇷</span>한국어</div><div class="lo" onclick="location.href='/en/'"><span class="fl">🇺🇸</span>English</div><div class="lo" onclick="location.href='/ja/'"><span class="fl">🇯🇵</span>日本語</div><div class="lo" onclick="location.href='/zh/'"><span class="fl">🇨🇳</span>中文</div><div class="lo" onclick="location.href='/ar/'"><span class="fl">🇸🇦</span>العربية</div></div>
+      <div class="ld" id="lDrop"><div class="lo active" onclick="location.href='/ko'"><span class="fl">🇰🇷</span>한국어</div><div class="lo" onclick="location.href='/en'"><span class="fl">🇺🇸</span>English</div><div class="lo" onclick="location.href='/ja'"><span class="fl">🇯🇵</span>日本語</div><div class="lo" onclick="location.href='/zh'"><span class="fl">🇨🇳</span>中文</div><div class="lo" onclick="location.href='/ar'"><span class="fl">🇸🇦</span>العربية</div></div>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="badge">금융 IQ를 높이세요</div>
-  <h1>금융 투자 계산기<br><em>Calqio</em></h1>
-  <p>주식·코인·투자 금융 계산을 빠르고 정확하게.</p>
-</div>
-
-<!-- ★ ETF 대형 배너 -->
-<div class="sec">
-  <a href="etf-comparison" class="hero-banner hero-banner-etf">
-    <div class="hb-tag">NEW · 2015–2026 백테스팅</div>
-    <div class="hb-icon">📊</div>
-    <div class="hb-content">
-      <h2 class="hb-title">ETF 적립식 투자 시뮬레이터</h2>
-      <p class="hb-desc">QQQ · TQQQ · SCHD · VOO 과거 시나리오를 가이드 페이지에서 비교하세요. 배당 재투자 가정은 페이지 설명을 참고하세요.</p>
-      <span class="hb-cta">시뮬레이션 시작하기 →</span>
-    </div>
-  </a>
-</div>
-
-<!-- 8개 계산기 그리드 -->
-<div class="sec">
-  <div class="sec-header">
-    <h3 class="sec-title">인기 금융 계산기</h3>
-    <p class="sec-sub">주식·코인 투자 필수 도구</p>
-  </div>
-  <div class="dashboard-grid">
-    <a href="compound" class="dash-card">
-  <div class="dash-icon">📈</div>
-  <div class="dash-title">복리 계산기</div>
-  <div class="dash-desc">시간과 복리의 마법</div>
-</a>
-<a href="return" class="dash-card">
-  <div class="dash-icon">💰</div>
-  <div class="dash-title">수익률 계산기</div>
-  <div class="dash-desc">수수료 포함 실현 손익</div>
-</a>
-<a href="average-down" class="dash-card">
-  <div class="dash-icon">⬇️</div>
-  <div class="dash-title">물타기 계산기</div>
-  <div class="dash-desc">새로운 평단가 및 본전</div>
-</a>
-<a href="loan" class="dash-card">
-  <div class="dash-icon">🏦</div>
-  <div class="dash-title">대출이자 계산기</div>
-  <div class="dash-desc">월 납입액 및 총 이자</div>
-</a>
-<a href="dividend" class="dash-card">
-  <div class="dash-icon">💵</div>
-  <div class="dash-title">배당수익률 계산기</div>
-  <div class="dash-desc">세후 실제 배당금</div>
-</a>
-<a href="target" class="dash-card">
-  <div class="dash-icon">🎯</div>
-  <div class="dash-title">목표가 계산기</div>
-  <div class="dash-desc">리스크 관리 및 매도 타점</div>
-</a>
-<a href="tax" class="dash-card">
-  <div class="dash-icon">📋</div>
-  <div class="dash-title">양도세 계산기</div>
-  <div class="dash-desc">해외주식 세후 순이익</div>
-</a>
-<a href="percent" class="dash-card">
-  <div class="dash-icon">%</div>
-  <div class="dash-title">퍼센트 계산기</div>
-  <div class="dash-desc">등락률 및 할인율</div>
-</a>
-
-  </div>
-</div>
-
-<!-- ★ AI 전략 대형 배너 -->
-<div class="sec">
-  <a href="ai-investment" class="hero-banner hero-banner-ai">
-    <div class="hb-tag hb-tag-hot">HOT · 즉시 사용</div>
-    <div class="hb-icon">🤖</div>
-    <div class="hb-content">
-      <h2 class="hb-title">AI 기반 금융 전략 추천</h2>
-      <p class="hb-desc">ChatGPT · Claude · Perplexity에 붙여 넣는 <strong>체크리스트형 분석 프롬프트</strong>. AI 답변의 사실·출처는 반드시 직접 확인하세요.</p>
-      <span class="hb-cta">AI 프롬프트 보기 →</span>
-    </div>
-  </a>
-</div>
-
-<!-- 추가 콘텐츠 카드 -->
-<div class="sec">
-  <div class="dashboard-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr))">
-    <a href="simple-vs-compound" class="dash-card content-card">
-      <div class="dash-icon">📈</div>
-      <div class="dash-title">단리·복리 이자 비교</div>
-      <div class="dash-desc">같은 이율, 압도적으로 다른 결과</div>
-    </a>
-    <a href="concept" class="dash-card content-card">
-      <div class="dash-icon">💡</div>
-      <div class="dash-title">복리 개념 정복</div>
-      <div class="dash-desc">72의 법칙 + 복리 주기 비교</div>
-    </a>
-    <a href="fire" class="dash-card content-card">
-      <div class="dash-icon">🔥</div>
-      <div class="dash-title">파이어족 계산기</div>
-      <div class="dash-desc">몇 살에 경제적 자유 달성할 수 있을까?</div>
-    </a>
-  </div>
-</div>
-
-<!-- 로또: 금융 계산기와 분리된 카테고리 -->
-<section class="sec lotto-category" id="lotto-tools" aria-labelledby="lotto-category-title">
-  <div class="sec-header">
-    <h2 class="sec-title" id="lotto-category-title">로또 · 번호 도구</h2>
-    <p class="sec-sub">나만의 번호를 고르고, 새로운 조합을 만들어보세요.</p>
-  </div>
-  <a href="/ko/lotto-generator" class="hero-banner hero-banner-lotto" aria-labelledby="lotto-banner-title lotto-banner-cta">
-    <span class="hb-tag">LOTTO 6/45</span>
-    <div class="lotto-ball-mark" aria-hidden="true">
-      <span class="lotto-ball lotto-ball-yellow">7</span><span class="lotto-ball lotto-ball-blue">12</span><span class="lotto-ball lotto-ball-red">23</span>
-      <span class="lotto-ball lotto-ball-gray">34</span><span class="lotto-ball lotto-ball-green">41</span><span class="lotto-ball lotto-ball-green">45</span>
-    </div>
-    <div class="hb-content">
-      <h3 class="hb-title" id="lotto-banner-title">로또 당첨번호 확인 · 번호 생성기</h3>
-      <p class="hb-desc">최신 당첨번호와 최근 100회 결과를 확인하세요. 내 번호 비교, 패턴 통계와 고정 번호 생성까지 한곳에서 이용할 수 있습니다.</p>
-      <span class="hb-cta" id="lotto-banner-cta">당첨번호 확인하기 <span aria-hidden="true">→</span></span>
-    </div>
-  </a>
-</section>
+<main id="home-main" class="home-main">
+<section class="home-intro" aria-labelledby="home-title"><div class="home-kicker">CALQIO · 매일의 숫자를 쉽게</div><h1 id="home-title">복잡한 계산,<br><em>간단한 선택으로.</em></h1><p>이자와 투자부터 생활 속 비율까지.<br class="mobile-break"> 필요한 도구를 찾아 바로 계산해 보세요.</p><div class="home-points"><span>회원가입 없이 이용</span><span>모바일에서도 간편하게</span></div>
+<div class="home-search" hidden><label for="tool-search">어떤 계산이 필요하세요?</label><div class="search-box"><span aria-hidden="true">⌕</span><input id="tool-search" type="search" placeholder="복리, 대출이자, 할인율, 로또…" autocomplete="off" aria-controls="tools-grid"><button id="search-clear" type="button" aria-label="검색어 지우기" hidden>×</button></div></div>
+<div class="home-quick"><span>바로 계산</span><a href="/ko/compound">복리</a><a href="/ko/loan">대출이자</a><a href="/ko/percent">할인율</a><a href="/ko/lotto-generator#draw-checker">당첨번호</a></div></section>
+<section class="home-directory" aria-labelledby="directory-title"><div class="home-section-head"><div><span class="home-eyebrow">TOOLS</span><h2 id="directory-title">필요한 도구를 한눈에</h2></div><p id="tool-count" role="status" aria-live="polite">14개 도구</p></div>
+<div class="tool-filters" role="group" aria-label="도구 분류" hidden><button type="button" data-filter="all" aria-pressed="true">전체</button><button type="button" data-filter="interest" aria-pressed="false">이자·대출</button><button type="button" data-filter="invest" aria-pressed="false">투자·세금</button><button type="button" data-filter="life" aria-pressed="false">생활·목표</button><button type="button" data-filter="guide" aria-pressed="false">금융 가이드</button><button type="button" data-filter="lotto" aria-pressed="false">로또</button><button type="button" data-filter="saved" aria-pressed="false">☆ 즐겨찾기</button></div><p class="save-help" hidden>☆를 누르면 이 브라우저에 즐겨찾기로 저장됩니다.</p><div id="tools-grid" class="tools-grid"><article class="tool-card" data-category="interest" data-keywords="복리 적립식 저축 예금 이자 주식 코인" data-tool="compound"><a href="/ko/compound"><span class="tool-icon" aria-hidden="true">📈</span><span class="tool-category">이자·대출</span><h3>복리 계산기</h3><p>원금과 정기 납입으로 미래 자산을 계산하세요.</p><span class="tool-open">바로 이용하기 <span aria-hidden="true">↗</span></span></a><button class="tool-save" type="button" data-save="compound" aria-label="복리 계산기 즐겨찾기" aria-pressed="false" hidden>☆</button></article>
+<article class="tool-card" data-category="interest" data-keywords="대출 원리금 원금 상환 전세 주택 이자" data-tool="loan"><a href="/ko/loan"><span class="tool-icon" aria-hidden="true">🏦</span><span class="tool-category">이자·대출</span><h3>대출이자 계산기</h3><p>상환 방식별 월 납입액과 총 이자를 비교하세요.</p><span class="tool-open">바로 이용하기 <span aria-hidden="true">↗</span></span></a><button class="tool-save" type="button" data-save="loan" aria-label="대출이자 계산기 즐겨찾기" aria-pressed="false" hidden>☆</button></article>
+<article class="tool-card" data-category="interest" data-keywords="예금 저축 이자 단리 복리" data-tool="simple-vs-compound"><a href="/ko/simple-vs-compound"><span class="tool-icon" aria-hidden="true">↗</span><span class="tool-category">이자·대출</span><h3>단리·복리 이자 비교</h3><p>같은 원금과 금리, 두 방식의 차이를 확인하세요.</p><span class="tool-open">바로 이용하기 <span aria-hidden="true">↗</span></span></a><button class="tool-save" type="button" data-save="simple-vs-compound" aria-label="단리·복리 이자 비교 즐겨찾기" aria-pressed="false" hidden>☆</button></article>
+<article class="tool-card" data-category="life" data-keywords="할인 쇼핑 퍼센트 비율 백분율 증가 감소" data-tool="percent"><a href="/ko/percent"><span class="tool-icon" aria-hidden="true">%</span><span class="tool-category">생활·목표</span><h3>퍼센트 계산기</h3><p>할인율과 증감률을 빠르게 계산하세요.</p><span class="tool-open">바로 이용하기 <span aria-hidden="true">↗</span></span></a><button class="tool-save" type="button" data-save="percent" aria-label="퍼센트 계산기 즐겨찾기" aria-pressed="false" hidden>☆</button></article>
+<article class="tool-card" data-category="invest" data-keywords="투자 수익률 주식 코인 손익 수수료" data-tool="return"><a href="/ko/return"><span class="tool-icon" aria-hidden="true">💰</span><span class="tool-category">투자·세금</span><h3>수익률 계산기</h3><p>매수·매도 금액과 수수료로 손익을 확인하세요.</p><span class="tool-open">바로 이용하기 <span aria-hidden="true">↗</span></span></a><button class="tool-save" type="button" data-save="return" aria-label="수익률 계산기 즐겨찾기" aria-pressed="false" hidden>☆</button></article>
+<article class="tool-card" data-category="invest" data-keywords="주식 코인 물타기 평단 평균 매수" data-tool="average-down"><a href="/ko/average-down"><span class="tool-icon" aria-hidden="true">↓</span><span class="tool-category">투자·세금</span><h3>물타기 계산기</h3><p>추가 매수 후 평균 단가를 확인하세요.</p><span class="tool-open">바로 이용하기 <span aria-hidden="true">↗</span></span></a><button class="tool-save" type="button" data-save="average-down" aria-label="물타기 계산기 즐겨찾기" aria-pressed="false" hidden>☆</button></article>
+<article class="tool-card" data-category="invest" data-keywords="배당 주식 월배당 세후 수익률" data-tool="dividend"><a href="/ko/dividend"><span class="tool-icon" aria-hidden="true">💵</span><span class="tool-category">투자·세금</span><h3>배당수익률 계산기</h3><p>투자금과 배당 조건으로 예상 배당을 계산하세요.</p><span class="tool-open">바로 이용하기 <span aria-hidden="true">↗</span></span></a><button class="tool-save" type="button" data-save="dividend" aria-label="배당수익률 계산기 즐겨찾기" aria-pressed="false" hidden>☆</button></article>
+<article class="tool-card" data-category="invest" data-keywords="목표가 주식 매도 손절 익절" data-tool="target"><a href="/ko/target"><span class="tool-icon" aria-hidden="true">🎯</span><span class="tool-category">투자·세금</span><h3>목표가 계산기</h3><p>목표 수익률에 필요한 매도 가격을 계산하세요.</p><span class="tool-open">바로 이용하기 <span aria-hidden="true">↗</span></span></a><button class="tool-save" type="button" data-save="target" aria-label="목표가 계산기 즐겨찾기" aria-pressed="false" hidden>☆</button></article>
+<article class="tool-card" data-category="invest" data-keywords="세금 해외주식 양도세 양도소득세" data-tool="tax"><a href="/ko/tax"><span class="tool-icon" aria-hidden="true">📋</span><span class="tool-category">투자·세금</span><h3>해외주식 양도세 계산기</h3><p>입력한 손익을 기준으로 예상 세금을 살펴보세요.</p><span class="tool-open">바로 이용하기 <span aria-hidden="true">↗</span></span></a><button class="tool-save" type="button" data-save="tax" aria-label="해외주식 양도세 계산기 즐겨찾기" aria-pressed="false" hidden>☆</button></article>
+<article class="tool-card" data-category="life" data-keywords="은퇴 경제적 자유 파이어 생활비" data-tool="fire"><a href="/ko/fire"><span class="tool-icon" aria-hidden="true">🔥</span><span class="tool-category">생활·목표</span><h3>파이어족 계산기</h3><p>목표 생활비와 자산으로 은퇴 계획을 세워보세요.</p><span class="tool-open">바로 이용하기 <span aria-hidden="true">↗</span></span></a><button class="tool-save" type="button" data-save="fire" aria-label="파이어족 계산기 즐겨찾기" aria-pressed="false" hidden>☆</button></article>
+<article class="tool-card" data-category="invest" data-keywords="ETF QQQ TQQQ SCHD VOO 적립식 백테스트" data-tool="etf-comparison"><a href="/ko/etf-comparison"><span class="tool-icon" aria-hidden="true">📊</span><span class="tool-category">투자·세금</span><h3>ETF 투자 시뮬레이션</h3><p>과거 시나리오로 ETF 투자 가정을 비교하세요.</p><span class="tool-open">바로 이용하기 <span aria-hidden="true">↗</span></span></a><button class="tool-save" type="button" data-save="etf-comparison" aria-label="ETF 투자 시뮬레이션 즐겨찾기" aria-pressed="false" hidden>☆</button></article>
+<article class="tool-card" data-category="guide" data-keywords="AI 인공지능 프롬프트 기업 ETF 분석 전략" data-tool="ai-investment"><a href="/ko/ai-investment"><span class="tool-icon" aria-hidden="true">✦</span><span class="tool-category">금융 가이드</span><h3>AI 투자 분석 요청문</h3><p>10가지 분석 템플릿을 복사해 질문을 준비하세요.</p><span class="tool-open">바로 이용하기 <span aria-hidden="true">↗</span></span></a><button class="tool-save" type="button" data-save="ai-investment" aria-label="AI 투자 분석 요청문 즐겨찾기" aria-pressed="false" hidden>☆</button></article>
+<article class="tool-card" data-category="guide" data-keywords="금융 공부 복리 개념 72 법칙" data-tool="concept"><a href="/ko/concept"><span class="tool-icon" aria-hidden="true">💡</span><span class="tool-category">금융 가이드</span><h3>복리 개념 가이드</h3><p>복리 주기와 72의 법칙을 쉽게 이해하세요.</p><span class="tool-open">바로 이용하기 <span aria-hidden="true">↗</span></span></a><button class="tool-save" type="button" data-save="concept" aria-label="복리 개념 가이드 즐겨찾기" aria-pressed="false" hidden>☆</button></article>
+<article class="tool-card" data-category="lotto" data-keywords="로또 당첨번호 복권 번호 생성 추출 패턴" data-tool="lotto-generator"><a href="/ko/lotto-generator"><span class="tool-icon" aria-hidden="true">🍀</span><span class="tool-category">로또</span><h3>로또 당첨번호 · 생성기</h3><p>내 번호 확인, 최근 100회 통계와 번호 생성.</p><span class="tool-open">바로 이용하기 <span aria-hidden="true">↗</span></span></a><button class="tool-save" type="button" data-save="lotto-generator" aria-label="로또 당첨번호 · 생성기 즐겨찾기" aria-pressed="false" hidden>☆</button></article></div><p id="tools-empty" class="tools-empty" hidden>일치하는 도구가 없습니다. 다른 검색어를 입력하거나 ‘전체’를 선택해 주세요.</p><noscript><p>모든 도구를 아래 카드에서 바로 이용할 수 있습니다. 검색과 즐겨찾기는 JavaScript가 필요합니다.</p></noscript></section>
+<section class="home-features" aria-labelledby="feature-title"><div class="home-section-head"><div><span class="home-eyebrow">EXPLORE</span><h2 id="feature-title">계산에서 한 걸음 더</h2></div></div><div class="feature-grid">
+<a class="home-feature feature-blue" href="/ko/etf-comparison"><span class="feature-label">투자 시뮬레이션</span><h3>ETF, 조건을 바꿔<br>비교해 보세요.</h3><p>과거 시나리오와 투자 가정을 함께 확인하세요.</p><span>ETF 비교하기 →</span></a>
+<a class="home-feature feature-red" href="/ko/ai-investment"><span class="feature-label">AI 분석 도구</span><h3>좋은 분석은<br>좋은 질문에서.</h3><p>기업·실적·리스크 등 10가지 요청문을 복사하세요.</p><span>분석 요청문 보기 →</span></a>
+<a class="home-feature feature-green" href="/ko/lotto-generator" id="lotto-tools"><span class="feature-label">LOTTO 6/45</span><h3>당첨번호 확인부터<br>나만의 번호 생성까지.</h3><p>최근 100회 공식 결과, 내 번호 비교와 패턴 통계.</p><span>로또 도구 열기 →</span></a></div></section>
+<section class="home-principles"><h2>숫자와 함께, 계산의 기준도 확인하세요.</h2><p>결과는 입력 조건과 각 도구의 가정을 따릅니다. 세금·수수료·기간 기준은 해당 페이지에서 확인해 주세요. 투자 시뮬레이션과 로또 패턴은 미래 수익이나 당첨을 보장하지 않습니다.</p><a href="/about">CALQIO 소개 →</a></section>
+</main>
 
 <!-- ═══ SEO 강화 가이드 콘텐츠 (1,500자+) ═══ -->
+<details class="home-guide"><summary>계산기 이용 가이드 · 자주 묻는 질문</summary>
 <section class="guide">
   <span class="gtag">Calqio 완벽 가이드</span>
   <h2>금융 IQ를 높이는 8가지 무료 계산기 활용법</h2>
@@ -213,7 +117,7 @@
   <p>각 계산기는 페이지에 설명된 공식·가정에 따라 <strong>브라우저에서 숫자를 계산</strong>합니다. 실제 투자 수익, 세금, 대출 조건은 시장·기관·법령에 따라 달라질 수 있으므로 중요한 결정 전에는 전문가와 상담하세요.</p>
 
   <h3>Q. 입력한 금액이 어딘가에 저장되나요?</h3>
-  <p>Calqio는 계산기 입력값을 서버 데이터베이스에 저장하지 않습니다. 계산은 브라우저에서 이루어집니다. 다만 URL 공유 기능을 쓰면 입력값이 <strong>링크(쿼리 문자열)</strong>에 포함될 수 있고, 테마 설정은 <strong>localStorage</strong>에 남을 수 있습니다. 탭을 닫으면 입력란 값은 사라지지만, 이미 복사한 URL은 그대로 남습니다.</p>
+  <p>Calqio는 계산기 입력값을 서버 데이터베이스에 저장하지 않습니다. 계산은 브라우저에서 이루어집니다. 다만 URL 공유 기능을 쓰면 입력값이 <strong>링크(쿼리 문자열)</strong>에 포함될 수 있고, 테마 설정과 즐겨찾기 도구 목록은 이 브라우저의 <strong>localStorage</strong>에 남을 수 있습니다. 탭을 닫으면 입력란 값은 사라지지만, 이미 복사한 URL은 그대로 남습니다.</p>
 
   <h3>Q. 모바일에서도 잘 작동하나요?</h3>
   <p>네, 모든 계산기는 iPhone, Galaxy 등 스마트폰에 최적화되어 있습니다. 가로 스크롤 없이 손가락 터치만으로 빠르게 계산할 수 있습니다.</p>
@@ -221,9 +125,10 @@
   <h3>Q. ETF 백테스팅 데이터는 어디서 가져온 건가요?</h3>
   <p>각 ETF의 공식 운용보고서와 야후 파이낸스 등 공개된 시장 데이터를 기반으로 합니다. 다만 과거 수익률은 미래 수익을 보장하지 않으므로 참고용으로만 활용하시기 바랍니다.</p>
 </section>
+</details>
 
 <footer>
-  <div>금융 IQ를 높이세요 — 8종 금융 계산기</div>
+  <div>CALQIO · 매일의 숫자를 쉽게</div>
   <div style="margin-top:8px">
     <a href="/about">소개</a>
     <a href="/privacy">개인정보처리방침</a>
@@ -232,7 +137,8 @@
   </div>
 </footer>
 <div id="toast"></div>
-<script src="../common.js"></script>
+<script src="/common.js"></script>
+<script src="/home.js" defer></script>
 <script>
 function toggleMenu(){document.getElementById('lBtn').classList.toggle('open');document.getElementById('lDrop').classList.toggle('open');}
 document.addEventListener('click',function(e){if(!e.target.closest('.lw')){var b=document.getElementById('lBtn'),d=document.getElementById('lDrop');if(b)b.classList.remove('open');if(d)d.classList.remove('open');}});
