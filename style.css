@@ -5,13 +5,15 @@
 /* ── Variables ── */
 :root {
   --bg:#0a0a0f; --bg2:#111118; --card:#18181f; --border:rgba(255,255,255,0.08);
-  --text:#f0f0f5; --text-sub:#8888a0; --text-muted:#50505f;
+  --text:#edf2ff; --text-sub:#b6c1d4; --text-muted:#a1aec3;
+  --ink-accent:#a6beff; --notice-bg:#382a10; --notice-text:#ffe1a3; --notice-border:#d5a540;
   --accent:#5b7fee; --accent2:#7c6ff7; --pos:#22c55e; --neg:#ef4444; --blue:#4fa8e8; --amber:#f59e0b;
   --nav-h:58px; --radius:14px; --radius-sm:8px;
 }
 body.light-mode {
   --bg:#f5f5f7; --bg2:#fff; --card:#fff; --border:rgba(0,0,0,0.1);
-  --text:#111; --text-sub:#555; --text-muted:#aaa;
+  --text:#1b2944; --text-sub:#43536d; --text-muted:#59677d;
+  --ink-accent:#3456b5; --notice-bg:#fff5d6; --notice-text:#75420b; --notice-border:#c98b16;
 }
 
 /* ── Reset ── */
@@ -895,4 +897,29 @@ body.light-mode .nav-cat-lotto { color: #096643; }
   .hero-banner-lotto .hb-title { line-height: 1.5; }
   .hero-banner-lotto .hb-desc { max-width: 380px; margin-left: auto; margin-right: auto; }
   .hero-banner-lotto .hb-cta { min-height: 44px; display: inline-flex; align-items: center; gap: 6px; }
+}
+
+/* Text hierarchy: retain the simple layout and each category's own banner. */
+.hero h1 em,.cc-label,.section h3 { color:var(--ink-accent); }
+.dash-title,.cc-title,.sec-title { color:var(--text); }
+.dash-desc,.cc-desc,.stext p,.sec-sub { font-size:14px; line-height:1.7; }
+.hb-desc { opacity:1; line-height:1.75; }
+footer { font-size:13px; line-height:1.8; }
+body.light-mode .nav-cat-lotto { color:#17603c; }
+.ai-page .ai-kicker,.ai-page .ai-tag,.ai-page .ai-sources a { color:var(--ink-accent); }
+.ai-page .ai-guide .ai-notice {
+  color:var(--notice-text); background:var(--notice-bg);
+  border:1px solid var(--notice-border); border-inline-start:4px solid var(--notice-border);
+  border-radius:8px; padding:14px 16px; margin-top:18px; font-size:14px; line-height:1.85;
+}
+.ai-notice strong { display:block; margin-bottom:4px; font-size:15px; }
+@media(max-width:640px) {
+  .dash-title { font-size:16px; }
+  .cc-title { font-size:15px; }
+  .hero p,.section p,.section li { font-size:15px; }
+  .ai-page .ai-steps p,.ai-page .ai-note,.ai-page .ai-card p,.ai-page .ai-check li { font-size:15px; line-height:1.85; }
+  .ai-page .ai-guide .ai-notice { font-size:15px; padding:14px; }
+  .ai-page .ai-tag,.ai-page .ai-kicker { font-size:13px; }
+  .ai-page summary,.ai-page .ai-copy { font-size:14px; }
+  .ih,.rs,.ril { font-size:13px; line-height:1.7; }
 }
