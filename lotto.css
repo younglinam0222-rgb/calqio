@@ -87,3 +87,10 @@ hr { border-color:var(--d4); margin:28px 0; }
 @media(prefers-reduced-motion:reduce) {
   *,*::before,*::after { animation:none !important; scroll-behavior:auto !important; transition:none !important; }
 }
+
+.range-custom { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-bottom:8px; }
+#analysis-range { width:100px; min-height:46px; padding:8px 12px; border:1px solid var(--d4); border-radius:8px; background:var(--d2); color:var(--text); font:inherit; font-size:18px; }
+#analysis-range:focus-visible { outline:3px solid var(--blue); outline-offset:2px; }
+#range-help { font-size:14px; color:var(--dim); }
+#range-error { color:var(--text); font-size:14px; margin-bottom:10px; }
+#analysis-range[aria-invalid="true"] { border:2px solid var(--red); }
