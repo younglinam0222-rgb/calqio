@@ -361,6 +361,7 @@ hr{border:none;border-top:1px solid #1C1C1C;margin:22px 0}
 }
 </style>
 <link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/lotto.css">
 <meta name="google-adsense-account" content="ca-pub-8205853473793766">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
 </head>
@@ -412,7 +413,7 @@ hr{border:none;border-top:1px solid #1C1C1C;margin:22px 0}
   <!-- LATEST DRAWS -->
   <div class="latest-wrap" id="latest-wrap">
     <div class="sec-label">📅 최근 당첨번호</div>
-    <div class="latest-scroll" id="latest-scroll">
+    <div class="latest-scroll" id="latest-scroll" tabindex="0" aria-label="최근 당첨번호, 좌우로 스크롤하여 확인">
       <div style="color:var(--dim);font-size:12px;padding:20px">로딩 중...</div>
     </div>
   </div>
@@ -769,11 +770,7 @@ function ballClass(n) {
   return 'b5';
 }
 function ballGrad(n) {
-  const g=['radial-gradient(circle at 35% 35%,#FF9999,#CC2222)',
-           'radial-gradient(circle at 35% 35%,#FFCC66,#CC8800)',
-           'radial-gradient(circle at 35% 35%,#FFEE88,#CCAA00)',
-           'radial-gradient(circle at 35% 35%,#88BBFF,#2255CC)',
-           'radial-gradient(circle at 35% 35%,#AABB88,#557733)'];
+  const g=['#a52b36','#865400','#efd35a','#285ca8','#38642c'];
   if(n<=10)return g[0];if(n<=20)return g[1];if(n<=30)return g[2];if(n<=40)return g[3];return g[4];
 }
 function ballTextColor(n){return(n>=21&&n<=30)?'#333':'white'}
@@ -797,8 +794,7 @@ function renderLatest() {
       </div>
     </div>
   `).join('');
-  // 무한 슬라이드를 위해 두 번 복제
-  el.innerHTML = cardHTML + cardHTML;
+  el.innerHTML = cardHTML;
 }
 
 // ════════════════════════════════
