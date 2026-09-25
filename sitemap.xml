@@ -2,12 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- 언어별 홈 (루트 '/'는 /ko/로 301 리다이렉트되므로 별도 entry 없음) -->
-  <url><loc>https://www.calqio.com/ko/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://www.calqio.com/en/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.calqio.com/ja/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.calqio.com/zh/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.calqio.com/ar/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <!-- 언어별 홈 (루트 '/'는 /ko로 308 리다이렉트되므로 별도 entry 없음) -->
+  <url><loc>https://www.calqio.com/ko</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.calqio.com/en</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.calqio.com/ja</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.calqio.com/zh</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.calqio.com/ar</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
 
   <!-- 계산기 - ko -->
   <url><loc>https://www.calqio.com/ko/compound</loc><changefreq>monthly</changefreq><priority>0.95</priority></url>
@@ -106,4 +106,5 @@
   <url><loc>https://www.calqio.com/zh/terms</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
   <url><loc>https://www.calqio.com/ar/terms</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
 
+  <url><loc>https://www.calqio.com/ko/lotto-generator</loc><changefreq>weekly</changefreq></url>
 </urlset>

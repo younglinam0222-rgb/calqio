@@ -1,0 +1,3 @@
+import assert from 'node:assert/strict';import{createRequire}from'node:module';const require=createRequire(import.meta.url);const{check}=require('../lotto-check.js');const draw={nums:[1,2,3,4,5,6],bonus:7};
+for(const [nums,rank]of [[[1,2,3,4,5,6],1],[[1,2,3,4,5,7],2],[[1,2,3,4,5,8],3],[[1,2,3,4,8,9],4],[[1,2,3,8,9,10],5],[[1,2,7,8,9,10],null]])assert.equal(check(nums,draw).rank,rank);
+for(const nums of [[1,1,2,3,4,5],[1,2,3,4,5,46],[0,2,3,4,5,6],[1,2,3,4,5,NaN],[1,2,3,4,5,1.5],[]])assert.throws(()=>check(nums,draw));console.log('PASS all rank conditions, duplicate, empty, range and integer validation');

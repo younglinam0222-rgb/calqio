@@ -8,7 +8,7 @@
 
   "redirects": [
 
-    { "source": "/", "destination": "https://www.calqio.com/ko/", "statusCode": 308 },
+    { "source": "/", "destination": "https://www.calqio.com/ko", "statusCode": 308 },
 
     { "source": "/fire", "destination": "https://www.calqio.com/ko/fire", "statusCode": 308 },
 

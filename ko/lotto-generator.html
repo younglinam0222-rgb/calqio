@@ -3,7 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>로또 AI 번호 추출기</title>
+<title>로또 당첨번호 확인 · 내 번호 비교 · 번호 생성기 | CALQIO</title>
+<meta name="description" content="공식 로또 당첨번호와 최근 100회 결과를 확인하고 내 번호 6개를 비교하세요. 합계·동반 출현 통계와 고정 번호를 지원하는 무료 번호 생성기입니다.">
+<link rel="canonical" href="https://www.calqio.com/ko/lotto-generator">
+<meta property="og:type" content="website">
+<meta property="og:title" content="로또 당첨번호 확인 · 내 번호 비교 | CALQIO">
+<meta property="og:description" content="최근 100회 공식 결과, 내 번호 확인, 통계와 번호 생성을 한곳에서 이용하세요.">
+<meta property="og:url" content="https://www.calqio.com/ko/lotto-generator">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CALQIO 로또 당첨번호 확인 및 번호 생성기","url":"https://www.calqio.com/ko/lotto-generator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","inLanguage":"ko","isAccessibleForFree":true}</script>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="로또 AI">
@@ -396,10 +403,11 @@ hr{border:none;border-top:1px solid #1C1C1C;margin:22px 0}
   <!-- HEADER -->
   <header>
     <div class="badge">★ LOTTO AI ANALYZER 2026 ★</div>
-    <h1>로또 <span class="g">AI</span><br>번호 추출기</h1>
+    <h1>로또 <span class="g">당첨번호</span> 확인<br>통계 · 번호 생성기</h1>
     <p class="sub">공식 당첨번호 기반 통계 · 페이지 이용 중 1분마다 갱신 확인</p>
   </header>
 
+  <div class="lotto-shortcuts" aria-label="로또 도구 바로가기"><a href="#draw-checker">당첨번호 · 내 번호 확인</a><a href="#lotto-generate">번호 생성</a><a href="#stats-section">통계·패턴 분석</a></div>
   <!-- CLOCK + STATUS BAR -->
   <div class="clock-bar">
     <div class="clock-dot" id="cdot"></div>
@@ -411,6 +419,20 @@ hr{border:none;border-top:1px solid #1C1C1C;margin:22px 0}
     <button class="chip" onclick="refreshDraws()">다시 확인</button>
   </div>
 
+  <section id="draw-checker" class="pattern-panel">
+    <h2>로또 당첨번호 · 내 번호 확인</h2>
+    <p>최근 100회 공식 결과 중 원하는 회차를 선택하세요. 내 번호는 브라우저에서만 비교하며 서버에 전송하거나 저장하지 않습니다.</p>
+    <label for="check-round">확인할 회차</label>
+    <select id="check-round" disabled onchange="showCheckDraw()"><option>공식 결과 확인 중</option></select>
+    <div id="check-draw" aria-live="polite"></div>
+    <form id="check-form" onsubmit="event.preventDefault();checkMyNumbers()">
+      <fieldset><legend>내 번호 6개 입력</legend><div class="check-inputs"><input type="number" min="1" max="45" step="1" inputmode="numeric" aria-label="내 번호 1" oninput="clearCheckResult()"><input type="number" min="1" max="45" step="1" inputmode="numeric" aria-label="내 번호 2" oninput="clearCheckResult()"><input type="number" min="1" max="45" step="1" inputmode="numeric" aria-label="내 번호 3" oninput="clearCheckResult()"><input type="number" min="1" max="45" step="1" inputmode="numeric" aria-label="내 번호 4" oninput="clearCheckResult()"><input type="number" min="1" max="45" step="1" inputmode="numeric" aria-label="내 번호 5" oninput="clearCheckResult()"><input type="number" min="1" max="45" step="1" inputmode="numeric" aria-label="내 번호 6" oninput="clearCheckResult()"></div></fieldset>
+      <button id="check-submit" class="chip" type="submit" disabled>내 번호 확인</button>
+      <button class="chip" type="button" onclick="document.getElementById('check-form').reset();clearCheckResult()">번호 지우기</button>
+    </form>
+    <p id="check-result" role="status" aria-live="polite"></p>
+    <p>결과는 참고용이며 실제 당첨 여부와 지급 금액은 <a href="https://www.dhlottery.co.kr/lt645/result" target="_blank" rel="noopener">동행복권 공식 결과</a>에서 최종 확인하세요.</p>
+  </section>
   <!-- LATEST DRAWS -->
   <div class="latest-wrap" id="latest-wrap">
     <div class="sec-label">📅 최근 당첨번호</div>
@@ -421,6 +443,7 @@ hr{border:none;border-top:1px solid #1C1C1C;margin:22px 0}
 
   <hr>
 
+  <div id="lotto-generate"></div>
   <!-- STRATEGY -->
   <div>
     <div class="sec-label">🎯 AI 추출 전략</div>
@@ -517,6 +540,12 @@ hr{border:none;border-top:1px solid #1C1C1C;margin:22px 0}
     </div>
   </div>
 
+  <section class="pattern-panel lotto-faq"><h2>로또 도구 이용 안내</h2>
+    <details><summary>최신 당첨번호는 언제 바뀌나요?</summary><p>페이지 접속과 이용 중 1분 간격으로 공식 결과를 확인합니다. 공식 발표·조회 지연 시에는 최신 여부를 확인할 수 없다고 안내하며 비교와 추출을 중단합니다.</p></details>
+    <details><summary>지난 회차도 확인할 수 있나요?</summary><p>회차 선택에서 최근 100회 결과를 확인할 수 있습니다. 더 오래된 회차는 동행복권 공식 사이트를 이용하세요.</p></details>
+    <details><summary>패턴 점수가 높으면 당첨 가능성이 높나요?</summary><p>아닙니다. 점수는 과거 자료에 정한 규칙이 얼마나 맞는지 보여줍니다. 모든 6개 번호 조합의 1등 확률은 같으며 패턴 분석이 미래의 우위를 입증하지 않습니다.</p></details>
+    <p><a href="/ko/compound">적립식 복리 계산기</a> · <a href="/ko/simple-vs-compound">단리·복리 이자 비교</a> · <a href="/ko">전체 계산기 보기</a></p>
+  </section>
   <div class="notice">
     <strong>⚙️ AI 알고리즘 설명</strong><br>
     동행복권 공식 결과 조회 · 최근 100회 검증 후 통계와 추출에 함께 반영<br>
@@ -543,6 +572,7 @@ hr{border:none;border-top:1px solid #1C1C1C;margin:22px 0}
 </footer>
 <script src="/common.js"></script>
 <script src="/lotto-pattern.js"></script>
+<script src="/lotto-check.js"></script>
 
 <!-- INSTALL BANNER -->
 <div class="inst-bar" id="inst-bar">
@@ -614,6 +644,10 @@ let refreshing = false;
 let lastCheck = 0;
 function unavailable(message) {
   dataReady = false;
+  document.getElementById('check-round').disabled=true;
+  document.getElementById('check-submit').disabled=true;
+  clearCheckResult();
+  document.getElementById('check-draw').textContent='공식 결과 확인 전에는 번호 비교를 이용할 수 없습니다.';
   if (patternWorker) { patternWorker.terminate(); patternWorker=null; }
   document.getElementById('gen-btn').disabled = true;
   document.getElementById('status-msg').textContent = message;
@@ -649,6 +683,7 @@ async function refreshDraws() {
       return;
     }
     dataReady = true;
+    if(changed || recovered) renderDrawChecker();
     if (rangeValid && (changed || recovered)) updateStats();
     document.getElementById('gen-btn').disabled = !rangeValid;
     document.getElementById('status-msg').textContent = `${draws[0].round}회 기준 · 최근 100회 공식 데이터 확인 · ${new Date(payload.checkedAt).toLocaleTimeString('ko-KR',{timeZone:'Asia/Seoul'})} 확인 (한국 시간)`;
@@ -1014,6 +1049,36 @@ function generate() {
   }
 }
 
+
+function clearCheckResult() {
+  document.getElementById('check-result').textContent='';
+  document.querySelectorAll('#check-form input').forEach(e=>e.removeAttribute('aria-invalid'));
+}
+function renderDrawChecker() {
+  const select=document.getElementById('check-round'),previous=Number(select.value);
+  select.innerHTML=allDraws.map(d=>`<option value="${d.round}">${d.round}회 · ${d.date}</option>`).join('');
+  if(allDraws.some(d=>d.round===previous))select.value=previous;
+  select.disabled=false;document.getElementById('check-submit').disabled=false;showCheckDraw();
+}
+function showCheckDraw() {
+  clearCheckResult();
+  const draw=allDraws.find(d=>d.round===Number(document.getElementById('check-round').value));
+  if(!dataReady||!draw)return;
+  document.getElementById('check-draw').innerHTML=`<h3>${draw.round}회 당첨번호 <small>${draw.date}</small></h3><div class="balls-row">${draw.nums.map(n=>`<span class="ball ${ballClass(n)}">${n}</span>`).join('')}<span class="check-bonus"><span>보너스</span><span class="ball ${ballClass(draw.bonus)}">${draw.bonus}</span></span></div>`;
+}
+function checkMyNumbers() {
+  if(!dataReady)return;
+  const inputs=[...document.querySelectorAll('#check-form input')],out=document.getElementById('check-result');
+  const draw=allDraws.find(d=>d.round===Number(document.getElementById('check-round').value));
+  clearCheckResult();
+  try {
+    const numbers=inputs.map(e=>e.value.trim()===''?NaN:Number(e.value));
+    const result=LottoCheck.check(numbers,draw);
+    out.textContent=`${draw.round}회 비교: ${result.matches.length}개 일치${result.matches.length?' ('+result.matches.join(', ')+')':''} · 보너스 ${result.bonus?'일치':'불일치'} · ${result.rank?result.rank+'등 조건에 해당':'당첨 조건에 해당하지 않음'}. 실제 결과는 공식 사이트에서 최종 확인하세요.`;
+  } catch(error) {
+    out.textContent=error.message;inputs.forEach(e=>e.setAttribute('aria-invalid','true'));inputs[0].focus();
+  }
+}
 
 function patternEvidence(p) {
   const examples=[...p.triples,...p.pairs].slice(0,3);

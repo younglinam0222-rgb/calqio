@@ -109,3 +109,19 @@ hr { border-color:var(--d4); margin:28px 0; }
 .pattern-explanation strong { color:var(--gold); }
 .pattern-panel .chip:disabled { opacity:.6; cursor:not-allowed; }
 @media(max-width:600px){.pattern-grid{grid-template-columns:1fr}.pattern-panel{padding:16px}.pattern-panel p,.pattern-explanation p{font-size:15px}}
+
+.lotto-shortcuts { display:flex; flex-wrap:wrap; gap:10px; margin:0 0 20px; }
+.lotto-shortcuts a { color:var(--gold); padding:10px 12px; border:1px solid var(--d4); border-radius:8px; background:var(--d2); font-size:14px; }
+#draw-checker,#lotto-generate,#stats-section { scroll-margin-top:80px; }
+#draw-checker h2,.lotto-faq h2 { font-size:21px; }
+#check-round { width:100%; margin:8px 0 18px; padding:10px; background:var(--d2); color:var(--text); border:1px solid var(--d4); border-radius:8px; font-size:16px; }
+#check-draw .balls-row { justify-content:flex-start; margin:14px 0; }
+#check-form fieldset { border:0; margin:18px 0 12px; }
+.check-inputs { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:8px; margin-top:8px; }
+.check-inputs input { width:100%; min-width:0; min-height:48px; font-size:18px; text-align:center; color:var(--text); background:var(--d1); border:1px solid var(--d4); border-radius:8px; }
+.check-inputs input[aria-invalid=true] { border:2px solid var(--red); }
+#draw-checker a,.lotto-faq a { color:var(--gold); text-decoration:underline; }
+#check-result { font-weight:700; color:var(--text); }
+
+#check-draw .ball { animation:none; }
+.check-bonus { display:inline-flex; align-items:center; gap:6px; }
