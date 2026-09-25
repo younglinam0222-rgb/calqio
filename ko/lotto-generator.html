@@ -435,7 +435,7 @@ hr{border:none;border-top:1px solid #1C1C1C;margin:22px 0}
         <div class="mi">⚖️</div><div class="mn">균형</div><div class="md">HOT+COLD<br>혼합</div>
       </button>
       <button class="mode-btn" data-mode="ai" onclick="setMode(this,'ai')">
-        <div class="mi">🤖</div><div class="mn">AI확률</div><div class="md">빈도비례<br>가중추출</div>
+        <div class="mi">🤖</div><div class="mn">CALQIO AI 패턴</div><div class="md">합계 · 2·3번호 조합<br>최근 반복 분석</div>
       </button>
       <button class="mode-btn" data-mode="smart" onclick="setMode(this,'smart')">
         <div class="mi">💡</div><div class="mn">스마트</div><div class="md">구간분산<br>패턴분석</div>
@@ -500,6 +500,7 @@ hr{border:none;border-top:1px solid #1C1C1C;margin:22px 0}
   <!-- STATS -->
   <div id="stats-section" style="display:none">
     <div class="stats-title">📈 <span>최근 <span id="range-lbl">50</span>회 통계</span></div>
+    <section id="pattern-panel" class="pattern-panel" aria-label="CALQIO 패턴 분석"></section>
     <div class="stat-grid">
       <div class="stat-card">
         <div class="sc-title">🔥 최다 출현 TOP 10</div>
@@ -519,7 +520,7 @@ hr{border:none;border-top:1px solid #1C1C1C;margin:22px 0}
   <div class="notice">
     <strong>⚙️ AI 알고리즘 설명</strong><br>
     동행복권 공식 결과 조회 · 최근 100회 검증 후 통계와 추출에 함께 반영<br>
-    HOT: 출현빈도 제곱 가중치 · AI확률: 빈도 비례 확률적 추출<br>
+    HOT: 출현빈도 가중치 · CALQIO AI 패턴: 합계·동반 출현·최근 반복 통계 점수<br>
     스마트: 구간(1-9,10-19,20-29,30-39,40-45) 분산 + 홀짝 균형 + 합계범위 검증<br>
     최근회차: 선택한 기간 내 최근 최대 10회 출현번호 풀에서 우선 추출
   </div>
@@ -541,6 +542,7 @@ hr{border:none;border-top:1px solid #1C1C1C;margin:22px 0}
   </div>
 </footer>
 <script src="/common.js"></script>
+<script src="/lotto-pattern.js"></script>
 
 <!-- INSTALL BANNER -->
 <div class="inst-bar" id="inst-bar">
@@ -578,6 +580,8 @@ let freqMap = {};
 let currentMode = 'hot';
 let currentRange = 50;
 let rangeValid = true;
+let patternModel = null;
+let patternWorker = null;
 let currentCount = 3;
 let fixedNums = new Set();
 
@@ -610,6 +614,7 @@ let refreshing = false;
 let lastCheck = 0;
 function unavailable(message) {
   dataReady = false;
+  if (patternWorker) { patternWorker.terminate(); patternWorker=null; }
   document.getElementById('gen-btn').disabled = true;
   document.getElementById('status-msg').textContent = message;
   document.getElementById('cdot').style.background = '#d18c23';
@@ -644,7 +649,7 @@ async function refreshDraws() {
       return;
     }
     dataReady = true;
-    if (rangeValid) updateStats();
+    if (rangeValid && (changed || recovered)) updateStats();
     document.getElementById('gen-btn').disabled = !rangeValid;
     document.getElementById('status-msg').textContent = `${draws[0].round}회 기준 · 최근 100회 공식 데이터 확인 · ${new Date(payload.checkedAt).toLocaleTimeString('ko-KR',{timeZone:'Asia/Seoul'})} 확인 (한국 시간)`;
     document.getElementById('cdot').style.background = 'var(--green)';
@@ -737,6 +742,7 @@ function updateStats() {
   }).join('');
 
   document.getElementById('stats-section').style.display = 'block';
+  renderPatterns(recent);
 }
 
 // ════════════════════════════════
@@ -794,14 +800,15 @@ function removeFix(n) {
 // ════════════════════════════════
 const STRATEGY_INFO = {
   hot: '🔥 <strong>HOT 전략</strong>: 최근 분석 기간 내 가장 많이 출현한 번호에 높은 가중치를 부여합니다. 출현 빈도의 제곱을 가중치로 계산해 핫한 번호가 선택될 확률이 크게 높아집니다.',
-  cold: '❄️ <strong>COLD 전략</strong>: 분석 기간 내 가장 적게 출현한 번호를 우선 선택합니다. "오래 안 나온 번호는 곧 나온다"는 이론 기반의 전략입니다.',
+  cold: '❄️ <strong>COLD 전략</strong>: 분석 기간 내 가장 적게 출현한 번호를 우선 선택합니다. 적게 나왔다는 사실이 다음 회차 출현 가능성을 높이지는 않습니다.',
   balanced: '⚖️ <strong>균형 전략</strong>: HOT 상위 번호 3개 + COLD 하위 번호 3개를 혼합합니다. 양극단을 균형 있게 조합해 다양성을 높입니다.',
-  ai: '🤖 <strong>AI 확률 전략</strong>: 각 번호의 출현 빈도에 비례한 확률로 추출합니다. 인기 번호가 좀 더 자주 선택되지만 랜덤성도 유지됩니다.',
+  ai: '🤖 <strong>CALQIO AI 패턴 v1</strong>: 최근 출현, 함께 나온 2·3개 번호, 합계, 홀짝·구간, 직전 회차 반복을 점수화합니다. 학습형 AI가 아닌 설명 가능한 통계 규칙입니다. 점수는 당첨 확률이 아니며 모든 6개 조합의 1등 확률은 같습니다. 10회 미만은 균등 무작위 추출을 사용합니다.',
   smart: '💡 <strong>스마트 전략</strong>: ① 5개 구간(1-9, 10-19, 20-29, 30-39, 40-45)에서 각 1개 이상 분산 ② 홀짝 균형(2:4~4:2) ③ 번호 합계 100-180 유지 ④ 3개 이상 연속번호 억제. 통계적으로 가장 균형잡힌 조합을 만듭니다.',
   recent: '⚡ <strong>최근 회차 전략</strong>: 선택한 분석 기간 안에서 최근 최대 10회 당첨번호에 등장한 번호들로 풀을 구성합니다. 최근 추세를 반영하는 전략으로, 최근 자주 나오는 번호들을 우선합니다.',
 };
 
 function pickNums(mode) {
+  if (mode === 'ai') return LottoPattern.generate(patternModel,[...fixedNums]);
   const pool = [...fixedNums]; // 고정 번호 먼저
   const need = 6 - pool.length;
   const exclude = new Set(pool);
@@ -811,7 +818,6 @@ function pickNums(mode) {
     case 'hot':    picked = wPick(freqMap, 'hot', need, exclude); break;
     case 'cold':   picked = wPick(freqMap, 'cold', need, exclude); break;
     case 'balanced': picked = pickBalanced(need, exclude); break;
-    case 'ai':     picked = wPick(freqMap, 'prop', need, exclude); break;
     case 'smart':  picked = pickSmart(need, exclude); break;
     case 'recent': picked = pickRecent(need, exclude); break;
     default:       picked = pickRand(need, exclude);
@@ -946,7 +952,7 @@ const MODE_TAGS = {
   hot: ['rtag-hot','🔥 HOT'],
   cold: ['rtag-cold','❄️ COLD'],
   balanced: ['rtag-bal','⚖️ 균형'],
-  ai: ['rtag-ai','🤖 AI'],
+  ai: ['rtag-ai','🤖 CALQIO 패턴'],
   smart: ['rtag-smart','💡 스마트'],
   recent: ['rtag-hot','⚡ 최근회차'],
 };
@@ -996,8 +1002,55 @@ function generate() {
         <div class="score-bg"><div class="score-fill" style="width:${score.sumScore}%;background:#CCAA00"></div></div>
         <span class="score-val">${score.sumScore}%</span>
       </div>`;
+    if (currentMode === 'ai') {
+      set.querySelectorAll('.score-row').forEach(el=>el.remove());
+      const detail = document.createElement('div'); detail.className='pattern-explanation';
+      const p = LottoPattern.score(patternModel, nums);
+      detail.innerHTML = patternModel.n < 10 ? '<strong>자료 부족 · 균등 무작위 추출</strong><p>10회 이상을 선택하면 패턴 점수를 적용합니다.</p>' :
+        `<strong>과거 패턴 점수 ${p.total} / 100점</strong><p>합계 ${p.sum} · 홀수 ${p.odd} / 짝수 ${6-p.odd} · 직전 회차와 ${p.repeat}개 겹침</p><p>2회 이상 함께 나온 쌍 ${p.pairs.length}개 · 세 번호 조합 ${p.triples.length}개</p><p>${patternEvidence(p)}</p><small>빈도 ${p.components.frequency.toFixed(1)} + 쌍 ${p.components.pairs.toFixed(1)} + 세 번호 ${p.components.triples.toFixed(1)} + 합계 ${p.components.sum.toFixed(1)} + 분포 ${p.components.shape.toFixed(1)} + 반복 ${p.components.repeat.toFixed(1)}점. 반올림으로 합계에 차이가 있을 수 있습니다. 당첨 확률이 아닙니다.</small>`;
+      set.appendChild(detail);
+    }
     area.appendChild(set);
   }
+}
+
+
+function patternEvidence(p) {
+  const examples=[...p.triples,...p.pairs].slice(0,3);
+  return examples.length ? examples.map(([k,c])=>`${k.replaceAll('-', '·')}: ${c}회 동반 출현`).join(' / ') : '반복 동반 출현 조합 없음';
+}
+function renderPatterns(draws) {
+  if(patternWorker){patternWorker.terminate();patternWorker=null;}
+  patternModel=LottoPattern.build(draws);
+  const m=patternModel;
+  const list=map=>{const a=LottoPattern.top(map);return a.length?a.map(([k,c])=>`<li>${k.replaceAll('-', ' · ')} <strong>${c}회 / ${m.n}회</strong></li>`).join(''):'<li>2회 이상 반복된 조합 없음</li>';};
+  document.getElementById('pattern-panel').innerHTML=`
+    <h3>CALQIO AI 패턴 분석 <small>v1 · 최근 ${m.n}회</small></h3>
+    <p>학습형 AI가 아닌 통계 규칙 기반 분석입니다. 과거 반복은 다음 당첨을 예측하거나 보장하지 않습니다.</p>
+    ${m.n<10?'<p class="pattern-warning">10회 미만: 표본이 적어 패턴 추천 대신 균등 무작위로 추출합니다.</p>':''}
+    <div class="pattern-grid">
+      <div><h4>숫자 합계</h4><p>중앙 50% 구간 ${m.q1}~${m.q3}<br>평균 ${(m.sums.reduce((a,b)=>a+b,0)/m.n).toFixed(1)} · 범위 ${m.sums[0]}~${m.sums[m.n-1]}</p></div>
+      <div><h4>직전 회차 번호 반복</h4><p>${m.n>1?Object.entries(m.repeat).map(([k,c])=>`${k}개 반복: ${c}/${m.n-1}회 비교`).join('<br>'):'2회 이상부터 비교 가능'}</p></div>
+      <div><h4>함께 나온 2개 번호 TOP 5</h4><ul>${list(m.pairs)}</ul></div>
+      <div><h4>함께 나온 3개 번호 TOP 5</h4><ul>${list(m.triples)}</ul></div>
+    </div>
+    <p><strong>최근 반복 출현 번호:</strong> ${m.returningHot.length?m.returningHot.map(x=>`${x.n}번(${x.count}회)`).join(', '):'해당 없음'}<br>최신 회차 이전 최대 10회 중 2회 이상 출현하고 최신 회차에도 나온 번호입니다. 실제 비교 ${m.priorCount}회.</p>
+    <details><summary>점수 계산 방식과 한계</summary><p>최근 출현 25점(10회마다 가중치 절반), 2개 동반 15점, 3개 동반 10점, 합계 20점(20 단위 구간), 홀짝·구간 분포 15점, 직전 회차 반복 15점. 동반 출현은 15개 쌍·20개 세 번호 조합의 평균 빈도를 사용하고 표본 수/(표본 수+30)으로 가중치를 줄입니다. 구간은 1~10·11~20·21~30·31~40·41~45입니다.</p><p>고정 번호를 포함한 무작위 후보 160개를 평가하고 상위 10개 중 하나를 무작위 선택합니다. 임의로 정한 설명 가능한 점수이며 교정된 확률이 아닙니다. 모든 6개 조합의 1등 확률은 1/8,145,060입니다.</p></details>
+    <button class="chip" onclick="runPatternCheck()" ${m.n<30?'disabled':''}>과거 회차 비교 검증</button>
+    <p id="pattern-check" role="status">30회 이상 선택하면 패턴·균등 무작위·빈도 상위 6개 방식을 비교할 수 있습니다.</p>`;
+}
+function runPatternCheck() {
+  const target=document.getElementById('pattern-check');
+  if(!dataReady || !rangeValid || currentRange<30 || patternWorker)return;
+  target.textContent='과거 회차를 순서대로 검증 중…';
+  patternWorker=new Worker('/lotto-pattern-worker.js');
+  patternWorker.onmessage=event=>{
+    const r=event.data.result;
+    target.textContent=r&&!r.insufficient?`검증 ${r.count}회 · 각 회차보다 이전 ${r.window}회만 분석 · 고정 번호 미사용 · 회차당 패턴/무작위 각 ${r.trials}회 추출 평균. 평균 일치 개수: 패턴 ${r.averages.pattern.toFixed(2)}개 / 균등 무작위 ${r.averages.random.toFixed(2)}개 / 빈도 상위 ${r.averages.frequency.toFixed(2)}개. 동일 조건 재현용 난수 사용. 적은 표본의 참고 결과이며 미래 성능이나 통계적 우위를 입증하지 않습니다.`:'검증할 자료가 부족하거나 계산에 실패했습니다.';
+    patternWorker.terminate();patternWorker=null;
+  };
+  patternWorker.onerror=()=>{target.textContent='검증을 실행하지 못했습니다. 다시 시도해 주세요.';patternWorker.terminate();patternWorker=null;};
+  patternWorker.postMessage(allDraws.slice(0,currentRange));
 }
 
 function copyNums(btn, nums) {
@@ -1037,6 +1090,7 @@ function applyRange() {
   });
   document.getElementById('results-area').textContent = rangeValid ? '분석 기간을 변경했습니다. 번호를 다시 추출해 주세요.' : '올바른 분석 기간을 입력해 주세요.';
   if (!rangeValid) {
+    if(patternWorker){patternWorker.terminate();patternWorker=null;}
     document.getElementById('stats-section').style.display = 'none';
     return;
   }
