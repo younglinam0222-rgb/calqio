@@ -73,7 +73,7 @@
 </head>
 <body>
 <nav>
-  <a href="/zh/" class="logo">Calq<span>io</span></a>
+  <a href="/zh" class="logo">Calq<span>io</span></a>
   <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 深色</button>
   <div class="lw">
     <button class="lc" id="lBtn" onclick="toggleMenu()">
@@ -94,7 +94,7 @@
 <div class="tabs"><a href="compound" class="tab "><span class="tab-icon">📈</span>复利计算器</a><a href="return" class="tab "><span class="tab-icon">💰</span>收益率计算器</a><a href="average-down" class="tab "><span class="tab-icon">⬇️</span>摊平成本计算器</a><a href="loan" class="tab "><span class="tab-icon">🏦</span>贷款利息计算器</a><a href="dividend" class="tab "><span class="tab-icon">💵</span>股息收益率计算器</a><a href="target" class="tab "><span class="tab-icon">🎯</span>目标价计算器</a><a href="tax" class="tab active"><span class="tab-icon">📋</span>资本利得税计算器</a><a href="percent" class="tab "><span class="tab-icon">%</span>百分比计算器</a></div>
 <div class="cf">
   <h1 class="ctitle"><strong>📋 资本利得税计算器</strong></h1>
-  <div class="ci">
+  <p class="quality-guide">无论显示货币如何，都使用假设的固定22%税率，不模拟中国或其他地区税法。买入、卖出、可扣费用及扣除额应使用同一货币。</p><div class="ci">
     <div class="inp">
 <!-- FX Banner -->
 <div id="fxBanner" style="display:flex;align-items:center;gap:8px;padding:9px 14px;background:rgba(76,175,121,.1);border:1px solid rgba(76,175,121,.3);border-radius:8px;margin-bottom:14px;font-size:.83rem;color:var(--text-sub);">
@@ -114,13 +114,7 @@
     </div>
   </div>
 </div>
-<section class="guide"><span class="gtag">金融知识指南</span><h2>资本利得税计算器完整指南</h2>
-<p>了解资本利得税对于计算真实投资回报至关重要。税率和规则因国家和持有期限而异。</p>
-<h3>计算公式</h3>
-<div class="fml">资本收益 = 卖出 - 买入 - 手续费
-应税金额 = 收益 - 免税额
-应缴税款 = 应税金额 × 税率</div>
-<div class="tip">💡 建议咨询税务顾问了解您的具体情况。</div></section>
+<section class="guide"><h2>固定22%税率假设 — 不是当地报税工具</h2><p>无论显示货币如何，都使用假设的固定22%税率，不模拟中国或其他地区税法。买入、卖出、可扣费用及扣除额应使用同一货币。</p><p>收益 = 卖出 − 买入 − 费用；应税额 = max(0, 收益 − 扣除额)；假设税款 = 应税额 × 22%。买入10,000、卖出15,000、费用50、扣除0，收益4,950、税款1,089、税后收益3,861。亏损时为0税款，不代表退税。</p><p>扣除、亏损抵扣、居民条件、持有期限及税率请查当地官方资料。韩国居民案例及韩国国税厅资料见韩语版。</p><p><a href="/ko/tax">한국어 · Korean</a></p></section>
 </div>
 <div style="max-width:960px;margin:0 auto;padding:24px 16px 40px;border-top:1px solid var(--border)"><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">更多</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-bottom:20px"><a href="compound" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">📈</div><div style="font-size:12px;font-weight:700;color:var(--text)">复利</div></a><a href="return" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">💰</div><div style="font-size:12px;font-weight:700;color:var(--text)">收益率</div></a><a href="average-down" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">⬇️</div><div style="font-size:12px;font-weight:700;color:var(--text)">均摊</div></a><a href="loan" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">🏦</div><div style="font-size:12px;font-weight:700;color:var(--text)">贷款</div></a></div><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">金融知识指南</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px"><a href="etf-comparison" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">📊&nbsp;ETF对比</div></a><a href="simple-vs-compound" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">📈&nbsp;单利vs复利</div></a><a href="concept" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">💡&nbsp;概念</div></a><a href="ai-investment" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">🤖&nbsp;AI分析</div></a></div></div>
 <div style="max-width:760px;margin:20px auto 0;padding:0 20px;text-align:center">

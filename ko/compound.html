@@ -128,7 +128,7 @@ select.if{cursor:pointer;}
 </head>
 <body>
 <nav>
-  <a href="/ko/" class="logo">Calq<span>io</span></a>
+  <a href="/ko" class="logo">Calq<span>io</span></a>
   <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 다크모드</button>
   <div class="lw">
     <button class="lc" id="lBtn" onclick="toggleMenu()"><span class="fl">🇰🇷</span><span>한국어</span><span class="arr">▼</span></button>
@@ -171,7 +171,7 @@ select.if{cursor:pointer;}
         <button id="modeBtn1" onclick="setMode(1)" style="flex:1;padding:8px 4px;border:none;border-radius:8px;font-size:.82rem;font-weight:600;cursor:pointer;background:transparent;color:var(--text-sub);transition:.2s;">적립식</button>
         <button id="modeBtn2" onclick="setMode(2)" style="flex:1;padding:8px 4px;border:none;border-radius:8px;font-size:.82rem;font-weight:600;cursor:pointer;background:transparent;color:var(--text-sub);transition:.2s;">거치+적립</button>
       </div>
-      <div class="inp-title">투자 설정</div>
+      <p id="mode-validation" class="field-validation" role="alert" hidden>올바른 투자 모드를 선택해주세요.</p><div class="inp-title">투자 설정</div>
       <div class="ig" id="rowP"><div class="il">초기 투자 원금</div>
         <div class="inp-suf"><input type="number" id="p" class="if" oninput="calcC()" value="10000000" min="0"><span>원</span></div>
         <div class="ierr" id="errP"></div></div>
@@ -248,14 +248,14 @@ select.if{cursor:pointer;}
         <div class="guide-box">
           <div class="guide-tit">📌 Calqio 복리계산기 — 제대로 쓰는 법</div>
           <div class="guide-body">
-            복리는 수익이 원금에 합쳐져 <strong>이자가 이자를 낳는</strong> 구조입니다. 단리와 달리 시간이 길수록 자산 증가 속도가 빨라집니다.
+            복리는 수익이나 손실이 반영된 잔액을 다음 회차의 기준으로 삼는 구조입니다. 양의 수익을 재투자하는 가정에서는 수익에도 다음 회차 수익이 붙습니다.
             <span class="fml-b">최종 자산 = 원금 × (1 + 회차 수익률)^총 회차
 예) 1,000만원 × (1.025)^30 ≈ 2,098만원 (세전, 일복리 30일)</span>
             <strong>72의 법칙:</strong> 72 ÷ 연 수익률(%) = 자산이 2배 되는 년수. 연 8% → 약 9년 후 2배.
             <span class="fml-b">72 ÷ 8(%) = 9년</span>
             <strong>기간 단위 활용법:</strong> 코인·주식 단타 시뮬레이션은 '일', 적금·배당 투자는 '개월'·'년'으로 설정하세요. 추가 납입란에 금액을 넣으면 <strong>적립식 복리 효과</strong>도 바로 확인할 수 있습니다.
             <strong>회차 수익률 vs 연 수익률:</strong> 입력 %는 <strong>선택한 기간 단위 1회차</strong>에 적용됩니다. 연 12%를 연 단위로 쓰려면 단위를 '년'으로 두세요.
-            <strong>검증 예시 (거치·세금 0):</strong> 1,000만 원, 30회차, 일 2.5% → 1,000만×1.025<sup>30</sup> ≈ <strong>20,975,876원</strong> (±1원). <a href="fire">FIRE</a> · <a href="concept">복리 개념</a>
+            <strong>검증 예시 (거치·세금 0):</strong> 1,000만 원, 30회차, 일 2.5% → 1,000만×1.025<sup>30</sup> ≈ <strong>20,975,676원</strong> (±1원). <a href="fire">FIRE</a> · <a href="concept">복리 개념</a>
             <strong>사용 순서:</strong> 거치/적립/거치+적립 모드 선택 → 원금·(선택) 매 회차 납입·기간 단위(일/월/년)·총 회차·회차 수익률 입력 → 「계산하기」. 납입 시점(회차 초/말)과 세금 옵션은 결과 표·그래프에 반영됩니다.
             <strong>결과 해석:</strong> 「최종 자산(세후)」= 마지막 회차 잔액. 「총 투자 원금」= 초기 원금+납입 합. 「누적 순수익」= 최종−원금(세후). 표의 「수익률」열은 해당 회차 말 기준 누적 수익률입니다.
             <strong>적립 검증 (세금 0, 회차 말):</strong> 원금 0, 매 회차 100만 원, 12회차, 회차 1% → 최종 약 <strong>12,682,503원</strong> (<code>scripts/verify-calculators.mjs</code>).
@@ -299,8 +299,14 @@ select.if{cursor:pointer;}
 ">🔗 결과 공유하기</button>
 </div>
 
+<section class="quality-guide"><h2>납입 시점에 따라 결과가 달라지는 이유</h2><p>이 도구는 매 회차에 같은 수익률이 적용된다고 가정합니다. 주식이 고정 이자를 지급한다는 뜻은 아닙니다. 단위를 바꾸면 입력한 숫자의 적용 기간이 바뀌며, 숫자를 자동 환산하지 않습니다.</p>
+<h3>0원으로 시작해 10만 원씩 2회 납입한다면</h3><p>회차 수익률 10%, 세금·물가 미반영의 가상 사례입니다. 회차 말 납입은 첫 회차 10만 원, 두 번째 회차 21만 원입니다. 회차 초 납입은 첫 회차 11만 원, 두 번째 회차 23만 1천 원입니다. 두 경우 모두 총 납입액은 20만 원입니다.</p>
+<p>회차 말: 다음 잔액 = 현재 잔액 × (1 + 수익률) + 납입액.<br>회차 초: 다음 잔액 = (현재 잔액 + 납입액) × (1 + 수익률).</p>
+<h3>수익률과 구매력은 별도입니다</h3><p>연 실효수익률을 월 수익률로 바꾸려면 (1 + 연 수익률)<sup>1/12</sup> − 1을 사용합니다. 예를 들어 연 12%는 월 약 0.9489%입니다. 명목 연이율을 12로 나누는 방식과 다릅니다. 물가 반영 결과는 최종 자산 ÷ (1 + 연 물가상승률)<sup>기간(년)</sup>이며, 일 단위는 365일을 1년으로 봅니다.</p>
+<p>‘세금 미반영’은 비과세 상품이라는 뜻이 아닙니다. 15.4% 옵션은 매 회차 양의 수익만 과세하는 단순 가정이며 실제 주식·예금·배당 과세를 재현하지 않습니다. 손실에는 환급을 가정하지 않습니다. 수수료는 포함하지 않습니다.</p>
+<p>원금과 납입액은 0 이상, 회차는 1~2,000 정수, 수익률은 −100% 이상입니다. 금액은 계산 중 반올림하지 않고 화면에서 원 단위로 반올림합니다. 공유 주소에는 입력 조건이 포함됩니다.</p></section>
 <footer>
-  <div>금융 IQ를 높이세요 — 8종 금융 계산기</div>
+  <div>CALQIO — 금융 계산기와 생활 도구</div>
   <div style="margin-top:8px"><a href="/about">소개</a><a href="/privacy">개인정보처리방침</a>
     <a href="/ko/terms">이용약관</a><a href="/contact">문의</a></div>
 </footer>
@@ -399,12 +405,12 @@ function run(){
   const mRawStr=document.getElementById('m').value;
   const yRawStr=document.getElementById('y').value;
   const rRawStr=document.getElementById('r').value;
-  const T=+document.getElementById('tax').value||0;
+  const T=Number(document.getElementById('tax').value);
   const timingEl=document.getElementById('timing');
   const timing=timingEl?timingEl.value:'end';
 
-  const pNum = pRawStr===''?0:Number(pRawStr);
-  const mNum = mRawStr===''?0:Number(mRawStr);
+  const pNum = pRawStr===''?NaN:Number(pRawStr);
+  const mNum = mRawStr===''?NaN:Number(mRawStr);
   const yNum = yRawStr===''?NaN:Number(yRawStr);
   const rPctNum = rRawStr===''?NaN:Number(rRawStr);
   const R = Number.isFinite(rPctNum)?rPctNum/100:NaN;
@@ -413,6 +419,16 @@ function run(){
   const mActive = currentMode!==0; // 거치식이 아니면 납입금 사용
 
   let hasErr=false;
+  const options=readInputs([['inflRate',0,20]],99);
+  if(document.getElementById('inflChk').checked&&!options)hasErr=true;
+  if(!document.getElementById('inflChk').checked){document.getElementById('inflRate-validation')?.remove();document.getElementById('inflRate').removeAttribute('aria-invalid');}
+  for(const [id,allowed] of [['unit',['y','mo','d']],['tax',['0','0.154']],['timing',['start','end']]]){
+    document.getElementById(id+'-validation')?.remove();document.getElementById(id).removeAttribute('aria-invalid');
+    if(!allowed.includes(document.getElementById(id).value)){inputIssue(id,1);hasErr=true;}
+  }
+  const modeError=document.getElementById('mode-validation');
+  if(modeError){modeError.hidden=Number.isInteger(currentMode)&&currentMode>=0&&currentMode<=2;if(!modeError.hidden)hasErr=true;}
+
 
   if(pActive){
     if(!Number.isFinite(pNum)){fieldError('errP','숫자를 입력해주세요');hasErr=true;}
@@ -473,7 +489,7 @@ function run(){
       bal = bal + net + M;
     }
     cumNet += net;
-    if(!Number.isFinite(bal) || !Number.isFinite(cumNet)){overflow=true;break;}
+    if(!Number.isFinite(bal) || !Number.isFinite(cumNet) || !Number.isFinite(P+M*i) || bal>Number.MAX_SAFE_INTEGER || P+M*i>Number.MAX_SAFE_INTEGER){overflow=true;break;}
     const contribSoFar = P + M*i;
     rows.push({i, contrib:contribSoFar, gr, cum:cumNet, bal, rate: contribSoFar!==0 ? cumNet/contribSoFar*100 : 0});
   }
@@ -503,7 +519,7 @@ function run(){
   const gc=dark?'rgba(255,255,255,.07)':'rgba(0,0,0,.07)';
   const tc=dark?'#777':'#666';
   if(ci)ci.destroy();
-  ci=new Chart(document.getElementById('mc').getContext('2d'),{
+  if(typeof Chart!=='undefined') ci=new Chart(document.getElementById('mc').getContext('2d'),{
     type:'line',
     data:{labels:rows.map(r=>r.i+L),datasets:[
       {label:'총 자산 (복리 효과)',data:rows.map(r=>r.bal),borderColor:'#4caf79',backgroundColor:'rgba(76,175,121,.1)',fill:true,tension:.4,pointRadius:rows.length>60?0:3,pointHoverRadius:6,borderWidth:2.5},
@@ -520,7 +536,7 @@ function run(){
   const inflChk=document.getElementById('inflChk');
   const inflResult=document.getElementById('inflResult');
   if(inflChk&&inflChk.checked){
-    const inflR=(+document.getElementById('inflRate').value||2.5)/100;
+    const inflR=Number(document.getElementById('inflRate').value)/100;
     const unitVal=document.getElementById('unit').value;
     let yearsForInfl;
     if(unitVal==='y')yearsForInfl=Y;
@@ -576,10 +592,11 @@ function syncUrlBar(){
 
 function share(){
   // 클릭 시점의 최신 입력값으로 즉시 링크를 만든다 (디바운스된 주소창 동기화를 기다리지 않음)
-  navigator.clipboard.writeText(currentShareUrl()).then(()=>toast('링크 복사됨 🔗'));
+  window.calqioShare();
 }
 
 window.calqioShare = async function(){
+  run(); if(!lastRunOk)return;
   const url=currentShareUrl();
   const title=document.title;
   if(navigator.share){
@@ -610,7 +627,7 @@ function loadFromUrl(){
   let timingMissingNotice=false;
   if(q.has('tm')){
     const tmEl=document.getElementById('timing');
-    if(tmEl)tmEl.value=(q.get('tm')==='start')?'start':'end';
+    if(tmEl)tmEl.value=q.get('tm');
   } else if(loaded && (+document.getElementById('m').value||0)>0){
     timingMissingNotice=true; // 기존 링크엔 납입 시점 정보가 없음 → 기본값(회차 말) 적용을 안내
   }
@@ -621,7 +638,7 @@ function loadFromUrl(){
   }
 
   if(q.has('md')){
-    const md=Math.min(2,Math.max(0,parseInt(q.get('md'),10)||0));
+    const md=q.get('md').trim()===''?NaN:Number(q.get('md'));
     setMode(md);
   } else {
     // 이전 공유 링크는 모드 파라미터가 없으므로 원금/납입금 값으로 모드를 추정 복원한다.

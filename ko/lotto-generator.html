@@ -375,8 +375,8 @@ hr{border:none;border-top:1px solid #1C1C1C;margin:22px 0}
 <body>
 
 <nav>
-  <a href="/ko/" class="logo">Calq<span>io</span></a>
-  <a href="/ko/" style="font-size:.85rem;color:#888;text-decoration:none;margin-right:auto;margin-left:8px">← 계산기 목록</a>
+  <a href="/ko" class="logo">Calq<span>io</span></a>
+  <a href="/ko" style="font-size:.85rem;color:#888;text-decoration:none;margin-right:auto;margin-left:8px">← 계산기 목록</a>
   <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 다크모드</button>
   <div class="lw">
     <button class="lc" id="lBtn" onclick="toggleMenu()">
@@ -402,7 +402,7 @@ hr{border:none;border-top:1px solid #1C1C1C;margin:22px 0}
 
   <!-- HEADER -->
   <header>
-    <div class="badge">★ LOTTO AI ANALYZER 2026 ★</div>
+    <div class="badge">LOTTO · 공식 결과와 통계</div>
     <h1>로또 <span class="g">당첨번호</span> 확인<br>통계 · 번호 생성기</h1>
     <p class="sub">공식 당첨번호 기반 통계 · 페이지 이용 중 1분마다 갱신 확인</p>
   </header>
@@ -446,7 +446,7 @@ hr{border:none;border-top:1px solid #1C1C1C;margin:22px 0}
   <div id="lotto-generate"></div>
   <!-- STRATEGY -->
   <div>
-    <div class="sec-label">🎯 AI 추출 전략</div>
+    <div class="sec-label">🎯 번호 추출 방식</div>
     <div class="mode-grid">
       <button class="mode-btn active" data-mode="hot" onclick="setMode(this,'hot')">
         <div class="mi">🔥</div><div class="mn">HOT</div><div class="md">최다출현<br>번호 위주</div>
@@ -490,7 +490,7 @@ hr{border:none;border-top:1px solid #1C1C1C;margin:22px 0}
 
   <!-- FIX NUMBERS -->
   <div class="fix-section">
-    <div class="sec-label">📌 내 번호 고정 <span style="font-size:9px;color:var(--blue)">(최대 5개 선택 → 나머지 AI 추출)</span></div>
+    <div class="sec-label">📌 내 번호 고정 <span style="font-size:9px;color:var(--blue)">(최대 5개 선택 → 나머지 자동 추출)</span></div>
     <div class="fix-grid" id="fix-grid"></div>
     <div class="fix-status" id="fix-status">
       <span style="color:var(--dim)">번호를 선택하면 그 번호를 포함하여 나머지를 AI가 채워드립니다</span>
@@ -547,7 +547,7 @@ hr{border:none;border-top:1px solid #1C1C1C;margin:22px 0}
     <p><a href="/ko/compound">적립식 복리 계산기</a> · <a href="/ko/simple-vs-compound">단리·복리 이자 비교</a> · <a href="/ko">전체 계산기 보기</a></p>
   </section>
   <div class="notice">
-    <strong>⚙️ AI 알고리즘 설명</strong><br>
+    <strong>⚙️ 통계 규칙 설명</strong><br>
     동행복권 공식 결과 조회 · 최근 100회 검증 후 통계와 추출에 함께 반영<br>
     HOT: 출현빈도 가중치 · CALQIO AI 패턴: 합계·동반 출현·최근 반복 통계 점수<br>
     스마트: 구간(1-9,10-19,20-29,30-39,40-45) 분산 + 홀짝 균형 + 합계범위 검증<br>
@@ -560,10 +560,11 @@ hr{border:none;border-top:1px solid #1C1C1C;margin:22px 0}
 
 </div><!-- /wrap -->
 
+<section class="quality-guide"><h2>숫자 합과 동반 출현 통계를 해석하는 방법</h2><p>분석에는 선택한 기간의 각 회차 본번호 6개를 사용하고 보너스 번호는 제외합니다. N회 자료에서 번호별 빈도의 합은 6N입니다. 한 회차에서 서로 다른 두 번호 조합은 15개, 세 번호 조합은 20개입니다. 분석 기간을 바꾸면 같은 번호라도 빈도와 패턴 점수가 달라집니다.</p><p>방법 설명용 가상 두 회차가 [1, 2, 3, 4, 5, 6]과 [1, 2, 3, 7, 8, 9]라면 합계는 21과 30, (1, 2) 쌍과 (1, 2, 3) 세 번호는 각각 2회 출현합니다. 실제 당첨번호 사례가 아닙니다.</p><p>특정 합계 범위에 해당하는 조합의 수와 특정 한 조합의 당첨 가능성은 다릅니다. 공정하고 독립적인 추첨에서 모든 6개 조합의 1등 확률은 1 ÷ C(45, 6) = 1/8,145,060입니다. 자주 나온 번호나 오랫동안 나오지 않은 번호가 다음 회차에 더 유리하다는 뜻은 아닙니다.</p><p>과거 비교는 평가 회차보다 앞선 자료만 사용하지만, 작은 표본의 결과가 미래 성능을 입증하지는 않습니다. 이 페이지에서는 복권 구매·베팅·유료 예측 판매를 제공하지 않습니다. 번호 비교는 참고용이며 최종 확인은 <a href="https://www.dhlottery.co.kr/lt645/result">동행복권 공식 결과</a>에서 하세요.</p></section>
 <footer>
   <div>로또 AI 번호 추출기 — Calqio</div>
   <div style="margin-top:8px">
-    <a href="/ko/">← 계산기 목록</a>
+    <a href="/ko">← 계산기 목록</a>
     <a href="/about">About</a>
     <a href="/privacy">Privacy</a>
     <a href="/ko/terms">이용약관</a>
@@ -838,7 +839,7 @@ const STRATEGY_INFO = {
   cold: '❄️ <strong>COLD 전략</strong>: 분석 기간 내 가장 적게 출현한 번호를 우선 선택합니다. 적게 나왔다는 사실이 다음 회차 출현 가능성을 높이지는 않습니다.',
   balanced: '⚖️ <strong>균형 전략</strong>: HOT 상위 번호 3개 + COLD 하위 번호 3개를 혼합합니다. 양극단을 균형 있게 조합해 다양성을 높입니다.',
   ai: '🤖 <strong>CALQIO AI 패턴 v1</strong>: 최근 출현, 함께 나온 2·3개 번호, 합계, 홀짝·구간, 직전 회차 반복을 점수화합니다. 학습형 AI가 아닌 설명 가능한 통계 규칙입니다. 점수는 당첨 확률이 아니며 모든 6개 조합의 1등 확률은 같습니다. 10회 미만은 균등 무작위 추출을 사용합니다.',
-  smart: '💡 <strong>스마트 전략</strong>: ① 5개 구간(1-9, 10-19, 20-29, 30-39, 40-45)에서 각 1개 이상 분산 ② 홀짝 균형(2:4~4:2) ③ 번호 합계 100-180 유지 ④ 3개 이상 연속번호 억제. 통계적으로 가장 균형잡힌 조합을 만듭니다.',
+  smart: '💡 <strong>스마트 전략</strong>: ① 5개 구간(1-9, 10-19, 20-29, 30-39, 40-45)에서 각 1개 이상 분산 ② 홀짝 균형(2:4~4:2) ③ 번호 합계 100-180 유지 ④ 3개 이상 연속번호 억제. 설정한 분포 조건에 맞는 조합을 찾으며 당첨 우위를 의미하지 않습니다.',
   recent: '⚡ <strong>최근 회차 전략</strong>: 선택한 분석 기간 안에서 최근 최대 10회 당첨번호에 등장한 번호들로 풀을 구성합니다. 최근 추세를 반영하는 전략으로, 최근 자주 나오는 번호들을 우선합니다.',
 };
 

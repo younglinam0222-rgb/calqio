@@ -45,7 +45,7 @@
 </head>
 <body>
 <nav>
-  <a href="/ar/" class="logo">Calq<span>io</span></a>
+  <a href="/ar" class="logo">Calq<span>io</span></a>
   <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 داكن</button>
   <div class="lw">
     <button class="lc" id="lBtn" onclick="toggleMenu()">
@@ -159,7 +159,7 @@
 <h3>الصيغة والحدود</h3>
 <p>كل شهر: أصول = أصول×(1+عائد شهري)+ادخار. حد أقصى 1,200 شهراً. بلا ضرائب أو رسوم.</p>
 <h3>أمثلة تحقق</h3>
-<p>① 0، 1M/شهر، هدف 100M، 6%، عمر 30 → <strong>6.8</strong> سنة، عمر <strong>37</strong> (<code>scripts/verify-calculators.mjs</code>). ② أصول=هدف 100M → <strong>0.0</strong> سنة.</p>
+<p>① 0، 1M/شهر، هدف 100M، 6%، عمر 30 → <strong>6.8</strong> سنة، عمر <strong>37</strong> (CALQIO). ② أصول=هدف 100M → <strong>0.0</strong> سنة.</p>
 <p>إذا لم يُبلغ الهدف خلال 1,200 شهراً تظهر <strong>—</strong> للعمر والمدة.</p>
 <p><a href="compound">حاسبة الفائدة المركبة</a></p>
   </div>
@@ -202,6 +202,9 @@ function fmt(n){
 
 // 파이어 계산 핵심
 function calcFire(){
+  var values=readInputs([['curr',0,1e15],['mon',0,1e15],['tgt',Number.MIN_VALUE,1e15],['ret',-100,100],['age',0,120]],99);
+  if(!values){['fireAge','fireYears','fireFinal','fire4pctAmount'].forEach(id=>document.getElementById(id).textContent='—');return;}
+
   var curr = parseFloat(document.getElementById('curr').value) || 0;
   var mon = parseFloat(document.getElementById('mon').value) || 0;
   var tgt = parseFloat(document.getElementById('tgt').value) || 0;
@@ -236,7 +239,7 @@ function calcFire(){
   }
   }
 
-  if(months >= 1200){
+  if(months >= 1200 && asset < tgt){
     document.getElementById('fireAge').textContent = '—';
     document.getElementById('fireYears').textContent = '—';
     document.getElementById('fireFinal').textContent = fmt(asset);

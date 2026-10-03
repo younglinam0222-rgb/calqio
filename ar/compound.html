@@ -73,7 +73,7 @@
 </head>
 <body>
 <nav>
-  <a href="/ar/" class="logo">Calq<span>io</span></a>
+  <a href="/ar" class="logo">Calq<span>io</span></a>
   <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 داكن</button>
   <div class="lw">
     <button class="lc" id="lBtn" onclick="toggleMenu()">
@@ -122,27 +122,7 @@
     </div>
   </div>
 </div>
-<section class="guide"><span class="gtag">دليل المعرفة المالية</span>
-<h2>حاسبة الفائدة المركبة — دليل شامل</h2>
-<p>على عكس الفائدة البسيطة، تُعاد استثمار العوائد فتنمو الأرصدة مع الوقت. النتائج السابقة لا تضمن المستقبل.</p>
-<h3>صيغة الفائدة المركبة</h3>
-<div class="fml">A = P × (1 + r)ⁿ
-A: المبلغ النهائي | P: رأس المال | r: المعدل السنوي | n: السنوات</div>
-<h3>قاعدة 72</h3>
-<div class="fml">سنوات مضاعفة رأس المال = 72 ÷ معدل العائد السنوي (%)
-مثال: 8% سنوياً ← يتضاعف خلال 9 سنوات</div>
-<ul>
-<li><strong>ابدأ مبكراً:</strong> البدء في سن 25 بدلاً من 35 يمكن أن يضاعف ثروتك عند التقاعد.</li>
-<li><strong>أعد استثمار الأرباح:</strong> أخذ الأرباح نقداً يوقف تأثير الفائدة المركبة.</li>
-</ul>
-<h3>طريقة الاستخدام</h3>
-<p>اختر الوضع → أدخل رأس المال، العائد السنوي، السنوات، الإضافة الشهرية → «احسب».</p>
-<h3>قراءة النتائج</h3>
-<p><code>calcC</code> يُركّب <strong>مرة سنوياً</strong> ثم يضيف 12×الإضافة الشهرية — يختلف عن الحاسبة الكورية (معدل لكل فترة).</p>
-<h3>أمثلة تحقق</h3>
-<p>10,000 رأس مال، 8%، 20 سنة → ≈ <strong>46,610</strong>. 0 + 500/شهر، 20 سنة، 8% → ≈ <strong>274,572</strong> (<code>scripts/verify-calculators.mjs</code>).</p>
-<p><a href="fire">FIRE</a> · <a href="/privacy">الخصوصية</a></p>
-<div class="tip">💡 جرب إدخال مبلغ الإضافة الشهرية. الادخار المنتظم أقوى من السعي وراء عوائد مرتفعة.</div></section>
+<section class="guide"><h2>تركيب سنوي ومساهمات مجمعة في نهاية السنة</h2><p>أدخل الأصل والمساهمة الشهرية والعائد السنوي وعدد السنوات الصحيح بين 1 و2,000. يجمع هذا الإصدار مساهمات 12 شهراً في نهاية السنة ولا يحسب تركيباً شهرياً. استخدم النسخة الكورية لتحديد توقيت المساهمة.</p><p>الرصيد السنوي = الرصيد السابق × (1 + العائد السنوي) + المساهمة الشهرية × 12. الأصل التراكمي = الأصل الأولي + المساهمة الشهرية × 12 × السنوات. يقبل 0% وخسائر حتى −100% دون ضرائب أو رسوم.</p><p>مثال افتراضي: أصل 10,000 وعائد 8% لمدة 30 سنة دون إضافات يعطي 100,626.57. مع 500 شهرياً مجمعة بنهاية السنة يعطي 780,325.84. بدءاً من صفر و500 شهرياً لمدة 20 سنة عند 8% يعطي 274,571.79. العرض مقرب لوحدة العملة الكاملة.</p><p>القوة الشرائية = الرصيد النهائي ÷ (1 + التضخم السنوي)^السنوات. لا تزيد المساهمة تلقائياً مع التضخم. العائد الثابت لا يمثل تقلب الأسهم أو دخلاً مضموناً.</p><p><a href="/ko/compound">한국어 · Korean</a></p></section>
 </div>
 <div style="max-width:960px;margin:0 auto;padding:24px 16px 40px;border-top:1px solid var(--border)"><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">المزيد</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-bottom:20px"><a href="return" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">💰</div><div style="font-size:12px;font-weight:700;color:var(--text)">العائد</div></a><a href="average-down" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">⬇️</div><div style="font-size:12px;font-weight:700;color:var(--text)">تدرج</div></a><a href="loan" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">🏦</div><div style="font-size:12px;font-weight:700;color:var(--text)">قرض</div></a><a href="dividend" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">💵</div><div style="font-size:12px;font-weight:700;color:var(--text)">أرباح</div></a></div><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">دليل المعرفة</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px"><a href="etf-comparison" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">📊&nbsp;ETF</div></a><a href="simple-vs-compound" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">📈&nbsp;بسيطة/مركبة</div></a><a href="concept" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">💡&nbsp;مفهوم</div></a><a href="ai-investment" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">🤖&nbsp;AI</div></a></div></div>
 <div style="max-width:760px;margin:20px auto 0;padding:0 20px;text-align:center">
@@ -188,12 +168,12 @@ function recalcInflation(){
   const inflChk=document.getElementById('inflChk');
   const inflResult=document.getElementById('inflResult');
   if(!inflChk||!inflResult)return;
-  if(inflChk.checked){
+  if(inflChk.checked && window.compoundBalance != null){
     const Y2=+(document.getElementById('y')&&document.getElementById('y').value)||20;
-    const inflR=(+document.getElementById('inflRate').value||2.5)/100;
+    const inflation=readInputs([['inflRate',0,20]],99);if(!inflation){inflResult.style.display='none';return;}const inflR=inflation[0]/100;
     const finalEl=document.querySelector('#r0 .rv');
     if(finalEl){
-      const nomVal=parseFloat(String(finalEl.textContent).replace(/[^0-9.]/g,''))||0;
+      const nomVal=window.compoundBalance;
       const realVal=nomVal/Math.pow(1+inflR,Y2);
       const wrap=v=>v.toLocaleString(undefined,{maximumFractionDigits:0});
       const cur=(window.LC&&window.LC.cur)||'';
@@ -238,6 +218,15 @@ document.addEventListener("DOMContentLoaded",function(){calcC()});
         }
       }
     });
+    if(params.has('md')){
+      const mode=Number(params.get('md'));
+      if(![0,1,2].includes(mode)||params.get('md').trim()===''){inputIssue('p',1);hide(0);return true;}
+      setMode(mode);
+    }else{setMode(Number(document.getElementById('m').value)>0?(Number(document.getElementById('p').value)>0?2:1):0);}
+    const inflation=document.getElementById('inflChk');
+    if(params.has('ic'))inflation.checked=params.get('ic')==='1';
+    if(params.has('ir'))document.getElementById('inflRate').value=params.get('ir');
+    calcC();recalcInflation();
     return loaded;
   }
 
@@ -253,6 +242,7 @@ document.addEventListener("DOMContentLoaded",function(){calcC()});
           params.set(id, el.value);
         }
       });
+      params.set('md',String(currentMode));params.set('ic',document.getElementById('inflChk').checked?'1':'0');params.set('ir',document.getElementById('inflRate').value);
       var qs = params.toString();
       var newUrl = window.location.pathname + (qs ? '?' + qs : '');
       window.history.replaceState({}, '', newUrl);
@@ -261,7 +251,10 @@ document.addEventListener("DOMContentLoaded",function(){calcC()});
 
   // 3) Web Share API 버튼 클릭 처리
   window.calqioShare = async function(){
-    var url = window.location.href;
+    calcC();if(document.getElementById('r0').style.display==='none')return;
+    const params=new URLSearchParams();INPUT_IDS.forEach(id=>params.set(id,document.getElementById(id).value));
+    params.set('md',String(currentMode));params.set('ic',document.getElementById('inflChk').checked?'1':'0');params.set('ir',document.getElementById('inflRate').value);
+    var url = location.origin+location.pathname+'?'+params;
     var title = document.title;
     var shareData = {title: title, text: title, url: url};
 
@@ -304,6 +297,7 @@ document.addEventListener("DOMContentLoaded",function(){calcC()});
 
   // 4) 이벤트 바인딩 + 초기 실행
   function init(){
+    ['inflChk','inflRate'].forEach(id=>document.getElementById(id).addEventListener('change',syncToUrl));
     INPUT_IDS.forEach(function(id){
       var el = document.getElementById(id);
       if(el){

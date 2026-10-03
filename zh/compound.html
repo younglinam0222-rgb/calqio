@@ -73,7 +73,7 @@
 </head>
 <body>
 <nav>
-  <a href="/zh/" class="logo">Calq<span>io</span></a>
+  <a href="/zh" class="logo">Calq<span>io</span></a>
   <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 深色</button>
   <div class="lw">
     <button class="lc" id="lBtn" onclick="toggleMenu()">
@@ -122,26 +122,7 @@
     </div>
   </div>
 </div>
-<section class="guide"><span class="gtag">金融知识指南</span>
-<h2>复利计算器完整指南</h2>
-<p>与单利不同，复利将收益再投入本金，长期可能加速增长。过去表现不保证未来结果。</p>
-<h3>复利计算公式</h3>
-<div class="fml">A = P × (1 + r)ⁿ
-A: 最终金额 | P: 本金 | r: 年收益率(小数) | n: 年数</div>
-<p>例如：10万元以年化8%复利投资30年，最终达到约100万元。同等条件下单利仅为34万元。</p>
-<h3>72法则</h3>
-<div class="fml">资产翻倍年数 = 72 ÷ 年收益率(%)
-例：年化8% → 9年翻倍</div>
-<h3>使用方法</h3>
-<p>选择模式 → 输入本金、年化收益率、年数、每月定投 → 「计算」。通胀选项将名义最终额换算为粗略实际购买力。</p>
-<h3>结果解读</h3>
-<p><strong>最终资产</strong> = 循环结束时的余额。<code>calcC</code>为<strong>每年复利一次</strong>后加12×月供（与韩语版「每期收益率」不同）。</p>
-<h3>验证示例</h3>
-<p>本金1万、8%、20年、定投0 → 约<strong>46,610</strong>。0本金、每月500、20年、8% → 约<strong>274,572</strong>（<code>scripts/verify-calculators.mjs</code>）。</p>
-<h3>局限</h3>
-<p>年数须为1–2000的正整数；本金与定投不能同时为0。</p>
-<p><a href="fire">FIRE</a> · <a href="/privacy">隐私</a></p>
-<div class="tip">💡 尝试填写每月定投金额。坚持定投比追求高收益更有效。</div></section>
+<section class="guide"><h2>年复利与年末合并投入</h2><p>输入本金、每月投入、年收益率和年数（1–2,000整数）。此版本把12个月的投入合并在年末加入，不按月复利。需要选择投入时点时请使用韩语版。</p><p>每年余额 = 上年余额 × (1 + 年收益率) + 月投入 × 12。累计本金 = 初始本金 + 月投入 × 12 × 年数。允许0%及不低于−100%的收益率，不含税费。</p><p>假设本金10,000，年收益8%，30年，无追加，结果100,626.57。每月500合并于年末投入，结果780,325.84。本金0、每月500、20年、8%，结果274,571.79。显示时按货币整数单位取整。</p><p>实际购买力 = 最终余额 ÷ (1 + 年通胀率)^年数。月投入不随通胀增加。恒定收益模拟不代表股票波动或收益保证。</p><p><a href="/ko/compound">한국어 · Korean</a></p></section>
 </div>
 <div style="max-width:960px;margin:0 auto;padding:24px 16px 40px;border-top:1px solid var(--border)"><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">更多</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-bottom:20px"><a href="return" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">💰</div><div style="font-size:12px;font-weight:700;color:var(--text)">收益率</div></a><a href="average-down" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">⬇️</div><div style="font-size:12px;font-weight:700;color:var(--text)">均摊</div></a><a href="loan" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">🏦</div><div style="font-size:12px;font-weight:700;color:var(--text)">贷款</div></a><a href="dividend" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">💵</div><div style="font-size:12px;font-weight:700;color:var(--text)">股息</div></a></div><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">金融知识指南</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px"><a href="etf-comparison" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">📊&nbsp;ETF对比</div></a><a href="simple-vs-compound" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">📈&nbsp;单利vs复利</div></a><a href="concept" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">💡&nbsp;概念</div></a><a href="ai-investment" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">🤖&nbsp;AI分析</div></a></div></div>
 <div style="max-width:760px;margin:20px auto 0;padding:0 20px;text-align:center">
@@ -187,12 +168,12 @@ function recalcInflation(){
   const inflChk=document.getElementById('inflChk');
   const inflResult=document.getElementById('inflResult');
   if(!inflChk||!inflResult)return;
-  if(inflChk.checked){
+  if(inflChk.checked && window.compoundBalance != null){
     const Y2=+(document.getElementById('y')&&document.getElementById('y').value)||20;
-    const inflR=(+document.getElementById('inflRate').value||2.5)/100;
+    const inflation=readInputs([['inflRate',0,20]],99);if(!inflation){inflResult.style.display='none';return;}const inflR=inflation[0]/100;
     const finalEl=document.querySelector('#r0 .rv');
     if(finalEl){
-      const nomVal=parseFloat(String(finalEl.textContent).replace(/[^0-9.]/g,''))||0;
+      const nomVal=window.compoundBalance;
       const realVal=nomVal/Math.pow(1+inflR,Y2);
       const wrap=v=>v.toLocaleString(undefined,{maximumFractionDigits:0});
       const cur=(window.LC&&window.LC.cur)||'';
@@ -237,6 +218,15 @@ document.addEventListener("DOMContentLoaded",function(){calcC()});
         }
       }
     });
+    if(params.has('md')){
+      const mode=Number(params.get('md'));
+      if(![0,1,2].includes(mode)||params.get('md').trim()===''){inputIssue('p',1);hide(0);return true;}
+      setMode(mode);
+    }else{setMode(Number(document.getElementById('m').value)>0?(Number(document.getElementById('p').value)>0?2:1):0);}
+    const inflation=document.getElementById('inflChk');
+    if(params.has('ic'))inflation.checked=params.get('ic')==='1';
+    if(params.has('ir'))document.getElementById('inflRate').value=params.get('ir');
+    calcC();recalcInflation();
     return loaded;
   }
 
@@ -252,6 +242,7 @@ document.addEventListener("DOMContentLoaded",function(){calcC()});
           params.set(id, el.value);
         }
       });
+      params.set('md',String(currentMode));params.set('ic',document.getElementById('inflChk').checked?'1':'0');params.set('ir',document.getElementById('inflRate').value);
       var qs = params.toString();
       var newUrl = window.location.pathname + (qs ? '?' + qs : '');
       window.history.replaceState({}, '', newUrl);
@@ -260,7 +251,10 @@ document.addEventListener("DOMContentLoaded",function(){calcC()});
 
   // 3) Web Share API 버튼 클릭 처리
   window.calqioShare = async function(){
-    var url = window.location.href;
+    calcC();if(document.getElementById('r0').style.display==='none')return;
+    const params=new URLSearchParams();INPUT_IDS.forEach(id=>params.set(id,document.getElementById(id).value));
+    params.set('md',String(currentMode));params.set('ic',document.getElementById('inflChk').checked?'1':'0');params.set('ir',document.getElementById('inflRate').value);
+    var url = location.origin+location.pathname+'?'+params;
     var title = document.title;
     var shareData = {title: title, text: title, url: url};
 
@@ -303,6 +297,7 @@ document.addEventListener("DOMContentLoaded",function(){calcC()});
 
   // 4) 이벤트 바인딩 + 초기 실행
   function init(){
+    ['inflChk','inflRate'].forEach(id=>document.getElementById(id).addEventListener('change',syncToUrl));
     INPUT_IDS.forEach(function(id){
       var el = document.getElementById(id);
       if(el){

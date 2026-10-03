@@ -45,7 +45,7 @@
 </head>
 <body>
 <nav>
-  <a href="/ja/" class="logo">Calq<span>io</span></a>
+  <a href="/ja" class="logo">Calq<span>io</span></a>
   <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 ダーク</button>
   <div class="lw">
     <button class="lc" id="lBtn" onclick="toggleMenu()">
@@ -168,7 +168,7 @@
 <h3>計算式・限界</h3>
 <p>毎月末: 資産=資産×(1+月利)+積立。最大1,200ヶ月。税・手数料・住宅ローン等は含みません。</p>
 <h3>検証例</h3>
-<p>① 0開始・月100万・目標1億・年6%・物価OFF・年齢30 → 約<strong>6.8年</strong>・リタイア年齢<strong>37</strong>（<code>scripts/verify-calculators.mjs</code>）。② 現資産=目標1億 → <strong>0.0年</strong>。</p>
+<p>① 0開始・月100万・目標1億・年6%・物価OFF・年齢30 → 約<strong>6.8年</strong>・リタイア年齢<strong>37</strong>（CALQIO）。② 現資産=目標1億 → <strong>0.0年</strong>。</p>
 <h3>特殊表示</h3>
 <p>1,200ヶ月以内に未到達なら年齢・期間は<strong>—</strong>。</p>
 <p><a href="compound">複利計算機</a> · <a href="/privacy">Privacy</a></p>
@@ -212,6 +212,9 @@ function fmt(n){
 
 // 파이어 계산 핵심
 function calcFire(){
+  var values=readInputs([['curr',0,1e15],['mon',0,1e15],['tgt',Number.MIN_VALUE,1e15],['ret',-100,100],['age',0,120]],99);
+  if(!values){['fireAge','fireYears','fireFinal','fire4pctAmount'].forEach(id=>document.getElementById(id).textContent='—');return;}
+
   var curr = parseFloat(document.getElementById('curr').value) || 0;
   var mon = parseFloat(document.getElementById('mon').value) || 0;
   var tgt = parseFloat(document.getElementById('tgt').value) || 0;
@@ -246,7 +249,7 @@ function calcFire(){
   }
   }
 
-  if(months >= 1200){
+  if(months >= 1200 && asset < tgt){
     document.getElementById('fireAge').textContent = '—';
     document.getElementById('fireYears').textContent = '—';
     document.getElementById('fireFinal').textContent = fmt(asset);

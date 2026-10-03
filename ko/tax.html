@@ -50,11 +50,11 @@
 <meta name="google-site-verification" content="6II_gyhSkNgRi3bW9SNuoHxRlMBvBI2kJGn3GHCLsrg">
 <meta name="google-adsense-account" content="ca-pub-8205853473793766">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205853473793766" crossorigin="anonymous"></script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "국내주식도 양도소득세가 부과되나요?", "acceptedAnswer": {"@type": "Answer", "text": "대주주(지분율 1% 이상 또는 보유액 10억원 이상 등 요건 충족 시)가 아니면 국내 상장주식 양도차익은 비과세입니다. 이 계산기는 해외주식처럼 양도세가 발생하는 경우를 기준으로 합니다."}}, {"@type": "Question", "name": "기본공제 250만원은 매매마다 적용되나요?", "acceptedAnswer": {"@type": "Answer", "text": "아니요, 1년(1.1~12.31) 동안의 전체 양도차익을 합산한 뒤 연 1회 250만원이 공제됩니다. 이 계산기는 1건 기준 계산이므로 여러 건을 거래했다면 연간 합산 후 재계산하세요."}}, {"@type": "Question", "name": "손실이 난 종목은 어떻게 반영하나요?", "acceptedAnswer": {"@type": "Answer", "text": "같은 해에 발생한 다른 종목의 이익과 손실을 합산(손익통산)해서 과세표준을 줄일 수 있습니다. 연말에 손실 종목을 매도하는 절세 전략(Tax-Loss Harvesting)이 여기서 나온 개념입니다."}}, {"@type": "Question", "name": "환율은 어떤 기준으로 적용하나요?", "acceptedAnswer": {"@type": "Answer", "text": "실제 신고 시에는 매수일·매도일 각각의 기준환율(원화 환산)을 적용해야 합니다. 화면의 USD/KRW는 한국수출입은행 Open API 매매기준율 캐시(/fx-rates.json) 참고값이며, 신고용 환율과 다를 수 있습니다."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "국내주식도 양도소득세가 부과되나요?", "acceptedAnswer": {"@type": "Answer", "text": "국내 상장주식은 대주주 여부·거래시장·장내/장외 거래 등에 따라 과세가 달라집니다. 이 도구는 국내주식 대주주 여부를 판정하지 않습니다. 국세청의 해당 연도 안내를 확인하세요."}}, {"@type": "Question", "name": "기본공제 250만원은 매매마다 적용되나요?", "acceptedAnswer": {"@type": "Answer", "text": "아니요, 1년(1.1~12.31) 동안의 전체 양도차익을 합산한 뒤 연 1회 250만원이 공제됩니다. 과세대상 국내·국외주식의 기본공제는 합산 연 250만 원입니다. 여러 계좌·거래를 합산하고 이미 사용한 공제액을 고려하세요."}}, {"@type": "Question", "name": "손실이 난 종목은 어떻게 반영하나요?", "acceptedAnswer": {"@type": "Answer", "text": "같은 해에 발생한 다른 종목의 이익과 손실을 합산(손익통산)해서 과세표준을 줄일 수 있습니다. 연말에 손실 종목을 매도하는 절세 전략(Tax-Loss Harvesting)이 여기서 나온 개념입니다."}}, {"@type": "Question", "name": "환율은 어떤 기준으로 적용하나요?", "acceptedAnswer": {"@type": "Answer", "text": "실제 신고 시에는 매수일·매도일 각각의 기준환율(원화 환산)을 적용해야 합니다. 화면의 USD/KRW는 한국수출입은행 Open API 매매기준율 캐시(/fx-rates.json) 참고값이며, 신고용 환율과 다를 수 있습니다."}}]}</script>
 </head>
 <body>
 <nav>
-  <a href="/ko/" class="logo">Calq<span>io</span></a>
+  <a href="/ko" class="logo">Calq<span>io</span></a>
   <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 다크모드</button>
   <div class="lw">
     <button class="lc" id="lBtn" onclick="toggleMenu()">
@@ -98,17 +98,17 @@
   </div>
 </div>
 <section class="guide"><span class="gtag">금융 지식 가이드</span><h2>해외주식 양도소득세 계산기 완벽 가이드</h2>
-<p>해외주식 양도차익에는 기본공제 250만 원 초과분에 22%(소득세 20% + 지방세 2%)의 세율이 적용됩니다.</p>
+<p>이 도구는 한국 거주자의 일반적인 국외주식에 대해 소득세 20%와 지방소득세 2%를 합친 22%를 가정합니다. 다른 세율 적용 대상이나 비거주자에게 그대로 적용할 수 없습니다.</p>
 <h3>계산 공식</h3>
 <div class="fml">양도차익 = 매도금액 - 매수금액 - 수수료
-과세표준 = 양도차익 - 기본공제(250만 원)
+과세표준 = max(0, 양도차익 - 기본공제)
 납부세액 = 과세표준 × 22%</div>
 <p>예: 1,000만 원 수익 → 과세표준 750만 원 × 22% = 165만 원 납부, 세후 순이익 835만 원.</p>
 <h3>절세 전략</h3>
 <p>연말에 손실 종목을 매도해 이익과 손익통산하면 과세표준을 줄일 수 있습니다(Tax-Loss Harvesting). 매년 250만 원 기본공제를 적극 활용하세요.</p>
 <div class="tip">💡 해외주식 양도세는 매년 5월에 전년도 거래분을 신고·납부합니다.</div><h3>자주 묻는 질문</h3>
-<div class="faq-item"><div class="faq-q">Q. 국내주식도 양도소득세가 부과되나요?</div><div class="faq-a">대주주(지분율 1% 이상 또는 보유액 10억원 이상 등 요건 충족 시)가 아니면 국내 상장주식 양도차익은 비과세입니다. 이 계산기는 해외주식처럼 양도세가 발생하는 경우를 기준으로 합니다.</div></div>
-<div class="faq-item"><div class="faq-q">Q. 기본공제 250만원은 매매마다 적용되나요?</div><div class="faq-a">아니요, 1년(1.1~12.31) 동안의 전체 양도차익을 합산한 뒤 연 1회 250만원이 공제됩니다. 이 계산기는 1건 기준 계산이므로 여러 건을 거래했다면 연간 합산 후 재계산하세요.</div></div>
+<div class="faq-item"><div class="faq-q">Q. 국내주식도 양도소득세가 부과되나요?</div><div class="faq-a">국내 상장주식은 대주주 여부·거래시장·장내/장외 거래 등에 따라 과세가 달라집니다. 이 도구는 국내주식 대주주 여부를 판정하지 않습니다. 국세청의 해당 연도 안내를 확인하세요.</div></div>
+<div class="faq-item"><div class="faq-q">Q. 기본공제 250만원은 매매마다 적용되나요?</div><div class="faq-a">아니요, 1년(1.1~12.31) 동안의 전체 양도차익을 합산한 뒤 연 1회 250만원이 공제됩니다. 과세대상 국내·국외주식의 기본공제는 합산 연 250만 원입니다. 여러 계좌·거래를 합산하고 이미 사용한 공제액을 고려하세요.</div></div>
 <div class="faq-item"><div class="faq-q">Q. 손실이 난 종목은 어떻게 반영하나요?</div><div class="faq-a">같은 해에 발생한 다른 종목의 이익과 손실을 합산(손익통산)해서 과세표준을 줄일 수 있습니다. 연말에 손실 종목을 매도하는 절세 전략(Tax-Loss Harvesting)이 여기서 나온 개념입니다.</div></div>
 <div class="faq-item"><div class="faq-q">Q. 환율은 어떤 기준으로 적용하나요?</div><div class="faq-a">실제 신고 시에는 매수일·매도일 각각의 기준환율(원화 환산)을 적용해야 합니다. 배너 환율은 한국수출입은행 Open API 매매기준율 캐시 참고값이며, 신고용 환율과 다를 수 있습니다.</div></div>
 </section>
@@ -126,8 +126,9 @@
 ">🔗 결과 공유하기</button>
 </div>
 
+<section class="quality-guide"><h2>연간 합산액으로 확인하는 세금 예시</h2><p>가상 사례: 같은 해 매도액 합계 15,000,000원, 매수액 10,000,000원, 필요경비로 인정되는 수수료 50,000원, 남은 공제 2,500,000원이면 양도차익 4,950,000원, 과세표준 2,450,000원, 22% 가정 세액은 539,000원입니다. 손실이면 이 도구의 세액은 0이며 자동 환급액을 계산하지 않습니다.</p><p>입력은 원화 기준입니다. 화면 환율을 모든 거래에 일괄 적용하지 말고 증권사 신고자료와 거래별 원화 환산 내역을 확인하세요. 과세대상이 아닌 국내주식 손실은 국외주식 이익과 통산할 수 없습니다. 수수료 인정 여부와 공제·거주 요건은 별도 확인이 필요합니다.</p><p>확인 기준일: 2026-10-03. <a href="https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=8800&amp;mi=12274">국세청 세액계산요령</a> · <a href="https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2201&amp;nttSn=1350890">국세청 주식 양도소득세 신고 안내</a>. 신고서 작성·제출 기능은 제공하지 않습니다.</p></section>
 <footer>
-  <div>금융 IQ를 높이세요 — 8종 금융 계산기</div>
+  <div>CALQIO — 금융 계산기와 생활 도구</div>
   <div style="margin-top:8px">
     <a href="/about">소개</a>
     <a href="/privacy">개인정보처리방침</a>

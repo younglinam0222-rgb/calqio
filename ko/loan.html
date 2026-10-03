@@ -36,7 +36,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "원리금균등과 원금균등의 차이는 무엇인가요?", "acceptedAnswer": {"@type": "Answer", "text": "원리금균등은 매달 갚는 금액(원금+이자)이 동일하고, 원금균등은 매달 갚는 원금이 동일해서 초반 상환액이 크고 갈수록 줄어듭니다. 총 이자는 원금균등 방식이 더 적습니다."}}, {"@type": "Question", "name": "만기일시 상환은 언제 유리한가요?", "acceptedAnswer": {"@type": "Answer", "text": "만기 때 목돈으로 원금을 한 번에 갚는 방식으로, 매달은 이자만 납부합니다. 단기 자금 회전이 필요하거나 만기 시점에 목돈 마련 계획이 확실할 때 적합하지만, 총 이자 부담은 가장 큽니다."}}, {"@type": "Question", "name": "중도상환수수료는 반영되나요?", "acceptedAnswer": {"@type": "Answer", "text": "아니요, 이 계산기는 약정된 금리·기간 기준 순수 이자만 계산합니다. 중도상환 시 발생하는 수수료는 금융사별로 다르므로 별도 확인이 필요합니다."}}, {"@type": "Question", "name": "변동금리 대출도 계산할 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "입력한 금리가 전체 기간 고정된다고 가정한 계산입니다. 변동금리 대출은 금리가 바뀔 때마다 다시 계산해보시는 걸 추천합니다."}}]}</script>
 </head>
 <body><nav>
-  <a href="/ko/" class="logo">Calq<span>io</span></a>
+  <a href="/ko" class="logo">Calq<span>io</span></a>
   <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 다크모드</button>
   <div class="lw">
     <button class="lc" id="lBtn" onclick="toggleMenu()">
@@ -148,8 +148,9 @@
 ">🔗 결과 공유하기</button>
 </div>
 
+<section class="quality-guide"><h2>상환 방식별 금액을 읽는 방법</h2><p>가상 사례: 1,200,000원을 연 12% 고정금리로 1년 빌리면 월 이율은 1%입니다. 원리금균등은 월 약 106,619원, 원금균등은 첫 달 112,000원에서 마지막 달 101,000원으로 감소합니다. 만기일시는 매달 이자 12,000원, 마지막 달에는 원금 1,200,000원도 함께 상환합니다.</p><p>원리금균등 월 납입액 = 원금 × 월 이율 ÷ [1 − (1 + 월 이율)<sup>−개월 수</sup>]. 금리가 0%면 원금을 개월 수로 나눕니다. 원금균등은 매달 동일한 원금과 남은 잔액의 이자를 합산합니다.</p><p>연도별 표의 월 납입금은 해당 연도 첫 달 기준이며, 만기일시의 원금은 별도 원금 열에 표시합니다. 기간은 1~100년 정수, 금리는 0~100%입니다. 실제 약정의 일수 계산, 금리 변동, 거치기간, 중도상환 수수료와 원 미만 절사 방식은 반영하지 않습니다.</p></section>
 <footer>
-  <div>금융 IQ를 높이세요 — 8종 금융 계산기</div>
+  <div>CALQIO — 금융 계산기와 생활 도구</div>
   <div style="margin-top:8px">
     <a href="/about">About</a>
     <a href="/privacy">개인정보처리방침</a>
@@ -182,13 +183,15 @@ function addL(v){var e=document.getElementById('loan');e.value=Math.max(0,(+e.va
 function addR(v){var e=document.getElementById('lrate');e.value=Math.max(0,(+e.value||0)+v).toFixed(1);calcL();}
 function addT(v){var e=document.getElementById('lterm');e.value=Math.max(1,+e.value+v);calcL();}
 function calcL(){
-  var L=+document.getElementById('loan').value||0;
-  var ir=+document.getElementById('lrate').value/100/12||0;
-  var n=+document.getElementById('lterm').value*12||0;
-  if(!L||!ir||!n)return;
+  var inputs=readInputs([['loan',Number.MIN_VALUE,1e15],['lrate',0,100],['lterm',1,100,true]],3);
+  if(!inputs){
+    ['rcVal','rcTot','rcInt','rcRatio','rcCnt','dPct'].forEach(id=>document.getElementById(id).textContent='—');
+    document.getElementById('sTbl').replaceChildren();if(dChart){dChart.destroy();dChart=null;}return;
+  }
+  var L=inputs[0],ir=inputs[1]/100/12,n=inputs[2]*12;
   var mp=0,totalInt=0,rows=[];
   if(lM===0){
-    mp=L*ir*Math.pow(1+ir,n)/(Math.pow(1+ir,n)-1);
+    mp=ir===0?L/n:L*ir/(-Math.expm1(-n*Math.log1p(ir)));
     totalInt=mp*n-L;
     var bal=L;
     for(var y=1;y<=n/12;y++){
@@ -221,7 +224,7 @@ function calcL(){
   var isDark=!document.body.classList.contains('light-mode');
   if(dChart)dChart.destroy();
   var ctx=document.getElementById('donutC').getContext('2d');
-  dChart=new Chart(ctx,{
+  if(typeof Chart!=='undefined') dChart=new Chart(ctx,{
     type:'doughnut',
     data:{labels:['원금','이자'],datasets:[{data:[L,totalInt],backgroundColor:['#5b7fee','#ef4444'],borderWidth:0}]},
     options:{responsive:true,maintainAspectRatio:true,cutout:'65%',
@@ -246,6 +249,7 @@ document.addEventListener("DOMContentLoaded",function(){try{calcL();}catch(e){}}
   function loadFromUrl(){
     var params = new URLSearchParams(window.location.search);
     var loaded = false;
+    if(params.has("repayment")){var mode=Number(params.get("repayment"));if([0,1,2].includes(mode))setM(mode);}
     INPUT_IDS.forEach(function(id){
       var val = params.get(id);
       if(val !== null && val !== ''){
@@ -274,6 +278,7 @@ document.addEventListener("DOMContentLoaded",function(){try{calcL();}catch(e){}}
           params.set(id, el.value);
         }
       });
+      params.set("repayment",String(lM));
       var qs = params.toString();
       var newUrl = window.location.pathname + (qs ? '?' + qs : '');
       window.history.replaceState({}, '', newUrl);
@@ -282,7 +287,8 @@ document.addEventListener("DOMContentLoaded",function(){try{calcL();}catch(e){}}
 
   // 3) Web Share API 버튼 클릭 처리
   window.calqioShare = async function(){
-    var url = window.location.href;
+    var shareParams=new URLSearchParams();INPUT_IDS.forEach(id=>shareParams.set(id,document.getElementById(id).value));shareParams.set("repayment",String(lM));
+    var url = location.origin+location.pathname+"?"+shareParams;
     var title = document.title;
     var shareData = {title: title, text: title, url: url};
 

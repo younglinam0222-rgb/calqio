@@ -53,7 +53,7 @@
 </head>
 <body>
 <nav>
-  <a href="/en/" class="logo">Calq<span>io</span></a>
+  <a href="/en" class="logo">Calq<span>io</span></a>
   <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 Dark</button>
   <div class="lw">
     <button class="lc" id="lBtn" onclick="toggleMenu()">
@@ -105,26 +105,7 @@
     </div>
   </div>
 </div>
-<section class="guide"><span class="gtag">Financial Knowledge Guide</span>
-<h2>Compound Interest Calculator — Complete Guide</h2>
-<p>Unlike simple interest, compounding reinvests returns so growth accelerates over time — often described as “interest on interest.” Past performance does not guarantee future results.</p>
-<h3>Compound Interest Formula</h3>
-<div class="fml">A = P × (1 + r)ⁿ
-A: Final Amount | P: Principal | r: Annual Rate (decimal) | n: Years</div>
-<p>Example: $10,000 at 8% for 30 years grows to ~$100,627. With simple interest, only $34,000. Add $500/month and you reach over $800,000.</p>
-<h3>Rule of 72</h3>
-<div class="fml">Years to double = 72 ÷ Annual Return (%)
-Example: 8% return → doubles in 9 years</div>
-<h3>How to use this page</h3>
-<p>Pick lump-sum, monthly-only, or both → set principal, annual return %, years, and optional monthly addition → click Calculate (or edit fields; results refresh). Inflation checkbox adjusts nominal final amount to a rough real value using your % input.</p>
-<h3>Reading results</h3>
-<p><strong>Final amount</strong> = balance after the last year loop. <strong>Total principal</strong> = starting principal plus all monthly additions (×12 per year). <strong>Return rate</strong> = profit ÷ total principal. This page compounds <strong>once per year</strong> then adds <code>monthly × 12</code> each year (<code>calcC</code> in <code>common.js</code>) — not the same as the Korean calculator’s per-day/month/year period rate.</p>
-<h3>Verified examples (match the UI)</h3>
-<p>① Defaults: $10,000 principal, 8% annual, 20 years, $0/month → final ≈ <strong>$46,609.57</strong>. ② $10,000, 8%, 30 years, $0/month → ≈ <strong>$100,626.57</strong>. ③ $0 start, $500/month, 20 years, 8% → final ≈ <strong>$274,571.79</strong> (see <code>scripts/verify-calculators.mjs</code>).</p>
-<h3>Limits & errors</h3>
-<p>Years must be a positive integer ≤ 2,000; principal and monthly addition cannot both be zero; annual return below −100% shows a toast and hides results. Overflow hides results — shorten horizon or lower rate.</p>
-<p>Related: <a href="fire">FIRE</a> · <a href="simple-vs-compound">Simple vs compound</a> · <a href="/privacy">Privacy (URL sharing)</a>.</p>
-<div class="tip">💡 Try the Monthly Addition field. Consistent small savings beat chasing high returns every time.</div></section>
+<section class="guide"><h2>Annual compounding with year-end contributions</h2><p>Enter principal, monthly contribution, annual return and whole years (1–2,000). This version groups twelve monthly contributions into one year-end payment; it does not calculate monthly compounding. For explicit contribution timing use the Korean period calculator.</p><p>Balance after a year = previous balance × (1 + annual return) + monthly contribution × 12. Total principal = initial principal + monthly contribution × 12 × years. Returns may be zero or negative, down to −100%. Taxes and fees are excluded.</p><p>Example: 10,000 at 8% for 30 years without additions gives 100,626.57. Adding 500 per month, aggregated at year-end, gives 780,325.84. Starting at 0 with 500 per month for 20 years at 8% gives 274,571.79. All are hypothetical and displayed rounded to whole currency units.</p><p>Inflation divides the final amount by (1 + annual inflation)^years. The monthly contribution is not increased with inflation. A smooth constant return does not represent stock-market volatility or guaranteed income.</p><p><a href="/ko/compound">한국어 · Korean</a></p></section>
 </div>
 <div style="max-width:960px;margin:0 auto;padding:24px 16px 40px;border-top:1px solid var(--border)"><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">More Calculators</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-bottom:20px"><a href="return" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">💰</div><div style="font-size:12px;font-weight:700;color:var(--text)">Return</div></a><a href="average-down" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">⬇️</div><div style="font-size:12px;font-weight:700;color:var(--text)">Avg Down</div></a><a href="loan" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">🏦</div><div style="font-size:12px;font-weight:700;color:var(--text)">Loan</div></a><a href="dividend" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;display:block"><div style="font-size:22px;margin-bottom:6px">💵</div><div style="font-size:12px;font-weight:700;color:var(--text)">Dividend</div></a></div><div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Financial Knowledge</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px"><a href="etf-comparison" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">📊&nbsp;ETF</div></a><a href="simple-vs-compound" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">📈&nbsp;Simple vs Comp</div></a><a href="concept" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">💡&nbsp;Concept</div></a><a href="ai-investment" style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:12px;text-decoration:none;display:block"><div style="font-size:12px;font-weight:700;color:var(--text)">🤖&nbsp;AI</div></a></div></div>
 <div style="max-width:760px;margin:20px auto 0;padding:0 20px;text-align:center">
@@ -170,12 +151,12 @@ function recalcInflation(){
   const inflChk=document.getElementById('inflChk');
   const inflResult=document.getElementById('inflResult');
   if(!inflChk||!inflResult)return;
-  if(inflChk.checked){
+  if(inflChk.checked && window.compoundBalance != null){
     const Y2=+(document.getElementById('y')&&document.getElementById('y').value)||20;
-    const inflR=(+document.getElementById('inflRate').value||2.5)/100;
+    const inflation=readInputs([['inflRate',0,20]],99);if(!inflation){inflResult.style.display='none';return;}const inflR=inflation[0]/100;
     const finalEl=document.querySelector('#r0 .rv');
     if(finalEl){
-      const nomVal=parseFloat(String(finalEl.textContent).replace(/[^0-9.]/g,''))||0;
+      const nomVal=window.compoundBalance;
       const realVal=nomVal/Math.pow(1+inflR,Y2);
       const wrap=v=>v.toLocaleString(undefined,{maximumFractionDigits:0});
       const cur=(window.LC&&window.LC.cur)||'';
@@ -220,6 +201,15 @@ document.addEventListener("DOMContentLoaded",function(){calcC()});
         }
       }
     });
+    if(params.has('md')){
+      const mode=Number(params.get('md'));
+      if(![0,1,2].includes(mode)||params.get('md').trim()===''){inputIssue('p',1);hide(0);return true;}
+      setMode(mode);
+    }else{setMode(Number(document.getElementById('m').value)>0?(Number(document.getElementById('p').value)>0?2:1):0);}
+    const inflation=document.getElementById('inflChk');
+    if(params.has('ic'))inflation.checked=params.get('ic')==='1';
+    if(params.has('ir'))document.getElementById('inflRate').value=params.get('ir');
+    calcC();recalcInflation();
     return loaded;
   }
 
@@ -235,6 +225,7 @@ document.addEventListener("DOMContentLoaded",function(){calcC()});
           params.set(id, el.value);
         }
       });
+      params.set('md',String(currentMode));params.set('ic',document.getElementById('inflChk').checked?'1':'0');params.set('ir',document.getElementById('inflRate').value);
       var qs = params.toString();
       var newUrl = window.location.pathname + (qs ? '?' + qs : '');
       window.history.replaceState({}, '', newUrl);
@@ -243,7 +234,10 @@ document.addEventListener("DOMContentLoaded",function(){calcC()});
 
   // 3) Web Share API 버튼 클릭 처리
   window.calqioShare = async function(){
-    var url = window.location.href;
+    calcC();if(document.getElementById('r0').style.display==='none')return;
+    const params=new URLSearchParams();INPUT_IDS.forEach(id=>params.set(id,document.getElementById(id).value));
+    params.set('md',String(currentMode));params.set('ic',document.getElementById('inflChk').checked?'1':'0');params.set('ir',document.getElementById('inflRate').value);
+    var url = location.origin+location.pathname+'?'+params;
     var title = document.title;
     var shareData = {title: title, text: title, url: url};
 
@@ -286,6 +280,7 @@ document.addEventListener("DOMContentLoaded",function(){calcC()});
 
   // 4) 이벤트 바인딩 + 초기 실행
   function init(){
+    ['inflChk','inflRate'].forEach(id=>document.getElementById(id).addEventListener('change',syncToUrl));
     INPUT_IDS.forEach(function(id){
       var el = document.getElementById(id);
       if(el){

@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-03",
+  "scope": "80 public HTML files, 5 languages; official-policy review, implementation, local Chrome verification; deployment verification recorded separately",
+  "interpretation": "The AdSense low-value-content notice does not identify a particular offending page. Findings below are observed site issues, not confirmed rejection causes. Approval is not guaranteed.",
+  "officialSources": [
+    "https://support.google.com/adsense/answer/12131223?hl=ko",
+    "https://support.google.com/adsense/answer/12176698?hl=ko",
+    "https://support.google.com/adsense/answer/48182?hl=ko",
+    "https://support.google.com/publisherpolicies/answer/11112688?hl=ko",
+    "https://support.google.com/publisherpolicies/answer/10437963?hl=en",
+    "https://support.google.com/adsense/answer/13554116?hl=en"
+  ],
+  "findingsAndChanges": [
+    {"urls":["/ko/etf-comparison","/en/etf-comparison","/ja/etf-comparison","/zh/etf-comparison","/ar/etf-comparison"],"issue":"Unsourced hardcoded series described as historical ETF returns; dividend toggle did not change calculations.","change":"Removed series and ineffective toggle. Added explicit user-entered effective annual return scenarios, month-end contributions, validation, share links, real issuer references, worked examples and leverage limits. Old etfAmt restored; etfYear intentionally not mapped to a new historical simulation and explained on screen."},
+    {"urls":["/en","/ja","/zh","/ar"],"issue":"Relative tool links from extensionless homepages resolved to root redirects and Korean tools; exaggerated historical-data/privacy claims.","change":"Absolute language-specific links; replaced misleading claims with current methods and limitations."},
+    {"urls":["/ko/compound"],"issue":"Empty contributions coerced to zero; zero inflation replaced with 2.5%; invalid select URL values silently accepted; example amount wrong by 200 KRW.","change":"Distinct validation, zero inflation handling, option validation, safe-result bound, guarded chart loading, corrected example and period/tax explanations."},
+    {"urls":["/en/compound","/ja/compound","/zh/compound","/ar/compound"],"issue":"Inaccurate growth example and rounded display value used for inflation; share omitted mode/inflation.","change":"Explained annual compounding and year-end aggregation; corrected numbers; use raw balance for inflation; validate and preserve share settings."},
+    {"urls":["/ko/loan","/en/loan","/ja/loan","/zh/loan","/ar/loan"],"issue":"Zero-interest inputs rejected and invalid inputs could leave old results.","change":"Zero-interest formula, bounded inputs, field messages, stale result removal. Korean repayment mode included in shared URL."},
+    {"urls":["/ko/tax","/en/tax","/ja/tax","/zh/tax","/ar/tax"],"issue":"Outdated Korean major-shareholder threshold; fixed 22% model could be mistaken for foreign local tax law; loss signs lost.","change":"Current NTS source references and scope; explicitly hypothetical 22% in translations; signed losses; annual deduction scope and worked example."},
+    {"urls":["/ko/return","/ko/average-down","/ko/dividend","/ko/target","/ko/percent"],"issue":"Zero, invalid and negative result handling; insufficient context for interpreting outputs.","change":"Shared localized validation across languages, zero support, signed loss outputs, division-by-zero rejection; specific Korean worked examples and limitations."},
+    {"urls":["/ko/fire","/en/fire","/ja/fire","/zh/fire","/ar/fire"],"issue":"Invalid and negative inputs accepted; exact 1200-month completion treated as failure.","change":"Localized bounds and stale-result clearing; corrected boundary."},
+    {"urls":["/ko/ai-investment","/en/ai-investment","/ja/ai-investment","/zh/ai-investment","/ar/ai-investment"],"issue":"Need actionable verification beyond prompt copying.","change":"Hypothetical growth-rate fact-check exercise, follow-up correction question, primary-source workflow; existing copy functionality preserved."},
+    {"urls":["/ko/lotto-generator"],"issue":"Some AI/strategy wording implied more than statistical rules.","change":"Clearer labels, explicit frequency/pair/triple arithmetic, hypothetical example, independence and sample-size limits; no purchase/betting or paid prediction features."},
+    {"urls":["/about","/contact","/privacy","/ko/terms"],"issue":"Stale service count and privacy description, wrong FX request path, missing favorites storage, overbroad ownership/company statements.","change":"Accurate service scope, confirmed existing contact email, reproducible bug-report instructions, five-language privacy update, qualified ownership and responsibility statements."}
+  ],
+  "localVerification": [
+    "80-file inventory: canonical matches, sitemap paths resolve, no broken internal page targets",
+    "79 representative pages: HTTP 200, canonical matches, no page errors or horizontal viewport overflow at 390px",
+    "Real browser compound A-F: 1210000,1200000,1000000,810000,210000,231000 KRW",
+    "Compound invalid inputs, zero inflation, shared values, invalid URL options",
+    "Five-language ETF examples, sharing and validation",
+    "Four translated compound calculations, zero inflation, shared mode/settings and stale-result clearing",
+    "Five-language FIRE 1200-month boundary and negative values",
+    "Lotto official fixture: ranges 1/37/100, invalid range, rank comparison, upstream failure",
+    "Existing lotto API/pattern/checker verification passes",
+    "AI copy/recovery/layout tests: 6 pass",
+    "Home search/categories/favorites/no-JS links: 1280/390/360, light/dark pass"
+  ],
+  "ownerActions": [
+    "AdSense Privacy & messaging: verify certified CMP/European regulations message is published for applicable EEA/UK/CH ad delivery. Repository inspection cannot confirm dashboard consent settings; privacy text alone is not consent.",
+    "Inspect AdSense auto-ad placements and page exclusions in account dashboard so ads do not obscure calculator inputs or mimic action buttons. Tests block ad requests and do not validate served-ad placement.",
+    "Review actual hosting and email retention practices; no invented retention period or legal identity was published.",
+    "Review deployed changes, then submit AdSense site review manually. No review request submitted by this task."
+  ],
+  "preserved": ["AdSense publisher ID and ads.txt","robots.txt and existing sitemap URLs","HTTPS/www/cleanUrls/trailingSlash deployment policy","existing user changes in original clone","five languages and primary calculator navigation"],
+  "limits": ["No confirmation of actual AdSense rejection cause or future approval","No authenticated review of Vercel domain or AdSense dashboard settings","Foreign compound model remains annual with year-end aggregation and is explicitly documented","Browser viewport simulation, not physical mobile device testing"]
+}

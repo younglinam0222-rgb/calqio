@@ -45,7 +45,7 @@
 </head>
 <body>
 <nav>
-  <a href="/en/" class="logo">Calq<span>io</span></a>
+  <a href="/en" class="logo">Calq<span>io</span></a>
   <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 Dark</button>
   <div class="lw">
     <button class="lc" id="lBtn" onclick="toggleMenu()">
@@ -169,7 +169,7 @@
 <h3>Formula & limits</h3>
 <p>Each month: <code>assets = assets × (1 + monthly rate) + monthly savings</code>, with monthly rate = annual % ÷ 12. Stops at 1,200 months max. No taxes, fees, housing, debt, or pension modeling.</p>
 <h3>Verified examples (inputs → UI)</h3>
-<p>① Start <strong>0</strong>, save <strong>1,000,000</strong>/mo, target <strong>100,000,000</strong>, <strong>6</strong>% annual, inflation off, age <strong>30</strong> → <strong>6.8</strong> years, retirement age <strong>37</strong>, 4% monthly hint ≈ <strong>333,333</strong> (same units as target; see <code>scripts/verify-calculators.mjs</code>).</p>
+<p>① Start <strong>0</strong>, save <strong>1,000,000</strong>/mo, target <strong>100,000,000</strong>, <strong>6</strong>% annual, inflation off, age <strong>30</strong> → <strong>6.8</strong> years, retirement age <strong>37</strong>, 4% monthly hint ≈ <strong>333,333</strong> (same units as target).</p>
 <p>② Already there: current & target both <strong>100,000,000</strong> → <strong>0.0</strong> years needed.</p>
 <h3>Edge cases</h3>
 <p>If the target is not reached within 1,200 months, retirement age and years show <strong>—</strong>; only projected assets is filled. Adjust savings, return, or target.</p>
@@ -214,6 +214,9 @@ function fmt(n){
 
 // 파이어 계산 핵심
 function calcFire(){
+  var values=readInputs([['curr',0,1e15],['mon',0,1e15],['tgt',Number.MIN_VALUE,1e15],['ret',-100,100],['age',0,120]],99);
+  if(!values){['fireAge','fireYears','fireFinal','fire4pctAmount'].forEach(id=>document.getElementById(id).textContent='—');return;}
+
   var curr = parseFloat(document.getElementById('curr').value) || 0;
   var mon = parseFloat(document.getElementById('mon').value) || 0;
   var tgt = parseFloat(document.getElementById('tgt').value) || 0;
@@ -248,7 +251,7 @@ function calcFire(){
   }
   }
 
-  if(months >= 1200){
+  if(months >= 1200 && asset < tgt){
     document.getElementById('fireAge').textContent = '—';
     document.getElementById('fireYears').textContent = '—';
     document.getElementById('fireFinal').textContent = fmt(asset);

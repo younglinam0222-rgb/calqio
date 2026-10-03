@@ -923,3 +923,9 @@ body.light-mode .nav-cat-lotto { color:#17603c; }
   .ai-page summary,.ai-page .ai-copy { font-size:14px; }
   .ih,.rs,.ril { font-size:13px; line-height:1.7; }
 }
+
+/* Reading guides and accessible validation, scoped to editorial sections. */
+.quality-guide{max-width:880px;margin:28px auto;padding:24px;background:var(--card);border:1px solid var(--border);border-radius:12px;color:var(--text-sub);font-size:15px;line-height:1.85;overflow-wrap:anywhere}
+.quality-guide h2{color:var(--text);font-size:21px;margin:0 0 14px}.quality-guide h3{color:var(--text);font-size:17px;margin:22px 0 8px}.quality-guide p{margin:10px 0}.quality-guide a{color:var(--ink-accent,var(--accent));text-decoration:underline}.quality-guide ul,.quality-guide ol{padding-inline-start:24px}.quality-guide code{white-space:normal}.quality-guide table{width:100%;border-collapse:collapse}.quality-guide th,.quality-guide td{padding:10px;text-align:start;border-bottom:1px solid var(--border)}.quality-guide .table-scroll{overflow-x:auto}.field-validation{color:var(--neg);font-size:14px;line-height:1.5;margin:8px 0}[aria-invalid="true"]{outline:2px solid var(--neg);outline-offset:2px}
+@media(max-width:600px){.quality-guide{margin:20px 12px;padding:18px;font-size:15px}.quality-guide h2{font-size:19px}.quality-guide th,.quality-guide td{padding:8px}}
+.quality-guide .table-scroll table{min-width:640px;font-variant-numeric:tabular-nums}.quality-guide .table-scroll td{white-space:nowrap}.quality-guide .table-scroll{margin:20px 0}.quality-guide input{font-size:16px}#scenario-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}#scenario-form .btn{grid-column:1/-1}@media(max-width:600px){#scenario-form{grid-template-columns:1fr}}

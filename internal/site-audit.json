@@ -1,0 +1,3735 @@
+{
+  "date": "2026-10-03",
+  "pages": [
+    {
+      "file": "index.html",
+      "url": "https://www.calqio.com/index",
+      "canonical": "https://www.calqio.com/ko",
+      "inSitemap": false,
+      "title": "CALQIO — 복리·이자·투자 계산기와 생활 도구",
+      "textCharacters": 4604,
+      "headings": [
+        "복잡한 계산,간단한 선택으로.",
+        "필요한 도구를 한눈에",
+        "복리 계산기",
+        "대출이자 계산기",
+        "단리·복리 이자 비교",
+        "퍼센트 계산기",
+        "수익률 계산기",
+        "물타기 계산기",
+        "배당수익률 계산기",
+        "목표가 계산기",
+        "해외주식 양도세 계산기",
+        "파이어족 계산기",
+        "ETF 투자 시뮬레이션",
+        "AI 투자 분석 요청문",
+        "복리 개념 가이드",
+        "로또 당첨번호 · 생성기",
+        "계산에서 한 걸음 더",
+        "ETF, 조건을 바꿔비교해 보세요.",
+        "좋은 분석은좋은 질문에서.",
+        "당첨번호 확인부터나만의 번호 생성까지.",
+        "숫자와 함께, 계산의 기준도 확인하세요.",
+        "금융 IQ를 높이는 8가지 무료 계산기 활용법",
+        "📈 복리 계산기 — 시간이 만드는 자산의 기적",
+        "💰 수익률 계산기 — 수수료 포함 실현 손익",
+        "⬇️ 물타기 계산기 — 새로운 평단가와 본전 가격",
+        "🏦 대출이자 계산기 — 원리금균등·원금균등·만기일시",
+        "💵 배당수익률 계산기 — 세후 실제 배당금",
+        "🎯 목표가·손절가 계산기 — 리스크 관리",
+        "📋 양도소득세 계산기 — 해외주식 세후 순이익",
+        "% 퍼센트 계산기 — 등락률·할인율·증감률",
+        "📊 ETF 가정 비교와 AI 투자 전략",
+        "🔗 결과 공유와 글로벌 사용성",
+        "❓ 자주 묻는 질문 (FAQ)",
+        "Q. Calqio의 계산 결과를 그대로 믿어도 되나요?",
+        "Q. 입력한 금액이 어딘가에 저장되나요?",
+        "Q. 모바일에서도 잘 작동하나요?",
+        "Q. ETF 가정 비교 데이터는 어디서 가져온 건가요?"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "about.html",
+      "url": "https://www.calqio.com/about",
+      "canonical": "https://www.calqio.com/about",
+      "inSitemap": true,
+      "title": "About — Calqio 금융 계산기 소개",
+      "textCharacters": 1168,
+      "headings": [
+        "About Calqio",
+        "Calqio란?",
+        "이름의 의미",
+        "제공 서비스",
+        "운영 방침",
+        "지원 언어",
+        "문의",
+        "자료와 계산을 다루는 기준"
+      ],
+      "broken": [],
+      "alternate": []
+    },
+    {
+      "file": "contact.html",
+      "url": "https://www.calqio.com/contact",
+      "canonical": "https://www.calqio.com/contact",
+      "inSitemap": true,
+      "title": "Contact — Calqio 문의",
+      "textCharacters": 821,
+      "headings": [
+        "문의하기",
+        "자주 묻는 질문",
+        "계산 오류를 알려주실 때"
+      ],
+      "broken": [],
+      "alternate": []
+    },
+    {
+      "file": "privacy.html",
+      "url": "https://www.calqio.com/privacy",
+      "canonical": "https://www.calqio.com/privacy",
+      "inSitemap": true,
+      "title": "Privacy Policy — Calqio 개인정보처리방침",
+      "textCharacters": 3237,
+      "headings": [
+        "Privacy Policy / 개인정보처리방침",
+        "한국어",
+        "계산 입력과 공유",
+        "이 기기에 저장되는 설정",
+        "데이터 조회와 외부 서비스",
+        "광고와 쿠키",
+        "문의",
+        "English",
+        "日本語",
+        "中文",
+        "العربية"
+      ],
+      "broken": [],
+      "alternate": []
+    },
+    {
+      "file": "ko/ai-investment.html",
+      "url": "https://www.calqio.com/ko/ai-investment",
+      "canonical": "https://www.calqio.com/ko/ai-investment",
+      "inSitemap": true,
+      "title": "AI 투자 분석 프롬프트 - ChatGPT·Claude 즉시 사용 템플릿 | Calqio",
+      "textCharacters": 10230,
+      "headings": [
+        "좋은 분석은구체적인 질문에서 시작됩니다",
+        "이렇게 사용하세요",
+        "기업을 이해하고 가격을 점검하세요",
+        "종합 기업 분석",
+        "최신 실적 분석",
+        "가치평가와 기대치 점검",
+        "손실과 자산 배분을 점검하세요",
+        "리스크와 손실 시나리오",
+        "포트폴리오와 추가 납입 점검",
+        "ETF와 현금흐름을 비교하세요",
+        "ETF 비교 분석",
+        "배당·분배금 지속성 분석",
+        "투자 판단의 근거를 다시 확인하세요",
+        "거시환경과 보유 자산 연결",
+        "투자 가설·반대 논거 재점검",
+        "AI 답변 사실·수치 검증",
+        "답변을 받았다면, 이 다섯 가지를 확인하세요",
+        "AI 답변을 검증하는 연습: 성장률 20%가 맞을까요?",
+        "수정을 요청할 후속 질문",
+        "자료를 준비하는 순서"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/ai-investment",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/ai-investment",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/ai-investment",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/ai-investment",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/ai-investment",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/ai-investment",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ko/average-down.html",
+      "url": "https://www.calqio.com/ko/average-down",
+      "canonical": "https://www.calqio.com/ko/average-down",
+      "inSitemap": true,
+      "title": "물타기 계산기 - 평균 단가·본전 가격 자동 계산 | Calqio",
+      "textCharacters": 1612,
+      "headings": [
+        "⬇️ 물타기(평단가) 계산기",
+        "물타기 계산기 완벽 가이드",
+        "평단가 계산 공식",
+        "주의사항",
+        "자주 묻는 질문",
+        "평균 가격이 낮아져도 손실 위험은 남습니다"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/average-down",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/average-down",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/average-down",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/average-down",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/average-down",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/average-down",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ko/compound.html",
+      "url": "https://www.calqio.com/ko/compound",
+      "canonical": "https://www.calqio.com/ko/compound",
+      "inSitemap": true,
+      "title": "복리 계산기 - 일복리·월복리·연복리 투자 수익 시뮬레이션 | Calqio",
+      "textCharacters": 3432,
+      "headings": [
+        "복리 계산기 — 일복리·월복리·연복리 투자 수익 시뮬레이션",
+        "납입 시점에 따라 결과가 달라지는 이유",
+        "0원으로 시작해 10만 원씩 2회 납입한다면",
+        "수익률과 구매력은 별도입니다"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/compound",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/compound",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/compound",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/compound",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/compound",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/compound",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ko/concept.html",
+      "url": "https://www.calqio.com/ko/concept",
+      "canonical": "https://www.calqio.com/ko/concept",
+      "inSitemap": true,
+      "title": "복리 개념 완전 정복 - 72의 법칙과 복리 주기 비교 | Calqio",
+      "textCharacters": 406,
+      "headings": [
+        "\r\n    복리 개념 완전 정복72의 법칙부터 월복리까지\r\n  "
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/concept",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/concept",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/concept",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/concept",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/concept",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/concept",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ko/dividend.html",
+      "url": "https://www.calqio.com/ko/dividend",
+      "canonical": "https://www.calqio.com/ko/dividend",
+      "inSitemap": true,
+      "title": "배당수익률 계산기 - 세후 실제 배당금 정확 계산 | Calqio",
+      "textCharacters": 1763,
+      "headings": [
+        "💵 배당수익률 계산기",
+        "배당수익률 계산기 완벽 가이드",
+        "배당수익률 공식",
+        "주의사항",
+        "자주 묻는 질문",
+        "월평균 배당과 실제 지급일은 다릅니다"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/dividend",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/dividend",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/dividend",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/dividend",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/dividend",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/dividend",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ko/etf-comparison.html",
+      "url": "https://www.calqio.com/ko/etf-comparison",
+      "canonical": "https://www.calqio.com/ko/etf-comparison",
+      "inSitemap": true,
+      "title": "ETF 투자 가정 비교 | CALQIO",
+      "textCharacters": 1142,
+      "headings": [
+        "ETF 투자 가정 비교",
+        "계산 방식과 한계",
+        "운용사 자료에서 비교할 항목",
+        "검산 예시"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/etf-comparison",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/etf-comparison",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/etf-comparison",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/etf-comparison",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/etf-comparison",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/etf-comparison",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ko/fire.html",
+      "url": "https://www.calqio.com/ko/fire",
+      "canonical": "https://www.calqio.com/ko/fire",
+      "inSitemap": true,
+      "title": "파이어족 계산기 - 경제적 자유 은퇴 나이 시뮬레이션 | Calqio",
+      "textCharacters": 2211,
+      "headings": [
+        "🔥 파이어족 계산기",
+        "🔥 파이어족(FIRE)이란?",
+        "4% 룰이란?",
+        "목표 자산 계산법",
+        "파이어족 유형",
+        "입력 항목 (단위·의미)",
+        "사용 방법",
+        "결과 해석",
+        "계산 방식·한계",
+        "검증 예시 (입력 → 화면 기대값)",
+        "오류·특수 표시"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/fire",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/fire",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/fire",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/fire",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/fire",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/fire",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ko/index.html",
+      "url": "https://www.calqio.com/ko",
+      "canonical": "https://www.calqio.com/ko",
+      "inSitemap": true,
+      "title": "CALQIO — 복리·이자·투자 계산기와 생활 도구",
+      "textCharacters": 4604,
+      "headings": [
+        "복잡한 계산,간단한 선택으로.",
+        "필요한 도구를 한눈에",
+        "복리 계산기",
+        "대출이자 계산기",
+        "단리·복리 이자 비교",
+        "퍼센트 계산기",
+        "수익률 계산기",
+        "물타기 계산기",
+        "배당수익률 계산기",
+        "목표가 계산기",
+        "해외주식 양도세 계산기",
+        "파이어족 계산기",
+        "ETF 투자 시뮬레이션",
+        "AI 투자 분석 요청문",
+        "복리 개념 가이드",
+        "로또 당첨번호 · 생성기",
+        "계산에서 한 걸음 더",
+        "ETF, 조건을 바꿔비교해 보세요.",
+        "좋은 분석은좋은 질문에서.",
+        "당첨번호 확인부터나만의 번호 생성까지.",
+        "숫자와 함께, 계산의 기준도 확인하세요.",
+        "금융 IQ를 높이는 8가지 무료 계산기 활용법",
+        "📈 복리 계산기 — 시간이 만드는 자산의 기적",
+        "💰 수익률 계산기 — 수수료 포함 실현 손익",
+        "⬇️ 물타기 계산기 — 새로운 평단가와 본전 가격",
+        "🏦 대출이자 계산기 — 원리금균등·원금균등·만기일시",
+        "💵 배당수익률 계산기 — 세후 실제 배당금",
+        "🎯 목표가·손절가 계산기 — 리스크 관리",
+        "📋 양도소득세 계산기 — 해외주식 세후 순이익",
+        "% 퍼센트 계산기 — 등락률·할인율·증감률",
+        "📊 ETF 가정 비교와 AI 투자 전략",
+        "🔗 결과 공유와 글로벌 사용성",
+        "❓ 자주 묻는 질문 (FAQ)",
+        "Q. Calqio의 계산 결과를 그대로 믿어도 되나요?",
+        "Q. 입력한 금액이 어딘가에 저장되나요?",
+        "Q. 모바일에서도 잘 작동하나요?",
+        "Q. ETF 가정 비교 데이터는 어디서 가져온 건가요?"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ko/loan.html",
+      "url": "https://www.calqio.com/ko/loan",
+      "canonical": "https://www.calqio.com/ko/loan",
+      "inSitemap": true,
+      "title": "대출이자 계산기 - 원리금균등·원금균등·만기일시 상환 | Calqio",
+      "textCharacters": 1570,
+      "headings": [
+        "\r\n    대출이자 계산기스마트한 대출 관리의 시작\r\n  ",
+        "대출이자 계산기 완벽 가이드",
+        "자주 묻는 질문",
+        "상환 방식별 금액을 읽는 방법"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/loan",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/loan",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/loan",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/loan",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/loan",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/loan",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ko/lotto-generator.html",
+      "url": "https://www.calqio.com/ko/lotto-generator",
+      "canonical": "https://www.calqio.com/ko/lotto-generator",
+      "inSitemap": true,
+      "title": "로또 당첨번호 확인 · 내 번호 비교 · 번호 생성기 | CALQIO",
+      "textCharacters": 2307,
+      "headings": [
+        "로또 당첨번호 확인통계 · 번호 생성기",
+        "로또 당첨번호 · 내 번호 확인",
+        "로또 도구 이용 안내",
+        "숫자 합과 동반 출현 통계를 해석하는 방법",
+        "${draw.round}회 당첨번호 ${draw.date}",
+        "CALQIO AI 패턴 분석 v1 · 최근 ${m.n}회"
+      ],
+      "broken": [],
+      "alternate": []
+    },
+    {
+      "file": "ko/percent.html",
+      "url": "https://www.calqio.com/ko/percent",
+      "canonical": "https://www.calqio.com/ko/percent",
+      "inSitemap": true,
+      "title": "퍼센트 계산기 - 등락률·할인율·증감률 4종 계산 | Calqio",
+      "textCharacters": 1726,
+      "headings": [
+        "% 퍼센트 계산기",
+        "퍼센트 계산기 완벽 가이드",
+        "4가지 계산 유형",
+        "투자 활용 예시",
+        "퍼센트의 함정",
+        "자주 묻는 질문",
+        "할인율과 회복률의 기준값 확인"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/percent",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/percent",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/percent",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/percent",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/percent",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/percent",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ko/return.html",
+      "url": "https://www.calqio.com/ko/return",
+      "canonical": "https://www.calqio.com/ko/return",
+      "inSitemap": true,
+      "title": "수익률 계산기 - 주식·코인 수수료 포함 실현 손익 계산 | Calqio",
+      "textCharacters": 1693,
+      "headings": [
+        "💰 수익률 계산기",
+        "수익률 계산기 완벽 가이드",
+        "수익률 계산 공식",
+        "검증 예시 (기본 입력값)",
+        "수수료가 수익에 미치는 영향",
+        "자주 묻는 질문",
+        "매수·매도 수수료를 함께 계산하는 사례"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/return",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/return",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/return",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/return",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/return",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/return",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ko/simple-vs-compound.html",
+      "url": "https://www.calqio.com/ko/simple-vs-compound",
+      "canonical": "https://www.calqio.com/ko/simple-vs-compound",
+      "inSitemap": true,
+      "title": "단리 vs 복리 비교 - 같은 이율 다른 결과 시뮬레이션 | Calqio",
+      "textCharacters": 529,
+      "headings": [
+        "\r\n    단리 vs 복리같은 이율, 압도적으로 다른 결과\r\n  "
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/simple-vs-compound",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/simple-vs-compound",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/simple-vs-compound",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/simple-vs-compound",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/simple-vs-compound",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/simple-vs-compound",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ko/target.html",
+      "url": "https://www.calqio.com/ko/target",
+      "canonical": "https://www.calqio.com/ko/target",
+      "inSitemap": true,
+      "title": "목표가·손절가 계산기 - 리스크 관리 매도 타점 | Calqio",
+      "textCharacters": 1738,
+      "headings": [
+        "🎯 목표가·손절가 계산기",
+        "목표가·손절가 계산기 완벽 가이드",
+        "공식",
+        "손익비 표시",
+        "자주 묻는 질문",
+        "목표가와 손절가는 주문 체결을 보장하지 않습니다"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/target",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/target",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/target",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/target",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/target",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/target",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ko/tax.html",
+      "url": "https://www.calqio.com/ko/tax",
+      "canonical": "https://www.calqio.com/ko/tax",
+      "inSitemap": true,
+      "title": "양도소득세 계산기 - 해외주식 세후 순이익 계산 | Calqio",
+      "textCharacters": 2007,
+      "headings": [
+        "📋 주식 양도소득세 계산기",
+        "해외주식 양도소득세 계산기 완벽 가이드",
+        "계산 공식",
+        "절세 전략",
+        "자주 묻는 질문",
+        "연간 합산액으로 확인하는 세금 예시"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/tax",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/tax",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/tax",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/tax",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/tax",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/tax",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ko/terms.html",
+      "url": "https://www.calqio.com/ko/terms",
+      "canonical": "https://www.calqio.com/ko/terms",
+      "inSitemap": true,
+      "title": "이용약관 - Calqio 금융 계산기 서비스 약관",
+      "textCharacters": 1216,
+      "headings": [
+        "이용약관",
+        "제1조 (목적)",
+        "제2조 (서비스의 성격)",
+        "제3조 (책임의 제한)",
+        "제4조 (지적재산권)",
+        "제5조 (광고)",
+        "제6조 (개인정보)",
+        "제7조 (약관의 변경)",
+        "제8조 (문의)"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/terms",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/terms",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/terms",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/terms",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/terms",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/terms",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "en/ai-investment.html",
+      "url": "https://www.calqio.com/en/ai-investment",
+      "canonical": "https://www.calqio.com/en/ai-investment",
+      "inSitemap": true,
+      "title": "AI Investment Analysis Prompts - ChatGPT Claude Ready-to-Use | Calqio",
+      "textCharacters": 2064,
+      "headings": [
+        "\r\n    AI Investment AnalysisReady-to-Use Prompts\r\n  ",
+        "Verify a response before using it"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/ai-investment",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/ai-investment",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/ai-investment",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/ai-investment",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/ai-investment",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/ai-investment",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "en/average-down.html",
+      "url": "https://www.calqio.com/en/average-down",
+      "canonical": "https://www.calqio.com/en/average-down",
+      "inSitemap": true,
+      "title": "Average Down Calculator - Stock Cost Basis & Break-Even | Calqio",
+      "textCharacters": 1616,
+      "headings": [
+        "⬇️ Average Down Calculator",
+        "Average Down Calculator — Complete Guide",
+        "Average Cost Formula"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/average-down",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/average-down",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/average-down",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/average-down",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/average-down",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/average-down",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "en/compound.html",
+      "url": "https://www.calqio.com/en/compound",
+      "canonical": "https://www.calqio.com/en/compound",
+      "inSitemap": true,
+      "title": "Compound Interest Calculator - Daily Monthly Yearly Investment Growth | Calqio",
+      "textCharacters": 2269,
+      "headings": [
+        "📈 Compound Interest Calculator",
+        "Annual compounding with year-end contributions"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/compound",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/compound",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/compound",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/compound",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/compound",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/compound",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "en/concept.html",
+      "url": "https://www.calqio.com/en/concept",
+      "canonical": "https://www.calqio.com/en/concept",
+      "inSitemap": true,
+      "title": "Compound Interest Concept - Rule of 72 & Frequency Comparison | Calqio",
+      "textCharacters": 646,
+      "headings": [
+        "\r\n    Understanding Compound InterestRule of 72 & Compounding Frequency\r\n  "
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/concept",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/concept",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/concept",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/concept",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/concept",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/concept",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "en/dividend.html",
+      "url": "https://www.calqio.com/en/dividend",
+      "canonical": "https://www.calqio.com/en/dividend",
+      "inSitemap": true,
+      "title": "Dividend Yield Calculator - After-Tax Real Income | Calqio",
+      "textCharacters": 1690,
+      "headings": [
+        "💵 Dividend Yield Calculator",
+        "Dividend Yield Calculator — Complete Guide",
+        "Dividend Yield Formula",
+        "Warning Signs"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/dividend",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/dividend",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/dividend",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/dividend",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/dividend",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/dividend",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "en/etf-comparison.html",
+      "url": "https://www.calqio.com/en/etf-comparison",
+      "canonical": "https://www.calqio.com/en/etf-comparison",
+      "inSitemap": true,
+      "title": "ETF assumption comparison | CALQIO",
+      "textCharacters": 1973,
+      "headings": [
+        "ETF assumption comparison",
+        "Method and limits",
+        "What to check in issuer documents",
+        "Worked examples"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/etf-comparison",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/etf-comparison",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/etf-comparison",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/etf-comparison",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/etf-comparison",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/etf-comparison",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "en/fire.html",
+      "url": "https://www.calqio.com/en/fire",
+      "canonical": "https://www.calqio.com/en/fire",
+      "inSitemap": true,
+      "title": "FIRE Calculator - Financial Independence Retire Early Simulator | Calqio",
+      "textCharacters": 2871,
+      "headings": [
+        "🔥 FIRE Calculator",
+        "🔥 What is FIRE?",
+        "The 4% Rule",
+        "Calculating Your Target Number",
+        "Types of FIRE",
+        "How to use",
+        "Reading the results",
+        "Formula & limits",
+        "Verified examples (inputs → UI)",
+        "Edge cases"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/fire",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/fire",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/fire",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/fire",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/fire",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/fire",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "en/index.html",
+      "url": "https://www.calqio.com/en",
+      "canonical": "https://www.calqio.com/en",
+      "inSitemap": true,
+      "title": "Calqio — Stock Crypto Investment Financial Calculators",
+      "textCharacters": 2054,
+      "headings": [
+        "Investment CalculatorsCalqio",
+        "Compare ETF investment assumptions",
+        "Popular Calculators",
+        "AI-Powered Investment Strategy",
+        "Using CALQIO",
+        "Check the meaning of the inputs",
+        "Data and privacy"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "en/loan.html",
+      "url": "https://www.calqio.com/en/loan",
+      "canonical": "https://www.calqio.com/en/loan",
+      "inSitemap": true,
+      "title": "Loan Calculator - Equal Payment, Equal Principal, Balloon | Calqio",
+      "textCharacters": 848,
+      "headings": [
+        "\r\n    Loan CalculatorPlan Your Repayment\r\n  "
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/loan",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/loan",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/loan",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/loan",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/loan",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/loan",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "en/percent.html",
+      "url": "https://www.calqio.com/en/percent",
+      "canonical": "https://www.calqio.com/en/percent",
+      "inSitemap": true,
+      "title": "Percentage Calculator - Change Rate, Discount, Increase | Calqio",
+      "textCharacters": 1511,
+      "headings": [
+        "% Percentage Calculator",
+        "Percentage Calculator — Complete Guide",
+        "4 Calculation Types",
+        "The Asymmetry Trap"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/percent",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/percent",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/percent",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/percent",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/percent",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/percent",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "en/return.html",
+      "url": "https://www.calqio.com/en/return",
+      "canonical": "https://www.calqio.com/en/return",
+      "inSitemap": true,
+      "title": "Investment Return Calculator - Stock Crypto Profit with Fees | Calqio",
+      "textCharacters": 1624,
+      "headings": [
+        "💰 Return Rate Calculator",
+        "Return Rate Calculator — Complete Guide",
+        "Return Rate Formula",
+        "Impact of Fees on Returns"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/return",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/return",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/return",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/return",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/return",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/return",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "en/simple-vs-compound.html",
+      "url": "https://www.calqio.com/en/simple-vs-compound",
+      "canonical": "https://www.calqio.com/en/simple-vs-compound",
+      "inSitemap": true,
+      "title": "Simple vs Compound Interest - Visual Comparison Calculator | Calqio",
+      "textCharacters": 792,
+      "headings": [
+        "\r\n    Simple vs CompoundSame rate, dramatically different results\r\n  "
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/simple-vs-compound",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/simple-vs-compound",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/simple-vs-compound",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/simple-vs-compound",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/simple-vs-compound",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/simple-vs-compound",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "en/target.html",
+      "url": "https://www.calqio.com/en/target",
+      "canonical": "https://www.calqio.com/en/target",
+      "inSitemap": true,
+      "title": "Target Price Calculator - Stop Loss & Take Profit Levels | Calqio",
+      "textCharacters": 1606,
+      "headings": [
+        "🎯 Target Price Calculator",
+        "Target Price Calculator — Complete Guide",
+        "Formulas",
+        "Why Risk/Reward Matters"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/target",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/target",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/target",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/target",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/target",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/target",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "en/tax.html",
+      "url": "https://www.calqio.com/en/tax",
+      "canonical": "https://www.calqio.com/en/tax",
+      "inSitemap": true,
+      "title": "Capital Gains Tax Calculator - International Stock Net Profit | Calqio",
+      "textCharacters": 1989,
+      "headings": [
+        "📋 Capital Gains Tax Calculator",
+        "Fixed 22% tax assumption — not local tax advice"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/tax",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/tax",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/tax",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/tax",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/tax",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/tax",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "en/terms.html",
+      "url": "https://www.calqio.com/en/terms",
+      "canonical": "https://www.calqio.com/en/terms",
+      "inSitemap": true,
+      "title": "Terms of Service - Calqio Financial Calculator Terms",
+      "textCharacters": 2008,
+      "headings": [
+        "Terms of Service",
+        "1. Purpose",
+        "2. Nature of Service",
+        "3. Limitation of Liability",
+        "4. Intellectual Property",
+        "5. Advertising",
+        "6. Privacy",
+        "7. Changes to Terms",
+        "8. Contact"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/terms",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/terms",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/terms",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/terms",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/terms",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/terms",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ja/ai-investment.html",
+      "url": "https://www.calqio.com/ja/ai-investment",
+      "canonical": "https://www.calqio.com/ja/ai-investment",
+      "inSitemap": true,
+      "title": "AI投資分析プロンプト - ChatGPT・Claude 即使用テンプレート | Calqio",
+      "textCharacters": 957,
+      "headings": [
+        "\r\n    AI投資分析すぐに使えるプロンプト集\r\n  ",
+        "AI回答を利用する前に検証"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/ai-investment",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/ai-investment",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/ai-investment",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/ai-investment",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/ai-investment",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/ai-investment",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ja/average-down.html",
+      "url": "https://www.calqio.com/ja/average-down",
+      "canonical": "https://www.calqio.com/ja/average-down",
+      "inSitemap": true,
+      "title": "ナンピン計算機 - 平均単価・損益分岐点 自動計算 | Calqio",
+      "textCharacters": 691,
+      "headings": [
+        "⬇️ ナンピン計算機",
+        "ナンピン計算機 完全ガイド",
+        "平均単価計算公式"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/average-down",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/average-down",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/average-down",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/average-down",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/average-down",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/average-down",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ja/compound.html",
+      "url": "https://www.calqio.com/ja/compound",
+      "canonical": "https://www.calqio.com/ja/compound",
+      "inSitemap": true,
+      "title": "複利計算機 - 日次・月次・年次 投資収益シミュレーション | Calqio",
+      "textCharacters": 1058,
+      "headings": [
+        "📈 複利計算機",
+        "年複利と年末一括積立の計算"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/compound",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/compound",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/compound",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/compound",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/compound",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/compound",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ja/concept.html",
+      "url": "https://www.calqio.com/ja/concept",
+      "canonical": "https://www.calqio.com/ja/concept",
+      "inSitemap": true,
+      "title": "複利の概念完全マスター - 72の法則と複利頻度比較 | Calqio",
+      "textCharacters": 377,
+      "headings": [
+        "\r\n    複利の概念を完全理解72の法則から月次複利まで\r\n  "
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/concept",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/concept",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/concept",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/concept",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/concept",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/concept",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ja/dividend.html",
+      "url": "https://www.calqio.com/ja/dividend",
+      "canonical": "https://www.calqio.com/ja/dividend",
+      "inSitemap": true,
+      "title": "配当利回り計算機 - 税引後実質配当金計算 | Calqio",
+      "textCharacters": 736,
+      "headings": [
+        "💵 配当利回り計算機",
+        "配当利回り計算機 完全ガイド",
+        "配当利回り公式"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/dividend",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/dividend",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/dividend",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/dividend",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/dividend",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/dividend",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ja/etf-comparison.html",
+      "url": "https://www.calqio.com/ja/etf-comparison",
+      "canonical": "https://www.calqio.com/ja/etf-comparison",
+      "inSitemap": true,
+      "title": "ETF 投資仮定の比較 | CALQIO",
+      "textCharacters": 877,
+      "headings": [
+        "ETF 投資仮定の比較",
+        "計算方法と限界",
+        "運用会社の資料で確認",
+        "計算例"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/etf-comparison",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/etf-comparison",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/etf-comparison",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/etf-comparison",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/etf-comparison",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/etf-comparison",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ja/fire.html",
+      "url": "https://www.calqio.com/ja/fire",
+      "canonical": "https://www.calqio.com/ja/fire",
+      "inSitemap": true,
+      "title": "FIRE計算機 - 経済的自由・早期リタイアシミュレーター | Calqio",
+      "textCharacters": 1260,
+      "headings": [
+        "🔥 FIRE計算機",
+        "🔥 FIREとは?",
+        "4%ルール",
+        "目標資産の計算",
+        "FIREの種類",
+        "使い方",
+        "結果の見方",
+        "計算式・限界",
+        "検証例",
+        "特殊表示"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/fire",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/fire",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/fire",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/fire",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/fire",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/fire",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ja/index.html",
+      "url": "https://www.calqio.com/ja",
+      "canonical": "https://www.calqio.com/ja",
+      "inSitemap": true,
+      "title": "Calqio — 株式・仮想通貨・投資 金融計算ツール",
+      "textCharacters": 966,
+      "headings": [
+        "金融投資計算ツールCalqio",
+        "ETF 投資仮定の比較",
+        "人気の計算ツール",
+        "AI投資戦略レコメンダー",
+        "CALQIOの使い方",
+        "入力の意味を確認",
+        "データとプライバシー"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ja/loan.html",
+      "url": "https://www.calqio.com/ja/loan",
+      "canonical": "https://www.calqio.com/ja/loan",
+      "inSitemap": true,
+      "title": "ローン計算機 - 元利均等・元金均等・満期一括 | Calqio",
+      "textCharacters": 506,
+      "headings": [
+        "\r\n    ローン計算機賢いローン管理の第一歩\r\n  "
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/loan",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/loan",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/loan",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/loan",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/loan",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/loan",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ja/percent.html",
+      "url": "https://www.calqio.com/ja/percent",
+      "canonical": "https://www.calqio.com/ja/percent",
+      "inSitemap": true,
+      "title": "パーセント計算機 - 騰落率・割引率・増減率 4種計算 | Calqio",
+      "textCharacters": 683,
+      "headings": [
+        "% パーセント計算機",
+        "パーセント計算機 完全ガイド",
+        "4種類の計算"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/percent",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/percent",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/percent",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/percent",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/percent",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/percent",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ja/return.html",
+      "url": "https://www.calqio.com/ja/return",
+      "canonical": "https://www.calqio.com/ja/return",
+      "inSitemap": true,
+      "title": "収益率計算機 - 株式・暗号資産 手数料込み実現損益 | Calqio",
+      "textCharacters": 710,
+      "headings": [
+        "💰 収益率計算機",
+        "収益率計算機 完全ガイド",
+        "収益率計算公式"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/return",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/return",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/return",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/return",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/return",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/return",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ja/simple-vs-compound.html",
+      "url": "https://www.calqio.com/ja/simple-vs-compound",
+      "canonical": "https://www.calqio.com/ja/simple-vs-compound",
+      "inSitemap": true,
+      "title": "単利 vs 複利 比較 - 同じ金利でも違う結果シミュレーション | Calqio",
+      "textCharacters": 455,
+      "headings": [
+        "\r\n    単利 vs 複利同じ金利でも、結果は大きく異なる\r\n  "
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/simple-vs-compound",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/simple-vs-compound",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/simple-vs-compound",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/simple-vs-compound",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/simple-vs-compound",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/simple-vs-compound",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ja/target.html",
+      "url": "https://www.calqio.com/ja/target",
+      "canonical": "https://www.calqio.com/ja/target",
+      "inSitemap": true,
+      "title": "目標株価・損切り計算機 - リスク管理 売却タイミング | Calqio",
+      "textCharacters": 761,
+      "headings": [
+        "🎯 目標株価・損切り計算機",
+        "目標株価・損切り計算機 完全ガイド",
+        "公式"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/target",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/target",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/target",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/target",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/target",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/target",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ja/tax.html",
+      "url": "https://www.calqio.com/ja/tax",
+      "canonical": "https://www.calqio.com/ja/tax",
+      "inSitemap": true,
+      "title": "譲渡所得税計算機 - 海外株式 税引後純利益計算 | Calqio",
+      "textCharacters": 985,
+      "headings": [
+        "📋 譲渡所得税計算機",
+        "22%固定税率の仮定 — 日本の税額計算ではありません"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/tax",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/tax",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/tax",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/tax",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/tax",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/tax",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ja/terms.html",
+      "url": "https://www.calqio.com/ja/terms",
+      "canonical": "https://www.calqio.com/ja/terms",
+      "inSitemap": true,
+      "title": "利用規約 - Calqio 金融計算ツール利用規約",
+      "textCharacters": 934,
+      "headings": [
+        "利用規約",
+        "第1条(目的)",
+        "第2条(サービスの性質)",
+        "第3条(責任の制限)",
+        "第4条(知的財産権)",
+        "第5条(広告)",
+        "第6条(個人情報)",
+        "第7条(規約の変更)",
+        "第8条(お問い合わせ)"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/terms",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/terms",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/terms",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/terms",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/terms",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/terms",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "zh/ai-investment.html",
+      "url": "https://www.calqio.com/zh/ai-investment",
+      "canonical": "https://www.calqio.com/zh/ai-investment",
+      "inSitemap": true,
+      "title": "AI投资分析提示词 - ChatGPT Claude 即用模板 | Calqio",
+      "textCharacters": 840,
+      "headings": [
+        "\r\n    AI投资分析即用型提示词合集\r\n  ",
+        "使用AI回答前先核实"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/ai-investment",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/ai-investment",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/ai-investment",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/ai-investment",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/ai-investment",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/ai-investment",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "zh/average-down.html",
+      "url": "https://www.calqio.com/zh/average-down",
+      "canonical": "https://www.calqio.com/zh/average-down",
+      "inSitemap": true,
+      "title": "均摊计算器 - 平均成本·盈亏平衡 自动计算 | Calqio",
+      "textCharacters": 626,
+      "headings": [
+        "⬇️ 摊平成本计算器",
+        "摊平成本计算器完整指南",
+        "平均成本计算公式"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/average-down",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/average-down",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/average-down",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/average-down",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/average-down",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/average-down",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "zh/compound.html",
+      "url": "https://www.calqio.com/zh/compound",
+      "canonical": "https://www.calqio.com/zh/compound",
+      "inSitemap": true,
+      "title": "复利计算器 - 日复利·月复利·年复利 投资收益模拟 | Calqio",
+      "textCharacters": 955,
+      "headings": [
+        "📈 复利计算器",
+        "年复利与年末合并投入"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/compound",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/compound",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/compound",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/compound",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/compound",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/compound",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "zh/concept.html",
+      "url": "https://www.calqio.com/zh/concept",
+      "canonical": "https://www.calqio.com/zh/concept",
+      "inSitemap": true,
+      "title": "复利概念完全掌握 - 72法则与复利频率对比 | Calqio",
+      "textCharacters": 333,
+      "headings": [
+        "\r\n    深入理解复利72法则与复利频率\r\n  "
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/concept",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/concept",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/concept",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/concept",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/concept",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/concept",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "zh/dividend.html",
+      "url": "https://www.calqio.com/zh/dividend",
+      "canonical": "https://www.calqio.com/zh/dividend",
+      "inSitemap": true,
+      "title": "股息收益率计算器 - 税后实际股息计算 | Calqio",
+      "textCharacters": 616,
+      "headings": [
+        "💵 股息收益率计算器",
+        "股息收益率计算器完整指南",
+        "股息收益率公式"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/dividend",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/dividend",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/dividend",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/dividend",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/dividend",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/dividend",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "zh/etf-comparison.html",
+      "url": "https://www.calqio.com/zh/etf-comparison",
+      "canonical": "https://www.calqio.com/zh/etf-comparison",
+      "inSitemap": true,
+      "title": "ETF 投资假设比较 | CALQIO",
+      "textCharacters": 737,
+      "headings": [
+        "ETF 投资假设比较",
+        "方法与限制",
+        "核对发行商资料",
+        "计算示例"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/etf-comparison",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/etf-comparison",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/etf-comparison",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/etf-comparison",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/etf-comparison",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/etf-comparison",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "zh/fire.html",
+      "url": "https://www.calqio.com/zh/fire",
+      "canonical": "https://www.calqio.com/zh/fire",
+      "inSitemap": true,
+      "title": "FIRE计算器 - 财务自由提前退休模拟器 | Calqio",
+      "textCharacters": 1074,
+      "headings": [
+        "🔥 FIRE计算器",
+        "🔥 什么是FIRE?",
+        "4%法则",
+        "计算目标金额",
+        "FIRE的类型",
+        "使用方法",
+        "结果解读",
+        "公式与局限",
+        "验证示例",
+        "异常显示"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/fire",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/fire",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/fire",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/fire",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/fire",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/fire",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "zh/index.html",
+      "url": "https://www.calqio.com/zh",
+      "canonical": "https://www.calqio.com/zh",
+      "inSitemap": true,
+      "title": "Calqio — 股票加密货币投资金融计算器",
+      "textCharacters": 798,
+      "headings": [
+        "金融投资计算器Calqio",
+        "ETF 投资假设比较",
+        "热门计算器",
+        "AI驱动的投资策略",
+        "如何使用CALQIO",
+        "核对输入含义",
+        "数据与隐私"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "zh/loan.html",
+      "url": "https://www.calqio.com/zh/loan",
+      "canonical": "https://www.calqio.com/zh/loan",
+      "inSitemap": true,
+      "title": "贷款利息计算器 - 等额·等本·到期还本 | Calqio",
+      "textCharacters": 468,
+      "headings": [
+        "\r\n    贷款利息计算器智能贷款管理从这里开始\r\n  "
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/loan",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/loan",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/loan",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/loan",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/loan",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/loan",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "zh/percent.html",
+      "url": "https://www.calqio.com/zh/percent",
+      "canonical": "https://www.calqio.com/zh/percent",
+      "inSitemap": true,
+      "title": "百分比计算器 - 涨跌率·折扣率·增减率 4种计算 | Calqio",
+      "textCharacters": 624,
+      "headings": [
+        "% 百分比计算器",
+        "百分比计算器完整指南",
+        "4种计算类型"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/percent",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/percent",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/percent",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/percent",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/percent",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/percent",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "zh/return.html",
+      "url": "https://www.calqio.com/zh/return",
+      "canonical": "https://www.calqio.com/zh/return",
+      "inSitemap": true,
+      "title": "收益率计算器 - 股票·加密货币 含手续费实现损益 | Calqio",
+      "textCharacters": 632,
+      "headings": [
+        "💰 收益率计算器",
+        "收益率计算器完整指南",
+        "收益率计算公式"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/return",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/return",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/return",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/return",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/return",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/return",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "zh/simple-vs-compound.html",
+      "url": "https://www.calqio.com/zh/simple-vs-compound",
+      "canonical": "https://www.calqio.com/zh/simple-vs-compound",
+      "inSitemap": true,
+      "title": "单利 vs 复利对比 - 相同利率不同结果模拟 | Calqio",
+      "textCharacters": 403,
+      "headings": [
+        "\r\n    单利 vs 复利相同利率，结果大相径庭\r\n  "
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/simple-vs-compound",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/simple-vs-compound",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/simple-vs-compound",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/simple-vs-compound",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/simple-vs-compound",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/simple-vs-compound",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "zh/target.html",
+      "url": "https://www.calqio.com/zh/target",
+      "canonical": "https://www.calqio.com/zh/target",
+      "inSitemap": true,
+      "title": "目标价·止损价计算器 - 风险管理 卖出时机 | Calqio",
+      "textCharacters": 649,
+      "headings": [
+        "🎯 目标价计算器",
+        "目标价计算器完整指南",
+        "计算公式"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/target",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/target",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/target",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/target",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/target",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/target",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "zh/tax.html",
+      "url": "https://www.calqio.com/zh/tax",
+      "canonical": "https://www.calqio.com/zh/tax",
+      "inSitemap": true,
+      "title": "资本利得税计算器 - 海外股票 税后净利润 | Calqio",
+      "textCharacters": 867,
+      "headings": [
+        "📋 资本利得税计算器",
+        "固定22%税率假设 — 不是当地报税工具"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/tax",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/tax",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/tax",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/tax",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/tax",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/tax",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "zh/terms.html",
+      "url": "https://www.calqio.com/zh/terms",
+      "canonical": "https://www.calqio.com/zh/terms",
+      "inSitemap": true,
+      "title": "服务条款 - Calqio 金融计算器服务条款",
+      "textCharacters": 722,
+      "headings": [
+        "服务条款",
+        "第1条(目的)",
+        "第2条(服务性质)",
+        "第3条(责任限制)",
+        "第4条(知识产权)",
+        "第5条(广告)",
+        "第6条(个人信息)",
+        "第7条(条款变更)",
+        "第8条(联系方式)"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/terms",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/terms",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/terms",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/terms",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/terms",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/terms",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ar/ai-investment.html",
+      "url": "https://www.calqio.com/ar/ai-investment",
+      "canonical": "https://www.calqio.com/ar/ai-investment",
+      "inSitemap": true,
+      "title": "قوالب تحليل استثمار بالذكاء الاصطناعي - ChatGPT Claude | Calqio",
+      "textCharacters": 1556,
+      "headings": [
+        "\r\n    تحليل الاستثمار بالذكاء الاصطناعيقوالب جاهزة للاستخدام\r\n  ",
+        "تحقق من الإجابة قبل استخدامها"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/ai-investment",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/ai-investment",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/ai-investment",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/ai-investment",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/ai-investment",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/ai-investment",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ar/average-down.html",
+      "url": "https://www.calqio.com/ar/average-down",
+      "canonical": "https://www.calqio.com/ar/average-down",
+      "inSitemap": true,
+      "title": "حاسبة متوسط التكلفة - نقطة التعادل التلقائية | Calqio",
+      "textCharacters": 1121,
+      "headings": [
+        "⬇️ حاسبة خفض المتوسط",
+        "حاسبة خفض متوسط التكلفة",
+        "الصيغة"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/average-down",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/average-down",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/average-down",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/average-down",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/average-down",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/average-down",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ar/compound.html",
+      "url": "https://www.calqio.com/ar/compound",
+      "canonical": "https://www.calqio.com/ar/compound",
+      "inSitemap": true,
+      "title": "حاسبة الفائدة المركبة - يومية شهرية سنوية | Calqio",
+      "textCharacters": 1817,
+      "headings": [
+        "📈 حاسبة الفائدة المركبة",
+        "تركيب سنوي ومساهمات مجمعة في نهاية السنة"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/compound",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/compound",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/compound",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/compound",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/compound",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/compound",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ar/concept.html",
+      "url": "https://www.calqio.com/ar/concept",
+      "canonical": "https://www.calqio.com/ar/concept",
+      "inSitemap": true,
+      "title": "مفهوم الفائدة المركبة - قاعدة 72 ومقارنة الترددات | Calqio",
+      "textCharacters": 542,
+      "headings": [
+        "\r\n    فهم الفائدة المركبةقاعدة 72 وترددات التركيب\r\n  "
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/concept",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/concept",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/concept",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/concept",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/concept",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/concept",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ar/dividend.html",
+      "url": "https://www.calqio.com/ar/dividend",
+      "canonical": "https://www.calqio.com/ar/dividend",
+      "inSitemap": true,
+      "title": "حاسبة عائد التوزيعات - دخل صافي بعد الضريبة | Calqio",
+      "textCharacters": 1102,
+      "headings": [
+        "💵 حاسبة عائد الأرباح",
+        "حاسبة عائد الأرباح — دليل شامل",
+        "صيغة عائد الأرباح"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/dividend",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/dividend",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/dividend",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/dividend",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/dividend",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/dividend",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ar/etf-comparison.html",
+      "url": "https://www.calqio.com/ar/etf-comparison",
+      "canonical": "https://www.calqio.com/ar/etf-comparison",
+      "inSitemap": true,
+      "title": "مقارنة افتراضات الاستثمار في ETF | CALQIO",
+      "textCharacters": 1645,
+      "headings": [
+        "مقارنة افتراضات الاستثمار في ETF",
+        "المنهج والحدود",
+        "ما يجب التحقق منه لدى المصدر",
+        "أمثلة حسابية"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/etf-comparison",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/etf-comparison",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/etf-comparison",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/etf-comparison",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/etf-comparison",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/etf-comparison",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ar/fire.html",
+      "url": "https://www.calqio.com/ar/fire",
+      "canonical": "https://www.calqio.com/ar/fire",
+      "inSitemap": true,
+      "title": "حاسبة FIRE - محاكي الاستقلال المالي والتقاعد المبكر | Calqio",
+      "textCharacters": 1710,
+      "headings": [
+        "🔥 حاسبة FIRE",
+        "🔥 ما هو FIRE؟",
+        "قاعدة 4%",
+        "حساب رقمك المستهدف",
+        "أنواع FIRE",
+        "طريقة الاستخدام",
+        "قراءة النتائج",
+        "الصيغة والحدود",
+        "أمثلة تحقق"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/fire",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/fire",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/fire",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/fire",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/fire",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/fire",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ar/index.html",
+      "url": "https://www.calqio.com/ar",
+      "canonical": "https://www.calqio.com/ar",
+      "inSitemap": true,
+      "title": "Calqio — آلات حاسبة استثمارية للأسهم والعملات الرقمية",
+      "textCharacters": 1661,
+      "headings": [
+        "آلات حاسبة استثماريةCalqio",
+        "مقارنة افتراضات ETF",
+        "الآلات الحاسبة الشائعة",
+        "استراتيجية استثمار بالذكاء الاصطناعي",
+        "استخدام CALQIO",
+        "تحقق من معنى المدخلات",
+        "البيانات والخصوصية"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ar/loan.html",
+      "url": "https://www.calqio.com/ar/loan",
+      "canonical": "https://www.calqio.com/ar/loan",
+      "inSitemap": true,
+      "title": "حاسبة القرض - أقساط متساوية ونهاية المدة | Calqio",
+      "textCharacters": 766,
+      "headings": [
+        "\r\n    حاسبة القرضإدارة القرض بذكاء\r\n  "
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/loan",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/loan",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/loan",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/loan",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/loan",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/loan",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ar/percent.html",
+      "url": "https://www.calqio.com/ar/percent",
+      "canonical": "https://www.calqio.com/ar/percent",
+      "inSitemap": true,
+      "title": "حاسبة النسبة المئوية - معدل التغيير والخصم | Calqio",
+      "textCharacters": 1049,
+      "headings": [
+        "% حاسبة النسبة المئوية",
+        "حاسبة النسبة المئوية — دليل شامل",
+        "4 أنواع حسابات"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/percent",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/percent",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/percent",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/percent",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/percent",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/percent",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ar/return.html",
+      "url": "https://www.calqio.com/ar/return",
+      "canonical": "https://www.calqio.com/ar/return",
+      "inSitemap": true,
+      "title": "حاسبة معدل العائد - الأسهم والعملات الرقمية | Calqio",
+      "textCharacters": 1118,
+      "headings": [
+        "💰 حاسبة معدل العائد",
+        "حاسبة معدل العائد — دليل شامل",
+        "صيغة معدل العائد"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/return",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/return",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/return",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/return",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/return",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/return",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ar/simple-vs-compound.html",
+      "url": "https://www.calqio.com/ar/simple-vs-compound",
+      "canonical": "https://www.calqio.com/ar/simple-vs-compound",
+      "inSitemap": true,
+      "title": "الفائدة البسيطة مقابل المركبة - مقارنة بصرية | Calqio",
+      "textCharacters": 727,
+      "headings": [
+        "\r\n    الفائدة البسيطة مقابل المركبةنفس المعدل، نتائج مختلفة جداً\r\n  "
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/simple-vs-compound",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/simple-vs-compound",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/simple-vs-compound",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/simple-vs-compound",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/simple-vs-compound",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/simple-vs-compound",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ar/target.html",
+      "url": "https://www.calqio.com/ar/target",
+      "canonical": "https://www.calqio.com/ar/target",
+      "inSitemap": true,
+      "title": "حاسبة السعر المستهدف وإيقاف الخسارة | Calqio",
+      "textCharacters": 1142,
+      "headings": [
+        "🎯 حاسبة السعر المستهدف",
+        "حاسبة السعر المستهدف — دليل شامل",
+        "الصيغ"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/target",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/target",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/target",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/target",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/target",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/target",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ar/tax.html",
+      "url": "https://www.calqio.com/ar/tax",
+      "canonical": "https://www.calqio.com/ar/tax",
+      "inSitemap": true,
+      "title": "حاسبة ضريبة أرباح رأس المال - الأسهم الدولية | Calqio",
+      "textCharacters": 1616,
+      "headings": [
+        "📋 حاسبة الضريبة",
+        "افتراض ضريبة ثابتة 22% — ليس حساباً للضريبة المحلية"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/tax",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/tax",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/tax",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/tax",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/tax",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/tax",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "file": "ar/terms.html",
+      "url": "https://www.calqio.com/ar/terms",
+      "canonical": "https://www.calqio.com/ar/terms",
+      "inSitemap": true,
+      "title": "شروط الخدمة - Calqio شروط استخدام الآلات الحاسبة المالية",
+      "textCharacters": 1646,
+      "headings": [
+        "شروط الخدمة",
+        "1. الغرض",
+        "2. طبيعة الخدمة",
+        "3. حدود المسؤولية",
+        "4. الملكية الفكرية",
+        "5. الإعلانات",
+        "6. الخصوصية",
+        "7. التغييرات على الشروط",
+        "8. الاتصال"
+      ],
+      "broken": [],
+      "alternate": [
+        {
+          "lang": "ko",
+          "url": "https://www.calqio.com/ko/terms",
+          "exists": true
+        },
+        {
+          "lang": "en",
+          "url": "https://www.calqio.com/en/terms",
+          "exists": true
+        },
+        {
+          "lang": "ja",
+          "url": "https://www.calqio.com/ja/terms",
+          "exists": true
+        },
+        {
+          "lang": "zh",
+          "url": "https://www.calqio.com/zh/terms",
+          "exists": true
+        },
+        {
+          "lang": "ar",
+          "url": "https://www.calqio.com/ar/terms",
+          "exists": true
+        },
+        {
+          "lang": "x-default",
+          "url": "https://www.calqio.com/en/terms",
+          "exists": true
+        }
+      ]
+    }
+  ],
+  "sitemapMissing": []
+}

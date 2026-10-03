@@ -45,7 +45,7 @@
 </head>
 <body>
 <nav>
-  <a href="/ko/" class="logo">Calq<span>io</span></a>
+  <a href="/ko" class="logo">Calq<span>io</span></a>
   <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">🌙 다크모드</button>
   <div class="lw">
     <button class="lc" id="lBtn" onclick="toggleMenu()">
@@ -178,7 +178,7 @@
 <h3>계산 방식·한계</h3>
 <p>매월 말: <code>자산 = 자산 × (1 + 월수익률) + 월저축</code>. 월수익률 = 연 수익률 ÷ 12. 목표에 도달할 때까지 반복(최대 1,200개월). 세금·수수료·연금·주택·부채·4% 룰의 실제 지속 가능성은 모델링하지 않습니다.</p>
 <h3>검증 예시 (입력 → 화면 기대값)</h3>
-<p>① 적립: 현재 <strong>0</strong>, 월 <strong>1,000,000</strong>, 목표 <strong>100,000,000</strong>, 연 <strong>6</strong>%, 물가 OFF, 나이 <strong>30</strong> → 필요 기간 <strong>6.8</strong>년, 은퇴 가능 나이 <strong>37</strong>, 4% 월 인출 약 <strong>333,333</strong>원 (<code>scripts/verify-calculators.mjs</code>).</p>
+<p>① 적립: 현재 <strong>0</strong>, 월 <strong>1,000,000</strong>, 목표 <strong>100,000,000</strong>, 연 <strong>6</strong>%, 물가 OFF, 나이 <strong>30</strong> → 필요 기간 <strong>6.8</strong>년, 은퇴 가능 나이 <strong>37</strong>, 4% 월 인출 약 <strong>333,333</strong>원 (CALQIO).</p>
 <p>② 이미 달성: 현재·목표 모두 <strong>100,000,000</strong>, 월 0 → 필요 기간 <strong>0.0</strong>년, 은퇴 가능 나이 = 현재 나이.</p>
 <h3>오류·특수 표시</h3>
 <p>1,200개월(100년) 안에 목표에 도달하지 못하면 은퇴 나이·필요 기간이 <strong>—</strong>로 표시되고 예상 자산만 채워집니다. 저축·수익률·목표를 조정해 다시 시도하세요.</p>
@@ -223,6 +223,9 @@ function fmt(n){
 
 // 파이어 계산 핵심
 function calcFire(){
+  var values=readInputs([['curr',0,1e15],['mon',0,1e15],['tgt',Number.MIN_VALUE,1e15],['ret',-100,100],['age',0,120]],99);
+  if(!values){['fireAge','fireYears','fireFinal','fire4pctAmount'].forEach(id=>document.getElementById(id).textContent='—');return;}
+
   var curr = parseFloat(document.getElementById('curr').value) || 0;
   var mon = parseFloat(document.getElementById('mon').value) || 0;
   var tgt = parseFloat(document.getElementById('tgt').value) || 0;
@@ -257,7 +260,7 @@ function calcFire(){
   }
   }
 
-  if(months >= 1200){
+  if(months >= 1200 && asset < tgt){
     document.getElementById('fireAge').textContent = '—';
     document.getElementById('fireYears').textContent = '—';
     document.getElementById('fireFinal').textContent = fmt(asset);
