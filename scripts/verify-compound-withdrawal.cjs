@@ -25,7 +25,18 @@ const numeric = text => Number(text.replace(/[^\d.-]/g, ''));
   }
   const result=await calculate();assert.equal(result.valid,true);
   for(const [id,expected]of Object.entries({vf:1102500,vw:102500,va:1205000,vc:1000000,vp:205000}))assert.equal(numeric(result.summary[id]),expected,id);
-  assert.deepEqual(result.rows.map(r=>[numeric(r[3]),numeric(r[4]),numeric(r[5]),numeric(r[6])]),[[50000,50000,1050000,1100000],[52500,102500,1102500,1205000]]);
+  assert.deepEqual(result.rows.map(r=>[numeric(r[4]),numeric(r[5]),numeric(r[1]),numeric(r[7])]),[[50000,50000,1050000,1100000],[52500,102500,1102500,1205000]]);
+  assert.deepEqual(result.rows.map(r=>numeric(r[2])),[1000000,1050000]);
+  assert.deepEqual(result.rows.map(r=>numeric(r[6])),[1000000,1000000]);
+  const daily=await calculate({p:10000000,r:2.5,y:9,unit:'d',withdrawal:'0'});
+  assert.deepEqual(daily.rows.slice(0,2).map(r=>numeric(r[1])),[10250000,10506250]);
+  assert.equal(numeric(daily.rows[3][3]),269223);
+  assert.equal(numeric(daily.rows[3][2]),10768906);
+  assert.equal(numeric(daily.rows[3][1]),11038129);
+  for(const timing of ['start','end']){
+    const r=await calculate({mode:2,m:100000,timing});
+    assert.equal(numeric(r.rows[0][2]),timing==='start'?1100000:1000000);
+  }
   assert.deepEqual(result.chart[0].values,[1050000,1102500]);assert.deepEqual(result.chart[1].values,[50000,102500]);assert.deepEqual(result.chart[2].values,[1100000,1205000]);
   console.log('PASS 50% withdrawal: summary, table and chart agree on 1,102,500 + 102,500 = 1,205,000');
   for(const [values,final,cash]of [
