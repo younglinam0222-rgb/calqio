@@ -44,7 +44,7 @@ select.if{cursor:pointer;}
 @media(max-width:600px){.sum-cards{grid-template-columns:1fr 1fr;}}
 .scard{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 16px;}
 .scard-lbl{font-size:.75rem;color:var(--text-sub);margin-bottom:8px;}
-.scard-val{font-size:1.3rem;font-weight:800;color:var(--text);}
+.scard-val{font-size:1.3rem;font-weight:800;color:var(--text);overflow-wrap:anywhere;}
 .scard-val.ca{color:var(--accent);}
 .scard-val.cp{color:#4caf79;}
 .scard-sub{font-size:.8rem;color:var(--text-sub);margin-top:4px;}
@@ -206,13 +206,26 @@ select.if{cursor:pointer;}
         </select>
       </div>
       <!-- ★ 물가상승률 옵션 -->
+      <div class="ig">
+        <label class="il" for="withdrawal">수익 일부 인출</label>
+        <select id="withdrawal" class="if" onchange="onWithdrawalChange()">
+          <option value="0" selected>사용 안 함 (수익 전액 재투자)</option>
+          <option value="1">사용 — 수익 일부를 현금으로 보유</option>
+        </select>
+        <div id="withdrawRateRow" hidden style="margin-top:12px">
+          <label class="il" for="withdrawRate">매 회차 양의 세후 수익 중 인출 비율 (%)</label>
+          <input type="number" id="withdrawRate" class="if" value="50" min="0" max="100" step="any" oninput="calcC()" disabled aria-describedby="withdrawHelp">
+        </div>
+        <p id="withdrawHelp" style="font-size:.84rem;line-height:1.65;color:var(--text-sub);margin:10px 0 0">원금이나 전체 잔액이 아닌, 해당 회차의 양의 세후 수익에서만 인출합니다. 인출액은 추가 수익 없이 현금으로 보유하며 손실·수익 0인 회차에는 인출하지 않습니다.</p>
+      </div>
       <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:16px;padding:10px 14px;background:var(--bg2);border-radius:8px;border:1px solid var(--border);">
         <input type="checkbox" id="inflChk" onchange="calcC()" style="width:16px;height:16px;cursor:pointer;margin-top:2px;flex-shrink:0;">
         <label for="inflChk" style="font-size:.84rem;color:var(--text-sub);cursor:pointer;line-height:1.6;">물가상승률 반영 — 연 <input type="number" id="inflRate" value="2.5" step="0.1" min="0" max="20" oninput="calcC()" style="width:44px;padding:2px 4px;border:1px solid var(--border);border-radius:4px;background:var(--bg2);color:var(--text);font-size:.8rem;text-align:center;">% 적용 시 실질 구매력 표시</label>
       </div>
       <div id="inflResult" style="display:none;padding:10px 14px;background:rgba(91,127,254,.08);border-radius:8px;border:1px solid var(--accent);margin-bottom:16px;font-size:.84rem;color:var(--text-sub);">
-        📉 물가 반영 실질 자산: <strong id="inflVal" style="color:var(--accent);">—</strong>
-        <div style="font-size:.75rem;margin-top:4px;color:var(--text-muted);">명목 자산을 현재 가치(구매력)로 환산한 수치입니다.</div>
+        📉 물가 반영 실질 합계: <strong id="inflVal" style="color:var(--accent);">—</strong>
+        <div style="margin-top:6px">투자 잔액의 구매력: <strong id="inflBalance">—</strong><br>인출 현금의 구매력: <strong id="inflCash">—</strong></div>
+        <div style="font-size:.8rem;margin-top:4px;color:var(--text-sub);">인출 현금을 최종 시점까지 보유한다고 가정합니다. 잔액과 인출 현금 모두 최종 시점의 금액을 계산 시작 시점의 구매력으로 환산합니다.</div>
       </div>
       <button class="btn-calc" onclick="run()">계산하기</button>
     </div>
@@ -226,18 +239,21 @@ select.if{cursor:pointer;}
       <div id="rb" style="display:none;flex-direction:column;gap:16px;">
         <!-- 요약 카드 -->
         <div class="sum-cards">
-          <div class="scard"><div class="scard-lbl">최종 자산 (세후)</div><div class="scard-val ca" id="vf">—</div></div>
+          <div class="scard"><div class="scard-lbl">최종 투자 잔액 (인출 후)</div><div class="scard-val ca" id="vf">—</div></div>
+          <div class="scard"><div class="scard-lbl">누적 인출액 (보유 현금)</div><div class="scard-val" id="vw">—</div></div>
+          <div class="scard"><div class="scard-lbl">투자 잔액 + 누적 인출액</div><div class="scard-val ca" id="va">—</div></div>
           <div class="scard"><div class="scard-lbl">총 투자 원금</div><div class="scard-val" id="vc">—</div></div>
-          <div class="scard"><div class="scard-lbl">누적 순수익 (세후)</div><div class="scard-val cp" id="vp">—</div><div class="scard-sub" id="vr">—</div></div>
+          <div class="scard"><div class="scard-lbl">총 손익 (인출액 포함·세후)</div><div class="scard-val cp" id="vp">—</div><div class="scard-sub" id="vr">—</div></div>
         </div>
         <!-- 차트 -->
         <div class="cbox"><div class="boxtit">📊 자산 성장 그래프</div><div class="chart-wrap"><canvas id="mc"></canvas></div></div>
         <!-- 테이블 -->
         <div class="tbox">
           <div class="boxtit" style="padding:16px 20px 12px;margin:0;">📋 상세 내역</div>
+          <p style="padding:0 20px;font-size:.8rem;color:var(--text-sub)">좁은 화면에서는 표를 좌우로 밀어 인출액과 잔액을 확인하세요.</p>
           <div class="tscroll">
             <table class="dtbl">
-              <thead><tr><th>회차</th><th>총 투자원금</th><th>해당 회차 수익 (세전)</th><th>누적 순수익 (세후)</th><th>총 자산 (세후)</th><th>수익률</th></tr></thead>
+              <thead><tr><th>회차</th><th>총 투자원금</th><th>해당 회차 수익 (세전)</th><th>해당 회차 인출액</th><th>누적 인출액</th><th>인출 후 투자 잔액</th><th>잔액 + 인출액</th><th>총 손익 (세후)</th><th>수익률</th></tr></thead>
               <tbody id="tb"></tbody>
             </table>
           </div>
@@ -249,7 +265,7 @@ select.if{cursor:pointer;}
           <div class="guide-tit">📌 Calqio 복리계산기 — 제대로 쓰는 법</div>
           <div class="guide-body">
             복리는 수익이나 손실이 반영된 잔액을 다음 회차의 기준으로 삼는 구조입니다. 양의 수익을 재투자하는 가정에서는 수익에도 다음 회차 수익이 붙습니다.
-            <span class="fml-b">최종 자산 = 원금 × (1 + 회차 수익률)^총 회차
+            <span class="fml-b">추가 납입·인출·세금이 없을 때: 최종 자산 = 원금 × (1 + 회차 수익률)^총 회차
 예) 1,000만원 × (1.025)^30 ≈ 2,098만원 (세전, 일복리 30일)</span>
             <strong>72의 법칙:</strong> 72 ÷ 연 수익률(%) = 자산이 2배 되는 년수. 연 8% → 약 9년 후 2배.
             <span class="fml-b">72 ÷ 8(%) = 9년</span>
@@ -257,7 +273,7 @@ select.if{cursor:pointer;}
             <strong>회차 수익률 vs 연 수익률:</strong> 입력 %는 <strong>선택한 기간 단위 1회차</strong>에 적용됩니다. 연 12%를 연 단위로 쓰려면 단위를 '년'으로 두세요.
             <strong>검증 예시 (거치·세금 0):</strong> 1,000만 원, 30회차, 일 2.5% → 1,000만×1.025<sup>30</sup> ≈ <strong>20,975,676원</strong> (±1원). <a href="fire">FIRE</a> · <a href="concept">복리 개념</a>
             <strong>사용 순서:</strong> 거치/적립/거치+적립 모드 선택 → 원금·(선택) 매 회차 납입·기간 단위(일/월/년)·총 회차·회차 수익률 입력 → 「계산하기」. 납입 시점(회차 초/말)과 세금 옵션은 결과 표·그래프에 반영됩니다.
-            <strong>결과 해석:</strong> 「최종 자산(세후)」= 마지막 회차 잔액. 「총 투자 원금」= 초기 원금+납입 합. 「누적 순수익」= 최종−원금(세후). 표의 「수익률」열은 해당 회차 말 기준 누적 수익률입니다.
+            <strong>결과 해석:</strong> 「최종 투자 잔액」은 인출 후 남은 투자금입니다. 「총 투자 원금」은 초기 원금+납입 합으로 인출 여부와 무관합니다. 「총 손익」은 투자 잔액+누적 인출액−총 투자 원금입니다. 표의 수익률은 이 총 손익을 납입 원금으로 나눈 값으로, 연환산 수익률이 아닙니다.
             <strong>적립 검증 (세금 0, 회차 말):</strong> 원금 0, 매 회차 100만 원, 12회차, 회차 1% → 최종 약 <strong>12,682,503원</strong> (<code>scripts/verify-calculators.mjs</code>).
             <strong>오류 메시지:</strong> 원금·납입 모두 0 / 회차 1 미만·2,000 초과 / 회차 수익률 −100% 미만 / 결과 overflow 시 빨간 안내가 뜨며 표가 갱신되지 않습니다. 공유 URL에 납입 시점이 없으면 기본값(회차 말)을 쓰며 토스트로 알립니다.
           </div>
@@ -303,6 +319,7 @@ select.if{cursor:pointer;}
 <h3>0원으로 시작해 10만 원씩 2회 납입한다면</h3><p>회차 수익률 10%, 세금·물가 미반영의 가상 사례입니다. 회차 말 납입은 첫 회차 10만 원, 두 번째 회차 21만 원입니다. 회차 초 납입은 첫 회차 11만 원, 두 번째 회차 23만 1천 원입니다. 두 경우 모두 총 납입액은 20만 원입니다.</p>
 <p>회차 말: 다음 잔액 = 현재 잔액 × (1 + 수익률) + 납입액.<br>회차 초: 다음 잔액 = (현재 잔액 + 납입액) × (1 + 수익률).</p>
 <h3>수익률과 구매력은 별도입니다</h3><p>연 실효수익률을 월 수익률로 바꾸려면 (1 + 연 수익률)<sup>1/12</sup> − 1을 사용합니다. 예를 들어 연 12%는 월 약 0.9489%입니다. 명목 연이율을 12로 나누는 방식과 다릅니다. 물가 반영 결과는 최종 자산 ÷ (1 + 연 물가상승률)<sup>기간(년)</sup>이며, 일 단위는 365일을 1년으로 봅니다.</p>
+<h3>수익의 50%를 인출하는 경우</h3><p>가상 사례: 원금 100만 원, 회차 수익률 10%, 2회, 세금·물가·추가 납입 없음. 첫 회차 수익 10만 원에서 5만 원을 인출하면 잔액은 105만 원입니다. 두 번째 회차에는 수익 10만 5천 원 중 5만 2,500원을 인출합니다. 최종 잔액 1,102,500원 + 누적 인출액 102,500원 = 1,205,000원이며, 총 손익은 205,000원입니다.</p><p>회차 초 납입은 납입 → 수익 계산 → 양의 수익에 설정 세금 적용 → 인출 순서입니다. 회차 말 납입은 수익 계산 → 세금 → 인출 → 납입 순서입니다. 인출액은 다음 회차의 투자금에서 제외됩니다. 100% 인출하면 양의 세후 수익을 전부 현금으로 분리하며, 0% 또는 사용 안 함은 전액 재투자와 같습니다. 인출에 대한 별도 수수료·추가 세금은 가정하지 않습니다.</p><p>물가를 적용하면 (최종 투자 잔액 + 누적 인출액)을 동일한 물가 계수로 할인합니다. 인출 즉시 소비한 경우의 효용이나 지출 시점별 구매력을 계산하는 기능은 아닙니다. 새 인출 항목이 없는 기존 공유 링크에는 인출 없음을 적용합니다.</p>
 <p>‘세금 미반영’은 비과세 상품이라는 뜻이 아닙니다. 15.4% 옵션은 매 회차 양의 수익만 과세하는 단순 가정이며 실제 주식·예금·배당 과세를 재현하지 않습니다. 손실에는 환급을 가정하지 않습니다. 수수료는 포함하지 않습니다.</p>
 <p>원금과 납입액은 0 이상, 회차는 1~2,000 정수, 수익률은 −100% 이상입니다. 금액은 계산 중 반올림하지 않고 화면에서 원 단위로 반올림합니다. 공유 주소에는 입력 조건이 포함됩니다.</p></section>
 <footer>
@@ -360,6 +377,16 @@ function setMode(m){
 
 function calcC(){run();}
 
+function onWithdrawalChange(){
+  updateWithdrawalControls();
+  calcC();
+}
+function updateWithdrawalControls(){
+  const enabled=document.getElementById('withdrawal').value==='1';
+  document.getElementById('withdrawRateRow').hidden=!enabled;
+  document.getElementById('withdrawRate').disabled=!enabled;
+}
+
 // w: 항상 0 이상인 값(총자산·총원금)용 표시. wSigned: 손익처럼 부호가 의미 있는 값용(음수면 '-' 유지).
 const w=n=>Math.round(Math.abs(n)).toLocaleString()+'원';
 const wSigned=n=>(n<0?'-':'')+Math.round(Math.abs(n)).toLocaleString()+'원';
@@ -400,6 +427,7 @@ function invalidateResults(){
 
 function run(){
   clearFieldErrors();
+  updateWithdrawalControls();
 
   const pRawStr=document.getElementById('p').value;
   const mRawStr=document.getElementById('m').value;
@@ -419,10 +447,21 @@ function run(){
   const mActive = currentMode!==0; // 거치식이 아니면 납입금 사용
 
   let hasErr=false;
+  const withdrawalEnabled=document.getElementById('withdrawal').value==='1';
+  document.getElementById('withdrawRate-validation')?.remove();
+  document.getElementById('withdrawRate').removeAttribute('aria-invalid');
+  document.getElementById('withdrawRate').setAttribute('aria-describedby','withdrawHelp');
+  const withdrawalValues=withdrawalEnabled?readInputs([['withdrawRate',0,100]],99):[0];
+  if(!withdrawalValues){
+    hasErr=true;
+    document.getElementById('withdrawRate-validation').textContent='인출 비율은 0~100 사이의 숫자로 입력해주세요. 빈 값은 사용할 수 없습니다.';
+    document.getElementById('withdrawRate').setAttribute('aria-describedby','withdrawHelp withdrawRate-validation');
+  }
+  const withdrawalFraction=withdrawalValues?withdrawalValues[0]/100:0;
   const options=readInputs([['inflRate',0,20]],99);
   if(document.getElementById('inflChk').checked&&!options)hasErr=true;
   if(!document.getElementById('inflChk').checked){document.getElementById('inflRate-validation')?.remove();document.getElementById('inflRate').removeAttribute('aria-invalid');}
-  for(const [id,allowed] of [['unit',['y','mo','d']],['tax',['0','0.154']],['timing',['start','end']]]){
+  for(const [id,allowed] of [['unit',['y','mo','d']],['tax',['0','0.154']],['timing',['start','end']],['withdrawal',['0','1']]]){
     document.getElementById(id+'-validation')?.remove();document.getElementById(id).removeAttribute('aria-invalid');
     if(!allowed.includes(document.getElementById(id).value)){inputIssue(id,1);hasErr=true;}
   }
@@ -474,6 +513,7 @@ function run(){
   const rows=[];
   let bal=P;
   let cumNet=0;
+  let withdrawn=0;
   let overflow=false;
 
   for(let i=1;i<=Y;i++){
@@ -486,12 +526,18 @@ function run(){
     } else { // end (기본값)
       gr = bal*R;
       net = gr>0 ? gr*(1-T) : gr;
-      bal = bal + net + M;
+      bal = bal + net;
     }
     cumNet += net;
-    if(!Number.isFinite(bal) || !Number.isFinite(cumNet) || !Number.isFinite(P+M*i) || bal>Number.MAX_SAFE_INTEGER || P+M*i>Number.MAX_SAFE_INTEGER){overflow=true;break;}
+    const withdrawal=Math.max(0,net)*withdrawalFraction;
+    bal-=withdrawal;
+    if(timing==='end')bal+=M;
+    withdrawn+=withdrawal;
+    const total=bal+withdrawn;
+    if(!Number.isFinite(bal) || !Number.isFinite(cumNet) || !Number.isFinite(total) || !Number.isFinite(P+M*i) || total>Number.MAX_SAFE_INTEGER || P+M*i>Number.MAX_SAFE_INTEGER){overflow=true;break;}
     const contribSoFar = P + M*i;
-    rows.push({i, contrib:contribSoFar, gr, cum:cumNet, bal, rate: contribSoFar!==0 ? cumNet/contribSoFar*100 : 0});
+    const profit=total-contribSoFar;
+    rows.push({i, contrib:contribSoFar, gr, cum:profit, bal, withdrawal, withdrawn, total, rate: contribSoFar!==0 ? profit/contribSoFar*100 : 0});
   }
 
   if(overflow || rows.length!==Y){
@@ -504,6 +550,8 @@ function run(){
   const finalBal=last.bal, finalContrib=last.contrib, finalCum=last.cum;
 
   document.getElementById('vf').textContent=w(finalBal);
+  document.getElementById('vw').textContent=w(last.withdrawn);
+  document.getElementById('va').textContent=w(last.total);
   document.getElementById('vc').textContent=w(finalContrib);
   const vpEl=document.getElementById('vp');
   vpEl.textContent=wSigned(finalCum);
@@ -512,17 +560,21 @@ function run(){
   document.getElementById('tb').innerHTML=rows.map(r=>{
     const grCls=r.gr<0?'tg cn':'tg';
     const cumCls=r.cum<0?'tg cn':'tg';
-    return `<tr><td>${r.i}${L}</td><td>${w(r.contrib)}</td><td class="${grCls}">${wSigned(r.gr)}</td><td class="${cumCls}">${wSigned(r.cum)}</td><td class="tb">${w(r.bal)}</td><td class="${r.rate<0?'tg cn':'tg'}">${pc(r.rate)}</td></tr>`;
+    return `<tr><td>${r.i}${L}</td><td>${w(r.contrib)}</td><td class="${grCls}">${wSigned(r.gr)}</td><td>${w(r.withdrawal)}</td><td>${w(r.withdrawn)}</td><td class="tb">${w(r.bal)}</td><td>${w(r.total)}</td><td class="${cumCls}">${wSigned(r.cum)}</td><td class="${r.rate<0?'tg cn':'tg'}">${pc(r.rate)}</td></tr>`;
   }).join('');
 
   const dark=!document.body.classList.contains('light-mode');
   const gc=dark?'rgba(255,255,255,.07)':'rgba(0,0,0,.07)';
-  const tc=dark?'#777':'#666';
+  const tc=getComputedStyle(document.body).getPropertyValue('--text-sub').trim() || (dark?'#b6c1d4':'#43536d');
   if(ci)ci.destroy();
   if(typeof Chart!=='undefined') ci=new Chart(document.getElementById('mc').getContext('2d'),{
     type:'line',
     data:{labels:rows.map(r=>r.i+L),datasets:[
-      {label:'총 자산 (복리 효과)',data:rows.map(r=>r.bal),borderColor:'#4caf79',backgroundColor:'rgba(76,175,121,.1)',fill:true,tension:.4,pointRadius:rows.length>60?0:3,pointHoverRadius:6,borderWidth:2.5},
+      {label:'투자 잔액 (인출 후)',data:rows.map(r=>r.bal),borderColor:'#4caf79',backgroundColor:'rgba(76,175,121,.1)',fill:true,tension:.4,pointRadius:rows.length>60?0:3,pointHoverRadius:6,borderWidth:2.5},
+      ...(withdrawalEnabled?[
+        {label:'누적 인출액 (보유 현금)',data:rows.map(r=>r.withdrawn),borderColor:'#d49527',fill:false,tension:0,pointRadius:0,borderWidth:2},
+        {label:'투자 잔액 + 누적 인출액',data:rows.map(r=>r.total),borderColor:'#9b79dc',fill:false,tension:0,pointRadius:0,borderWidth:2}
+      ]:[]),
       {label:'누적 투자원금',data:rows.map(r=>r.contrib),borderColor:'rgba(91,127,254,.45)',backgroundColor:'transparent',fill:false,tension:.4,pointRadius:0,borderWidth:1.5,borderDash:[6,4]}
     ]},
     options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
@@ -543,7 +595,10 @@ function run(){
     else if(unitVal==='mo')yearsForInfl=Y/12;
     else yearsForInfl=Y/365;
     const realBal=finalBal/Math.pow(1+inflR,yearsForInfl);
-    document.getElementById('inflVal').textContent=w(realBal);
+    const realCash=last.withdrawn/Math.pow(1+inflR,yearsForInfl);
+    document.getElementById('inflVal').textContent=w(realBal+realCash);
+    document.getElementById('inflBalance').textContent=w(realBal);
+    document.getElementById('inflCash').textContent=w(realCash);
     inflResult.style.display='block';
   } else if(inflResult){
     inflResult.style.display='none';
@@ -569,6 +624,8 @@ function buildShareParams(){
   const tax=document.getElementById('tax'); if(tax)params.set('t',tax.value);
   params.set('md',String(currentMode));
   const timing=document.getElementById('timing'); if(timing)params.set('tm',timing.value);
+  params.set('we',document.getElementById('withdrawal').value);
+  params.set('wr',document.getElementById('withdrawRate').value);
   const inflChk=document.getElementById('inflChk');
   if(inflChk&&inflChk.checked){
     params.set('ic','1');
@@ -623,6 +680,10 @@ function loadFromUrl(){
   if(q.has('r')){document.getElementById('r').value=q.get('r');loaded=true;}
   if(q.has('u')){const u=document.getElementById('unit'); if(u)u.value=q.get('u');}
   if(q.has('t')){const t=document.getElementById('tax'); if(t)t.value=q.get('t');}
+  document.getElementById('withdrawal').value=q.has('we')?q.get('we'):'0';
+  if(q.has('wr'))document.getElementById('withdrawRate').value=q.get('wr');
+  else if(q.get('we')==='1')document.getElementById('withdrawRate').value='';
+  updateWithdrawalControls();
 
   let timingMissingNotice=false;
   if(q.has('tm')){
@@ -654,7 +715,7 @@ function loadFromUrl(){
 }
 
 function initShareSync(){
-  ['p','m','y','r','unit','tax','timing','inflChk','inflRate'].forEach(id=>{
+  ['p','m','y','r','unit','tax','timing','inflChk','inflRate','withdrawal','withdrawRate'].forEach(id=>{
     const el=document.getElementById(id);
     if(el){
       el.addEventListener('input',syncUrlBar);
